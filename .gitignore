@@ -1,0 +1,11 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+results/
+
+# Reference snapshot from the original experiment. It has its own .git and is
+# 800+ MB — kept on disk for comparison, never part of this repository.
+archive/

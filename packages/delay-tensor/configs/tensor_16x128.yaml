@@ -1,0 +1,30 @@
+tensor:
+  # Larger follow-up tensor, once the 8 x 64 baseline is understood.
+  wires: 16
+  slots: 128
+  bands: 1
+  slot_dt_ns: 20.0
+  loop_period_ns: 2560.0
+
+coupling:
+  # Mostly local coupling with a weak second-neighbour term, for testing
+  # whether wider interaction improves separability.
+  topology: nearest_neighbour
+  neighbour_strength: 0.06
+  second_neighbour_strength: 0.01
+  diagonal_strength: 0.0
+  mask_mode: modulated
+  mask_gain: 0.04
+  mask_seed: 0
+
+loss:
+  decay: 0.995
+  noise_std: 0.001
+  jitter_std_slots: 0.0
+
+nonlinearity:
+  type: tanh
+  location: edge_and_state
+
+readout:
+  traces: all_wires

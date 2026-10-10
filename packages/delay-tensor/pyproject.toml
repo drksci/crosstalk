@@ -1,0 +1,27 @@
+[project]
+name = "delay-tensor"
+version = "0.2.0"
+description = "Stage-1 simulated experiment: coupled-line reservoir features vs a raw-waveform baseline."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy>=1.26",
+  "pyyaml>=6.0",
+  "scikit-learn>=1.4",
+]
+
+[project.scripts]
+delay-tensor = "delay_tensor.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.17.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/delay_tensor"]

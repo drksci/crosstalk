@@ -1,0 +1,41 @@
+tensor:
+  # 8 x 64 gives 512 virtual nodes: enough to mix, small enough for CPU runs
+  # and eyeballing every trace.
+  wires: 8
+  slots: 64
+  bands: 1
+  # Slow slots keep the target in the low-MHz / visible-on-a-scope regime.
+  slot_dt_ns: 20.0
+  loop_period_ns: 1280.0
+
+coupling:
+  # Nearest-neighbour coupling mirrors adjacent traces or ribbon/coax pairs.
+  topology: nearest_neighbour
+  # Mild: enough crosstalk to mix traces without turning the tensor chaotic
+  # before there is any calibration.
+  neighbour_strength: 0.08
+  second_neighbour_strength: 0.0
+  diagonal_strength: 0.0
+  # Masks modulate interaction strength rather than injecting a source per
+  # virtual node, matching the "programmable coupling window" idea.
+  mask_mode: modulated
+  mask_gain: 0.05
+  # Fixed so every replicate sees the same tensor; only the experiment seed
+  # varies between runs.
+  mask_seed: 0
+
+loss:
+  # Gentle decay keeps temporal memory without allowing unbounded recurrence.
+  decay: 0.995
+  noise_std: 0.001
+  jitter_std_slots: 0.0
+
+nonlinearity:
+  # tanh stands in for later clipping, limiter, or comparator electronics.
+  type: tanh
+  location: edge_and_state
+
+readout:
+  # Every wire trace over all slots: 8 x 64 = 512 virtual nodes. Use
+  # rightmost_wire as the stricter single-probe control.
+  traces: all_wires
