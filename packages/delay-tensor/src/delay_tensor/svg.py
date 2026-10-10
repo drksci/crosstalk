@@ -8,8 +8,12 @@ produced a multi-megabyte page for four charts.
 
 from __future__ import annotations
 
+import itertools
 from collections.abc import Sequence
 from xml.sax.saxutils import escape
+
+# Distinct suffix per rendered gradient, so several field views can share a page.
+_UID = itertools.count()
 
 PALETTE = ("#0f766e", "#c2410c", "#2563eb", "#7c2d12", "#6d28d9", "#a16207")
 INK = "#111827"
@@ -286,6 +290,110 @@ def tensor_diagram(wires: int, slots: int, *, shown_slots: int = 16, width: int 
     return "".join(parts)
 
 
+def field_view(
+    traces: Sequence[Sequence[float]],
+    *,
+    width: int = 620,
+    row_height: int = 18,
+    duration_s: float = 3.0,
+    aria_label: str = "electromagnetic field view",
+) -> str:
+    """Signed field strength on every wire and slot, with a looping wavefront.
+
+    ``traces`` is the ``(wires, slots)`` state matrix. Each cell is shaded by
+    its signed value -- teal for a positive field, orange for a negative one,
+    white through zero -- so the coupling pattern reads as a picture instead
+    of a stack of line charts. A soft wavefront sweeps left to right and
+    repeats, which is what the eye needs in order to see propagation along the
+    lines rather than a frozen matrix.
+
+    The sweep is SMIL, not JavaScript: the report keeps its promise of being a
+    static file that opens anywhere, from a USB stick or an archived artifact.
+    ``prefers-reduced-motion`` turns the sweep off and leaves the still field,
+    which is the same picture without the movement.
+    """
+    # len() only: the report hands this an ndarray, whose truth value is
+    # ambiguous, and a bare `if not traces` would raise instead of reporting.
+    wires = len(traces)
+    if wires == 0 or len(traces[0]) == 0:
+        raise ValueError("field_view needs at least one wire with at least one slot")
+    slots = len(traces[0])
+    if any(len(row) != slots for row in traces):
+        raise ValueError("every wire must have the same number of slots")
+
+    peak = max((abs(value) for row in traces for value in row), default=0.0)
+    scale = 1.0 / peak if peak > 0 else 0.0
+
+    left, right, top = 46.0, 12.0, 26.0
+    bottom = 30.0
+    plot_w = width - left - right
+    cell_w = plot_w / slots
+    height = top + wires * row_height + bottom
+    wave_w = max(cell_w * 3.0, 10.0)
+    gradient_id = f"fieldwave{next(_UID)}"
+
+    parts = [
+        f'<svg viewBox="0 0 {width} {height:.0f}" role="img" '
+        f'aria-label="{escape(aria_label)}" class="chart field">',
+        "<style>"
+        "@media (prefers-reduced-motion: reduce){.field-wave{display:none}}"
+        "</style>",
+        f'<defs><linearGradient id="{gradient_id}" x1="0" y1="0" x2="1" y2="0">'
+        '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
+        '<stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/>'
+        '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>'
+        "</linearGradient></defs>",
+        f'<rect x="0" y="0" width="{width}" height="{height:.0f}" fill="#ffffff"/>',
+        # Legend: the two poles of the diverging ramp.
+        f'<rect x="{width - right - 92}" y="9" width="10" height="10" rx="2" '
+        f'fill="{_diverging(-1.0)}"/>',
+        f'<text x="{width - right - 78}" y="18" font-size="10" fill="{MUTED}">negative</text>',
+        f'<rect x="{width - right - 30}" y="9" width="10" height="10" rx="2" '
+        f'fill="{_diverging(1.0)}"/>',
+        f'<text x="{width - right - 16}" y="18" font-size="10" fill="{MUTED}">+</text>',
+    ]
+
+    for wire in range(wires):
+        y = top + wire * row_height
+        parts.append(
+            f'<text x="{left - 8}" y="{y + row_height / 2 + 3:.1f}" text-anchor="end" '
+            f'font-size="10" fill="{MUTED}">W{wire}</text>'
+        )
+        for slot in range(slots):
+            x = left + slot * cell_w
+            fill = _diverging(traces[wire][slot] * scale)
+            parts.append(
+                f'<rect x="{x:.2f}" y="{y:.1f}" width="{cell_w + 0.4:.2f}" '
+                f'height="{row_height - 2}" fill="{fill}"/>'
+            )
+
+    # The wavefront: a translucent band that crosses the whole window and loops.
+    parts.append(
+        f'<rect class="field-wave" x="{left - wave_w:.1f}" y="{top - 2:.1f}" '
+        f'width="{wave_w:.1f}" height="{wires * row_height + 4:.0f}" '
+        f'fill="url(#{gradient_id})">'
+        f'<animate attributeName="x" from="{left - wave_w:.1f}" to="{left + plot_w:.1f}" '
+        f'dur="{duration_s:g}s" repeatCount="indefinite"/>'
+        "</rect>"
+    )
+
+    parts.append(
+        f'<text x="{left}" y="{height - 10:.0f}" font-size="10" fill="{MUTED}">'
+        f"slot 0</text>"
+    )
+    parts.append(
+        f'<text x="{left + plot_w:.0f}" y="{height - 10:.0f}" font-size="10" '
+        f'text-anchor="end" fill="{MUTED}">slot {slots - 1}</text>'
+    )
+    parts.append(
+        f'<text x="{left + plot_w / 2:.0f}" y="{height - 10:.0f}" font-size="10" '
+        f'text-anchor="middle" fill="{MUTED}">'
+        f"{wires} wires x {slots} slots, shading = field strength</text>"
+    )
+    parts.append("</svg>")
+    return "".join(parts)
+
+
 def _whisker(x: float, y_low: float, y_high: float, color: str) -> str:
     cap = 10.0
     return (
@@ -317,4 +425,22 @@ def _ramp(t: float) -> str:
     start = (240, 253, 250)
     end = (15, 118, 110)
     channels = [round(s + (e - s) * t) for s, e in zip(start, end, strict=True)]
+    return f"rgb({channels[0]},{channels[1]},{channels[2]})"
+
+
+def _diverging(value: float) -> str:
+    """Orange through white to teal, where value is in [-1, 1].
+
+    A signed field needs a midpoint that reads as "nothing here"; the
+    single-hue ramp cannot show polarity, and polarity is the whole point of
+    an EM field view.
+    """
+    value = min(max(value, -1.0), 1.0)
+    white = (255, 255, 255)
+    if value >= 0.0:
+        end = (15, 118, 110)  # teal
+    else:
+        end = (194, 65, 12)  # orange
+    t = abs(value)
+    channels = [round(s + (e - s) * t) for s, e in zip(white, end, strict=True)]
     return f"rgb({channels[0]},{channels[1]},{channels[2]})"

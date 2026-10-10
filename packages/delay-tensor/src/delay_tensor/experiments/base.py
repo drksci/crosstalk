@@ -132,7 +132,7 @@ def run_replicates(
     test_fraction: float = DEFAULT_TEST_FRACTION,
     parameters: dict[str, int | float] | None = None,
     max_examples: int = 3,
-    max_example_wires: int = 4,
+    max_example_wires: int | None = None,
 ) -> Summary:
     """Run the two-path comparison once per seed and aggregate the results."""
     if not seeds:
@@ -209,7 +209,7 @@ def _collect_examples(
     traces: np.ndarray,
     *,
     max_examples: int,
-    max_wires: int,
+    max_wires: int | None,
 ) -> list[TraceExample]:
     """Take a few test samples spread across the label range, not just the head."""
     classes = np.unique(labels)
@@ -217,13 +217,16 @@ def _collect_examples(
     chosen_classes = sorted(set(classes[::step]))[:max_examples]
     chosen = [int(np.flatnonzero(labels == class_id)[0]) for class_id in chosen_classes]
 
+    # `:max_wires` with a None stop is just `:`, so the field view gets the
+    # whole tensor unless a caller deliberately caps it for report size.
+    kept = traces[:, :max_wires, :] if max_wires is not None else traces
     return [
         TraceExample(
             true_label=int(labels[idx]),
             predicted_raw=int(raw_pred[idx]),
             predicted_reservoir=int(reservoir_pred[idx]),
             waveform=waveforms[idx],
-            traces=traces[idx, :max_wires, :],
+            traces=kept[idx],
         )
         for idx in chosen
     ]

@@ -24,6 +24,7 @@ from delay_tensor.config import DelayTensorConfig, save_config
 from delay_tensor.experiments.base import Summary
 from delay_tensor.svg import (
     bar_chart,
+    field_view,
     heatmap,
     line_chart,
     line_chart_legend,
@@ -244,13 +245,20 @@ def _examples_section(summary: Summary) -> str:
             + line_chart_legend(reservoir_series)
             + '<p class="caption">reservoir traces</p>'
             + res_chart
+            + '<p class="caption">EM field — all wires at once, wavefront sweeping</p>'
+            + field_view(
+                example.traces,
+                aria_label=f"electromagnetic field view for class {class_name}",
+            )
             + "</div>"
         )
     return (
         "<section><h2>Held-out examples</h2>"
         '<div class="examples">' + "".join(tensors) + "</div>"
         '<p class="caption">One test waveform per class from the first seed, with the '
-        "reservoir state it produced.</p>"
+        "reservoir state it produced. The field panel shades every wire and slot at once — "
+        "teal positive, orange negative — and a wavefront sweeps it on a loop. The loop is "
+        "SMIL, not JavaScript; it stops under <code>prefers-reduced-motion</code>.</p>"
         "</section>"
     )
 

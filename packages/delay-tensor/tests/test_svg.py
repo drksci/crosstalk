@@ -4,6 +4,7 @@ import pytest
 
 from delay_tensor.svg import (
     bar_chart,
+    field_view,
     heatmap,
     line_chart,
     line_chart_legend,
@@ -73,3 +74,56 @@ def test_legend_matches_palette_order() -> None:
     legend = line_chart_legend([("first", [0.0]), ("second", [0.0])])
     assert legend.count("swatch") == 2
     assert "first" in legend and "second" in legend
+
+
+def test_field_view_draws_one_cell_per_wire_and_slot() -> None:
+    traces = [[1.0, -1.0, 0.0], [0.5, 0.0, -0.5]]
+    chart = parse(field_view(traces, aria_label="field demo"))
+    assert chart.attrib["aria-label"] == "field demo"
+    # background + two legend swatches + one cell per (wire, slot) + the band.
+    rects = chart.findall("rect")
+    assert len(rects) == 1 + 2 + 2 * 3 + 1
+    texts = [node.text for node in chart.findall("text")]
+    assert any(text and "2 wires x 3 slots" in text for text in texts)
+
+
+def test_field_view_loops_without_javascript() -> None:
+    """The sweep must repeat forever and must not be JavaScript."""
+    svg = field_view([[1.0, -1.0]])
+    assert "<script" not in svg.lower()
+    chart = parse(svg)
+    animate = chart.findall(".//animate")
+    assert len(animate) == 1
+    assert animate[0].attrib["repeatCount"] == "indefinite"
+    assert animate[0].attrib["attributeName"] == "x"
+
+
+def test_field_view_stops_under_reduced_motion() -> None:
+    svg = field_view([[1.0, -1.0]])
+    assert "@media (prefers-reduced-motion: reduce)" in svg
+    assert ".field-wave{display:none}" in svg
+
+
+def test_field_view_shows_polarity_through_colour() -> None:
+    """Positive and negative cells must not share a fill, or polarity is lost."""
+    svg = field_view([[1.0, -1.0, 0.0]])
+    cells = [rect for rect in parse(svg).findall("rect") if rect.get("height") == "16"]
+    fills = {rect.get("fill") for rect in cells}
+    assert len(fills) == 3, "positive, negative and zero must read as three colours"
+    assert "rgb(255,255,255)" in fills, "zero field is white, the ramp's midpoint"
+
+
+def test_field_view_scales_by_peak_not_absolute() -> None:
+    """A quiet tensor still has to fill the ramp, or every cell is near-white."""
+    quiet = field_view([[0.01, -0.01]])
+    loud = field_view([[1.0, -1.0]])
+    assert "rgb(15,118,110)" in quiet and "rgb(15,118,110)" in loud
+
+
+def test_field_view_rejects_bad_input() -> None:
+    with pytest.raises(ValueError, match="at least one wire"):
+        field_view([])
+    with pytest.raises(ValueError, match="at least one wire"):
+        field_view([[]])
+    with pytest.raises(ValueError, match="same number of slots"):
+        field_view([[1.0, 2.0], [1.0]])
