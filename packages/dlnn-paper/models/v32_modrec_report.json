@@ -1,0 +1,125 @@
+{
+  "task": "modrec",
+  "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+  "dataset_seed": 20260101,
+  "n_train": 16000,
+  "n_test": 4000,
+  "width": 32,
+  "recipe": {
+    "optimizer": "Adam",
+    "lr": 0.03,
+    "schedule": "cosine",
+    "batch": 256,
+    "epochs": 60,
+    "iq_rotation_aug": true,
+    "line_gain": false,
+    "base_seed": 0,
+    "restarts": 3,
+    "soft_frac": 0.5,
+    "depth": 4,
+    "dilations": "1,1,1,1",
+    "float_readout": false,
+    "line_fir": false,
+    "torch": "2.15.0+cpu"
+  },
+  "ternary": {
+    "acc": 0.93125,
+    "acc_ge10dB": 0.9720833333333333,
+    "acc_per_snr": {
+      "0": 0.81875,
+      "5": 0.92125,
+      "10": 0.9725,
+      "15": 0.96625,
+      "20": 0.9775
+    },
+    "acc_per_class": {
+      "OOK": 0.996,
+      "BPSK": 0.98,
+      "QPSK": 0.814,
+      "8PSK": 0.8,
+      "16QAM": 0.866,
+      "2FSK": 1.0,
+      "4FSK": 1.0,
+      "GMSK": 0.994
+    },
+    "seconds": 530.4,
+    "epochs": 60,
+    "seed": 2,
+    "restarts": [
+      {
+        "seed": 0,
+        "train_acc": 0.9319,
+        "seconds": 179.2,
+        "test_acc": 0.9347,
+        "test_acc_ge10dB": 0.9758
+      },
+      {
+        "seed": 1,
+        "train_acc": 0.9309,
+        "seconds": 175.0,
+        "test_acc": 0.929,
+        "test_acc_ge10dB": 0.97
+      },
+      {
+        "seed": 2,
+        "train_acc": 0.9327,
+        "seconds": 176.2,
+        "test_acc": 0.9313,
+        "test_acc_ge10dB": 0.9721
+      }
+    ],
+    "acc_8bit_fakequant": 0.93025,
+    "model_sha256": "9a4cd120ddb6a4fea59f9f74c65caf95aca5c43a16efeeb6e1d5b5cfd0be66f2",
+    "n_ternary_weights": 25088,
+    "file": "models/v32_modrec_ternary.npz"
+  },
+  "float": {
+    "acc": 0.9285,
+    "acc_ge10dB": 0.97375,
+    "acc_per_snr": {
+      "0": 0.80125,
+      "5": 0.92,
+      "10": 0.96625,
+      "15": 0.97125,
+      "20": 0.98375
+    },
+    "acc_per_class": {
+      "OOK": 1.0,
+      "BPSK": 0.984,
+      "QPSK": 0.812,
+      "8PSK": 0.768,
+      "16QAM": 0.876,
+      "2FSK": 0.996,
+      "4FSK": 1.0,
+      "GMSK": 0.992
+    },
+    "seconds": 311.1,
+    "epochs": 60,
+    "seed": 0,
+    "restarts": [
+      {
+        "seed": 0,
+        "train_acc": 0.9292,
+        "seconds": 104.2,
+        "test_acc": 0.9285,
+        "test_acc_ge10dB": 0.9738
+      },
+      {
+        "seed": 1,
+        "train_acc": 0.9279,
+        "seconds": 103.3,
+        "test_acc": 0.9257,
+        "test_acc_ge10dB": 0.9692
+      },
+      {
+        "seed": 2,
+        "train_acc": 0.9269,
+        "seconds": 103.6,
+        "test_acc": 0.9275,
+        "test_acc_ge10dB": 0.9696
+      }
+    ],
+    "file": "models/v32_modrec_float.npz"
+  },
+  "total_seconds": 847.3
+}

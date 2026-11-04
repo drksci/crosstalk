@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "dlnn")(type "KiCad")(uri "${KIPRJMOD}/../../lib/dlnn.kicad_sym")(options "")(descr "dlnn custom symbols"))
+)

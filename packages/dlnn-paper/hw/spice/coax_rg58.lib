@@ -1,0 +1,24 @@
+* ----------------------------------------------------------------------------
+* coax_rg58.lib : GENERIC lossy RLC coax model (ngspice LTRA) for the DLNN circuit tier.
+*
+* NOT a vendor model and NOT a measurement of any real cable.
+*   L = 250 nH/m, C = 100 pF/m  -> Z0 = 50 ohm, v_p = 1/sqrt(LC) = 2.00e8 m/s (20.0 cm/ns;
+*   the real RG-58 figure of 19.8 cm/ns is 1 % lower, so line lengths here are cut to give
+*   EXACTLY k*d*Ts of delay).
+*   R is a CONSTANT series resistance (ohm/m) chosen so that the matched-line attenuation is
+*   32 dB/us at 100 MHz:  alpha = R/(2 Z0)  ->  R = 2 Z0 * (32/8.686) / (v_p*1e-6) = 1.8421 ohm/m.
+*   Deviations from real RG-58 that this model deliberately has (also listed in the tier
+*   fidelity.omits): no sqrt(f) skin-effect loss and no skin-effect dispersion (so the loss is
+*   too high at low frequency: DC loss of a 14 m line is -3.6 dB here against ~0.1 dB for real
+*   cable), G = 0 (ngspice LTRA does not support G), no dielectric loss, no connectors, no
+*   shield/crosstalk.
+*
+* Parameters that the Python generator overrides by emitting its own .param line BEFORE the
+* .include (ngspice keeps the first definition): coax_r, coax_l, coax_c.
+* Usage:  Xk in out coax_rg58 len=<metres>      (loaded by a 50 ohm resistor to ground)
+* ----------------------------------------------------------------------------
+.param coax_r=1.8421 coax_l=250n coax_c=100p
+.subckt coax_rg58 in out PARAMS: len=1
+O1 in 0 out 0 ltra_rg58
+.model ltra_rg58 ltra R={coax_r} L={coax_l} C={coax_c} LEN={len}
+.ends coax_rg58

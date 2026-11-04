@@ -1,0 +1,123 @@
+{
+ "board": "carrier",
+ "pcb": "hw/board/pcb/carrier/carrier_art.kicad_pcb",
+ "sha256_pcb": "f1824b1d8e02b6b931429da348f48c3c5edb3893d5780370059e3d59863c5e71",
+ "gerber_files": 16,
+ "cpl_rows": 50,
+ "bom_lines": 14,
+ "bom_parts": 50,
+ "hand_fit_or_not_assembled": [
+  "CN10",
+  "CN7",
+  "J1",
+  "JADC1",
+  "JT1"
+ ],
+ "drc": {
+  "violations": 0,
+  "unconnected": 0,
+  "errors": 0,
+  "warnings": 0
+ },
+ "erc": {
+  "violations": 0
+ },
+ "drill_svg": {
+  "holes": 248,
+  "width_mm": 134.1,
+  "height_mm": 90.1
+ },
+ "glb_materials": [
+  {
+   "index": 0,
+   "name": "mat_0",
+   "role": "copper_enig_gold",
+   "glb_pbr": {
+    "baseColorFactor": [
+     0.699999988079071,
+     0.6100000143051147,
+     0.0,
+     1.0
+    ],
+    "metallicFactor": 1.0,
+    "roughnessFactor": 0.4000000059604645
+   }
+  },
+  {
+   "index": 1,
+   "name": "mat_1",
+   "role": "other",
+   "glb_pbr": {
+    "baseColorFactor": [
+     0.5,
+     0.5,
+     0.5,
+     1.0
+    ],
+    "metallicFactor": 1.0,
+    "roughnessFactor": 0.4000000059604645
+   }
+  },
+  {
+   "index": 2,
+   "name": "mat_2",
+   "role": "silkscreen_white",
+   "glb_pbr": {
+    "baseColorFactor": [
+     0.9607843160629272,
+     0.9607843160629272,
+     0.9607843160629272,
+     1.0
+    ],
+    "metallicFactor": 0.0,
+    "roughnessFactor": 0.8999999761581421
+   }
+  },
+  {
+   "index": 3,
+   "name": "mat_3",
+   "role": "soldermask_black",
+   "glb_pbr": {
+    "baseColorFactor": [
+     0.0345098040997982,
+     0.0345098040997982,
+     0.0345098040997982,
+     0.8299999833106995
+    ],
+    "metallicFactor": 0.0,
+    "roughnessFactor": 0.6000000238418579
+   }
+  },
+  {
+   "index": 4,
+   "name": "mat_4",
+   "role": "soldermask_black",
+   "glb_pbr": {
+    "baseColorFactor": [
+     0.0345098040997982,
+     0.0345098040997982,
+     0.0345098040997982,
+     0.8299999833106995
+    ],
+    "metallicFactor": 0.0,
+    "roughnessFactor": 0.6000000238418579
+   }
+  },
+  {
+   "index": 5,
+   "name": "mat_5",
+   "role": "other",
+   "glb_pbr": {
+    "baseColorFactor": [
+     0.30000001192092896,
+     0.30000001192092896,
+     0.30000001192092896,
+     1.0
+    ],
+    "metallicFactor": 0.0,
+    "roughnessFactor": 0.800000011920929
+   }
+  }
+ ],
+ "glb_bytes": 16320108
+}

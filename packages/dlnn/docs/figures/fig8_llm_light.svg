@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="521.28pt" height="923.04pt" viewBox="0 0 521.28 923.04" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-03T06:42:32.423476</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 923.04 
+L 521.28 923.04 
+L 521.28 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 21.6 172.368 
+L 499.68 172.368 
+Q 505.44 172.368 505.44 178.128 
+L 505.44 233.856 
+Q 505.44 239.616 499.68 239.616 
+L 21.6 239.616 
+Q 15.84 239.616 15.84 233.856 
+L 15.84 178.128 
+Q 15.84 172.368 21.6 172.368 
+L 21.6 172.368 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 21.6 245.376 
+L 499.68 245.376 
+Q 505.44 245.376 505.44 251.136 
+L 505.44 306.864 
+Q 505.44 312.624 499.68 312.624 
+L 21.6 312.624 
+Q 15.84 312.624 15.84 306.864 
+L 15.84 251.136 
+Q 15.84 245.376 21.6 245.376 
+L 21.6 245.376 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 21.6 318.384 
+L 499.68 318.384 
+Q 505.44 318.384 505.44 324.144 
+L 505.44 391.248 
+Q 505.44 397.008 499.68 397.008 
+L 21.6 397.008 
+Q 15.84 397.008 15.84 391.248 
+L 15.84 324.144 
+Q 15.84 318.384 21.6 318.384 
+L 21.6 318.384 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 21.6 402.768 
+L 499.68 402.768 
+Q 505.44 402.768 505.44 408.528 
+L 505.44 475.632 
+Q 505.44 481.392 499.68 481.392 
+L 21.6 481.392 
+Q 15.84 481.392 15.84 475.632 
+L 15.84 408.528 
+Q 15.84 402.768 21.6 402.768 
+L 21.6 402.768 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 21.6 487.152 
+L 499.68 487.152 
+Q 505.44 487.152 505.44 492.912 
+L 505.44 560.016 
+Q 505.44 565.776 499.68 565.776 
+L 21.6 565.776 
+Q 15.84 565.776 15.84 560.016 
+L 15.84 492.912 
+Q 15.84 487.152 21.6 487.152 
+L 21.6 487.152 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 15.84 108 
+L 505.44 108 
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 15.84 170.928 
+L 505.44 170.928 
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 15.84 591.696 
+L 505.44 591.696 
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 15.84 657.504 
+L 505.44 657.504 
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 15.84 706.896 
+L 505.44 706.896 
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="15.84" y="27.798047" transform="rotate(-0 15.84 27.798047)">LLM commentary on the comparison card</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="15.84" y="101.950312" transform="rotate(-0 15.84 101.950312)">SUMMARY</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(18.72 118.607437)">C diverges from V in accuracy, macro_f1, top1_agreement_vs_virtual, logit_nmse_vs_virtual, and</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(18.72 128.639437)">mean_kl_virtual_vs_tier; R diverges in accuracy, macro_f1, top1_agreement_vs_virtual,</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(18.72 138.671437)">logit_nmse_vs_virtual, and accuracy.</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="15.84" y="164.878312" transform="rotate(-0 15.84 164.878312)">FINDINGS (5)</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="25.92" y="203.241125" transform="rotate(-0 25.92 203.241125)">Observation: C has accuracy=0.663 (-0.2) and accuracy=0.663 (-0.2) versus V.</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 216.777125)">Likely cause: C's own models line lists a SPICE (ngspice 42) computed lossy RLC coax line model,</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 226.809125)">so lossy RLC effects are the candidate cause; EM and layout effects are not modelled by C.</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="25.92" y="276.143438" transform="rotate(-0 25.92 276.143438)">Observation: C has macro_f1=0.627 (-0.236) and macro_f1=0.627 (-0.236) versus V.</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 289.785125)">Likely cause: C's own models line lists a SPICE (ngspice 42) computed lossy RLC coax line model,</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 299.817125)">so lossy RLC effects are the candidate cause; EM and layout effects are not modelled by C.</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 349.151438)">Observation: C has top1_agreement_vs_virtual=0.662 (-0.338) and top1_agreement_vs_virtual=0.662</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 359.574125)">(-0.338) versus V.</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 374.169125)">Likely cause: C's own models line lists a SPICE (ngspice 42) computed lossy RLC coax line model,</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 384.201125)">so lossy RLC effects are the candidate cause; EM and layout effects are not modelled by C.</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 433.535437)">Observation: C has logit_nmse_vs_virtual=0.226 (+0.226) and logit_nmse_vs_virtual=0.226 (+0.226)</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 444.292406)">versus V.</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 458.553125)">Likely cause: C's own models line lists a SPICE (ngspice 42) computed lossy RLC coax line model,</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 468.585125)">so lossy RLC effects are the candidate cause; EM and layout effects are not modelled by C.</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 517.919437)">Observation: C has mean_kl_virtual_vs_tier=1.05 (+1.05) and mean_kl_virtual_vs_tier=1.05 (+1.05)</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 528.676406)">versus V.</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 542.937125)">Likely cause: C's own models line lists a SPICE (ngspice 42) computed lossy RLC coax line model,</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.92 552.969125)">so lossy RLC effects are the candidate cause; EM and layout effects are not modelled by C.</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="15.84" y="585.646313" transform="rotate(-0 15.84 585.646313)">CAVEATS</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="601.070219" transform="rotate(-0 18.72 601.070219)">-</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(30.24 602.409125)">C is a SPICE simulation, not the real tool; its agreement with V is not evidence about circuit</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(30.24 613.177375)">behaviour.</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="628.862219" transform="rotate(-0 18.72 628.862219)">-</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="30.24" y="630.201125" transform="rotate(-0 30.24 630.201125)">R is a RF model, not the real tool; its agreement with V is not evidence about RF behaviour.</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="15.84" y="651.454313" transform="rotate(-0 15.84 651.454313)">QUESTIONS</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="666.878219" transform="rotate(-0 18.72 666.878219)">-</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(30.24 668.217125)">Does C recover to the V level with more accuracy, and does R with better accuracy (see the</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(30.24 678.244969)">sweeps)?</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="15.84" y="700.846313" transform="rotate(-0 15.84 700.846313)">INDEPENDENT AUDIT AGAINST COMPARE.JSON (NOT PART OF THE VERIFIER)</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="716.270219" transform="rotate(-0 18.72 716.270219)">-</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #a35f00" transform="translate(30.24 717.609125)">caveats[0]: calls tier C "not the real tool", but compare.json has C status=ok (the real tool</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #a35f00" transform="translate(30.24 727.926125)">ran)</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="744.062219" transform="rotate(-0 18.72 744.062219)">-</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #a35f00" transform="translate(30.24 745.401125)">caveats[1]: calls tier R "not the real tool", but compare.json has R status=ok (the real tool</text>
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; fill: #a35f00" transform="translate(30.24 755.718125)">ran)</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="771.854219" transform="rotate(-0 18.72 771.854219)">-</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #a35f00" x="30.24" y="773.193125" transform="rotate(-0 30.24 773.193125)">findings[0]: states accuracy=0.663 twice in one sentence</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="788.270219" transform="rotate(-0 18.72 788.270219)">-</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #a35f00" x="30.24" y="789.503438" transform="rotate(-0 30.24 789.503438)">findings[1]: states macro_f1=0.627 twice in one sentence</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="804.686219" transform="rotate(-0 18.72 804.686219)">-</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #a35f00" x="30.24" y="805.919437" transform="rotate(-0 30.24 805.919437)">findings[2]: states top1_agreement_vs_virtual=0.662 twice in one sentence</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="821.102219" transform="rotate(-0 18.72 821.102219)">-</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #a35f00" x="30.24" y="822.335438" transform="rotate(-0 30.24 822.335438)">findings[3]: states logit_nmse_vs_virtual=0.226 twice in one sentence</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="18.72" y="837.518219" transform="rotate(-0 18.72 837.518219)">-</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #a35f00" x="30.24" y="838.751437" transform="rotate(-0 30.24 838.751437)">findings[4]: states mean_kl_virtual_vs_tier=1.05 twice in one sentence</text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; fill: #52514e" transform="translate(15.84 858.226375)">A language model commented on a &lt;=1.5k-token text card; it ran no simulation. The verifier checks that numbers and</text>
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; fill: #52514e" transform="translate(15.84 867.406375)">metric/tier ids match the card; it does NOT check whether the explanation is right. Dimmed = flagged unverified. Guard</text>
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; fill: #52514e" transform="translate(15.84 876.586375)">flags: tier R has no finding.</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 20.16 42.48 
+L 107.560227 42.48 
+Q 111.880227 42.48 111.880227 46.8 
+L 111.880227 52.56 
+Q 111.880227 56.88 107.560227 56.88 
+L 20.16 56.88 
+Q 15.84 56.88 15.84 52.56 
+L 15.84 46.8 
+Q 15.84 42.48 20.16 42.48 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #0b0b0b"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 121.240227 42.48 
+L 228.276818 42.48 
+Q 232.596818 42.48 232.596818 46.8 
+L 232.596818 52.56 
+Q 232.596818 56.88 228.276818 56.88 
+L 121.240227 56.88 
+Q 116.920227 56.88 116.920227 52.56 
+L 116.920227 46.8 
+Q 116.920227 42.48 121.240227 42.48 
+L 121.240227 42.48 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 241.956818 42.48 
+L 335.9025 42.48 
+Q 340.2225 42.48 340.2225 46.8 
+L 340.2225 52.56 
+Q 340.2225 56.88 335.9025 56.88 
+L 241.956818 56.88 
+Q 237.636818 56.88 237.636818 52.56 
+L 237.636818 46.8 
+Q 237.636818 42.48 241.956818 42.48 
+L 241.956818 42.48 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 20.16 63.36 
+L 99.153409 63.36 
+Q 103.473409 63.36 103.473409 67.68 
+L 103.473409 73.44 
+Q 103.473409 77.76 99.153409 77.76 
+L 20.16 77.76 
+Q 15.84 77.76 15.84 73.44 
+L 15.84 67.68 
+Q 15.84 63.36 20.16 63.36 
+L 20.16 63.36 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 112.833409 63.36 
+L 272.284773 63.36 
+Q 276.604773 63.36 276.604773 67.68 
+L 276.604773 73.44 
+Q 276.604773 77.76 272.284773 77.76 
+L 112.833409 77.76 
+Q 108.513409 77.76 108.513409 73.44 
+L 108.513409 67.68 
+Q 108.513409 63.36 112.833409 63.36 
+L 112.833409 63.36 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: none; stroke: #a35f00; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 27.36 178.848 
+L 59.502273 178.848 
+Q 63.822273 178.848 63.822273 183.168 
+L 63.822273 188.928 
+Q 63.822273 193.248 59.502273 193.248 
+L 27.36 193.248 
+Q 23.04 193.248 23.04 188.928 
+L 23.04 183.168 
+Q 23.04 178.848 27.36 178.848 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #e1e0d9"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 73.182273 178.848 
+L 95.537045 178.848 
+Q 99.857045 178.848 99.857045 183.168 
+L 99.857045 188.928 
+Q 99.857045 193.248 95.537045 193.248 
+L 73.182273 193.248 
+Q 68.862273 193.248 68.862273 188.928 
+L 68.862273 183.168 
+Q 68.862273 178.848 73.182273 178.848 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #1baf7a"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 27.36 251.856 
+L 60.269318 251.856 
+Q 64.589318 251.856 64.589318 256.176 
+L 64.589318 261.936 
+Q 64.589318 266.256 60.269318 266.256 
+L 27.36 266.256 
+Q 23.04 266.256 23.04 261.936 
+L 23.04 256.176 
+Q 23.04 251.856 27.36 251.856 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #e1e0d9"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 73.949318 251.856 
+L 96.304091 251.856 
+Q 100.624091 251.856 100.624091 256.176 
+L 100.624091 261.936 
+Q 100.624091 266.256 96.304091 266.256 
+L 73.949318 266.256 
+Q 69.629318 266.256 69.629318 261.936 
+L 69.629318 256.176 
+Q 69.629318 251.856 73.949318 251.856 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #1baf7a"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 27.36 324.864 
+L 121.090909 324.864 
+Q 125.410909 324.864 125.410909 329.184 
+L 125.410909 334.944 
+Q 125.410909 339.264 121.090909 339.264 
+L 27.36 339.264 
+Q 23.04 339.264 23.04 334.944 
+L 23.04 329.184 
+Q 23.04 324.864 27.36 324.864 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #e1e0d9"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 134.770909 324.864 
+L 157.125682 324.864 
+Q 161.445682 324.864 161.445682 329.184 
+L 161.445682 334.944 
+Q 161.445682 339.264 157.125682 339.264 
+L 134.770909 339.264 
+Q 130.450909 339.264 130.450909 334.944 
+L 130.450909 329.184 
+Q 130.450909 324.864 134.770909 324.864 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #1baf7a"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 27.36 409.248 
+L 101.925 409.248 
+Q 106.245 409.248 106.245 413.568 
+L 106.245 419.328 
+Q 106.245 423.648 101.925 423.648 
+L 27.36 423.648 
+Q 23.04 423.648 23.04 419.328 
+L 23.04 413.568 
+Q 23.04 409.248 27.36 409.248 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #e1e0d9"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 115.605 409.248 
+L 137.959773 409.248 
+Q 142.279773 409.248 142.279773 413.568 
+L 142.279773 419.328 
+Q 142.279773 423.648 137.959773 423.648 
+L 115.605 423.648 
+Q 111.285 423.648 111.285 419.328 
+L 111.285 413.568 
+Q 111.285 409.248 115.605 409.248 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #1baf7a"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 27.36 493.632 
+L 108.398864 493.632 
+Q 112.718864 493.632 112.718864 497.952 
+L 112.718864 503.712 
+Q 112.718864 508.032 108.398864 508.032 
+L 27.36 508.032 
+Q 23.04 508.032 23.04 503.712 
+L 23.04 497.952 
+Q 23.04 493.632 27.36 493.632 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #e1e0d9"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 122.078864 493.632 
+L 144.433636 493.632 
+Q 148.753636 493.632 148.753636 497.952 
+L 148.753636 503.712 
+Q 148.753636 508.032 144.433636 508.032 
+L 122.078864 508.032 
+Q 117.758864 508.032 117.758864 503.712 
+L 117.758864 497.952 
+Q 117.758864 493.632 122.078864 493.632 
+z
+" clip-path="url(#pb2fc42b4fb)" style="fill: #1baf7a"/>
+   </g>
+   <g id="text_39">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #fcfcfb" x="20.88" y="51.446406" transform="rotate(-0 20.88 51.446406)">MODEL OUTPUT: qwen</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="121.960227" y="51.446406" transform="rotate(-0 121.960227 51.446406)">Qwen2.5-1.5B-Instruct Q4_K_M</text>
+   </g>
+   <g id="text_41">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="242.676818" y="51.446672" transform="rotate(-0 242.676818 51.446672)">grammar-constrained JSON</text>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="20.88" y="72.326672" transform="rotate(-0 20.88 72.326672)">numbers_verified: true</text>
+   </g>
+   <g id="text_43">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #a35f00" x="113.553409" y="72.326672" transform="rotate(-0 113.553409 72.326672)">ids_verified: FALSE (a tier has no finding)</text>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="28.08" y="187.814406" transform="rotate(-0 28.08 187.814406)">accuracy</text>
+   </g>
+   <g id="text_45">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="73.902273" y="187.814672" transform="rotate(-0 73.902273 187.814672)">tier C</text>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="28.08" y="260.822672" transform="rotate(-0 28.08 260.822672)">macro_f1</text>
+   </g>
+   <g id="text_47">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="74.669318" y="260.822672" transform="rotate(-0 74.669318 260.822672)">tier C</text>
+   </g>
+   <g id="text_48">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="28.08" y="333.830672" transform="rotate(-0 28.08 333.830672)">top1_agreement_vs_virtual</text>
+   </g>
+   <g id="text_49">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="135.490909" y="333.830672" transform="rotate(-0 135.490909 333.830672)">tier C</text>
+   </g>
+   <g id="text_50">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="28.08" y="418.214672" transform="rotate(-0 28.08 418.214672)">logit_nmse_vs_virtual</text>
+   </g>
+   <g id="text_51">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="116.325" y="418.214672" transform="rotate(-0 116.325 418.214672)">tier C</text>
+   </g>
+   <g id="text_52">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="28.08" y="502.598672" transform="rotate(-0 28.08 502.598672)">mean_kl_virtual_vs_tier</text>
+   </g>
+   <g id="text_53">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="122.798864" y="502.598672" transform="rotate(-0 122.798864 502.598672)">tier C</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb2fc42b4fb">
+   <rect x="8.64" y="8.64" width="504" height="905.76"/>
+  </clipPath>
+ </defs>
+</svg>

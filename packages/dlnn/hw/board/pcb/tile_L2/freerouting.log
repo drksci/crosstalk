@@ -1,0 +1,30 @@
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=40915 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+2026-11-04 00:05:41.798 INFO   Freerouting v2.5.1-SNAPSHOT (build-date: 2026-11-03)
+2026-11-04 00:05:42.096 INFO   Hardware: 4 CPU cores, 452 CPU score, 9216 MB RAM
+2026-11-04 00:05:42.097 WARN   Deprecated settings path '-mp / --router.max_passes'; use '--router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-04 00:05:42.099 WARN   GUI is disabled and you don't have a console available, so the only feedback from Freerouting is in the log.
+2026-11-04 00:05:42.103 INFO   Configured network proxy: 127.0.0.1:40915
+2026-11-04 00:05:43.184 WARN   The '-mp' command-line flag is deprecated; use '--router.autorouter.max_passes' instead.
+2026-11-04 00:05:43.184 WARN   Deprecated settings path 'router.max_passes'; use 'router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-04 00:05:43.534 INFO   [55BCC9\92A1A8] Loading board file 'tile_L2.dsn'...
+2026-11-04 00:05:48.117 INFO   The board's own vias decide: router.autorouter.via_in_pad = true.
+2026-11-04 00:05:48.243 INFO   4 multi-pin net-tie cluster(s) identified and indexed.
+2026-11-04 00:05:48.270 WARN   Power-plane validation failed:
+- Dedicated power layer 'In2.Cu' has overlapping conduction areas: Area (ID 7, Net(s): [+5VA]) and Area (ID 6, Net(s): [GND]) overlap.
+- Dedicated power layer 'In2.Cu' has overlapping conduction areas: Area (ID 7, Net(s): [+5VA]) and Area (ID 5, Net(s): [GND]) overlap.
+- Dedicated power layer 'In2.Cu' has overlapping conduction areas: Area (ID 7, Net(s): [+5VA]) and Area (ID 4, Net(s): [GND]) overlap.
+- Dedicated power layer 'In2.Cu' has overlapping conduction areas: Area (ID 7, Net(s): [+5VA]) and Area (ID 3, Net(s): [GND]) overlap.
+
+Proper Definition and Best Practices for Power Planes:
+1. What Belongs on a Power Plane:
+   - Solid Copper Pours: A single, uninterrupted sheet of copper assigned to one voltage (e.g., +3.3V).
+   - Split Planes: Multiple distinct voltage zones divided by thin isolation gaps (puzzle pieces).
+   - Vias and Anti-Pads: Plated holes passing through the board, surrounded by circular voids (anti-pads) to prevent shorting.
+   - Thermal Reliefs: Spoked connections for vias or pins that connect to the plane, facilitating soldering.
+2. Why Signal Wires/Traces are Banned:
+   - Destroyed Return Paths: High-speed signals on adjacent layers couple to the solid plane below/above as return paths. Crossing a trace gap detours return currents, causing severe EMI and signal integrity issues.
+   - Compromised Power Delivery: Power planes should provide the lowest impedance path. Routing traces chops up the copper, creating bottleneck restrictions and voltage drops.
+
+2026-11-04 00:05:48.298 INFO   [55BCC9\92A1A8] Job '55BCC9\92A1A8' started at 2026-11-04T00:05:48.298499956Z.
+2026-11-04 00:06:07.793 INFO   [55BCC9\92A1A8] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=3.
+2026-11-04 00:06:40.192 INFO   [55BCC9\92A1A8] Fanout stage started on board 'be4a3c4bfea065b8a0e6151b889980eb' with 3547 of 4833 SMD pins needing fanout (1280 already connected, 6 netless, 0 ignored).

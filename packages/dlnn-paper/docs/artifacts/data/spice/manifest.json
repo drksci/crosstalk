@@ -1,0 +1,29 @@
+{
+ "schema": "dlnn-spice-export/1",
+ "run_id": "P2-M2a",
+ "model": "tdlnet_b_w8_aware2_fro_ternary",
+ "files": {
+  "unit_cell.template.cir": {
+   "sha256": "6fe7dd4ab3b8163b241bbf15a24c8888c313cdc9a2daafc8894851a28d0f27bf",
+   "bytes": 6810
+  },
+  "tap_response.json": {
+   "sha256": "5e793690ab5083f979efa10a5841d1992024840b90dbe85310cb5e8fa6828e70",
+   "bytes": 33237
+  },
+  "diffpair_dc.json": {
+   "sha256": "8fae2c459ef2beb548c036fa7939a2edf1c6a860627eab8d8d8525e170f93484",
+   "bytes": 2467
+  }
+ },
+ "tile_cir_sha256": {
+  "1": "105317990030d011f4a69e4cc67a04927ed733b2fe4346cc0e19103452ce44fe",
+  "2": "90db34ea57cad85f79ccd2b9988c8e8e210afbf8443cbd7fca689d5b36609bc2",
+  "3": "31ea8ecdbf6a46a554b27d44c79c00303ea821da910e9139b22986ee845c0758"
+ },
+ "model_file_sha256": "3405923d2c64bb0c2d028a251701cf0e1397baafa0d9233e8e87fe8a238f8706",
+ "eco": {
+  "rt_to_vref25": true,
+  "rf_rb_ro_scale": 2.9
+ }
+}

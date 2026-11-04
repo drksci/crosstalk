@@ -1,0 +1,32 @@
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=40915 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+2026-11-03 23:21:22.750 INFO   Freerouting v2.5.1-SNAPSHOT (build-date: 2026-11-03)
+2026-11-03 23:21:23.105 INFO   Hardware: 4 CPU cores, 228 CPU score, 3420 MB RAM
+2026-11-03 23:21:23.106 WARN   Deprecated settings path '-mp / --router.max_passes'; use '--router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-03 23:21:23.107 WARN   GUI is disabled and you don't have a console available, so the only feedback from Freerouting is in the log.
+2026-11-03 23:21:23.115 INFO   Configured network proxy: 127.0.0.1:40915
+2026-11-03 23:21:24.211 WARN   The '-mp' command-line flag is deprecated; use '--router.autorouter.max_passes' instead.
+2026-11-03 23:21:24.212 WARN   Deprecated settings path 'router.max_passes'; use 'router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-03 23:21:24.805 INFO   [F09236\42ADCC] Loading board file 'carrier.dsn'...
+2026-11-03 23:21:25.119 INFO   4 multi-pin net-tie cluster(s) identified and indexed.
+2026-11-03 23:21:25.144 INFO   [F09236\42ADCC] Job 'F09236\42ADCC' started at 2026-11-03T23:21:25.144033979Z.
+2026-11-03 23:21:25.867 INFO   [F09236\42ADCC] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=3.
+2026-11-03 23:21:26.515 INFO   [F09236\42ADCC] Fanout stage started on board '772e55dd7117f67807e7a53831ed92c7' with 89 of 129 SMD pins needing fanout (34 already connected, 6 netless, 0 ignored).
+2026-11-03 23:21:31.553 INFO   [F09236\42ADCC] Fanout pass #1 on board '3dcdb17c34701e117f55cf8932397e14' completed in 4.69 seconds with 32 SMD pins fanouted, 57 not routed, 0 insert errors, +14 extra vias (0 SMD pins still to check in pass, ripup costs=100).
+2026-11-03 23:21:34.138 INFO   [F09236\42ADCC] Fanout pass #2 on board '4e5106e5b918bb4704a277ece530c083' completed in 2.55 seconds with 1 SMD pin fanouted, 32 not routed, 0 insert errors, +1 extra via (0 SMD pins still to check in pass, ripup costs=200).
+2026-11-03 23:21:34.972 INFO   [F09236\42ADCC] Fanout pass #3 on board '4e5106e5b918bb4704a277ece530c083' completed in 0.82 seconds with 0 SMD pins fanouted, 0 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=300).
+2026-11-03 23:21:35.073 INFO   [F09236\42ADCC] Fanout stage completed: started with 123 total SMD pins, completed in 8.26 seconds, escaped pins: 75/123 (61.0%), using 2.44 total CPU seconds, 1.00 GB total allocated, and 134.4 MB peak heap usage.
+2026-11-03 23:21:35.418 INFO   [F09236\42ADCC] Auto-routing stage started on board '4e5106e5b918bb4704a277ece530c083' with baseline score 523.81 for 65 unrouted items.
+2026-11-03 23:21:47.156 INFO   [F09236\42ADCC] Auto-routing pass #1 on board '4e5106e5b918bb4704a277ece530c083' was completed in 11.59 seconds with score 926.74 (10 unrouted and 0 violations), using 7.10 CPU seconds and the job allocated 3.25 GB of memory so far.
+2026-11-03 23:21:49.746 INFO   [F09236\42ADCC] Auto-routing pass #2 on board '02ce1e24870b33d3f4eef1e9b04b2dd9' was completed in 2.30 seconds with score 970.70 (4 unrouted and 0 violations), using 8.57 CPU seconds and the job allocated 3.89 GB of memory so far.
+2026-11-03 23:21:51.433 INFO   [F09236\42ADCC] Auto-routing pass #3 on board 'e51ff9f92a5bc8519541ed3c7f9b4481' was completed in 1.50 seconds with score 992.67 (1 unrouted and 0 violations), using 9.79 CPU seconds and the job allocated 4.43 GB of memory so far.
+2026-11-03 23:21:52.774 INFO   [F09236\42ADCC] Auto-routing pass #4 on board '12b27e2af8d674475f1cfc0e1e34ddc9' was completed in 1.04 seconds with score 1000.00 (0 unrouted and 0 violations), using 10.23 CPU seconds and the job allocated 4.56 GB of memory so far.
+2026-11-03 23:21:53.454 INFO   [F09236\42ADCC] Auto-routing pass #5 on board 'e8323976d43d64ad75b1b0e6fe233e20' was completed in 0.39 seconds with score 1000.00 (0 unrouted and 0 violations), using 10.61 CPU seconds and the job allocated 4.65 GB of memory so far.
+2026-11-03 23:21:54.891 INFO   [F09236\42ADCC] Auto-routing stage completed: started with 82 unrouted nets, completed in 28.62 seconds, final score: 1000.00 (0 unrouted and 0 violations), using 10.97 total CPU seconds, 4.73 GB total allocated, and 235.8 MB peak heap usage.
+2026-11-03 23:21:55.468 INFO   [F09236\42ADCC] Optimization stage started on board 'e8323976d43d64ad75b1b0e6fe233e20'. Baseline router score: 1000.00, optimizer score: 579.39, incomplete connections: 0, clearance violations: 0.
+2026-11-03 23:22:12.951 INFO   [F09236\42ADCC] Optimizer pass #1 on board '39e9871afc67bb9443cfcfa9aeb87d76' was completed in 16.12 seconds with the score of 585.30 (0 unrouted and 0 violations).
+2026-11-03 23:22:13.559 INFO   [F09236\42ADCC] Optimizer pass #1: optimizer score 579.39 -> 585.30 (IMPROVED, 1.0204%), router score: 1000.00, incomplete connections: 0, clearance violations: 0.
+2026-11-03 23:22:13.559 INFO   [F09236\42ADCC] Stopping optimizer because the improvement in this pass (1.0204%) is below the threshold (2.50%).
+2026-11-03 23:22:14.219 INFO   [F09236\42ADCC] Optimization stage completed:. Baseline router score: 1000.00, baseline optimizer score: 579.39, final router score: 1000.00, final optimizer score: 585.30, completed in 18.49 seconds, using 10.88 total CPU seconds, 5.93 GB total allocated, and 366.0 MB peak heap usage.
+2026-11-03 23:22:14.311 INFO   [F09236\42ADCC] Job 'F09236\42ADCC' finished with state: COMPLETED (elapsed: 49.16 seconds, finished at UTC: 2026-11-03T23:22:14.304001468Z).
+2026-11-03 23:22:14.320 INFO   Saving output file '/home/user/dlnn/hw/board/pcb/carrier/carrier.ses' (SES)...
+2026-11-03 23:22:14.323 INFO   Successfully saved output file '/home/user/dlnn/hw/board/pcb/carrier/carrier.ses' (31524 bytes).

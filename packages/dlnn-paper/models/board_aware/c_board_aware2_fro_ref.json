@@ -1,0 +1,308 @@
+{
+ "schema": "dlnn-c-board-ref/1",
+ "note": "Operating point (clock, phase, post-chain fit) and reference numbers of the full SPICE run of the aware2_fro board (out/P2-M2a/aware2_fro/result.json, 64 SPICE .tran examples at Q10, 16 at Q30), kept so the notebook can re-apply the same operating point. Simulation only; nothing measured.",
+ "model": "tdlnet_b_w8_aware2_fro",
+ "model_file_sha256": "3405923d2c64bb0c2d028a251701cf0e1397baafa0d9233e8e87fe8a238f8706",
+ "tile_cir_sha256": {
+  "1": "105317990030d011f4a69e4cc67a04927ed733b2fe4346cc0e19103452ce44fe",
+  "2": "90db34ea57cad85f79ccd2b9988c8e8e210afbf8443cbd7fca689d5b36609bc2",
+  "3": "31ea8ecdbf6a46a554b27d44c79c00303ea821da910e9139b22986ee845c0758"
+ },
+ "eco": {
+  "rt_to_vref25": true,
+  "rf_rb_ro_scale": 2.9
+ },
+ "V_ideal_accuracy_4000": 0.655,
+ "V_on_M1a_FIR_accuracy_4000": {
+  "Q10": 0.878,
+  "Q30": 0.87775
+ },
+ "test_subset_idx": [
+  8,
+  25,
+  4,
+  2,
+  106,
+  11,
+  28,
+  17,
+  34,
+  24,
+  50,
+  6,
+  29,
+  14,
+  20,
+  92,
+  86,
+  21,
+  36,
+  111,
+  7,
+  55,
+  42,
+  5,
+  87,
+  22,
+  0,
+  85,
+  45,
+  32,
+  69,
+  16,
+  130,
+  13,
+  15,
+  43,
+  1,
+  52,
+  40,
+  33,
+  59,
+  78,
+  10,
+  64,
+  114,
+  47,
+  30,
+  54,
+  131,
+  105,
+  56,
+  62,
+  38,
+  23,
+  39,
+  107,
+  94,
+  26,
+  96,
+  205,
+  12,
+  60,
+  49,
+  115
+ ],
+ "corners": {
+  "Q10": {
+   "Q": 10.0,
+   "T_us": 0.9700000000000001,
+   "operating_point": {
+    "train_subset_acc": 0.8493333333333334,
+    "T_us": 0.9700000000000001,
+    "t0_eff_us": 1.25,
+    "grid_best5": [
+     [
+      9.7e-07,
+      1.2499999999999999e-06,
+      0.8493333333333334
+     ],
+     [
+      9.7e-07,
+      1.2e-06,
+      0.8486666666666667
+     ],
+     [
+      9.7e-07,
+      1.15e-06,
+      0.848
+     ],
+     [
+      9.7e-07,
+      1.3e-06,
+      0.848
+     ],
+     [
+      9.459999999999999e-07,
+      1.15e-06,
+      0.8466666666666667
+     ]
+    ]
+   },
+   "post_fit": {
+    "layers": [
+     {
+      "layer": 1,
+      "nmse": 0.010686294815104688,
+      "tau_post_s": 3e-07,
+      "e_sh": 0.0
+     },
+     {
+      "layer": 2,
+      "nmse": 0.014339765506137138,
+      "tau_post_s": 3e-07,
+      "e_sh": 0.0
+     },
+     {
+      "layer": 3,
+      "nmse": 0.06875419443003551,
+      "tau_post_s": 3e-07,
+      "e_sh": 0.0
+     }
+    ]
+   },
+   "calibrated_chain_vs_spice_chain_nmse": [
+    0.01572328846835001,
+    0.041611492950816065,
+    0.1570956119300792
+   ],
+   "subset": {
+    "n": 64,
+    "acc_spice": 0.8125,
+    "acc_V": 0.59375,
+    "acc_V_on_FIR": 0.84375,
+    "acc_calibrated": 0.78125,
+    "agree_spice_vs_V": 0.625,
+    "agree_spice_vs_calibrated": 0.90625
+   },
+   "full4000": {
+    "acc_C_calibrated": 0.8565,
+    "acc_V_ideal": 0.655,
+    "acc_V_on_M1a_FIR": 0.878,
+    "C_minus_V_points": 20.150000000000002,
+    "C_minus_V_on_FIR_points": -2.1499999999999964,
+    "agreement_with_V": 0.70475,
+    "acc_per_snr": {
+     "0": 0.72625,
+     "5": 0.855,
+     "10": 0.885,
+     "15": 0.90625,
+     "20": 0.91
+    }
+   },
+   "layer_metrics": [
+    {
+     "layer": 1,
+     "nmse_spice_vs_V": 0.09010832773413353,
+     "nmse_spice_vs_V_on_M1a_FIR": 0.0412708822636617,
+     "nmse_calibrated_vs_spice": 0.01572328846835001,
+     "n_examples": 64
+    },
+    {
+     "layer": 2,
+     "nmse_spice_vs_V": 0.1817783971289297,
+     "nmse_spice_vs_V_on_M1a_FIR": 0.13766974239611973,
+     "nmse_calibrated_vs_spice": 0.014286208606044317,
+     "n_examples": 64
+    },
+    {
+     "layer": 3,
+     "nmse_spice_vs_V": 0.4648661667163021,
+     "nmse_spice_vs_V_on_M1a_FIR": 0.3515889552531986,
+     "nmse_calibrated_vs_spice": 0.05618099914424162,
+     "n_examples": 64
+    }
+   ]
+  },
+  "Q30": {
+   "Q": 30.0,
+   "T_us": 0.9199999999999999,
+   "operating_point": {
+    "train_subset_acc": 0.8486666666666667,
+    "T_us": 0.9199999999999999,
+    "t0_eff_us": 1.1,
+    "grid_best5": [
+     [
+      9.2e-07,
+      1.1e-06,
+      0.8486666666666667
+     ],
+     [
+      8.9e-07,
+      1.1e-06,
+      0.8473333333333334
+     ],
+     [
+      9.7e-07,
+      1.2499999999999999e-06,
+      0.8473333333333334
+     ],
+     [
+      9e-07,
+      1.0500000000000001e-06,
+      0.8466666666666667
+     ],
+     [
+      9.459999999999999e-07,
+      1.5e-06,
+      0.8466666666666667
+     ]
+    ]
+   },
+   "post_fit": {
+    "layers": [
+     {
+      "layer": 1,
+      "nmse": 0.00288084432808787,
+      "tau_post_s": 3e-07,
+      "e_sh": 0.0
+     },
+     {
+      "layer": 2,
+      "nmse": 0.004669397014892889,
+      "tau_post_s": 3e-07,
+      "e_sh": 0.0
+     },
+     {
+      "layer": 3,
+      "nmse": 0.03340746768777815,
+      "tau_post_s": 3e-07,
+      "e_sh": 0.0
+     }
+    ]
+   },
+   "calibrated_chain_vs_spice_chain_nmse": [
+    0.00418013040256654,
+    0.011937001752518193,
+    0.05948971495720686
+   ],
+   "subset": {
+    "n": 16,
+    "acc_spice": 0.875,
+    "acc_V": 0.625,
+    "acc_V_on_FIR": 0.875,
+    "acc_calibrated": 0.875,
+    "agree_spice_vs_V": 0.6875,
+    "agree_spice_vs_calibrated": 1.0
+   },
+   "full4000": {
+    "acc_C_calibrated": 0.86225,
+    "acc_V_ideal": 0.655,
+    "acc_V_on_M1a_FIR": 0.87775,
+    "C_minus_V_points": 20.724999999999994,
+    "C_minus_V_on_FIR_points": -1.550000000000007,
+    "agreement_with_V": 0.70225,
+    "acc_per_snr": {
+     "0": 0.72875,
+     "5": 0.8575,
+     "10": 0.89125,
+     "15": 0.9175,
+     "20": 0.91625
+    }
+   },
+   "layer_metrics": [
+    {
+     "layer": 1,
+     "nmse_spice_vs_V": 0.05621334171907695,
+     "nmse_spice_vs_V_on_M1a_FIR": 0.012071383558333768,
+     "nmse_calibrated_vs_spice": 0.00418013040256654,
+     "n_examples": 16
+    },
+    {
+     "layer": 2,
+     "nmse_spice_vs_V": 0.09373370771710797,
+     "nmse_spice_vs_V_on_M1a_FIR": 0.035054835345932095,
+     "nmse_calibrated_vs_spice": 0.004165796020950795,
+     "n_examples": 16
+    },
+    {
+     "layer": 3,
+     "nmse_spice_vs_V": 0.27178896562095,
+     "nmse_spice_vs_V_on_M1a_FIR": 0.14584333100332966,
+     "nmse_calibrated_vs_spice": 0.025472692436725116,
+     "n_examples": 16
+    }
+   ]
+  }
+ }
+}

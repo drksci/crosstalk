@@ -1,0 +1,114 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-04T04:20:55+0000",
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "9.0.9",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449",
+            "violations": []
+        },
+        {
+            "path": "/power/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/8a0cedc7-07dd-5482-97a0-06135f0c44b6",
+            "violations": []
+        },
+        {
+            "path": "/line0/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/86824821-a2b1-5c20-bd02-05a4375803cd",
+            "violations": []
+        },
+        {
+            "path": "/line1/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/2386065a-6759-51ef-b8f0-31af97544d57",
+            "violations": []
+        },
+        {
+            "path": "/line2/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/ce2a4f74-8b8d-5264-9b94-2e23e983f6dd",
+            "violations": []
+        },
+        {
+            "path": "/line3/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/c1417e30-e314-5957-953b-a140a5b0fa1f",
+            "violations": []
+        },
+        {
+            "path": "/line4/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/fc967b73-6fca-5a8c-a471-30b6aa9b2fbb",
+            "violations": []
+        },
+        {
+            "path": "/line5/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/aeb62d88-abb7-5ab0-b687-fd8a628b7035",
+            "violations": []
+        },
+        {
+            "path": "/line6/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/038a32c8-e93f-5b72-b35b-8b326c9476b9",
+            "violations": []
+        },
+        {
+            "path": "/line7/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/af1da1e6-75d8-5a59-b9c0-91c51662f2f7",
+            "violations": []
+        },
+        {
+            "path": "/crossbar/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/18d7c30e-2c7b-599b-a018-4b9a94364de8",
+            "violations": []
+        },
+        {
+            "path": "/ch0/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/fc9c1bbc-32f9-53b7-a51d-f1bfcecc2952",
+            "violations": []
+        },
+        {
+            "path": "/ch1/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/7f240137-1cf8-5214-af3a-e53ee670365f",
+            "violations": []
+        },
+        {
+            "path": "/ch2/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/1bb3a22b-4dda-5242-b4d9-6a3c0f489ebd",
+            "violations": []
+        },
+        {
+            "path": "/ch3/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/47f2a2cb-8e98-5d4e-86c9-2ad5fc267ac8",
+            "violations": []
+        },
+        {
+            "path": "/ch4/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/4e9779b7-d211-5d72-b6ec-fe56962e169b",
+            "violations": []
+        },
+        {
+            "path": "/ch5/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/3af12d99-52ff-57a0-885d-c28f4f854690",
+            "violations": []
+        },
+        {
+            "path": "/ch6/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/9c71848a-ddb6-5fa7-b83b-ce63fc5bd7f7",
+            "violations": []
+        },
+        {
+            "path": "/ch7/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/60080c71-4e67-5fe2-8e7a-2f04f925eca1",
+            "violations": []
+        },
+        {
+            "path": "/connectors/",
+            "uuid_path": "/2634b42b-a678-597f-8727-fc07b58d8449/4799493f-2075-5b1f-b1df-d61b4f6d47ff",
+            "violations": []
+        }
+    ],
+    "source": "tile.kicad_sch"
+}

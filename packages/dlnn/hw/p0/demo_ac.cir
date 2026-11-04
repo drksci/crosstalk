@@ -1,0 +1,35 @@
+.title KiCad schematic
+* P0 demo behavioural part models (ideal; spike only)
+* Inductor with series DCR: L (H), R (ohm)
+.subckt IND_DCR a b L=120u R=3
+L1 a m {L}
+R1 m b {R}
+.ends IND_DCR
+* Ideal op-amp as VCVS (gain 1e5, zero output impedance); rails only loaded by 1 Gohm
+.subckt OPA_IDEAL inp inn out vcc vee
+E1 out 0 inp inn 1e5
+Rvcc vcc 0 1e9
+Rvee vee 0 1e9
+.ends OPA_IDEAL
+XL1 /N0 /N1 IND_DCR L=120u R=3
+C1 /N1 GND 120p
+R3 /T1 /SUM 10k
+R4 /T2 /SUM 10k
+R1 /VDRV /N0 1k
+XU1 /N1 /T1 /T1 +5V -5V OPA_IDEAL
+R2 /N2 GND 1k
+C2 /N2 GND 120p
+XU3 GND /SUM /OUT +5V -5V OPA_IDEAL
+R5 /SUM /OUT 10k
+XU2 /N2 /T2 /T2 +5V -5V OPA_IDEAL
+XL2 /N1 /N2 IND_DCR L=120u R=3
+C3 +5V GND 100n
+C4 GND -5V 100n
+* stimulus + analysis (P0): 0->1 V step, 5 ns edges, delayed 100 ns
+Vstim /VDRV 0 DC 0 AC 1
+.ac lin 1 200k 200k
+.control
+run
+print phase(v(/N1)) phase(v(/N2))
+.endc
+.end

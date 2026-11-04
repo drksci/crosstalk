@@ -1,0 +1,62 @@
+* dlnn_sim.lib: baseline behavioural models for the TILE-8 / carrier netlists (hw/board/lib).
+* GENERIC and IDEALISED: not vendor models, nothing measured.  The C tier (M2a) substitutes the TI TLV906x macro,
+* the datasheet-derived inductor model and the fitted NPN; these stand-ins only make the exported netlist elaborate.
+.subckt IND_FH1812 a b L=120u R=3.3 Cp=19.4p Rp=6350
+L1 a m {L}
+R1 m b {R}
+Cp1 a b {Cp}
+Rp1 a b {Rp}
+.ends IND_FH1812
+* quad op-amp: VCVS 1e5 with a single pole for GBW 10 MHz (TLV9064), ideal output, rails only loaded by 1 Gohm
+.subckt OPA_QUAD in1p in1n out1 vcc in2p in2n out2 in3p in3n out3 in4p in4n out4 vee
+E1 x1 0 in1p in1n 1e5
+R1 x1 y1 1k
+C1 y1 0 1.5915e-06
+Eo1 out1 0 y1 0 1
+E2 x2 0 in2p in2n 1e5
+R2 x2 y2 1k
+C2 y2 0 1.5915e-06
+Eo2 out2 0 y2 0 1
+E3 x3 0 in3p in3n 1e5
+R3 x3 y3 1k
+C3 y3 0 1.5915e-06
+Eo3 out3 0 y3 0 1
+E4 x4 0 in4p in4n 1e5
+R4 x4 y4 1k
+C4 y4 0 1.5915e-06
+Eo4 out4 0 y4 0 1
+Rvcc vcc 0 1e9
+Rvee vee 0 1e9
+.ends OPA_QUAD
+* dual NPN (BCM847BS / BC847BS), pins in symbol order e1 b1 c2 e2 b2 c1; generic model fitted as in hw/board/spice/run_checks.py
+.model QNPN_G npn (IS=1.3520e-14 BF=300 VAF=100 RB=10 TF=0.6n CJE=13p CJC=4.8p MJE=0.33 MJC=0.33 VJE=0.75 VJC=0.75)
+.subckt DUAL_NPN e1 b1 c2 e2 b2 c1
+Q1 c1 b1 e1 QNPN_G
+Q2 c2 b2 e2 QNPN_G
+.ends DUAL_NPN
+* 74HCT4066 quad switch: Ron 118 ohm (TI HC4066 85 C max, HCT assumed equal), threshold 2.5 V on the enable
+.model SW4066 SW (Ron=118 Roff=1e9 Vt=1.5 Vh=0.2)
+.subckt SW4066_QUAD a1 b1 e1 a2 b2 e2 a3 b3 e3 a4 b4 e4 vdd vss
+S1 a1 b1 e1 vss SW4066
+S2 a2 b2 e2 vss SW4066
+S3 a3 b3 e3 vss SW4066
+S4 a4 b4 e4 vss SW4066
+Rvdd vdd 0 1e9
+.ends SW4066_QUAD
+* MCP4728 as four DC sources (VA..VD default 1.024 V = code 2048 with the internal 2.048 V reference; the bias offset resistor RO
+* on each channel sheet centres this on the 2.5 V virtual ground; set per channel from the model bias)
+.subckt DAC4_IDEAL vdd scl sda ldac rdy oa ob oc od vss VA=1.024 VB=1.024 VC=1.024 VD=1.024
+Va oa vss {VA}
+Vb ob vss {VB}
+Vc oc vss {VC}
+Vd od vss {VD}
+Rvdd vdd 0 1e9
+Rscl scl 0 1e9
+Rsda sda 0 1e9
+Rldac ldac 0 1e9
+Rrdy rdy 0 1e9
+.ends DAC4_IDEAL
+* 2.5 V shunt reference as an ideal source
+.subckt LM4040_25 k a
+V1 k a DC 2.5
+.ends LM4040_25

@@ -1,0 +1,31 @@
+2026-11-03 19:46:47.145 INFO   Freerouting v2.5.1-SNAPSHOT (build-date: 2026-11-03)
+2026-11-03 19:46:47.469 INFO   Hardware: 4 CPU cores, 452 CPU score, 3420 MB RAM
+2026-11-03 19:46:47.471 WARN   Deprecated settings path '-mp / --router.max_passes'; use '--router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-03 19:46:47.472 WARN   GUI is disabled and you don't have a console available, so the only feedback from Freerouting is in the log.
+2026-11-03 19:46:47.476 INFO   Configured network proxy: 127.0.0.1:41329
+2026-11-03 19:46:48.533 WARN   The '-mp' command-line flag is deprecated; use '--router.autorouter.max_passes' instead.
+2026-11-03 19:46:48.534 WARN   Deprecated settings path 'router.max_passes'; use 'router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-03 19:46:48.848 INFO   [4E3258\4D081A] Loading board file 'demo.dsn'...
+2026-11-03 19:46:48.882 INFO   Layer 'In1.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-03 19:46:48.882 INFO   Layer 'In2.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-03 19:46:48.913 INFO   [4E3258\4D081A] Job '4E3258\4D081A' started at 2026-11-03T19:46:48.913299475Z.
+2026-11-03 19:46:49.079 INFO   [4E3258\4D081A] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=3.
+2026-11-03 19:46:49.114 INFO   [4E3258\4D081A] Fanout stage started on board '446754d9045ad1f76c0e56c913bc67a0' with 37 of 37 SMD pins needing fanout (0 already connected, 0 netless, 0 ignored).
+2026-11-03 19:46:49.857 INFO   [4E3258\4D081A] Fanout pass #1 on board '8bf9a9e17577899de82d2a71802ee9bb' completed in 0.72 seconds with 37 SMD pins fanouted, 0 not routed, 0 insert errors, +27 extra vias (0 SMD pins still to check in pass, ripup costs=100).
+2026-11-03 19:46:49.914 INFO   [4E3258\4D081A] Fanout pass #2 on board '8bf9a9e17577899de82d2a71802ee9bb' completed in 0.05 seconds with 0 SMD pins fanouted, 0 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=200).
+2026-11-03 19:46:49.922 INFO   [4E3258\4D081A] Fanout stage completed: started with 37 total SMD pins, completed in 0.80 seconds, escaped pins: 37/37 (100.0%), using 0.46 total CPU seconds, 0.13 GB total allocated, and 157.4 MB peak heap usage.
+2026-11-03 19:46:49.946 INFO   [4E3258\4D081A] Auto-routing stage started on board '8bf9a9e17577899de82d2a71802ee9bb' with baseline score 542.86 for 12 unrouted items.
+2026-11-03 19:46:50.057 INFO   [4E3258\4D081A] Auto-routing pass #1 on board '8bf9a9e17577899de82d2a71802ee9bb' was completed in 0.10 seconds with score 1000.00 (0 unrouted and 0 violations), using 0.54 CPU seconds and the job allocated 0.14 GB of memory so far.
+2026-11-03 19:46:50.081 INFO   [4E3258\4D081A] Auto-routing pass #2 on board '3211fd7421263b822c1d67650e1f311b' was completed in 0.01 seconds with score 1000.00 (0 unrouted and 0 violations), using 0.54 CPU seconds and the job allocated 0.14 GB of memory so far.
+2026-11-03 19:46:50.125 INFO   [4E3258\4D081A] Auto-routing stage completed: started with 31 unrouted nets, completed in 1.03 seconds, final score: 1000.00 (0 unrouted and 0 violations), using 0.54 total CPU seconds, 0.14 GB total allocated, and 34.2 MB peak heap usage.
+2026-11-03 19:46:50.175 INFO   [4E3258\4D081A] Optimization stage started on board 'c6e90a7faa9dd1ecf0a01f069749d885'. Baseline router score: 1000.00, optimizer score: 715.91, incomplete connections: 0, clearance violations: 0.
+2026-11-03 19:46:51.233 INFO   [4E3258\4D081A] Optimizer pass #1 on board '76ce18c343000dc6aebaeb6bd33a2903' was completed in 0.99 seconds with the score of 750.00 (0 unrouted and 0 violations).
+2026-11-03 19:46:51.244 INFO   [4E3258\4D081A] Optimizer pass #1: optimizer score 715.91 -> 750.00 (IMPROVED, 4.7619%), router score: 1000.00, incomplete connections: 0, clearance violations: 0.
+2026-11-03 19:46:51.995 INFO   [4E3258\4D081A] Optimizer pass #2 on board 'ea53b846a705287810429751efc73b88' was completed in 0.71 seconds with the score of 758.52 (0 unrouted and 0 violations).
+2026-11-03 19:46:52.010 INFO   [4E3258\4D081A] Optimizer pass #2: optimizer score 750.00 -> 758.52 (IMPROVED, 1.1364%), router score: 1000.00, incomplete connections: 0, clearance violations: 0.
+2026-11-03 19:46:52.010 INFO   [4E3258\4D081A] Stopping optimizer because the improvement in this pass (1.1364%) is below the threshold (2.50%).
+2026-11-03 19:46:52.036 INFO   [4E3258\4D081A] Optimization stage completed:. Baseline router score: 1000.00, baseline optimizer score: 715.91, final router score: 1000.00, final optimizer score: 758.52, completed in 1.85 seconds, using 1.58 total CPU seconds, 0.74 GB total allocated, and 114.2 MB peak heap usage.
+2026-11-03 19:46:52.065 INFO   [4E3258\4D081A] Job '4E3258\4D081A' finished with state: COMPLETED (elapsed: 3.15 seconds, finished at UTC: 2026-11-03T19:46:52.063340344Z).
+2026-11-03 19:46:52.077 INFO   Saving output file '/home/user/dlnn/hw/p0/demo.ses' (SES)...
+2026-11-03 19:46:52.086 INFO   Successfully saved output file '/home/user/dlnn/hw/p0/demo.ses' (9595 bytes).
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=41329 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=

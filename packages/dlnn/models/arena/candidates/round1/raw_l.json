@@ -1,0 +1,61 @@
+{
+  "family": "raw",
+  "size": "l",
+  "feature_set": null,
+  "hidden": [
+    38
+  ],
+  "lr": 0.003,
+  "wd": 0.05,
+  "dropout": 0.2,
+  "epochs": 60,
+  "val_acc": 0.524,
+  "shipped_seed": 2,
+  "seeds": [
+    {
+      "seed": 0,
+      "train_acc": 0.6319,
+      "test_acc": 0.51725,
+      "test_acc_ge10dB": 0.5470833333333334
+    },
+    {
+      "seed": 1,
+      "train_acc": 0.626,
+      "test_acc": 0.50225,
+      "test_acc_ge10dB": 0.5375
+    },
+    {
+      "seed": 2,
+      "train_acc": 0.6364,
+      "test_acc": 0.52025,
+      "test_acc_ge10dB": 0.555
+    }
+  ],
+  "params": 10078,
+  "net_ops": {
+    "mults": 10032,
+    "adds": 10078,
+    "nonlin": 38
+  },
+  "grid_size": 24,
+  "search_seconds": 298.6,
+  "acc": 0.52025,
+  "acc_ge10dB": 0.555,
+  "acc_per_snr": {
+    "0": 0.4125,
+    "5": 0.52375,
+    "10": 0.54625,
+    "15": 0.56375,
+    "20": 0.555
+  },
+  "acc_per_class": {
+    "OOK": 0.766,
+    "BPSK": 0.188,
+    "QPSK": 0.254,
+    "8PSK": 0.204,
+    "16QAM": 0.196,
+    "2FSK": 0.904,
+    "4FSK": 0.926,
+    "GMSK": 0.724
+  }
+}

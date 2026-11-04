@@ -1,0 +1,224 @@
+{
+ "schema": "dlnn-nb-checks/1",
+ "notebook": "03",
+ "rows": [
+  {
+   "check": "build_line Q10: max |normalised FIR - ngspice M1a FIR|",
+   "got": 0.1463370868163394,
+   "reference": 0.0,
+   "tol": 0.2,
+   "unit": "",
+   "result": "PASS",
+   "note": "analytic ABCD (this tier) vs ngspice .ac FIR (M1a)"
+  },
+  {
+   "check": "build_line Q10: T_us",
+   "got": 0.8894894527212422,
+   "reference": 0.8895,
+   "tol": 0.01,
+   "unit": "us",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "build_line Q30: max |normalised FIR - ngspice M1a FIR|",
+   "got": 0.005973001712151094,
+   "reference": 0.0,
+   "tol": 0.2,
+   "unit": "",
+   "result": "PASS",
+   "note": "analytic ABCD (this tier) vs ngspice .ac FIR (M1a)"
+  },
+  {
+   "check": "build_line Q30: T_us",
+   "got": 0.8900631356496217,
+   "reference": 0.8895,
+   "tol": 0.01,
+   "unit": "us",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "nominal Q10: accuracy",
+   "got": 0.8705,
+   "reference": 0.8705,
+   "tol": 0.002,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "nominal Q30: accuracy",
+   "got": 0.87225,
+   "reference": 0.87225,
+   "tol": 0.002,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "nominal Q10_as_designed_trim0dB: accuracy",
+   "got": 0.1675,
+   "reference": 0.1675,
+   "tol": 0.002,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "nominal Q10_ideal_wire_no_xtalk: accuracy",
+   "got": 0.87025,
+   "reference": 0.87025,
+   "tol": 0.002,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "V ideal accuracy (4000)",
+   "got": 0.655,
+   "reference": 0.655,
+   "tol": 0.0005,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "Monte Carlo mean accuracy (50 trials, 200-ex subset)",
+   "got": 0.8509,
+   "reference": 0.85638875,
+   "tol": 0.025,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": "full run: 1000 trials, 800-ex subset"
+  },
+  {
+   "check": "Monte Carlo sigma",
+   "got": 0.007470349553332809,
+   "reference": 0.005581865114426871,
+   "tol": 0.01,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "Monte Carlo yield (acc >= V - 5 pt)",
+   "got": 1.0,
+   "reference": 1.0,
+   "tol": 0.05,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "sweep l_tol_pct: max |accuracy - stored|",
+   "got": 0.020750000000000046,
+   "reference": 0.0,
+   "tol": 0.05,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": "200 vs 1000 examples"
+  },
+  {
+   "check": "sweep clock_err_pct: max |accuracy - stored|",
+   "got": 0.019000000000000017,
+   "reference": 0.0,
+   "tol": 0.05,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": "200 vs 1000 examples"
+  },
+  {
+   "check": "sweep stage_snr_db: max |accuracy - stored|",
+   "got": 0.03600000000000003,
+   "reference": 0.0,
+   "tol": 0.05,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": "200 vs 1000 examples"
+  },
+  {
+   "check": "sweep crosstalk_k: max |accuracy - stored|",
+   "got": 0.0040000000000000036,
+   "reference": 0.0,
+   "tol": 0.05,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": "200 vs 1000 examples"
+  },
+  {
+   "check": "grid: mean |accuracy - stored sub-grid|",
+   "got": 0.015262345679012359,
+   "reference": 0.0,
+   "tol": 0.03,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "grid: max |accuracy - stored sub-grid|",
+   "got": 0.05249999999999999,
+   "reference": 0.0,
+   "tol": 0.1,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "gain trim 0.00 dB: accuracy vs stored",
+   "got": 0.15,
+   "reference": 0.176,
+   "tol": 0.06,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "gain trim 2.00 dB: accuracy vs stored",
+   "got": 0.245,
+   "reference": 0.244,
+   "tol": 0.06,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "gain trim 4.00 dB: accuracy vs stored",
+   "got": 0.245,
+   "reference": 0.251,
+   "tol": 0.06,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "gain trim 6.02 dB: accuracy vs stored",
+   "got": 0.42,
+   "reference": 0.457,
+   "tol": 0.06,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "gain trim 8.00 dB: accuracy vs stored",
+   "got": 0.82,
+   "reference": 0.842,
+   "tol": 0.06,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  },
+  {
+   "check": "gain trim 10.00 dB: accuracy vs stored",
+   "got": 0.825,
+   "reference": 0.826,
+   "tol": 0.06,
+   "unit": "fraction",
+   "result": "PASS",
+   "note": ""
+  }
+ ],
+ "lite": true,
+ "seconds_export_web": 52.7
+}

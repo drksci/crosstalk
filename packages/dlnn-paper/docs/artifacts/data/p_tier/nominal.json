@@ -1,0 +1,24 @@
+{
+ "Q10": {
+  "accuracy": 0.8705,
+  "agreement_vs_v": 0.67175,
+  "mean_kl_vs_v": 0.7562392354011536
+ },
+ "Q30": {
+  "accuracy": 0.87225,
+  "agreement_vs_v": 0.6665,
+  "mean_kl_vs_v": 0.780841052532196
+ },
+ "Q10_as_designed_trim0dB": {
+  "accuracy": 0.1675,
+  "agreement_vs_v": 0.196,
+  "mean_kl_vs_v": 13.93238639831543
+ },
+ "Q10_ideal_wire_no_xtalk": {
+  "accuracy": 0.87025,
+  "agreement_vs_v": 0.67125,
+  "mean_kl_vs_v": 0.7561059594154358
+ },
+ "v_accuracy": 0.655,
+ "n_examples": 4000
+}

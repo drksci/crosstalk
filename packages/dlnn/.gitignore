@@ -1,0 +1,11 @@
+.venv/
+hw/.venv-eda/
+**/__pycache__/
+*.egg-info/
+.ipynb_checkpoints/
+models/llm/
+out/
+**/_work/
+node_modules/
+*.sqlite
+docs/artifacts/article/_screens/

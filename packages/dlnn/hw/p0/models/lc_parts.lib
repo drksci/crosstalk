@@ -1,0 +1,12 @@
+* P0 demo behavioural part models (ideal; spike only)
+* Inductor with series DCR: L (H), R (ohm)
+.subckt IND_DCR a b L=120u R=3
+L1 a m {L}
+R1 m b {R}
+.ends IND_DCR
+* Ideal op-amp as VCVS (gain 1e5, zero output impedance); rails only loaded by 1 Gohm
+.subckt OPA_IDEAL inp inn out vcc vee
+E1 out 0 inp inn 1e5
+Rvcc vcc 0 1e9
+Rvee vee 0 1e9
+.ends OPA_IDEAL

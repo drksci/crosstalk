@@ -1,0 +1,24 @@
+* ----------------------------------------------------------------------------
+* diffpair.lib : GENERIC BJT emitter-coupled pair used as the tanh activation.
+*
+* NOT a vendor model (no 2N3904/BFP-xxx data).  A textbook-style NPN with round numbers:
+*   IS=1e-16 BF=100 VAF=100 RB=10 TF=200p CJE=0.5p CJC=0.3p
+* Ideal-exponential theory: Ic1 - Ic2 = alpha*I_EE*tanh((Vb1-Vb2)/(2 V_T)), V_T = kT/q
+* (25.85 mV at ngspice's 27 C default; the plan quotes 25.9 mV).  The generator sizes
+* I_EE = g / (Rl * alpha_nom) so that the differential output swing is +-g volts.
+* Base resistance, Early effect and junction capacitance make the real transfer deviate a
+* little from the ideal tanh; the DC sweep in dlnn/tiers/circuit.py fits and reports that.
+*
+* Ports: inp inn  = base inputs (differential drive about a common-mode DC level)
+*        outp outn = collector nodes  (V(outp)-V(outn) = Rl*(Ic1-Ic2), positive for inp>inn)
+*        vcc       = supply
+* The tail is an ideal current sink I_EE to ground (the common-mode input must be >~ 1 V).
+* ----------------------------------------------------------------------------
+.model qgeneric npn (IS=1e-16 BF=100 VAF=100 RB=10 TF=200p CJE=0.5p CJC=0.3p)
+.subckt diffpair inp inn outp outn vcc PARAMS: rl=1k iee=1m
+Q1 outn inp tail qgeneric
+Q2 outp inn tail qgeneric
+Iee tail 0 DC {iee}
+Rl1 vcc outn {rl}
+Rl2 vcc outp {rl}
+.ends diffpair

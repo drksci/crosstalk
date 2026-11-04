@@ -1,0 +1,637 @@
+{
+  "schema_version": "dlnn-compare/1",
+  "run_id": "final-w32",
+  "task": "modrec",
+  "model_sha256": "3e67999dbaf59454d25d3a6c7272cd17d407dd322f4a37287b056626a6c514c0",
+  "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+  "tiers": [
+    "V",
+    "E",
+    "C",
+    "R"
+  ],
+  "tier_info": {
+    "V": {
+      "status": "ok",
+      "tool": {
+        "name": "numpy-float32",
+        "version": "2.5.4"
+      },
+      "fidelity": {
+        "models": [
+          "ideal unit delays",
+          "exact ternary sums",
+          "exact tanh",
+          "float32 arithmetic"
+        ],
+        "omits": [
+          "every physical effect: loss, dispersion, noise, quantisation, saturation limits"
+        ]
+      },
+      "runtime_s": 8.3571,
+      "warnings": [],
+      "inputs_from": [],
+      "n_examples": 4000
+    },
+    "E": {
+      "status": "ok",
+      "tool": {
+        "name": "numpy-fixedpoint",
+        "version": "2.5.4"
+      },
+      "fidelity": {
+        "models": [
+          "numpy fixed-point golden model (bit-true): 8-bit absmax ADC, int2 ternary weights, int32 accumulate, 256-entry tanh LUT -> int8, Q.15 scale / per-line scale, integer pool sum",
+          "Verilog RTL hw/rtl/tdl_layer.v (iverilog 12.0) run on the first 64 test examples (first 32 of 128 time steps), all 3 layers chained (each RTL layer fed by the previous RTL layer's output), vs the numpy golden model: 202752 values (layer outputs + pooled sums) compared, 0 mismatches [L1: 67584 compared / 0 mismatches, L2: 67584 compared / 0 mismatches, L3: 67584 compared / 0 mismatches]",
+          "RTL-driven float readout on those 64 examples identical to golden: True",
+          "RTL layer 1 also checked at ADC widths 4-10 bits on 16 examples: 118272 values compared, 0 mismatches",
+          "test-set metrics and all sweeps (snr_db, adc_bits) on all 4000 test examples come from the numpy golden model (verified equal to the RTL on the subset above), not from RTL"
+        ],
+        "omits": [
+          "RTL not simulated on the full test set (only 64 examples, numpy golden elsewhere)",
+          "all analog effects (loss, dispersion, noise, coupler errors)",
+          "ADC quantiser and float32 readout/softmax are numpy post-processing, not RTL"
+        ]
+      },
+      "runtime_s": 159.4415,
+      "warnings": [],
+      "inputs_from": [],
+      "n_examples": 4000
+    },
+    "C": {
+      "status": "ok",
+      "tool": {
+        "name": "ngspice",
+        "version": "42"
+      },
+      "fidelity": {
+        "models": [
+          "SPICE (ngspice 42) computed: (a) .ac per-tap complex H_k(f) of the lossy RLC coax lines (RG-58-like generic model, 32 dB/us at 100 MHz, constant R) and .dc diff-pair transfer (tanh fit R^2 = 1.00000, V_sat = 52.02 mV, gain A = 0.9904 V); (b) ngspice .tran of the layer-1 unit cell (16 test examples, 8 output lines): layer-1 activations vs V NMSE = 0.0220 (variance-normalised; 0.0187 energy-normalised), noise off; same cell without the gain trim: NMSE = 0.0267; calibrated behavioural layer 1 vs these SPICE traces: NMSE = 0.0000",
+          "The FULL test-set numbers (metrics, sweeps, traces) come from the CIRCUIT-CALIBRATED BEHAVIOURAL MODEL (closed-form RLC line fitted to the SPICE H_k(f), evaluated per tap delay k*d*T_s, sampled at 0.8*T_s; tanh with the SPICE-fitted V_sat/gain/offset; loss compensation 'layer' = one ideal gain trim per layer (no per-tap repeaters)). They are NOT SPICE results.",
+          "Layer-1 SPICE unit cell(s) only; layers 2-3 (d=4, 16) use the same fitted line model, extrapolated to longer delays and NOT simulated in SPICE."
+        ],
+        "omits": [
+          "full network in SPICE (only layer 1, 16 examples, was run end-to-end in ngspice)",
+          "layers 2-3 line responses are extrapolated from the layer-1 fit; no SPICE verification of long lines",
+          "skin-effect sqrt(f) loss/dispersion (constant-R LTRA line; DC loss of long lines is overstated)",
+          "dielectric loss, connectors, layout parasitics, crosstalk, coupler imperfections (ideal VCVS taps)",
+          "noise (all sources off), temperature/bias drift; BJT is a GENERIC model, not a vendor part",
+          "RC pool is only checked inside the unit cell; the tier's readout pooling is the exact digital mean",
+          "readout and softmax are digital (not circuit)"
+        ]
+      },
+      "runtime_s": 92.383,
+      "warnings": [
+        "extraction parameters written to params/circuit_extracted.json (source: ngspice); schema dlnn-circuit-extracted/1"
+      ],
+      "inputs_from": [
+        "params/circuit_extracted.json"
+      ],
+      "n_examples": 4000
+    },
+    "R": {
+      "status": "ok",
+      "tool": {
+        "name": "scikit-rf",
+        "version": "2.2.0"
+      },
+      "fidelity": {
+        "models": [
+          "scikit-rf 2.2.0: skrf.media.Coaxial lossy dispersive line (skin effect ~sqrt(f), 32 dB/us at 100 MHz, v_p=19.8 cm/ns) per tap path",
+          "coupler tap (10 dB, isolation 30 dB, amp err sigma 0.5 dB, phase err sigma 5 deg as delay skew)",
+          "mismatch Gamma=0.05 at both line ends (multi-reflection ripple), 180-degree hybrid sign, Wilkinson N-way combiner (-10log10 N dB)",
+          "amplifier gain compensating mean tap loss, tanh AM/AM, stage SNR 30.0 dB, NF 3 dB",
+          "neighbour crosstalk -35.0 dB, readout ADC 10 bits",
+          "IFFT impulse responses on a fine grid (8 pts/symbol), raised-cosine beta=1 pulses, ideal symbol-rate re-timing between layers"
+        ],
+        "omits": [
+          "no EM / layout / connector effects: channel-level two-port cascades only",
+          "no hardware measurement of any kind; coax is a generic RG-58-like model (not vendor data)",
+          "amplifier is memoryless (no bandwidth limit, no AM/PM, no bias drift); noise is white and added once per stage at the amplifier input",
+          "ideal re-timing (sample at the symbol instants, no jitter or clock skew) and ideal pulse regeneration between layers; input DAC/pulse generator is ideal",
+          "crosstalk is flat and only between neighbouring input lines (no NEXT/FEXT frequency shape); hybrid isolation is not modelled separately from the coupler isolation_db",
+          "the snr_db sweep axis of tier R is the per-stage amplifier SNR, not input AWGN as in V/E"
+        ]
+      },
+      "runtime_s": 217.4489,
+      "warnings": [
+        "cascade: loss_db_per_us=32.000004521792455 and amp scales taken from /home/user/dlnn/out/final-w32/params/circuit_extracted.json (circuit extraction source=ngspice); the SPICE tap_H samples are NOT used directly (layers 2-3 need delays beyond the layer-1 unit cell)",
+        "Channel-level simulation (scikit-rf two-ports + numpy convolution): no EM/layout effects, no hardware measurement. Required amplifier gain per layer (dB): L0=22.6, L1=36.3, L2=41.6"
+      ],
+      "inputs_from": [
+        "params/circuit_extracted.json"
+      ],
+      "n_examples": 4000
+    }
+  },
+  "metric_matrix": {
+    "accuracy": {
+      "V": 0.86275,
+      "E": 0.863,
+      "C": 0.66275,
+      "R": 0.70125
+    },
+    "macro_f1": {
+      "V": 0.8623754950228832,
+      "E": 0.8624889482449892,
+      "C": 0.6265009205127612,
+      "R": 0.657999268396868
+    },
+    "acc_per_snr": {
+      "V": {
+        "0": 0.7875,
+        "5": 0.8525,
+        "10": 0.88,
+        "15": 0.89375,
+        "20": 0.9
+      },
+      "E": {
+        "0": 0.79,
+        "5": 0.85125,
+        "10": 0.87875,
+        "15": 0.89625,
+        "20": 0.89875
+      },
+      "C": {
+        "0": 0.545,
+        "5": 0.6875,
+        "10": 0.68,
+        "15": 0.70875,
+        "20": 0.6925
+      },
+      "R": {
+        "0": 0.5925,
+        "5": 0.715,
+        "10": 0.71875,
+        "15": 0.7425,
+        "20": 0.7375
+      }
+    },
+    "top1_agreement_vs_virtual": {
+      "V": 1.0,
+      "E": 0.99725,
+      "C": 0.66175,
+      "R": 0.7085
+    },
+    "mean_kl_virtual_vs_tier": {
+      "V": 0.0,
+      "E": 7.464033842552453e-05,
+      "C": 1.0548373460769653,
+      "R": 0.7656403183937073
+    },
+    "logit_nmse_vs_virtual": {
+      "V": 0.0,
+      "E": 2.2895439542480744e-05,
+      "C": 0.2256200760602951,
+      "R": 0.2059182971715927
+    }
+  },
+  "deltas_vs_virtual": {
+    "accuracy": {
+      "E": 0.00024999999999997247,
+      "C": -0.20000000000000007,
+      "R": -0.16149999999999998
+    },
+    "macro_f1": {
+      "E": 0.00011345322210598585,
+      "C": -0.23587457451012206,
+      "R": -0.2043762266260153
+    },
+    "acc_per_snr": {
+      "E": {
+        "0": 0.0025000000000000577,
+        "5": -0.0012500000000000844,
+        "10": -0.0012499999999999734,
+        "15": 0.0024999999999999467,
+        "20": -0.0012499999999999734
+      },
+      "C": {
+        "0": -0.24249999999999994,
+        "5": -0.16500000000000004,
+        "10": -0.19999999999999996,
+        "15": -0.18500000000000005,
+        "20": -0.20750000000000002
+      },
+      "R": {
+        "0": -0.19499999999999995,
+        "5": -0.13750000000000007,
+        "10": -0.16125,
+        "15": -0.15125,
+        "20": -0.16249999999999998
+      }
+    },
+    "top1_agreement_vs_virtual": {
+      "E": -0.00275000000000003,
+      "C": -0.33825000000000005,
+      "R": -0.2915
+    },
+    "mean_kl_virtual_vs_tier": {
+      "E": 7.464033842552453e-05,
+      "C": 1.0548373460769653,
+      "R": 0.7656403183937073
+    },
+    "logit_nmse_vs_virtual": {
+      "E": 2.2895439542480744e-05,
+      "C": 0.2256200760602951,
+      "R": 0.2059182971715927
+    }
+  },
+  "sweeps": {
+    "snr_db": {
+      "V": {
+        "values": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          30.0
+        ],
+        "accuracy": [
+          0.6975,
+          0.81075,
+          0.84725,
+          0.8585,
+          0.862,
+          0.862
+        ],
+        "mean_kl": [
+          0.5080717206001282,
+          0.13604846596717834,
+          0.042917054146528244,
+          0.012758123688399792,
+          0.004278915468603373,
+          0.0004271669895388186
+        ]
+      },
+      "E": {
+        "values": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          30.0
+        ],
+        "accuracy": [
+          0.69825,
+          0.8105,
+          0.8475,
+          0.85925,
+          0.8635,
+          0.86275
+        ],
+        "mean_kl": [
+          0.5080762505531311,
+          0.13614314794540405,
+          0.04284418374300003,
+          0.012830368243157864,
+          0.004380290862172842,
+          0.00048224497004412115
+        ]
+      },
+      "C": {
+        "values": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          30.0
+        ],
+        "accuracy": [
+          0.46625,
+          0.60675,
+          0.64525,
+          0.66225,
+          0.665,
+          0.66375
+        ],
+        "mean_kl": [
+          2.3258824348449707,
+          1.4085935354232788,
+          1.1506445407867432,
+          1.0732249021530151,
+          1.0606962442398071,
+          1.0552940368652344
+        ]
+      },
+      "R": {
+        "values": [
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          30.0
+        ],
+        "accuracy": [
+          0.1695,
+          0.25,
+          0.399,
+          0.59525,
+          0.669,
+          0.70125
+        ],
+        "mean_kl": [
+          3.110294818878174,
+          4.543256759643555,
+          2.962698221206665,
+          1.507659673690796,
+          0.9920843839645386,
+          0.7656403183937073
+        ]
+      }
+    },
+    "adc_bits": {
+      "E": {
+        "values": [
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0,
+          9.0,
+          10.0
+        ],
+        "accuracy": [
+          0.84875,
+          0.86,
+          0.861,
+          0.86325,
+          0.863,
+          0.86125,
+          0.86225
+        ],
+        "mean_kl": [
+          0.026892805472016335,
+          0.004562378861010075,
+          0.0014513871865347028,
+          0.00035122953704558313,
+          7.464033842552453e-05,
+          2.4688944904482923e-05,
+          1.021054049488157e-05
+        ]
+      },
+      "R": {
+        "values": [
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0,
+          9.0,
+          10.0
+        ],
+        "accuracy": [
+          0.6985,
+          0.70025,
+          0.7,
+          0.70225,
+          0.70175,
+          0.7015,
+          0.70125
+        ],
+        "mean_kl": [
+          0.7686651349067688,
+          0.766074538230896,
+          0.7669469714164734,
+          0.7659655809402466,
+          0.7653614282608032,
+          0.7655051350593567,
+          0.7656403183937073
+        ]
+      }
+    },
+    "loss_db_per_us": {
+      "C": {
+        "values": [
+          0.0,
+          5.0,
+          14.0,
+          32.0
+        ],
+        "accuracy": [
+          0.863,
+          0.827,
+          0.75125,
+          0.66275
+        ],
+        "mean_kl": [
+          1.307219122281822e-06,
+          0.09161946177482605,
+          0.49455583095550537,
+          1.0548373460769653
+        ]
+      },
+      "R": {
+        "values": [
+          0.0,
+          5.0,
+          14.0,
+          32.0
+        ],
+        "accuracy": [
+          0.86075,
+          0.845,
+          0.7895,
+          0.70125
+        ],
+        "mean_kl": [
+          0.009900389239192009,
+          0.044416643679142,
+          0.21769259870052338,
+          0.7656393051147461
+        ]
+      }
+    },
+    "isolation_db": {
+      "R": {
+        "values": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0
+        ],
+        "accuracy": [
+          0.6665,
+          0.68875,
+          0.698,
+          0.70125,
+          0.70325,
+          0.70375
+        ],
+        "mean_kl": [
+          0.9254750609397888,
+          0.8187121748924255,
+          0.780781626701355,
+          0.7656403183937073,
+          0.7589470148086548,
+          0.7557583451271057
+        ]
+      }
+    },
+    "tap_amp_err_db": {
+      "R": {
+        "values": [
+          0.0,
+          0.25,
+          0.5,
+          1.0,
+          2.0
+        ],
+        "accuracy": [
+          0.7115,
+          0.70725,
+          0.70125,
+          0.67875,
+          0.61825
+        ],
+        "mean_kl": [
+          0.7079287171363831,
+          0.7338176965713501,
+          0.7656403183937073,
+          0.8504714965820312,
+          1.1358896493911743
+        ]
+      }
+    }
+  },
+  "knees": [
+    {
+      "axis": "snr_db",
+      "tier": "V",
+      "metric": "accuracy",
+      "knee_value": 5.0,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "snr_db",
+      "tier": "E",
+      "metric": "accuracy",
+      "knee_value": 5.0,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "adc_bits",
+      "tier": "E",
+      "metric": "accuracy",
+      "knee_value": null,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "snr_db",
+      "tier": "C",
+      "metric": "accuracy",
+      "knee_value": 5.0,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "loss_db_per_us",
+      "tier": "C",
+      "metric": "accuracy",
+      "knee_value": 14.0,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "snr_db",
+      "tier": "R",
+      "metric": "accuracy",
+      "knee_value": 15.0,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "loss_db_per_us",
+      "tier": "R",
+      "metric": "accuracy",
+      "knee_value": 14.0,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "isolation_db",
+      "tier": "R",
+      "metric": "accuracy",
+      "knee_value": null,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "tap_amp_err_db",
+      "tier": "R",
+      "metric": "accuracy",
+      "knee_value": 2.0,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    },
+    {
+      "axis": "adc_bits",
+      "tier": "R",
+      "metric": "accuracy",
+      "knee_value": null,
+      "rule": "first sweep value where accuracy is >= 0.05 below its best-end value"
+    }
+  ],
+  "reference": {
+    "label": "float32 baseline (same topology, unconstrained float taps); a REFERENCE, not a fifth tier",
+    "is_tier": false,
+    "model_file": "models/tdlnet_modrec_w32_float.npz",
+    "model_file_sha256": "b66a42e534939e7cbfd9328566c48c955f0c41e079f1aee202b2c0993ecdb9fb",
+    "tool": "dlnn.tiers.virtual.forward (numpy float32)",
+    "n_examples": 4000,
+    "accuracy": 0.91875,
+    "macro_f1": 0.9187601083773818,
+    "top1_agreement_with_ternary_V": 0.88175,
+    "accuracy_ternary_V": 0.86275,
+    "acc_per_snr": {
+      "0": 0.8175,
+      "5": 0.9125,
+      "10": 0.9475,
+      "15": 0.95625,
+      "20": 0.96
+    },
+    "acc_per_snr_ternary_V": {
+      "0": 0.7875,
+      "5": 0.8525,
+      "10": 0.88,
+      "15": 0.89375,
+      "20": 0.9
+    },
+    "accuracy_snr_ge_10db": 0.9545833333333333,
+    "accuracy_snr_ge_10db_ternary_V": 0.89125
+  },
+  "timing": {
+    "stages_s": {
+      "dataset+model": 0.68,
+      "V": 9.02,
+      "E": 159.48,
+      "C": 92.43,
+      "R": 217.51,
+      "reference": 1.65,
+      "compare": 0.0,
+      "figures": 11.48,
+      "llm": 187.71,
+      "total_before_db": 680.97
+    },
+    "total_s": 680.97,
+    "note": "wall seconds per stage incl. saving; database load is not included"
+  },
+  "run_meta": {
+    "model_file": "models/tdlnet_modrec_w32_ternary.npz",
+    "n_test_full": 4000,
+    "cr_subset": null,
+    "cascade": true,
+    "llm": "qwen",
+    "db": "sqlite",
+    "load_avg_start": [
+      0.38,
+      0.56,
+      1.05
+    ],
+    "total_budget_s": 1500,
+    "load_avg_end": [
+      1.79,
+      1.45,
+      1.26
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "task": "modrec",
+  "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+  "dataset_seed": 20260101,
+  "n_train": 16000,
+  "n_test": 4000,
+  "width": 32,
+  "recipe": {
+    "optimizer": "Adam",
+    "lr": 0.03,
+    "schedule": "cosine",
+    "batch": 256,
+    "epochs": 60,
+    "iq_rotation_aug": true,
+    "line_gain": false,
+    "base_seed": 0,
+    "restarts": 1,
+    "soft_frac": 0.5,
+    "torch": "2.15.0+cpu"
+  },
+  "ternary": {
+    "acc": 0.86275,
+    "acc_ge10dB": 0.89125,
+    "acc_per_snr": {
+      "0": 0.7875,
+      "5": 0.8525,
+      "10": 0.88,
+      "15": 0.89375,
+      "20": 0.9
+    },
+    "acc_per_class": {
+      "OOK": 0.998,
+      "BPSK": 0.97,
+      "QPSK": 0.474,
+      "8PSK": 0.632,
+      "16QAM": 0.844,
+      "2FSK": 0.996,
+      "4FSK": 0.996,
+      "GMSK": 0.992
+    },
+    "seconds": 150.3,
+    "epochs": 60,
+    "seed": 0,
+    "restarts": [
+      {
+        "seed": 0,
+        "train_acc": 0.8594,
+        "seconds": 150.3
+      }
+    ],
+    "acc_8bit_fakequant": 0.86175,
+    "model_sha256": "3e67999dbaf59454d25d3a6c7272cd17d407dd322f4a37287b056626a6c514c0",
+    "n_ternary_weights": 16896,
+    "file": "models/tdlnet_modrec_w32_ternary.npz"
+  },
+  "float": {
+    "acc": 0.91875,
+    "acc_ge10dB": 0.9545833333333333,
+    "acc_per_snr": {
+      "0": 0.8175,
+      "5": 0.9125,
+      "10": 0.9475,
+      "15": 0.95625,
+      "20": 0.96
+    },
+    "acc_per_class": {
+      "OOK": 0.998,
+      "BPSK": 0.982,
+      "QPSK": 0.792,
+      "8PSK": 0.714,
+      "16QAM": 0.876,
+      "2FSK": 0.994,
+      "4FSK": 0.998,
+      "GMSK": 0.996
+    },
+    "seconds": 90.4,
+    "epochs": 60,
+    "seed": 0,
+    "restarts": [
+      {
+        "seed": 0,
+        "train_acc": 0.9226,
+        "seconds": 90.4
+      }
+    ],
+    "file": "models/tdlnet_modrec_w32_float.npz"
+  },
+  "total_seconds": 243.5
+}

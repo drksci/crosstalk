@@ -1,0 +1,44 @@
+{
+ "02_spice_board": {
+  "seconds": 71.6,
+  "ngspice": "ngspice-42 : Circuit level simulation program",
+  "python": "3.12.3",
+  "cpus": 4,
+  "colab": false,
+  "finished": "2026-11-04 01:00:17"
+ },
+ "03_parasitics_montecarlo": {
+  "seconds": 64.8,
+  "ngspice": "ngspice-42 : Circuit level simulation program",
+  "python": "3.12.3",
+  "cpus": 4,
+  "colab": false,
+  "finished": "2026-11-04 01:01:23"
+ },
+ "04_scale_story": {
+  "seconds": 1.4,
+  "ngspice": "ngspice-42 : Circuit level simulation program",
+  "python": "3.12.3",
+  "cpus": 4,
+  "colab": false,
+  "finished": "2026-11-04 01:01:26"
+ },
+ "00_verify": {
+  "seconds": 121.4,
+  "ngspice": "ngspice-42 : Circuit level simulation program",
+  "python": "3.13.18",
+  "cpus": 4,
+  "colab": false,
+  "finished": "2026-11-04 04:23:52",
+  "n_pass": 217,
+  "n_fail": 0
+ },
+ "01_small_nets_and_arena": {
+  "seconds": 233.6,
+  "ngspice": "ngspice-42 : Circuit level simulation program",
+  "python": "3.12.3",
+  "cpus": 4,
+  "colab": false,
+  "finished": "2026-11-04 04:18:45"
+ }
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" font-family="DejaVu Sans, Arial, sans-serif" font-size="12">
+<style>
+  .b{fill:#f4f6f8;stroke:#34495e;stroke-width:1.4}
+  .a{fill:#e8f1fb;stroke:#2c6fb7;stroke-width:1.4}
+  .d{fill:#fdf1e3;stroke:#c76b00;stroke-width:1.4}
+  .g{fill:#e9f6ec;stroke:#2e8b57;stroke-width:1.4}
+  .t{fill:#1b2733}
+  .s{fill:#55636f;font-size:10.5px}
+  .l{stroke:#34495e;stroke-width:1.5;fill:none;marker-end:url(#ar)}
+  @media (prefers-color-scheme: dark){.b{fill:#1f2933;stroke:#9fb3c8}.a{fill:#172a3a;stroke:#6aa9e9}.d{fill:#3a2a17;stroke:#e0a050}.g{fill:#15301f;stroke:#5fc08a}.t{fill:#e6edf3}.s{fill:#9fb3c8}.l{stroke:#9fb3c8}}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7f8c8d"/></marker></defs>
+<text class="t" x="20" y="24" font-size="15" font-weight="bold">TILE-8 signal path (one output channel shown; designed, not built)</text>
+<rect class="g" x="20" y="50" width="130" height="64" rx="6"/><text class="t" x="85" y="76" text-anchor="middle">NUCLEO-G474RE</text><text class="s" x="85" y="92" text-anchor="middle">DAC1 ch1/ch2 = I/Q</text><text class="s" x="85" y="105" text-anchor="middle">1 MS/s, ADC read-out</text>
+<rect class="b" x="20" y="150" width="130" height="50" rx="6"/><text class="t" x="85" y="172" text-anchor="middle">carrier: 2.5 V ref,</text><text class="s" x="85" y="188" text-anchor="middle">level shift, +5VA LDO, I2C mux</text>
+<path class="l" d="M85,114 L85,150"/>
+<rect class="a" x="190" y="70" width="110" height="60" rx="6"/><text class="t" x="245" y="94" text-anchor="middle">input RC + buffer</text><text class="s" x="245" y="110" text-anchor="middle">1k / 330 pF, 482 kHz</text><text class="s" x="245" y="123" text-anchor="middle">x 8 lines</text>
+<path class="l" d="M150,175 L170,175 L170,100 L190,100"/>
+<rect class="a" x="340" y="60" width="330" height="80" rx="6"/><text class="t" x="505" y="84" text-anchor="middle">LC ladder, 56 sections, Zo = 1 kohm</text><text class="s" x="505" y="101" text-anchor="middle">Rs = Rl = 1k, L = 120 uH (C394134), C = 120 pF C0G, ends 2x30 pF</text><text class="s" x="505" y="116" text-anchor="middle">taps at sections 0, 8, ..., 56 (~0.97 us apart)</text><text class="s" x="505" y="131" text-anchor="middle">x 8 lines per tile (layer 1: 2 populated)</text>
+<path class="l" d="M300,100 L340,100"/>
+<rect class="a" x="340" y="180" width="150" height="48" rx="6"/><text class="t" x="415" y="202" text-anchor="middle">tap buffers x 64</text><text class="s" x="415" y="218" text-anchor="middle">TLV9064, gain 1, Cin 6 pF</text>
+<path class="l" d="M505,140 L505,160 L415,160 L415,180"/>
+<rect class="d" x="540" y="180" width="200" height="90" rx="6"/><text class="t" x="640" y="202" text-anchor="middle">crossbar: 1024 x 0402 footprints</text><text class="s" x="640" y="219" text-anchor="middle">W=+1: '+' pad populated (10k)</text><text class="s" x="640" y="233" text-anchor="middle">W=-1: '-' pad populated; W=0: both DNP</text><text class="s" x="640" y="249" text-anchor="middle">CPL file = trained model</text><text class="s" x="640" y="262" text-anchor="middle">DNP isolation -56 dB @500 kHz</text>
+<path class="l" d="M490,204 L540,204"/>
+<rect class="a" x="780" y="180" width="140" height="90" rx="6"/><text class="t" x="850" y="202" text-anchor="middle">2 inverting summers</text><text class="s" x="850" y="219" text-anchor="middle">TLV9064, R_f per layer</text><text class="s" x="850" y="233" text-anchor="middle">1330 / 866 / 499 ohm</text><text class="s" x="850" y="249" text-anchor="middle">+ DAC bias via R_b</text><text class="s" x="850" y="262" text-anchor="middle">(MCP4728 x 2)</text>
+<path class="l" d="M740,225 L780,225"/>
+<rect class="d" x="780" y="310" width="140" height="70" rx="6"/><text class="t" x="850" y="332" text-anchor="middle">BJT diff pair = tanh</text><text class="s" x="850" y="348" text-anchor="middle">BCM847BS, mirror tail</text><text class="s" x="850" y="362" text-anchor="middle">1 mA, 1k loads, 2VT=52 mV</text><text class="s" x="850" y="374" text-anchor="middle">fit R2 = 1.0000</text>
+<path class="l" d="M850,270 L850,310"/>
+<rect class="a" x="560" y="310" width="170" height="70" rx="6"/><text class="t" x="645" y="332" text-anchor="middle">difference amp (x0.52)</text><text class="s" x="645" y="348" text-anchor="middle">20k / 10.5k, 8.2 pF</text><text class="s" x="645" y="362" text-anchor="middle">-> 2.5 V +- 0.5 V per +-1</text>
+<path class="l" d="M780,345 L730,345"/>
+<rect class="b" x="340" y="310" width="170" height="70" rx="6"/><text class="t" x="425" y="332" text-anchor="middle">track-and-hold</text><text class="s" x="425" y="348" text-anchor="middle">74HCT4066 + 560 pF + buffer</text><text class="s" x="425" y="362" text-anchor="middle">track 450 ns / hold 550 ns</text>
+<path class="l" d="M560,345 L510,345"/>
+<rect class="g" x="100" y="310" width="190" height="70" rx="6"/><text class="t" x="195" y="332" text-anchor="middle">2x13 ribbon to next tile</text><text class="s" x="195" y="348" text-anchor="middle">8 signals interleaved with GND</text><text class="s" x="195" y="362" text-anchor="middle">+5VA, 3V3, I2C, SH_CLK, SYNC</text>
+<path class="l" d="M340,345 L290,345"/>
+<text class="s" x="20" y="430">Layer 1 -> 2 -> 3 are three copies of this tile (layer 1 populates 2 of 8 lines); the last tile's 8 held outputs go to the Nucleo ADCs.</text>
+<text class="s" x="20" y="448">Width scaling (W &gt; 8): partial sums leave through the separate 2x8 header J_PS; (W/8)^2 tiles per layer.</text>
+<text class="s" x="20" y="466">Colours: green = host / interconnect, blue = analog buffer / amplifier / filter, orange = weight and nonlinearity, grey = timing / storage.</text>
+<text class="s" x="20" y="490">Numbers are from hw/board/params.json and hw/board/spice/results.json (ngspice, datasheet-derived models; no measurement).</text>
+</svg>

@@ -1,0 +1,79 @@
+{
+ "schema": "dlnn-board-materials/1",
+ "label": "render of the design (not a photo; board not fabricated)",
+ "roles": {
+  "copper_enig_gold": {
+   "color": "#d4a74a",
+   "metalness": 1.0,
+   "roughness": 0.25,
+   "note": "ENIG: all exposed copper (pads, THT rings, the gold art island); GLB from kicad-cli carries a yellow-olive copper material, replace it"
+  },
+  "soldermask_black": {
+   "color": "#0b0b0d",
+   "metalness": 0.0,
+   "roughness": 0.55,
+   "opacity": 0.9,
+   "note": "solder mask, black (stackup colour), semi-opaque so tracks show faintly"
+  },
+  "silkscreen_white": {
+   "color": "#f2f2f2",
+   "metalness": 0.0,
+   "roughness": 0.85
+  },
+  "substrate": {
+   "color": "#4d4a3a",
+   "metalness": 0.0,
+   "roughness": 0.8,
+   "note": "FR-4 edge / board body"
+  },
+  "other": {
+   "color": "#4d4d4d",
+   "metalness": 0.0,
+   "roughness": 0.8,
+   "note": "component bodies (KiCad stock 3D models)"
+  }
+ },
+ "glb": {
+  "carrier": {
+   "mat_0": "copper_enig_gold",
+   "mat_1": "other",
+   "mat_2": "silkscreen_white",
+   "mat_3": "soldermask_black",
+   "mat_4": "soldermask_black",
+   "mat_5": "other"
+  },
+  "tile_L1": {
+   "mat_0": "silkscreen_white",
+   "mat_1": "silkscreen_white",
+   "mat_2": "soldermask_black",
+   "mat_3": "soldermask_black",
+   "mat_4": "other"
+  },
+  "tile_L2": {
+   "mat_0": "silkscreen_white",
+   "mat_1": "silkscreen_white",
+   "mat_2": "soldermask_black",
+   "mat_3": "soldermask_black",
+   "mat_4": "other"
+  },
+  "tile_L3": {
+   "mat_0": "silkscreen_white",
+   "mat_1": "silkscreen_white",
+   "mat_2": "soldermask_black",
+   "mat_3": "soldermask_black",
+   "mat_4": "other"
+  }
+ },
+ "art": {
+  "file": "art/art_carrier_geometry.json",
+  "layers": [
+   "B.Cu",
+   "B.Mask"
+  ],
+  "role": "copper_enig_gold",
+  "color": "#d4a74a",
+  "metalness": 1.0,
+  "roughness": 0.25,
+  "note": "ENIG: all exposed copper (pads, THT rings, the gold art island); GLB from kicad-cli carries a yellow-olive copper material, replace it"
+ }
+}

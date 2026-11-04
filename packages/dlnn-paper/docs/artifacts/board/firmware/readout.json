@@ -1,0 +1,139 @@
+{
+ "schema": "dlnn-board-firmware-readout/1",
+ "note": "Digital readout for the MCU firmware (NUCLEO-G474RE): the readout is NOT on the PCB. designed, not built, nothing measured.",
+ "model": "models/tdlnet_b_w8_aware2_fro_ternary.npz",
+ "model_file_sha256": "3405923d2c64bb0c2d028a251701cf0e1397baafa0d9233e8e87fe8a238f8706",
+ "tile_layers": 3,
+ "taps_per_layer": 8,
+ "ternary_layers": "all (L0..L2)",
+ "readout": {
+  "kind": "pooled",
+  "readout_from": [
+   2
+  ],
+  "float_readout": true,
+  "W_shape": [
+   8,
+   8
+  ],
+  "b_shape": [
+   8
+  ],
+  "W": [
+   [
+    5.0765748,
+    7.2963519,
+    3.2346511,
+    -1.4744442,
+    -5.7375422,
+    4.2926202,
+    -0.5731337,
+    -4.7050653
+   ],
+   [
+    4.9569983,
+    -3.5322084,
+    7.1264305,
+    -5.3148441,
+    2.9759421,
+    -0.742889,
+    -6.1816902,
+    -1.0979648
+   ],
+   [
+    -2.3284953,
+    -4.3284173,
+    -1.2052649,
+    -4.6193285,
+    3.2475696,
+    -1.7221156,
+    4.3125606,
+    0.0995593
+   ],
+   [
+    -2.4475775,
+    -3.8389637,
+    0.0086733,
+    3.1251161,
+    3.1885264,
+    -2.6628344,
+    -1.8357089,
+    -0.4146414
+   ],
+   [
+    -0.5444096,
+    3.1494677,
+    -3.0763164,
+    2.967422,
+    0.2393271,
+    -0.2534064,
+    -1.3910133,
+    -2.4229138
+   ],
+   [
+    -5.606153,
+    -4.2625847,
+    -3.7810421,
+    2.820997,
+    -3.0017612,
+    -4.2968721,
+    -5.5543776,
+    6.4755239
+   ],
+   [
+    -3.0447745,
+    6.9039135,
+    -6.8531213,
+    -1.4059721,
+    -8.3485594,
+    4.9475565,
+    -5.3072972,
+    4.0909734
+   ],
+   [
+    -5.1214294,
+    1.943025,
+    4.605217,
+    7.6249619,
+    0.0613663,
+    -1.5135095,
+    9.2300024,
+    0.2171952
+   ]
+  ],
+  "b": [
+   0.1328942,
+   -1.7538693,
+   0.8647041,
+   -0.4975156,
+   2.3337467,
+   0.0006657,
+   1.2887093,
+   -0.9160618
+  ],
+  "usage": "logits = W @ mean_t(tile3 OUT0..7 volts, after ADC scaling) + b; argmax or softmax"
+ },
+ "input_scale": 1.0,
+ "input_fullscale": 4.5,
+ "adc_pin_map": {
+  "OUT0": "PA0 ADC1_IN1",
+  "OUT1": "PA1 ADC1_IN2",
+  "OUT2": "PB0 ADC1_IN15",
+  "OUT3": "PC2 ADC2_IN8",
+  "OUT4": "PC3 ADC2_IN9",
+  "OUT5": "PA7 ADC2_IN4",
+  "OUT6": "PB1 ADC1_IN12",
+  "OUT7": "PB2 ADC2_IN12"
+ },
+ "dac_pin_map": {
+  "I": "PA4 DAC1_OUT1 (CN7-32)",
+  "Q": "PA6 DAC2_OUT1 (CN10-13)"
+ },
+ "other_pins": {
+  "SH_CLK": "PA8 TIM1_CH1 AF6 (CN10-23)",
+  "SYNC": "PB6 GPIO (CN10-17)",
+  "I2C": "PB8 SCL / PB9 SDA, I2C1 AF4 (CN10-3/5)"
+ },
+ "mcp4728": "VDD 3.3 V, per-channel internal 2.048 V reference, gain x1 (config VREF=1, G=0); centre code 2048 = 1.024 V",
+ "i2c": "TCA9548A per tile at 0x70+ID (ID jumpers closed = 0); MCP4728 #0 on mux channel 0, #1 on channel 1 (both at 0x60)"
+}

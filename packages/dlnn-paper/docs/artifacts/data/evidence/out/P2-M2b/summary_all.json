@@ -1,0 +1,152 @@
+{
+  "models": {
+    "tdlnet_b_w8_aware2_fro": {
+      "model": "tdlnet_b_w8_aware2_fro",
+      "model_file_sha256": "3405923d2c64bb0c2d028a251701cf0e1397baafa0d9233e8e87fe8a238f8706",
+      "nominal": {
+        "Q10": {
+          "accuracy": 0.8705,
+          "agreement_vs_v": 0.67175,
+          "mean_kl_vs_v": 0.7562392354011536
+        },
+        "Q30": {
+          "accuracy": 0.87225,
+          "agreement_vs_v": 0.6665,
+          "mean_kl_vs_v": 0.780841052532196
+        },
+        "Q10_as_designed_trim0dB": {
+          "accuracy": 0.1675,
+          "agreement_vs_v": 0.196,
+          "mean_kl_vs_v": 13.93238639831543
+        },
+        "Q10_ideal_wire_no_xtalk": {
+          "accuracy": 0.87025,
+          "agreement_vs_v": 0.67125,
+          "mean_kl_vs_v": 0.7561059594154358
+        },
+        "v_accuracy": 0.655,
+        "n_examples": 4000,
+        "chunk_runtime_s": 6.23
+      },
+      "monte_carlo": {
+        "n_trials": 1000,
+        "accuracy_mean": 0.85638875,
+        "accuracy_std": 0.005581865114426871,
+        "accuracy_p5": 0.8475,
+        "accuracy_min": 0.84125,
+        "accuracy_max": 0.87375,
+        "yield_threshold": 0.605,
+        "yield": 1.0,
+        "v_accuracy_same_subset": 0.655,
+        "agreement_mean": 0.665125,
+        "n_examples": 800,
+        "seed0": 1000,
+        "yield_rule": "accuracy >= V accuracy on the same subset - 5 points",
+        "runtime_s": 336.96
+      },
+      "attribution_one_at_a_time": {
+        "nominal_accuracy": 0.85,
+        "l_tol_pct": {
+          "width": 5.0,
+          "accuracy_mean": 0.8539125,
+          "accuracy_std": 0.003312696535050166,
+          "accuracy_p5": 0.8499375
+        },
+        "c_tol_pct": {
+          "width": 5.0,
+          "accuracy_mean": 0.8548,
+          "accuracy_std": 0.004689608111817477,
+          "accuracy_p5": 0.84875
+        },
+        "r_tol_pct": {
+          "width": 1.0,
+          "accuracy_mean": 0.8515999999999998,
+          "accuracy_std": 0.001971065957826131,
+          "accuracy_p5": 0.84875
+        },
+        "gain_tol_pct": {
+          "width": 1.0,
+          "accuracy_mean": 0.85665,
+          "accuracy_std": 0.003944373309929072,
+          "accuracy_p5": 0.85
+        },
+        "clock_err_pct": {
+          "width": 0.5,
+          "accuracy_mean": 0.8508249999999998,
+          "accuracy_std": 0.0010240171439537275,
+          "accuracy_p5": 0.85
+        },
+        "vbe_mismatch_mv": {
+          "width": 2.0,
+          "accuracy_mean": 0.8547625000000002,
+          "accuracy_std": 0.003866845443881706,
+          "accuracy_p5": 0.85
+        },
+        "th_phase_err_ns": {
+          "width": 6.0,
+          "accuracy_mean": 0.8499999999999995,
+          "accuracy_std": 4.463264492478967e-16,
+          "accuracy_p5": 0.85
+        },
+        "c_pad_tol_pct": {
+          "width": 30.0,
+          "accuracy_mean": 0.8499999999999995,
+          "accuracy_std": 4.463264492478967e-16,
+          "accuracy_p5": 0.85
+        },
+        "chunk_runtime_s": 226.45
+      },
+      "v_on_m1a_fir": {
+        "Q10": {
+          "v_m1a_fir_accuracy": 0.878,
+          "p_accuracy": 0.8705,
+          "p_minus_v_m1a_fir": -0.007499999999999951,
+          "agreement_p_vs_v_m1a_fir": 0.948
+        },
+        "Q30": {
+          "v_m1a_fir_accuracy": 0.87775,
+          "p_accuracy": 0.87225,
+          "p_minus_v_m1a_fir": -0.00550000000000006,
+          "agreement_p_vs_v_m1a_fir": 0.94625
+        },
+        "v_ideal_accuracy": 0.655,
+        "chunk_runtime_s": 3.72
+      },
+      "crosstalk_cases": [
+        {
+          "layout": "parallel",
+          "pitch_mm": 3.0,
+          "k_nearest": 0.027162443621016805,
+          "accuracy": 0.859,
+          "agreement_vs_v": 0.659,
+          "mean_kl_vs_v": 0.7769309282302856
+        },
+        {
+          "layout": "alternating",
+          "pitch_mm": 3.0,
+          "k_nearest": 0.0027162443621016807,
+          "accuracy": 0.85,
+          "agreement_vs_v": 0.658,
+          "mean_kl_vs_v": 0.7765238285064697
+        },
+        {
+          "layout": "parallel",
+          "pitch_mm": 5.0,
+          "k_nearest": 0.00586708782213963,
+          "accuracy": 0.851,
+          "agreement_vs_v": 0.658,
+          "mean_kl_vs_v": 0.7775217294692993
+        },
+        {
+          "layout": "alternating",
+          "pitch_mm": 5.0,
+          "k_nearest": 0.000586708782213963,
+          "accuracy": 0.849,
+          "agreement_vs_v": 0.659,
+          "mean_kl_vs_v": 0.7764957547187805
+        }
+      ]
+    }
+  },
+  "grid_sha256": "717c05750591c7099e39d1fcd1d8f1c5963b8061ef53026211464848f68886d9"
+}

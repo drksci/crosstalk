@@ -1,0 +1,66 @@
+{
+ "note": "circuit-calibrated BEHAVIOURAL model (not SPICE); loss compensation modes at the fitted line loss and over the loss sweep; 'tier_default' marks the one used in tiers/C.json",
+ "tier_default": "layer",
+ "modes": {
+  "none": {
+   "metrics_at_fitted_loss": {
+    "accuracy": 0.80425,
+    "macro_f1": 0.8075007392714033,
+    "top1_agreement_vs_virtual": 0.87075,
+    "mean_kl_virtual_vs_tier": 0.15728482604026794,
+    "logit_nmse_vs_virtual": 0.06486102193593979
+   },
+   "loss_sweep": {
+    "axis": "loss_db_per_us",
+    "values": [
+     0.0,
+     5.0,
+     14.0,
+     32.0
+    ],
+    "accuracy": [
+     0.863,
+     0.86,
+     0.85025,
+     0.80425
+    ],
+    "mean_kl": [
+     1.307219122281822e-06,
+     0.009116275236010551,
+     0.040894247591495514,
+     0.15728479623794556
+    ]
+   }
+  },
+  "tap": {
+   "metrics_at_fitted_loss": {
+    "accuracy": 0.80525,
+    "macro_f1": 0.8083784493121304,
+    "top1_agreement_vs_virtual": 0.846,
+    "mean_kl_virtual_vs_tier": 0.16106285154819489,
+    "logit_nmse_vs_virtual": 0.06580884754657745
+   },
+   "loss_sweep": {
+    "axis": "loss_db_per_us",
+    "values": [
+     0.0,
+     5.0,
+     14.0,
+     32.0
+    ],
+    "accuracy": [
+     0.863,
+     0.86,
+     0.8515,
+     0.80525
+    ],
+    "mean_kl": [
+     1.307219122281822e-06,
+     0.005596964154392481,
+     0.03142794221639633,
+     0.1610628068447113
+    ]
+   }
+  }
+ }
+}

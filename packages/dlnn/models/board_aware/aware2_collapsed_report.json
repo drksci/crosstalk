@@ -1,0 +1,198 @@
+{
+ "name": "tdlnet_b_w8_aware2",
+ "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+ "epochs": 60,
+ "selected_seed": 1,
+ "restarts": [
+  {
+   "seed": 0,
+   "val_acc_Q10": 0.7825,
+   "val_acc_Q30": 0.785,
+   "val_score": 0.7837,
+   "seconds": 35.3
+  },
+  {
+   "seed": 1,
+   "val_acc_Q10": 0.789,
+   "val_acc_Q30": 0.792,
+   "val_score": 0.7905,
+   "seconds": 38.7
+  },
+  {
+   "seed": 2,
+   "val_acc_Q10": 0.785,
+   "val_acc_Q30": 0.7825,
+   "val_score": 0.7837,
+   "seconds": 40.5
+  }
+ ],
+ "model_sha256": "f9db4bdf534cde8250c4ca1a3b9b310855e157ae489aa5d3474cdf1169dd1543",
+ "n_ternary_weights": 1152,
+ "train_examples": 14000,
+ "val_examples": 2000,
+ "cells": {
+  "tdlnet_b_w8|ideal": {
+   "acc": 0.8055,
+   "acc_ge10dB": 0.8375,
+   "acc_per_class": {
+    "OOK": 0.958,
+    "BPSK": 0.918,
+    "QPSK": 0.568,
+    "8PSK": 0.334,
+    "16QAM": 0.728,
+    "2FSK": 0.984,
+    "4FSK": 0.994,
+    "GMSK": 0.96
+   },
+   "acc_per_snr": {
+    "0": 0.69625,
+    "5": 0.81875,
+    "10": 0.83625,
+    "15": 0.83,
+    "20": 0.84625
+   }
+  },
+  "tdlnet_b_w8|Q10": {
+   "acc": 0.77225,
+   "acc_ge10dB": 0.7983333333333333,
+   "acc_per_class": {
+    "OOK": 0.95,
+    "BPSK": 0.954,
+    "QPSK": 0.494,
+    "8PSK": 0.25,
+    "16QAM": 0.612,
+    "2FSK": 0.966,
+    "4FSK": 0.964,
+    "GMSK": 0.988
+   },
+   "acc_per_snr": {
+    "0": 0.6825,
+    "5": 0.78375,
+    "10": 0.7975,
+    "15": 0.79,
+    "20": 0.8075
+   }
+  },
+  "tdlnet_b_w8|Q30": {
+   "acc": 0.76925,
+   "acc_ge10dB": 0.79375,
+   "acc_per_class": {
+    "OOK": 0.95,
+    "BPSK": 0.95,
+    "QPSK": 0.478,
+    "8PSK": 0.256,
+    "16QAM": 0.604,
+    "2FSK": 0.968,
+    "4FSK": 0.96,
+    "GMSK": 0.988
+   },
+   "acc_per_snr": {
+    "0": 0.68375,
+    "5": 0.78125,
+    "10": 0.79125,
+    "15": 0.78375,
+    "20": 0.80625
+   }
+  },
+  "tdlnet_b_w8_aware2|ideal": {
+   "acc": 0.70825,
+   "acc_ge10dB": 0.7591666666666667,
+   "acc_per_class": {
+    "OOK": 0.972,
+    "BPSK": 0.68,
+    "QPSK": 0.0,
+    "8PSK": 0.27,
+    "16QAM": 0.956,
+    "2FSK": 0.924,
+    "4FSK": 0.998,
+    "GMSK": 0.866
+   },
+   "acc_per_snr": {
+    "0": 0.54625,
+    "5": 0.7175,
+    "10": 0.74875,
+    "15": 0.76,
+    "20": 0.76875
+   }
+  },
+  "tdlnet_b_w8_aware2|Q10": {
+   "acc": 0.797,
+   "acc_ge10dB": 0.8191666666666667,
+   "acc_per_class": {
+    "OOK": 0.982,
+    "BPSK": 0.94,
+    "QPSK": 0.0,
+    "8PSK": 0.768,
+    "16QAM": 0.768,
+    "2FSK": 0.964,
+    "4FSK": 0.992,
+    "GMSK": 0.962
+   },
+   "acc_per_snr": {
+    "0": 0.71,
+    "5": 0.8175,
+    "10": 0.82,
+    "15": 0.8175,
+    "20": 0.82
+   }
+  },
+  "tdlnet_b_w8_aware2|Q30": {
+   "acc": 0.7995,
+   "acc_ge10dB": 0.8204166666666667,
+   "acc_per_class": {
+    "OOK": 0.978,
+    "BPSK": 0.942,
+    "QPSK": 0.0,
+    "8PSK": 0.784,
+    "16QAM": 0.76,
+    "2FSK": 0.974,
+    "4FSK": 0.996,
+    "GMSK": 0.962
+   },
+   "acc_per_snr": {
+    "0": 0.71875,
+    "5": 0.8175,
+    "10": 0.8225,
+    "15": 0.82,
+    "20": 0.81875
+   }
+  }
+ },
+ "q10_plus_tap_jitter_14pct": {
+  "tdlnet_b_w8": {
+   "mean": 0.768525,
+   "min": 0.7585,
+   "max": 0.77375
+  },
+  "tdlnet_b_w8_aware2": {
+   "mean": 0.7967,
+   "min": 0.795,
+   "max": 0.79825
+  }
+ },
+ "line_fir_provenance": {
+  "netlist_sha256": "2bb8e976189826a88a79ac4e7494af786c1a0441714a62a646b16384649edf3f",
+  "ngspice": "ngspice-42",
+  "linelib_sha256": "c2620dce5e4445c8e4b2282b0253787c2d417edd4d2a04210c7cb943030b89e1",
+  "params_json": "hw/board/params.json",
+  "generator": "models/board_aware/line_fir_m1a.py",
+  "contents": "line + input RC only (ideal unity buffer after the RC); no TLV9062 macro, no noise, no crosstalk, no mismatch",
+  "design": {
+   "sections": 56,
+   "L_h": 0.00012,
+   "C_f": 1.2e-10,
+   "C_end_f": 6e-11,
+   "dcr": 3.3,
+   "srf_hz": 3300000.0,
+   "rc_ohm": 1000.0,
+   "rc_c_f": 3.3e-10,
+   "c_tap_f": 6e-12,
+   "Rs": 1000.0,
+   "Rl": 1000.0
+  },
+  "normalisation": "common: mean on-lag gain over both corners and all taps = 1"
+ },
+ "ts_us": 0.8904409029743193,
+ "file": "/home/user/dlnn/models/tdlnet_b_w8_aware2_ternary.npz",
+ "note": "FIR covers line + input RC only (ideal buffer): no TLV9062, noise, crosstalk, S/H droop or mismatch."
+}
