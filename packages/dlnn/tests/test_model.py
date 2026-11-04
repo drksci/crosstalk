@@ -1,9 +1,11 @@
 """M1 model tests: ternary quantiser/STE, torch <-> virtual-tier equivalence, export schema, float baseline."""
+# ruff: noqa: E402  (torch is importorskip-ed before the dlnn.model imports that need it)
 from pathlib import Path
 
 import numpy as np
 import pytest
-import torch
+
+torch = pytest.importorskip("torch", reason="torch not installed (dlnn[train] extra)")
 
 from dlnn.data import modrec
 from dlnn.model import export, train

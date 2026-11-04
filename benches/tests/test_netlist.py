@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import numpy as np
 import pytest
-from netlist import build_netlist, drive_samples, state_node_name, state_node_names
 
 from delay_tensor.config import (
     CouplingConfig,
@@ -17,6 +16,7 @@ from delay_tensor.config import (
     NonlinearityConfig,
     TensorConfig,
 )
+from netlist import build_netlist, drive_samples, state_node_name, state_node_names
 
 
 def _config(**overrides) -> DelayTensorConfig:

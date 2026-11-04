@@ -295,6 +295,7 @@ def field_view(
     *,
     width: int = 620,
     row_height: int = 18,
+    min_cell: float = 1.6,
     duration_s: float = 3.0,
     aria_label: str = "electromagnetic field view",
 ) -> str:
@@ -311,6 +312,11 @@ def field_view(
     static file that opens anywhere, from a USB stick or an archived artifact.
     ``prefers-reduced-motion`` turns the sweep off and leaves the still field,
     which is the same picture without the movement.
+
+    ``min_cell`` is the floor in rendered pixels for one slot's column, so a
+    long delay line stays separable rather than collapsing into a smear. The
+    caller must let the SVG overflow horizontally when it exceeds its column;
+    ``min-width`` alone only states the requirement.
     """
     # len() only: the report hands this an ndarray, whose truth value is
     # ambiguous, and a bare `if not traces` would raise instead of reporting.
@@ -326,6 +332,16 @@ def field_view(
 
     left, right, top = 46.0, 12.0, 26.0
     bottom = 30.0
+    # `min_cell` has to be a floor on *rendered* pixels, and a viewBox cannot
+    # be that: the report styles this as `width:100%`, so a wider viewBox is
+    # divided by a wider element and every unit comes out the same size --
+    # growing it changes nothing about what the eye sees. The floor is a CSS
+    # min-width instead, which `width:100%` cannot cancel: the element is at
+    # least this many pixels wide, and the viewBox then maps one unit to one
+    # pixel at that size. A 784-slot raster needs 58 + 784*1.6 = 1312 px and
+    # scrolls; a 64-slot one needs 160 px, fits any column, and scales up.
+    floor_w = left + right + slots * min_cell
+    width = max(float(width), floor_w)
     plot_w = width - left - right
     cell_w = plot_w / slots
     height = top + wires * row_height + bottom
@@ -333,11 +349,10 @@ def field_view(
     gradient_id = f"fieldwave{next(_UID)}"
 
     parts = [
-        f'<svg viewBox="0 0 {width} {height:.0f}" role="img" '
+        f'<svg viewBox="0 0 {width:g} {height:.0f}" role="img" '
+        f'style="min-width:{floor_w:g}px" '
         f'aria-label="{escape(aria_label)}" class="chart field">',
-        "<style>"
-        "@media (prefers-reduced-motion: reduce){.field-wave{display:none}}"
-        "</style>",
+        "<style>@media (prefers-reduced-motion: reduce){.field-wave{display:none}}</style>",
         f'<defs><linearGradient id="{gradient_id}" x1="0" y1="0" x2="1" y2="0">'
         '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
         '<stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/>'
@@ -378,8 +393,7 @@ def field_view(
     )
 
     parts.append(
-        f'<text x="{left}" y="{height - 10:.0f}" font-size="10" fill="{MUTED}">'
-        f"slot 0</text>"
+        f'<text x="{left}" y="{height - 10:.0f}" font-size="10" fill="{MUTED}">slot 0</text>'
     )
     parts.append(
         f'<text x="{left + plot_w:.0f}" y="{height - 10:.0f}" font-size="10" '

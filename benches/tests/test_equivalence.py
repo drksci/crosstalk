@@ -1,19 +1,18 @@
 """ngspice cross-check: the generated netlist solves to DelayTensor.run().
 
 These tests are the reason ``benches/netlist.py`` exists. They need a working
-ngspice + PySpice, which live in a separate conda environment, so they skip
+ngspice + PySpice, which live in a separate dependency group, so they skip
 cleanly when that stack is missing rather than failing the default suite.
 
-Run them with the bench interpreter::
+Run them with the bench group::
 
-    $HOME/micromamba/envs/delay-bench/bin/python -m pytest benches/tests -v
+    uv run --all-packages --group bench pytest benches/tests -v
 """
 
 from __future__ import annotations
 
 import numpy as np
 import pytest
-from netlist import build_netlist
 
 from delay_tensor.config import (
     CouplingConfig,
@@ -24,6 +23,7 @@ from delay_tensor.config import (
     TensorConfig,
 )
 from delay_tensor.reservoir import DelayTensor
+from netlist import build_netlist
 
 spice = pytest.importorskip("PySpice.Spice.Parser")
 from spice_runner import solve_states  # noqa: E402

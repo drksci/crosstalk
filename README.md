@@ -1,64 +1,62 @@
-# delay-tensors
+# delaytensor
 
-Delay-line and coupled-line reservoir experiments.
+Two attempts to compute with delay lines, simulated and benched.
+
+**Delay Tensor** treats a bundle of coupled transmission lines as a fixed reservoir in front of a linear readout. Its one clear win, temporal XOR (0.724 raw, 0.995 reservoir), turned out under ablation to belong to the per-slot tanh, not the coupling. The recurrence matches ngspice to 5.27e-16.
+
+**DLNN** trains ternary {-1, 0, +1} weights into the taps of an LC delay line, so the board's pick-and-place file is the model. It scores 0.878 on the simulated board line and 0.17 on the board as first drawn, until a gain bug is fixed, with a 0.6-point spread over 1,000 simulated boards.
+
+Nothing here has been fabricated or measured. Every page says which of simulated, emulated, designed or pending applies. The experiments, tests and run data were produced by Claude Code sessions, mostly on the Fable model, under the author's direction.
+
+![The Delay Tensor board, 8 wires by 64 slots](docs/assets/board.svg)
+
+## Read
+
+| Start with | For |
+|---|---|
+| [docs/story.md](docs/story.md) | how the project got here: mainline and waypoints |
+| [docs/architecture.md](docs/architecture.md) | both halves, the benches and the data flow on one page |
+| [docs/design/](docs/design) | detailed design: [delay-tensor](docs/design/delay-tensor.md), [benches](docs/design/benches.md), [dlnn](docs/design/dlnn.md) |
+| [AGENTS.md](AGENTS.md) · [llms.txt](llms.txt) | working here as an agent |
+
+## Layout
 
 ```text
-delay-tensors/
-  packages/delay-tensor/   the simulated experiment (active)
-  archive/                  the original version, kept as reference
-  results/                  generated run outputs (gitignored)
+packages/delay-tensor/   reservoir simulation, readouts, experiments, CLI (uv workspace member)
+benches/                 ngspice equivalence, RLCG lines, transient, scikit-rf, ERA extraction
+packages/dlnn/           ternary tapped-delay-line network, tiers V/E/C/P, board-as-code (own venv)
+packages/dlnn-paper/     notebooks, article draft, board renders, claim checker
+docs/                    story, architecture, design docs, figures
 ```
 
-`archive/` is untouched: it is the original `dllm` workspace, with its own
-virtualenv, and it stays as the reference for what the experiment used to be.
-The active code is `packages/delay-tensor/`, a clean-room rebuild of the same
-Stage-1 question — see its [README](packages/delay-tensor/README.md) and
-[design notes](packages/delay-tensor/docs/design.md).
-
-## Quick start
+## Quick start: Delay Tensor
 
 ```bash
 uv sync --all-packages
-
-# six-class waveform classification
-uv run --all-packages delay-tensor classify \
-  --config packages/delay-tensor/configs/tensor_8x64.yaml \
-  --seeds 1234,1235,1236
-
-# temporal XOR: the experiment where the reservoir actually earns its keep
-uv run --all-packages delay-tensor xor \
-  --config packages/delay-tensor/configs/tensor_8x64.yaml
-
-# checks
+uv run --all-packages delay-tensor classify --config packages/delay-tensor/configs/tensor_8x64.yaml --seeds 1234,1235,1236
+uv run --all-packages delay-tensor xor --config packages/delay-tensor/configs/tensor_8x64.yaml
+uv run --all-packages delay-tensor mnist --config packages/delay-tensor/configs/mnist_8x784.yaml
 uv run --all-packages pytest
-uv run --all-packages ruff check packages/delay-tensor
-uv run --all-packages ruff format --check packages/delay-tensor
 ```
 
-Each run writes `results/<run_id>/` containing `report.html`, `metrics.json`,
-`runs.csv`, `observations.txt` and the exact `config.yaml` used.
+Each run writes `results/<run_id>/` with `report.html`, `metrics.json`, `runs.csv`, `observations.txt` and the exact `config.yaml`. MNIST takes a few minutes; features go to a float32 memmap, not RAM. The benches need the optional group: `uv sync --all-packages --group bench`, with ngspice reachable through `NGSPICE_LIBRARY_PATH`.
 
-Latest results on `tensor_8x64` (3 seeds):
+| Experiment (3 seeds) | Raw | Tensor | Delta |
+|---|---|---|---|
+| Six-way classification | 0.847 ± 0.016 | 0.861 ± 0.022 | +0.014 ± 0.006 |
+| Temporal XOR | 0.724 ± 0.024 | 0.995 ± 0.009 | +0.271 ± 0.024 |
+| MNIST | 0.9136 ± 0.0003 | 0.9146 ± 0.0012 | +0.0011 ± 0.0014 |
 
-| experiment | raw baseline | reservoir | delta |
-| --- | --- | --- | --- |
-| classify | 0.847 ± 0.016 | 0.861 ± 0.022 | +0.014 ± 0.006 |
-| xor | 0.724 ± 0.024 | 0.995 ± 0.009 | +0.271 ± 0.024 |
+## Quick start: DLNN
 
-Classification is a near-tie; temporal XOR is where separated events need to
-be mixed, and there the reservoir is decisive. Those are the honest numbers.
+```bash
+cd packages/dlnn
+./setup.sh                      # WITH_LLM=0 skips the optional local LLM build
+.venv/bin/python -m pytest -q   # torch-dependent tests skip without the train extra
+```
 
-## Tooling
+Full commands and versions: [packages/dlnn/docs/reproducibility.md](packages/dlnn/docs/reproducibility.md). The verify notebook `packages/dlnn-paper/notebooks/00_verify.ipynb` re-checks every printed number against its data.
 
-`packages/delay-tensor/docs/tools.md` records the survey of
-[github.com/topics/electronics](https://github.com/topics/electronics) and
-[circuit-simulation](https://github.com/topics/circuit-simulation): lighter
-actively maintained alternatives for SPICE (PySpice, scikit-rf), schematics
-(tscircuit, skidl, atopile), and web visualisation (inline SVG, uPlot,
-tscircuit, CircuitJS, Wokwi).
+## Archive
 
-## Version control
-
-This directory is not a git repository, so nothing here is committed yet. Say
-the word and it can be initialised (the archived `archive/` carries its own
-`.git` history and should be left alone or handled separately).
+The original June 2026 `phase-lattice-sim` workspace lives outside this repository, with its own history, and is kept as a reference only.

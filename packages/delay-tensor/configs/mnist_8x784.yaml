@@ -1,0 +1,44 @@
+tensor:
+  # 8 wires x 784 slots = 6272 virtual nodes. The 784 is not a tuning choice:
+  # a 28x28 digit raster-scanned in CRT order is 784 pixel clocks, and each
+  # pixel has to arrive on its own slot or the image is not the image any more.
+  wires: 8
+  slots: 784
+  bands: 1
+  # Same clock as tensor_8x64: only the delay line grew, not the hardware.
+  slot_dt_ns: 20.0
+  loop_period_ns: 15680.0
+
+coupling:
+  # Unchanged from tensor_8x64 so this config differs from it only in length.
+  # A comparison across configs is only worth reading if nothing else moved.
+  topology: nearest_neighbour
+  neighbour_strength: 0.08
+  second_neighbour_strength: 0.0
+  diagonal_strength: 0.0
+  mask_mode: modulated
+  mask_gain: 0.05
+  mask_seed: 0
+
+loss:
+  # tanh is applied every slot, so it clamps before DC can walk the state to
+  # saturation -- the mostly-black MNIST background would otherwise integrate
+  # to 0.126/(1-0.995) ~ 25 over 784 slots and pin every wire at +1. Measured:
+  # saturation is 0.000 at this decay, healthy.
+  decay: 0.995
+  # Left on so the tensor stays an analog device rather than a lookup table.
+  # This is also what makes the reservoir features seed-dependent: the readout
+  # and the MLP are re-randomised per seed anyway, but without this the spread
+  # over seeds would be measuring only shuffling and nothing about the tensor.
+  noise_std: 0.001
+  jitter_std_slots: 0.0
+
+nonlinearity:
+  type: tanh
+  location: edge_and_state
+
+readout:
+  # All 6272 nodes. The rightmost-wire control is the stricter probe and is
+  # covered by the synthetic experiments; here the question is what the whole
+  # tensor does for a linear readout on a real benchmark.
+  traces: all_wires

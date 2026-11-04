@@ -12,6 +12,19 @@ package = false
 [tool.uv.workspace]
 members = ["packages/delay-tensor"]
 
+# Simulation tooling for benches/ only, deliberately NOT a default group:
+# `uv sync --all-packages` must not pull these in, so the test run and the
+# delay-tensor wheel both stay free of them. PySpice is GPL-3.0 -- it is
+# imported solely by benches/spice_runner.py and never by the package, which
+# is what keeps this project distributable. scikit-rf is BSD-3-Clause and
+# could legally live in the package, but it is only needed to characterize a
+# coupon, so it stays here with the rest of the bench machinery.
+[dependency-groups]
+bench = [
+  "PySpice>=1.5",
+  "scikit-rf>=0.29",
+]
+
 [tool.pytest.ini_options]
 testpaths = ["packages/delay-tensor/tests", "benches/tests"]
 pythonpath = ["packages/delay-tensor/src", "benches"]
@@ -24,7 +37,23 @@ target-version = "py311"
 select = ["E4", "E7", "E9", "F", "I", "B", "UP", "C4", "RUF"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["delay_tensor"]
+# The bench modules live beside their tests under benches/ rather than inside
+# an installed package, so ruff falls back to src-based inference for them --
+# and that inference has been seen to disagree between machines running the
+# identical file, version and config. Naming them keeps import grouping
+# deterministic wherever the check runs.
+known-first-party = [
+    "delay_tensor",
+    "extract",
+    "netlist",
+    "render",
+    "rf_char",
+    "rf_netlist",
+    "spice_runner",
+    "topologies",
+    "transient",
+    "viz",
+]
 
 [tool.ruff.lint.per-file-ignores]
 # Notebooks must mutate sys.path (to reach the src tree and benches/) before

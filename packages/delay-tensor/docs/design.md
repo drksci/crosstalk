@@ -68,17 +68,22 @@ records what to reach for if it comes back.
 src/delay_tensor/
   config.py        typed config, YAML load/save, validation
   datasets.py      seeded synthetic tasks + normalisation + stratified split
+  mnist.py         IDX fetch/cache/parse + raster_scan into slot clocks
   reservoir.py     the simulated substrate (frozen, vectorised)
-  readout.py       one readout class shared by both paths
+  readout.py       LinearReadout + StreamingLinearReadout, shared by both paths
   metrics.py       accuracy, confusion matrix, spread
   experiments/
     base.py        replicate loop, aggregation, example collection
     classify.py    six-class waveform classification
     xor.py         temporal XOR
+    mnist.py       full MNIST: raw pixels vs tensor features vs an MLP
   svg.py           inline SVG charts (no plotting dependency)
   report.py        run directory: metrics.json, runs.csv, observations, report.html
-  cli.py           delay-tensor classify|xor
+  cli.py           delay-tensor classify|xor|mnist
 ```
+
+SPICE equivalence lives outside the package, in `benches/` at the repository
+root, because PySpice is GPL-3.0 and this package is not. See `tools.md`.
 
 ## Adding an experiment
 
@@ -100,11 +105,21 @@ def run_my_task(config, *, seeds, ...):
 Register it in `cli.py` with a subparser. Reports, metrics, CSV and
 observations come along for free.
 
+`mnist` is the exception that shows where the seam is: it does not use
+`run_replicates` at all. MNIST's split is canonical rather than stratified,
+its readout is the streaming one rather than `LinearReadout`, and its feature
+matrix is a disk memmap rather than a `DatasetFactory`'s arrays. It reuses
+`SeedRecord` / `Summary` / `TraceExample` — including the optional third arm —
+and writes its own loop. An experiment joins `base.py` at the data model, not
+at the replicate loop, which is the reason those two are separate files.
+
 ## Known limits
 
 - Single band only (`tensor.bands` must be 1); no cross-band/diagonal coupling.
 - Timing jitter is not modelled (`loss.jitter_std_slots` must be 0).
-- The reservoir is a physical metaphor, not a circuit solver: no SPICE, no
-  S-parameters, no propagation delay beyond the slot clock.
+- The reservoir is a physical metaphor, not a circuit solver: no S-parameters
+  and no propagation delay beyond the slot clock. Its *equations* are checked
+  against ngspice by `benches/01-equivalence.ipynb` (max |error| 5.274e-16
+  over 2,048 stages), but the package does not simulate a circuit.
 - The synthetic tasks are sanity checks, not benchmarks. A reservoir that
   wins them has earned the next experiment, not a conclusion.
