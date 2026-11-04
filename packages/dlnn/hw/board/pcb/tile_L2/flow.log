@@ -1,0 +1,7 @@
+00:05:36 stage place
+plane fanout vias: 238 failed: []
+placed -> /home/user/dlnn/hw/board/pcb/tile_L2/tile_L2_placed.kicad_pcb 2.9s
+00:05:40 stage dsn
+ExportSpecctraDSN True
+00:05:40 stage route
+freerouting rc 143 1052s

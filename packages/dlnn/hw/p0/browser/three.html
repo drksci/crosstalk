@@ -1,0 +1,25 @@
+<!doctype html><meta charset="utf-8"><title>P0 three.js GLB</title>
+<style>body{margin:0;background:#111} canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/docs/artifacts/vendor/three/three.module.js"}}</script>
+<script type="module">
+import * as THREE from "three";
+import { GLTFLoader } from "/docs/artifacts/vendor/three/addons/loaders/GLTFLoader.js";
+import { OrbitControls } from "/docs/artifacts/vendor/three/addons/controls/OrbitControls.js";
+const W = 1200, H = 700;
+const r = new THREE.WebGLRenderer({ antialias: true }); r.setSize(W, H); document.body.appendChild(r.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x202428);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, 2.2)); const dl = new THREE.DirectionalLight(0xffffff, 2); dl.position.set(1, 2, 1.5); scene.add(dl);
+const cam = new THREE.PerspectiveCamera(35, W / H, 0.1, 5000);
+const t0 = performance.now();
+new GLTFLoader().load("/hw/p0/fab/demo.glb", (g) => {
+  scene.add(g.scene);
+  const box = new THREE.Box3().setFromObject(g.scene), c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
+  const d = Math.max(s.x, s.y, s.z) * 1.6;
+  cam.position.copy(c).add(new THREE.Vector3(d * 0.5, d * 0.9, d * 0.7)); cam.lookAt(c);
+  const oc = new OrbitControls(cam, r.domElement); oc.target.copy(c); oc.update();
+  r.render(scene, cam);
+  let meshes = 0; g.scene.traverse(o => { if (o.isMesh) meshes++; });
+  window.__result = { load_ms: performance.now() - t0, meshes, size: s.toArray(), revision: THREE.REVISION };
+  window.__done = true;
+}, undefined, (e) => { window.__result = { error: String(e) }; window.__done = true; });
+</script>

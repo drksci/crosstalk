@@ -1,0 +1,710 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "2634b42b-a678-597f-8727-fc07b58d8449")
+	(paper "A3")
+	(title_block
+		(title "TILE-8 layer-1 variant (M3a)")
+		(date "2026-11-03")
+		(rev "M3a")
+		(company "dlnn phase 2: designed, ERC-checked, not built, not measured")
+		(comment 1 "model tdlnet_b_w8_aware2_fro_ternary.npz  R_f=2210  R_b=15000 (derived 13000)  designed, not built")
+	)
+	(lib_symbols)
+	(text "5 V analog / 3.3 V rails, 2.5 V reference, V_cm buffer, current-mirror reference"
+		(exclude_from_sim no)
+		(at 25.4 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "825c5159-392e-5474-8452-a6781012d85e")
+	)
+	(text "line 0: RC + buffer, 56-section LC ladder, 8 taps"
+		(exclude_from_sim no)
+		(at 101.6 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "14445ca0-2f3b-5fd8-8451-0f6abd0db57f")
+	)
+	(text "line 1: RC + buffer, 56-section LC ladder, 8 taps"
+		(exclude_from_sim no)
+		(at 177.8 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "d7ce6ce1-124a-5317-b53d-30ad3c1abf84")
+	)
+	(text "2x8x8x2 footprints; W=+1 -> RXP, W=-1 -> RXN, W=0 -> both DNP"
+		(exclude_from_sim no)
+		(at 254 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "287c207e-e6e5-5b30-b5e8-4b95ee512197")
+	)
+	(text "output 0: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 25.4 83.24 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "63ce7e98-4321-503f-ab29-624cea85a899")
+	)
+	(text "output 1: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 101.6 83.24 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "51862ade-6321-5a0d-95a5-acd5f2d2ac4e")
+	)
+	(text "output 2: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 177.8 83.24 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "d6a8bc33-5ffd-5713-b528-597cd6bd0f6d")
+	)
+	(text "output 3: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 254 83.24 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "7ae308e3-5089-5a07-92a0-5861ec958c3a")
+	)
+	(text "output 4: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 25.4 108.64 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "9e67dfd5-054c-5b17-9a19-27628239307e")
+	)
+	(text "output 5: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 101.6 108.64 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "c437ba83-a189-57fa-b648-d9b8920517db")
+	)
+	(text "output 6: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 177.8 108.64 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "ddf80c5f-af10-5a87-9e89-5a2a096ca741")
+	)
+	(text "output 7: summers, bias, BJT tanh, diff-amp, S/H"
+		(exclude_from_sim no)
+		(at 254 108.64 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "3bff4050-09dc-5b24-a85d-bf23b2b54c8d")
+	)
+	(text "J_IN, J_OUT 2x13, J_PS 2x8, 2 x MCP4728, tile ID, monitor"
+		(exclude_from_sim no)
+		(at 25.4 134.04 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "9c1acbf5-fe0e-5e30-96aa-b2922e8099e2")
+	)
+	(sheet
+		(at 25.4 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "8a0cedc7-07dd-5482-97a0-06135f0c44b6")
+		(property "Sheetname" "power"
+			(at 25.4 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 25.4 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "86824821-a2b1-5c20-bd02-05a4375803cd")
+		(property "Sheetname" "line0"
+			(at 101.6 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "line0.kicad_sch"
+			(at 101.6 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 177.8 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "2386065a-6759-51ef-b8f0-31af97544d57")
+		(property "Sheetname" "line1"
+			(at 177.8 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "line1.kicad_sch"
+			(at 177.8 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 254 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "18d7c30e-2c7b-599b-a018-4b9a94364de8")
+		(property "Sheetname" "crossbar"
+			(at 254 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "crossbar.kicad_sch"
+			(at 254 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 66.04)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "fc9c1bbc-32f9-53b7-a51d-f1bfcecc2952")
+		(property "Sheetname" "ch0"
+			(at 25.4 65.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch0.kicad_sch"
+			(at 25.4 79.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 66.04)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "7f240137-1cf8-5214-af3a-e53ee670365f")
+		(property "Sheetname" "ch1"
+			(at 101.6 65.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch1.kicad_sch"
+			(at 101.6 79.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 177.8 66.04)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "1bb3a22b-4dda-5242-b4d9-6a3c0f489ebd")
+		(property "Sheetname" "ch2"
+			(at 177.8 65.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch2.kicad_sch"
+			(at 177.8 79.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 254 66.04)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "47f2a2cb-8e98-5d4e-86c9-2ad5fc267ac8")
+		(property "Sheetname" "ch3"
+			(at 254 65.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch3.kicad_sch"
+			(at 254 79.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 91.44)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "4e9779b7-d211-5d72-b6ec-fe56962e169b")
+		(property "Sheetname" "ch4"
+			(at 25.4 90.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch4.kicad_sch"
+			(at 25.4 104.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 91.44)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "3af12d99-52ff-57a0-885d-c28f4f854690")
+		(property "Sheetname" "ch5"
+			(at 101.6 90.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch5.kicad_sch"
+			(at 101.6 104.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "11")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 177.8 91.44)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "9c71848a-ddb6-5fa7-b83b-ce63fc5bd7f7")
+		(property "Sheetname" "ch6"
+			(at 177.8 90.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch6.kicad_sch"
+			(at 177.8 104.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "12")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 254 91.44)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "60080c71-4e67-5fe2-8e7a-2f04f925eca1")
+		(property "Sheetname" "ch7"
+			(at 254 90.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ch7.kicad_sch"
+			(at 254 104.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "13")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 116.84)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "4799493f-2075-5b1f-b1df-d61b4f6d47ff")
+		(property "Sheetname" "connectors"
+			(at 25.4 116.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "connectors.kicad_sch"
+			(at 25.4 130.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tile"
+				(path "/2634b42b-a678-597f-8727-fc07b58d8449"
+					(page "14")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,75 @@
+{
+ "eecircuit-engine": {
+  "version": "1.9.0",
+  "source": "npm eecircuit-engine@1.9.0",
+  "license": "MIT",
+  "files": {
+   "eecircuit-engine/eecircuit-engine.mjs": {
+    "bytes": 20346804,
+    "gzip_bytes": 5680133,
+    "sha256": "312b5504a87f0fd6f9d79c48734eeba8eb7aea1e8069916ecd4606cb6575db0b"
+   }
+  }
+ },
+ "d3": {
+  "version": "7.9.1",
+  "source": "npm d3@7.9.1",
+  "license": "ISC",
+  "files": {
+   "d3/d3.min.js": {
+    "bytes": 280493,
+    "gzip_bytes": 92510,
+    "sha256": "31959f028dde7818dc1418ec3c50dbdb2774cfafadedbc1a2431d235867238f6"
+   }
+  }
+ },
+ "three": {
+  "version": "0.187.0",
+  "source": "npm three@0.187.0",
+  "license": "MIT",
+  "files": {
+   "three/three.module.js": {
+    "bytes": 658900,
+    "gzip_bytes": 129393,
+    "sha256": "104f56145899722094556490d787aae0617cc2fc3382f31df02d724ea1aee341"
+   },
+   "three/three.core.js": {
+    "bytes": 1474799,
+    "gzip_bytes": 290019,
+    "sha256": "613e370f76638fdef83926642bf256dc9615684922de1ce1f63a8583e5d78578"
+   },
+   "three/addons/loaders/GLTFLoader.js": {
+    "bytes": 119861,
+    "gzip_bytes": 26204,
+    "sha256": "532ac726e120039acbcd6cf54328c57acbf7b438176afaa6951257126d11bff1"
+   },
+   "three/addons/utils/BufferGeometryUtils.js": {
+    "bytes": 39153,
+    "gzip_bytes": 9051,
+    "sha256": "7bda2a8ba836b2bcf67cb938d4b9e1bb5d1b1bc616817103ed858c0b58296ce7"
+   },
+   "three/addons/utils/SkeletonUtils.js": {
+    "bytes": 11535,
+    "gzip_bytes": 3203,
+    "sha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f"
+   },
+   "three/addons/controls/OrbitControls.js": {
+    "bytes": 40918,
+    "gzip_bytes": 8498,
+    "sha256": "e7fca2fe9e7670a828af9b28084669a5909445b7f36f1f26cee9bf8f2961c32c"
+   }
+  }
+ },
+ "kicanvas": {
+  "version": "official build, no version string (package.json says 0.0.0)",
+  "source": "https://kicanvas.org/kicanvas/kicanvas.js",
+  "license": "MIT",
+  "files": {
+   "kicanvas/kicanvas.js": {
+    "bytes": 477451,
+    "gzip_bytes": 112356,
+    "sha256": "ca910f25276c3efb9aacb3a5d6341d4d9af4736d4c875fb0440d2cc856865ab7"
+   }
+  }
+ }
+}

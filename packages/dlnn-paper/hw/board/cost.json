@@ -1,0 +1,495 @@
+{
+ "LABEL": "ESTIMATE, needs a live JLCPCB quote; prices are single readings of JLC part pages on 2026-11-03, not quotes; not a commitment",
+ "fees": {
+  "source": "https://jlcpcb.com/help/article/pcb-assembly-price (read 2026-11-03)",
+  "economic": {
+   "setup": 8.18,
+   "stencil": 1.53,
+   "per_joint": 0.0016,
+   "feeder_per_unique_extended": 3.07,
+   "sides": 1
+  },
+  "standard_double_sided": {
+   "setup": 51.12,
+   "stencil": 16.42,
+   "per_joint": 0.0016,
+   "feeder_per_unique_part": 1.53,
+   "sides": 2,
+   "handling_min_diff": 14.93
+  },
+  "hand_soldering_per_order": 3.58,
+  "manual_per_joint": 0.0164,
+  "confirm_parts_placement": 0.45
+ },
+ "pcb_assumptions": {
+  "note": "ASSUMPTION: area rate 70.6 USD/m^2 for small-batch 4-layer (older JLCPCB blog 'Special Discount on Quality 4 Layers PCBs') + 40 USD fixed engineering/flying-probe fee; 2-layer carrier: 25 USD/m^2... all of this is to be replaced by a live quote (impedance-control surcharge not included).",
+  "usd_per_m2_4layer": 70.6,
+  "fixed_4layer_usd": 40.0,
+  "usd_per_m2_2layer": 25.0,
+  "fixed_2layer_usd": 5.0,
+  "min_boards": 5,
+  "tile_size_mm": [
+   160.0,
+   100.0
+  ],
+  "carrier_size_mm": [
+   100.0,
+   80.0
+  ]
+ },
+ "other": {
+  "nucleo_g474re_usd": 18.0,
+  "nucleo_note": "ASSUMPTION (ST price page blocked); ST list price is of this order",
+  "ribbon_cables_usd": 6.0,
+  "dc_supply_usd": 10.0,
+  "usb_cable_usd": 0.0,
+  "enclosure_usd": 0.0
+ },
+ "demonstrator_width8_3tiles": {
+  "tiles": [
+   {
+    "tag": "layer-1 tile (2 of 8 lines populated)",
+    "parts_usd": 32.21,
+    "joints": 1309,
+    "unique_parts": 30,
+    "top_lines": [
+     {
+      "key": "L",
+      "qty": 112,
+      "unit_usd": 0.113,
+      "line_usd": 12.656,
+      "jlc": "C394134",
+      "lib": "Extended"
+     },
+     {
+      "key": "TLV9064",
+      "qty": 13,
+      "unit_usd": 0.4058,
+      "line_usd": 5.2754,
+      "jlc": "C779410",
+      "lib": "Extended"
+     },
+     {
+      "key": "MCP4728",
+      "qty": 2,
+      "unit_usd": 2.3305,
+      "line_usd": 4.661,
+      "jlc": "C108207",
+      "lib": "Extended"
+     },
+     {
+      "key": "BCM847BS",
+      "qty": 8,
+      "unit_usd": 0.3185,
+      "line_usd": 2.548,
+      "jlc": "C549556",
+      "lib": "Extended"
+     },
+     {
+      "key": "C120",
+      "qty": 110,
+      "unit_usd": 0.023,
+      "line_usd": 2.53,
+      "jlc": "C126547",
+      "lib": "Extended"
+     },
+     {
+      "key": "LM4040",
+      "qty": 1,
+      "unit_usd": 1.6417,
+      "line_usd": 1.6417,
+      "jlc": "C460725",
+      "lib": "Extended"
+     }
+    ]
+   },
+   {
+    "tag": "layer-2 tile",
+    "parts_usd": 75.89,
+    "joints": 3309,
+    "unique_parts": 30,
+    "top_lines": [
+     {
+      "key": "L",
+      "qty": 448,
+      "unit_usd": 0.0993,
+      "line_usd": 44.4864,
+      "jlc": "C394134",
+      "lib": "Extended"
+     },
+     {
+      "key": "TLV9064",
+      "qty": 27,
+      "unit_usd": 0.4058,
+      "line_usd": 10.9566,
+      "jlc": "C779410",
+      "lib": "Extended"
+     },
+     {
+      "key": "C120",
+      "qty": 440,
+      "unit_usd": 0.0181,
+      "line_usd": 7.964,
+      "jlc": "C126547",
+      "lib": "Extended"
+     },
+     {
+      "key": "MCP4728",
+      "qty": 2,
+      "unit_usd": 2.3305,
+      "line_usd": 4.661,
+      "jlc": "C108207",
+      "lib": "Extended"
+     },
+     {
+      "key": "BCM847BS",
+      "qty": 8,
+      "unit_usd": 0.3185,
+      "line_usd": 2.548,
+      "jlc": "C549556",
+      "lib": "Extended"
+     },
+     {
+      "key": "LM4040",
+      "qty": 1,
+      "unit_usd": 1.6417,
+      "line_usd": 1.6417,
+      "jlc": "C460725",
+      "lib": "Extended"
+     }
+    ]
+   },
+   {
+    "tag": "layer-3 tile",
+    "parts_usd": 75.73,
+    "joints": 3193,
+    "unique_parts": 30,
+    "top_lines": [
+     {
+      "key": "L",
+      "qty": 448,
+      "unit_usd": 0.0993,
+      "line_usd": 44.4864,
+      "jlc": "C394134",
+      "lib": "Extended"
+     },
+     {
+      "key": "TLV9064",
+      "qty": 27,
+      "unit_usd": 0.4058,
+      "line_usd": 10.9566,
+      "jlc": "C779410",
+      "lib": "Extended"
+     },
+     {
+      "key": "C120",
+      "qty": 440,
+      "unit_usd": 0.0181,
+      "line_usd": 7.964,
+      "jlc": "C126547",
+      "lib": "Extended"
+     },
+     {
+      "key": "MCP4728",
+      "qty": 2,
+      "unit_usd": 2.3305,
+      "line_usd": 4.661,
+      "jlc": "C108207",
+      "lib": "Extended"
+     },
+     {
+      "key": "BCM847BS",
+      "qty": 8,
+      "unit_usd": 0.3185,
+      "line_usd": 2.548,
+      "jlc": "C549556",
+      "lib": "Extended"
+     },
+     {
+      "key": "LM4040",
+      "qty": 1,
+      "unit_usd": 1.6417,
+      "line_usd": 1.6417,
+      "jlc": "C460725",
+      "lib": "Extended"
+     }
+    ]
+   }
+  ],
+  "tile_parts_total_usd": 183.83,
+  "tile_pcb_usd_for_5_boards_(3_used)": 45.65,
+  "tile_assembly_fees_usd": {
+   "economic_single_sided": 96.85,
+   "standard_double_sided": 129.97
+  },
+  "carrier": {
+   "parts_usd": 7.19,
+   "pcb_usd": 6.0,
+   "assembly_usd": 32.19,
+   "bom": [
+    {
+     "key": "LDO5",
+     "function": "+5VA low-noise LDO",
+     "mpn": "MP20051DQ-LF-Z",
+     "c": "C134275",
+     "lib": "Extended",
+     "qty": 1,
+     "usd": 1.14,
+     "value": "5.0 V 1 A, 13 uVrms, 140 mV dropout",
+     "status": "verified-JLC-page; input must be >= 5.5 V so supply ~6 V (fallback AMS1117-5.0 C6187 Basic needs >= 6.3 V, 100 uVrms)"
+    },
+    {
+     "key": "I2CMUX",
+     "function": "per-tile I2C mux (identical tiles)",
+     "mpn": "TCA9548APWR",
+     "c": "C130026",
+     "lib": "Extended",
+     "qty": 1,
+     "usd": 0.8233,
+     "value": "1:8 I2C switch",
+     "status": "verified-JLC-page"
+    },
+    {
+     "key": "OPAMP",
+     "function": "DAC I/Q conditioners, ADC filters, ref buffer",
+     "mpn": "TLV9064IPWR",
+     "c": "C779410",
+     "lib": "Extended",
+     "qty": 2,
+     "usd": 0.4058,
+     "value": "quad",
+     "status": "datasheet-checked"
+    },
+    {
+     "key": "J_RIBBON",
+     "function": "tile ribbon headers (3 tiles)",
+     "mpn": "2.54-2*13P Straight Header",
+     "c": "C9040",
+     "lib": "Extended",
+     "qty": 4,
+     "usd": 0.4445,
+     "value": "2x13",
+     "status": "verified-JLC-page"
+    },
+    {
+     "key": "J_NUCLEO",
+     "function": "ST morpho female headers (2 x 2x19)",
+     "mpn": "(generic 2.54 mm 19x2 female header x2)",
+     "c": "not verified",
+     "lib": "?",
+     "qty": 2,
+     "usd": 1.2,
+     "value": "",
+     "status": "ASSUMPTION price"
+    },
+    {
+     "key": "PASSIVES",
+     "function": "carrier resistors/caps (about 60 parts)",
+     "mpn": "0402/0603 basic",
+     "c": "various",
+     "lib": "Basic",
+     "qty": 60,
+     "usd": 0.004,
+     "value": "",
+     "status": "ASSUMPTION"
+    }
+   ]
+  },
+  "nucleo_cables_supply_usd": 34.0,
+  "per_tile_average_usd": {
+   "economic_single_sided_fees": 108.78,
+   "standard_double_sided_fees": 119.82
+  },
+  "system_total_usd": {
+   "economic_single_sided_tiles": 405.71,
+   "standard_double_sided_tiles": 438.83
+  },
+  "system_total_usd_with_25pct_contingency": {
+   "low": 507.14,
+   "high": 548.54,
+   "contingency_covers": "shipping, import duty/VAT, one respin of a tile, stock-outs/alternates, hand-soldered THT, cables, test jigs (NOT modelled; ASSUMPTION 25 %)"
+  },
+  "plan_claim_usd": "600-800 (tile 150-250, layer-1 100, carrier+Nucleo 50)"
+ },
+ "marginal_cost_per_tile_usd_at_volume_ex_fixed_fees": {
+  "full_tile": 82.14,
+  "layer1_tile": 35.44
+ },
+ "scaling_formula": "inductors = 448 (D-1) (W/8)^2 + 112 (W/8); tiles = (D-1)(W/8)^2 + W/8; area = tiles x 160 x 100 mm; cost ~ tiles x marginal tile cost + 50",
+ "scaling": {
+  "W8_D3": {
+   "width": 8,
+   "depth": 3,
+   "tiles_full": 2,
+   "tiles_layer1": 1,
+   "tiles_total": 3,
+   "inductors": 1008,
+   "board_area_cm2": 480.0,
+   "cost_usd_estimate": 249.72070000000002,
+   "weights_ternary": null
+  },
+  "W8_D4": {
+   "width": 8,
+   "depth": 4,
+   "tiles_full": 3,
+   "tiles_layer1": 1,
+   "tiles_total": 4,
+   "inductors": 1456,
+   "board_area_cm2": 640.0,
+   "cost_usd_estimate": 331.8632,
+   "weights_ternary": null
+  },
+  "W8_D6": {
+   "width": 8,
+   "depth": 6,
+   "tiles_full": 5,
+   "tiles_layer1": 1,
+   "tiles_total": 6,
+   "inductors": 2352,
+   "board_area_cm2": 960.0,
+   "cost_usd_estimate": 496.1482000000001,
+   "weights_ternary": null
+  },
+  "W16_D3": {
+   "width": 16,
+   "depth": 3,
+   "tiles_full": 8,
+   "tiles_layer1": 2,
+   "tiles_total": 10,
+   "inductors": 3808,
+   "board_area_cm2": 1600.0,
+   "cost_usd_estimate": 778.0114000000001,
+   "weights_ternary": null
+  },
+  "W16_D4": {
+   "width": 16,
+   "depth": 4,
+   "tiles_full": 12,
+   "tiles_layer1": 2,
+   "tiles_total": 14,
+   "inductors": 5600,
+   "board_area_cm2": 2240.0,
+   "cost_usd_estimate": 1106.5814,
+   "weights_ternary": null
+  },
+  "W16_D6": {
+   "width": 16,
+   "depth": 6,
+   "tiles_full": 20,
+   "tiles_layer1": 2,
+   "tiles_total": 22,
+   "inductors": 9184,
+   "board_area_cm2": 3520.0,
+   "cost_usd_estimate": 1763.7214000000004,
+   "weights_ternary": null
+  },
+  "W32_D3": {
+   "width": 32,
+   "depth": 3,
+   "tiles_full": 32,
+   "tiles_layer1": 4,
+   "tiles_total": 36,
+   "inductors": 14784,
+   "board_area_cm2": 5760.0,
+   "cost_usd_estimate": 2820.3028000000004,
+   "weights_ternary": null
+  },
+  "W32_D4": {
+   "width": 32,
+   "depth": 4,
+   "tiles_full": 48,
+   "tiles_layer1": 4,
+   "tiles_total": 52,
+   "inductors": 21952,
+   "board_area_cm2": 8320.0,
+   "cost_usd_estimate": 4134.5828,
+   "weights_ternary": null
+  },
+  "W32_D6": {
+   "width": 32,
+   "depth": 6,
+   "tiles_full": 80,
+   "tiles_layer1": 4,
+   "tiles_total": 84,
+   "inductors": 36288,
+   "board_area_cm2": 13440.0,
+   "cost_usd_estimate": 6763.142800000001,
+   "weights_ternary": null
+  },
+  "W64_D3": {
+   "width": 64,
+   "depth": 3,
+   "tiles_full": 128,
+   "tiles_layer1": 8,
+   "tiles_total": 136,
+   "inductors": 58240,
+   "board_area_cm2": 21760.0,
+   "cost_usd_estimate": 10847.725600000002,
+   "weights_ternary": null
+  },
+  "W64_D4": {
+   "width": 64,
+   "depth": 4,
+   "tiles_full": 192,
+   "tiles_layer1": 8,
+   "tiles_total": 200,
+   "inductors": 86912,
+   "board_area_cm2": 32000.0,
+   "cost_usd_estimate": 16104.845600000002,
+   "weights_ternary": null
+  },
+  "W64_D6": {
+   "width": 64,
+   "depth": 6,
+   "tiles_full": 320,
+   "tiles_layer1": 8,
+   "tiles_total": 328,
+   "inductors": 144256,
+   "board_area_cm2": 52480.0,
+   "cost_usd_estimate": 26619.085600000006,
+   "weights_ternary": null
+  }
+ },
+ "inductor_only_cost_usd_at_2000_price": {
+  "W8_D3": 72.0,
+  "W8_D4": 104.0,
+  "W8_D6": 169.0,
+  "W16_D3": 273.0,
+  "W16_D4": 402.0,
+  "W16_D6": 658.0,
+  "W32_D3": 1060.0,
+  "W32_D4": 1574.0,
+  "W32_D6": 2602.0,
+  "W64_D3": 4176.0,
+  "W64_D4": 6232.0,
+  "W64_D6": 10343.0
+ },
+ "inductor_count_vs_width_depth": {
+  "W8_D3": 1008,
+  "W8_D4": 1456,
+  "W8_D6": 2352,
+  "W16_D3": 3808,
+  "W16_D4": 5600,
+  "W16_D6": 9184,
+  "W32_D3": 14784,
+  "W32_D4": 21952,
+  "W32_D6": 36288,
+  "W64_D3": 58240,
+  "W64_D4": 86912,
+  "W64_D6": 144256
+ },
+ "weights_of_the_demonstrator": {
+  "nonzero_0402_resistors_by_layer": [
+   83,
+   271,
+   213
+  ],
+  "total": 567
+ },
+ "M3b_notes": {
+  "surface_finish": "ENIG specified for all boards (stackup copper_finish ENIG, JLC option 'Surface finish: ENIG'): required for the gold (exposed copper) art on the carrier bottom; HASL would look silver.",
+  "enig_vs_hasl_estimate": "ESTIMATE only, needs a live JLCPCB quote: JLCPCB lists ENIG as a surcharge over lead-free HASL, roughly +$15..30 per order for 5 small 2-4 layer boards (about +$3..6 per board at carrier size 134x90 mm, about +$8..15 per board at tile size 180x142 mm); not read from a JLC page in this session.",
+  "board_size_change": "M3b tile outline is 180 x 142 mm (the 160 x 100 assumption above did not fit: 448 inductors with 1812 courtyards + a 64 x 16 crossbar); the area-based PCB cost scales by about 1.6x. Carrier outline 134 x 90 mm (cost model assumed 100 x 80), 4-layer instead of 2-layer.",
+  "part_list_changes_M3b": "added per tile: TCA9548APWR (C130026), 3 x 10k tile-ID pull-ups, 4 x 10k channel pull-ups, 8 x E96 offset resistors RO; MCP4728 now on 3.3 V; carrier: AMS1117-5.0 (C6187) replaces MP20051DQ, TCA9548A removed from the carrier. parts.csv and cost_model.py were not edited (not owned); numbers above are not recomputed."
+ }
+}

@@ -1,0 +1,3891 @@
+{
+ "schema": "dlnn-claims/1",
+ "note": "Headline claims for the article's evidence chips. Values are read from the source files by build_claims.py. Nothing here is measured. 'fidelity' is one of simulated | RTL | designed | measured. notebook_cell / pytest are filled when the verify notebook (M6) exists; until then status is pending-verify. Article claims (ids not starting p1./arena. at first) were added by the M5 writer; a claim may carry source.regex or source.derive (see scripts/check_article_numbers.py), display_scale and display_abs. Re-running build_claims.py would overwrite them.",
+ "fidelity_labels": [
+  "simulated",
+  "RTL",
+  "designed",
+  "measured"
+ ],
+ "schema_fields": {
+  "id": "stable claim id shown in the chip",
+  "text": "what is claimed",
+  "value": "number",
+  "unit": "string",
+  "tolerance": "absolute, for the verify notebook",
+  "fidelity": "label",
+  "source": "{file, key (dot path), file_sha256_16}",
+  "notebook_cell": "tag in 00_verify.ipynb or null",
+  "pytest": "test id or null",
+  "status": "pending-verify | PASS | FAIL"
+ },
+ "claims": [
+  {
+   "id": "p1.w32.acc.V",
+   "text": "Mixed-SNR accuracy of the width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study on the synthetic 8-class set, ideal math (tier V).",
+   "value": 0.86275,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "metric_matrix.accuracy.V",
+    "file_sha256_16": "8a16e08fdbeaee08"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "V",
+   "run": "w32"
+  },
+  {
+   "id": "p1.w32.acc.E",
+   "text": "Mixed-SNR accuracy of the width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study on the synthetic 8-class set, bit-true fixed point (tier E).",
+   "value": 0.863,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "metric_matrix.accuracy.E",
+    "file_sha256_16": "8a16e08fdbeaee08"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w32"
+  },
+  {
+   "id": "p1.w32.acc.C",
+   "text": "Mixed-SNR accuracy of the width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study on the synthetic 8-class set, SPICE-calibrated circuit model (tier C).",
+   "value": 0.66275,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "metric_matrix.accuracy.C",
+    "file_sha256_16": "8a16e08fdbeaee08"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "C",
+   "run": "w32"
+  },
+  {
+   "id": "p1.w32.acc.R",
+   "text": "Mixed-SNR accuracy of the width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study on the synthetic 8-class set, RF / signal-integrity channel model (tier R).",
+   "value": 0.70125,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "metric_matrix.accuracy.R",
+    "file_sha256_16": "8a16e08fdbeaee08"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "R",
+   "run": "w32"
+  },
+  {
+   "id": "p1.w32.agree.E",
+   "text": "Top-1 agreement of the fixed-point tier with the ideal tier (width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study).",
+   "value": 0.99725,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "metric_matrix.top1_agreement_vs_virtual.E",
+    "file_sha256_16": "8a16e08fdbeaee08"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w32"
+  },
+  {
+   "id": "p1.w32.nmse.E",
+   "text": "Logit NMSE of the fixed-point tier against the ideal tier (width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study).",
+   "value": 2.2895439542480744e-05,
+   "unit": "ratio",
+   "tolerance": 1e-05,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "metric_matrix.logit_nmse_vs_virtual.E",
+    "file_sha256_16": "8a16e08fdbeaee08"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w32"
+  },
+  {
+   "id": "p1.w32.rtl.mismatches",
+   "text": "Verilog RTL vs numpy golden model, 202752 chained layer values compared (width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study).",
+   "value": 0.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "tier_info.E.fidelity.models.1",
+    "file_sha256_16": "8a16e08fdbeaee08",
+    "regex": "(\\d+) mismatches \\[L1"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w32",
+   "compared": 202752
+  },
+  {
+   "id": "p1.w32.acc.float",
+   "text": "Float32 reference with the same topology and unconstrained taps (width-32 ternary model (models/tdlnet_modrec_w32_ternary.npz), coax study); a reference, not a tier.",
+   "value": 0.91875,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "reference.accuracy",
+    "file_sha256_16": "8a16e08fdbeaee08"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "run": "w32"
+  },
+  {
+   "id": "p1.w8.acc.V",
+   "text": "Mixed-SNR accuracy of the width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study on the synthetic 8-class set, ideal math (tier V).",
+   "value": 0.73475,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "metric_matrix.accuracy.V",
+    "file_sha256_16": "d21aac67394c42d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "V",
+   "run": "w8"
+  },
+  {
+   "id": "p1.w8.acc.E",
+   "text": "Mixed-SNR accuracy of the width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study on the synthetic 8-class set, bit-true fixed point (tier E).",
+   "value": 0.73475,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "metric_matrix.accuracy.E",
+    "file_sha256_16": "d21aac67394c42d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w8"
+  },
+  {
+   "id": "p1.w8.acc.C",
+   "text": "Mixed-SNR accuracy of the width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study on the synthetic 8-class set, SPICE-calibrated circuit model (tier C).",
+   "value": 0.54,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "metric_matrix.accuracy.C",
+    "file_sha256_16": "d21aac67394c42d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "C",
+   "run": "w8"
+  },
+  {
+   "id": "p1.w8.acc.R",
+   "text": "Mixed-SNR accuracy of the width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study on the synthetic 8-class set, RF / signal-integrity channel model (tier R).",
+   "value": 0.4785,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "metric_matrix.accuracy.R",
+    "file_sha256_16": "d21aac67394c42d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "R",
+   "run": "w8"
+  },
+  {
+   "id": "p1.w8.agree.E",
+   "text": "Top-1 agreement of the fixed-point tier with the ideal tier (width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study).",
+   "value": 0.99575,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "metric_matrix.top1_agreement_vs_virtual.E",
+    "file_sha256_16": "d21aac67394c42d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w8"
+  },
+  {
+   "id": "p1.w8.nmse.E",
+   "text": "Logit NMSE of the fixed-point tier against the ideal tier (width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study).",
+   "value": 5.392218372435309e-05,
+   "unit": "ratio",
+   "tolerance": 1e-05,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "metric_matrix.logit_nmse_vs_virtual.E",
+    "file_sha256_16": "d21aac67394c42d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w8"
+  },
+  {
+   "id": "p1.w8.rtl.mismatches",
+   "text": "Verilog RTL vs numpy golden model, 198144 chained layer values compared (width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study).",
+   "value": 0.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "tier_info.E.fidelity.models.1",
+    "file_sha256_16": "d21aac67394c42d7",
+    "regex": "(\\d+) mismatches \\[L1"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w8",
+   "compared": 198144
+  },
+  {
+   "id": "p1.w8.acc.float",
+   "text": "Float32 reference with the same topology and unconstrained taps (width-8 ternary model (models/tdlnet_modrec_ternary.npz), coax study); a reference, not a tier.",
+   "value": 0.8465,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "reference.accuracy",
+    "file_sha256_16": "d21aac67394c42d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "run": "w8"
+  },
+  {
+   "id": "arena.dlnn.acc",
+   "text": "Mixed-SNR test accuracy, DLNN w8 (ternary readout), synthetic set (arena_report.json).",
+   "value": 0.8055,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn.ops",
+   "text": "Operations per classification of one 128-sample window (DLNN (TDL-Net-B w8, d=1)): adds.",
+   "value": 93376.0,
+   "unit": "ops",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "arena",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.ops.adds",
+    "file_sha256_16": "b76ef05fc83bc589"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "model": "dlnn"
+  },
+  {
+   "id": "arena.dlnn_fro.acc",
+   "text": "Mixed-SNR test accuracy, DLNN w8 (float digital readout), synthetic set (arena_report.json).",
+   "value": 0.85125,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8_fro.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn_fro.ops",
+   "text": "Operations per classification of one 128-sample window (DLNN-F (float readout)): adds.",
+   "value": 88000.0,
+   "unit": "ops",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "arena",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8_fro.ops.adds",
+    "file_sha256_16": "b76ef05fc83bc589"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "model": "dlnn_fro"
+  },
+  {
+   "id": "arena.mlp_s.acc",
+   "text": "Mixed-SNR test accuracy, raw-I/Q MLP, ~1k params, synthetic set (arena_report.json).",
+   "value": 0.261,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_s.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_s.ops",
+   "text": "Operations per classification of one 128-sample window (MLP-S): adds.",
+   "value": 1068.0,
+   "unit": "ops",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "arena",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_s.ops.adds",
+    "file_sha256_16": "b76ef05fc83bc589"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "model": "mlp_s"
+  },
+  {
+   "id": "arena.mlp_l.acc",
+   "text": "Mixed-SNR test accuracy, raw-I/Q MLP, ~10k params, synthetic set (arena_report.json).",
+   "value": 0.54225,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_l.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_l.ops",
+   "text": "Operations per classification of one 128-sample window (MLP-L): adds.",
+   "value": 10078.0,
+   "unit": "ops",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "arena",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_l.ops.adds",
+    "file_sha256_16": "b76ef05fc83bc589"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "model": "mlp_l"
+  },
+  {
+   "id": "arena.cnn.acc",
+   "text": "Mixed-SNR test accuracy, float 1-D CNN, same topology, synthetic set (arena_report.json).",
+   "value": 0.90925,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cnn.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.cnn.ops",
+   "text": "Operations per classification of one 128-sample window (1-D CNN): adds.",
+   "value": 151616.0,
+   "unit": "ops",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "arena",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cnn.ops.adds",
+    "file_sha256_16": "b76ef05fc83bc589"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "model": "cnn"
+  },
+  {
+   "id": "arena.reservoir.acc",
+   "text": "Mixed-SNR test accuracy, random ternary reservoir + ridge readout, synthetic set (arena_report.json).",
+   "value": 0.71825,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.reservoir.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.reservoir.ops",
+   "text": "Operations per classification of one 128-sample window (delay reservoir): adds.",
+   "value": 1341064.0,
+   "unit": "ops",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "arena",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.reservoir.ops.adds",
+    "file_sha256_16": "b76ef05fc83bc589"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "model": "reservoir"
+  },
+  {
+   "id": "arena.cumulant.acc",
+   "text": "Mixed-SNR test accuracy, cumulant/statistics features + logistic regression, synthetic set (arena_report.json).",
+   "value": 0.8745,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cumulant.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.cumulant.ops",
+   "text": "Operations per classification of one 128-sample window (cumulant baseline): adds.",
+   "value": 26394.0,
+   "unit": "ops",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "arena",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cumulant.ops.adds",
+    "file_sha256_16": "b76ef05fc83bc589"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "model": "cumulant"
+  },
+  {
+   "id": "arena.mlp_feat_s.acc",
+   "text": "Mixed-SNR test accuracy, feature MLP (191 phase-invariant features), ~1.2k params, synthetic set (arena_report.json).",
+   "value": 0.71275,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_feat_s.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_feat_l.acc",
+   "text": "Mixed-SNR test accuracy, feature MLP, ~8.5k params, synthetic set (arena_report.json).",
+   "value": 0.7725,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_feat_l.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_pow_s.acc",
+   "text": "Mixed-SNR test accuracy, feature MLP with z^2/z^4 line spectra, ~1k params, synthetic set (arena_report.json).",
+   "value": 0.78275,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_pow_s.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_pow_l.acc",
+   "text": "Mixed-SNR test accuracy, feature MLP with z^2/z^4 line spectra, ~9k params, synthetic set (arena_report.json).",
+   "value": 0.845,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_pow_l.acc",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn.ge10",
+   "text": "Test accuracy at SNR >= 10 dB, dlnn (arena_report.json).",
+   "value": 0.8375,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.acc_ge10dB",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn_fro.ge10",
+   "text": "Test accuracy at SNR >= 10 dB, dlnn_fro (arena_report.json).",
+   "value": 0.8883333333333333,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8_fro.acc_ge10dB",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.cnn.ge10",
+   "text": "Test accuracy at SNR >= 10 dB, cnn (arena_report.json).",
+   "value": 0.9545833333333333,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cnn.acc_ge10dB",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.cumulant.ge10",
+   "text": "Test accuracy at SNR >= 10 dB, cumulant (arena_report.json).",
+   "value": 0.9583333333333334,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cumulant.acc_ge10dB",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_pow_l.ge10",
+   "text": "Test accuracy at SNR >= 10 dB, mlp_pow_l (arena_report.json).",
+   "value": 0.9329166666666666,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_pow_l.acc_ge10dB",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn.params",
+   "text": "Trained parameter count, dlnn.",
+   "value": 1275.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.params",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn.mults",
+   "text": "Multiplies per 128-sample classification, dlnn.",
+   "value": 3144.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.ops.mults",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn.adds",
+   "text": "Adds per 128-sample classification, dlnn.",
+   "value": 93376.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.ops.adds",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.cnn.params",
+   "text": "Trained parameter count, cnn.",
+   "value": 1248.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cnn.params",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.cnn.mults",
+   "text": "Multiplies per 128-sample classification, cnn.",
+   "value": 147528.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cnn.ops.mults",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.cnn.adds",
+   "text": "Adds per 128-sample classification, cnn.",
+   "value": 151616.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.cnn.ops.adds",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_pow_s.params",
+   "text": "Trained parameter count, mlp_pow_s.",
+   "value": 992.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_pow_s.params",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_pow_s.mults",
+   "text": "Multiplies per 128-sample classification, mlp_pow_s.",
+   "value": 10255.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_pow_s.ops.mults",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_pow_s.adds",
+   "text": "Adds per 128-sample classification, mlp_pow_s.",
+   "value": 10908.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_pow_s.ops.adds",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_s.params",
+   "text": "Trained parameter count, mlp_s.",
+   "value": 1068.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_s.params",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_s.mults",
+   "text": "Multiplies per 128-sample classification, mlp_s.",
+   "value": 1056.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_s.ops.mults",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_s.adds",
+   "text": "Adds per 128-sample classification, mlp_s.",
+   "value": 1068.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_s.ops.adds",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_l.params",
+   "text": "Trained parameter count, mlp_l.",
+   "value": 10078.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_l.params",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_l.mults",
+   "text": "Multiplies per 128-sample classification, mlp_l.",
+   "value": 10032.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_l.ops.mults",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_l.adds",
+   "text": "Adds per 128-sample classification, mlp_l.",
+   "value": 10078.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_l.ops.adds",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.reservoir.params",
+   "text": "Trained parameter count, reservoir.",
+   "value": 1544.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.reservoir.params",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.reservoir.mults",
+   "text": "Multiplies per 128-sample classification, reservoir.",
+   "value": 26496.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.reservoir.ops.mults",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.reservoir.adds",
+   "text": "Adds per 128-sample classification, reservoir.",
+   "value": 1341064.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.reservoir.ops.adds",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn.nonlin",
+   "text": "Nonlinear evaluations (tanh) per classification, DLNN w8.",
+   "value": 3072.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.ops.nonlin",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.dlnn.8psk",
+   "text": "8PSK per-class accuracy of the ternary-readout DLNN w8 on an ideal line.",
+   "value": 0.334,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.tdlnet_b_w8.acc_per_class.8PSK",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.mlp_pow_s.ops_mults_feat",
+   "text": "Feature-extraction multiplies of the small z^2/z^4 feature MLP.",
+   "value": 9274.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "models.mlp_pow_s.feature_ops.mults",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.n_test",
+   "text": "Test examples.",
+   "value": 4000.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "n_test",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "arena.n_train",
+   "text": "Training examples.",
+   "value": 16000.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/arena_report.json",
+    "key": "n_train",
+    "file_sha256_16": "bdd4a6b5a1c6ef86"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p1.w32.acc.C_nocomp",
+   "text": "Tier C, width-32 coax model, at the fitted 32 dB/us loss with NO loss compensation (behavioural model, not SPICE).",
+   "value": 0.80425,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "phase1",
+   "source": {
+    "file": "out/final-w32/params/circuit_diagnostics.json",
+    "key": "modes.none.metrics_at_fitted_loss.accuracy",
+    "file_sha256_16": "198f06e3e9faf318"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p1.coax.loss",
+   "text": "Fitted RG-58 loss, dB per microsecond, used for the coax-study headline.",
+   "value": 32.0,
+   "unit": "dB/us",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "phase1",
+   "source": {
+    "file": "out/final-w32/params/circuit_diagnostics.json",
+    "key": "modes.none.loss_sweep.values.3",
+    "file_sha256_16": "198f06e3e9faf318"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p1.coax.maxdelay",
+   "text": "Longest tap delay in the coax study (layer 3), microseconds; never simulated in SPICE (extrapolated).",
+   "value": 1.12,
+   "unit": "us",
+   "tolerance": 0.001,
+   "fidelity": "simulated",
+   "group": "phase1",
+   "source": {
+    "file": "docs/results.md",
+    "key": null,
+    "regex": "delays of up to ([0-9.]+) microseconds",
+    "file_sha256_16": "3da891dcd1da5532"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "d1.w8.acc",
+   "text": "TDL-Net-B width 8, d = 1, ternary taps + ternary readout, mixed-SNR accuracy (ideal line).",
+   "value": 0.8055,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_report.json",
+    "key": "ternary.acc",
+    "file_sha256_16": "bdcaaa1bd3ca7b90"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "d1.w8.ge10",
+   "text": "Same, SNR >= 10 dB.",
+   "value": 0.8375,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_report.json",
+    "key": "ternary.acc_ge10dB",
+    "file_sha256_16": "bdcaaa1bd3ca7b90"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "d1.w16.acc",
+   "text": "TDL-Net-B width 16, d = 1, ternary.",
+   "value": 0.899,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w16_report.json",
+    "key": "ternary.acc",
+    "file_sha256_16": "d34a064899aa1c31"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "d1.v32.acc",
+   "text": "Width 32, 4 layers, d = 1, ternary (virtual model).",
+   "value": 0.93125,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/v32_modrec_report.json",
+    "key": "ternary.acc",
+    "file_sha256_16": "2b167590ce9278d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "d1.v32.float",
+   "text": "Width 32, 4 layers, d = 1, float baseline.",
+   "value": 0.9285,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/v32_modrec_report.json",
+    "key": "float.acc",
+    "file_sha256_16": "2b167590ce9278d7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "d1.w8.nternary",
+   "text": "Ternary weights in TDL-Net-B w8.",
+   "value": 1152,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_report.json",
+    "key": "ternary.n_ternary_weights",
+    "file_sha256_16": "bdcaaa1bd3ca7b90"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "d1.w8.fakequant",
+   "text": "Width-8 d = 1 net with 8-bit fake quantisation.",
+   "value": 0.80675,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_report.json",
+    "key": "ternary.acc_8bit_fakequant",
+    "file_sha256_16": "bdcaaa1bd3ca7b90"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.plain.q10",
+   "text": "Plain d = 1 w8 net evaluated through the ngspice M1a line FIR (Q = 10).",
+   "value": 0.77225,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8|Q10.acc",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.fro.ideal",
+   "text": "Board-aware net (float digital readout) on an ideal line.",
+   "value": 0.655,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_fro|ideal.acc",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.fro.q10",
+   "text": "Board-aware net (float digital readout) through the M1a line FIR, Q = 10.",
+   "value": 0.878,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_fro|Q10.acc",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.fro.q30",
+   "text": "Same, Q = 30 (assumed typical).",
+   "value": 0.87775,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_fro|Q30.acc",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.fro.ge10",
+   "text": "Same, Q = 10, SNR >= 10 dB.",
+   "value": 0.9183333333333333,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_fro|Q10.acc_ge10dB",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.fro.jitter",
+   "text": "Board-aware net, Q = 10 plus random +-14 % per-tap delay error, mean of 10 draws.",
+   "value": 0.876875,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "q10_plus_tap_jitter_14pct.tdlnet_b_w8_aware2_fro.mean",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.plain.jitter",
+   "text": "Plain net under the same jitter.",
+   "value": 0.7715,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "q10_plus_tap_jitter_14pct.tdlnet_b_w8.mean",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.fro.qpsk",
+   "text": "QPSK per-class accuracy, board-aware float-readout net, Q = 10.",
+   "value": 0.69,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_fro|Q10.acc_per_class.QPSK",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.fro.8psk",
+   "text": "8PSK per-class accuracy, same.",
+   "value": 0.664,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_fro|Q10.acc_per_class.8PSK",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.collapsed.q10",
+   "text": "Old board-aware net (QPSK collapsed), Q = 10, mixed accuracy.",
+   "value": 0.797,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_collapsed|Q10.acc",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.collapsed.qpsk",
+   "text": "Old board-aware net, QPSK per-class accuracy at Q = 10.",
+   "value": 0.0,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "cells.tdlnet_b_w8_aware2_collapsed|Q10.acc_per_class.QPSK",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.tern.q10",
+   "text": "Board-aware net, ternary readout, focal loss, Q = 10.",
+   "value": 0.81225,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_report.json",
+    "key": "cells.tdlnet_b_w8_aware2|Q10.acc",
+    "file_sha256_16": "197ca5747deb9aed"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.tern.ideal",
+   "text": "Same, ideal line.",
+   "value": 0.67525,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_report.json",
+    "key": "cells.tdlnet_b_w8_aware2|ideal.acc",
+    "file_sha256_16": "197ca5747deb9aed"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.tern.qpsk",
+   "text": "Same, QPSK per-class accuracy at Q = 10.",
+   "value": 0.492,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_report.json",
+    "key": "cells.tdlnet_b_w8_aware2|Q10.acc_per_class.QPSK",
+    "file_sha256_16": "197ca5747deb9aed"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.tern.8psk",
+   "text": "Same, 8PSK per-class accuracy at Q = 10.",
+   "value": 0.548,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_report.json",
+    "key": "cells.tdlnet_b_w8_aware2|Q10.acc_per_class.8PSK",
+    "file_sha256_16": "197ca5747deb9aed"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.floor",
+   "text": "Per-class selection floor (validation) used to reject collapsed candidates.",
+   "value": 0.35,
+   "unit": "fraction",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "floor",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "aware.n_val",
+   "text": "Validation examples held out for selection.",
+   "value": 2000,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/tdlnet_b_w8_aware2_fro_report.json",
+    "key": "val_examples",
+    "file_sha256_16": "2a341b7e3ce7390b"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.nom.q10",
+   "text": "Tier P nominal accuracy, Q = 10, 4000-example test set (designed board, simulated).",
+   "value": 0.8705,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.nominal.Q10.accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.nom.q30",
+   "text": "Tier P nominal accuracy, Q = 30.",
+   "value": 0.87225,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.nominal.Q30.accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.nom.untrimmed",
+   "text": "Tier P accuracy with the board AS DESIGNED (gain trim 0 dB).",
+   "value": 0.1675,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.nominal.Q10_as_designed_trim0dB.accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.trim.auto_db",
+   "text": "Automatic gain trim used for the headline P numbers, dB.",
+   "value": 8.98,
+   "unit": "dB",
+   "tolerance": 0.005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/tdlnet_b_w8_aware2_fro/tiers/P.json",
+    "key": "warnings.0",
+    "regex": "auto trim ([0-9.]+) dB",
+    "file_sha256_16": "59799e7e1b4f2622"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.trim.6db",
+   "text": "Tier P accuracy with a fixed 6.02 dB trim.",
+   "value": 0.454,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/tdlnet_b_w8_aware2_fro/tiers/P.json",
+    "key": "warnings.0",
+    "regex": "6\\.02 dB level fix gives ([0-9.]+)",
+    "file_sha256_16": "59799e7e1b4f2622"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.v.m1a",
+   "text": "Tier V through the M1a line FIR, Q = 10 (the right reference for P).",
+   "value": 0.878,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.v_on_m1a_fir.Q10.v_m1a_fir_accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.p_minus_v",
+   "text": "P minus V(M1a FIR), Q = 10, in accuracy points.",
+   "value": -0.0075,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.v_on_m1a_fir.Q10.p_minus_v_m1a_fir",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 100
+  },
+  {
+   "id": "p.agree",
+   "text": "Top-1 agreement P vs V(M1a FIR), Q = 10.",
+   "value": 0.948,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.v_on_m1a_fir.Q10.agreement_p_vs_v_m1a_fir",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.n",
+   "text": "Monte Carlo boards.",
+   "value": 1000,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.n_trials",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.n_ex",
+   "text": "Examples in the Monte Carlo subset.",
+   "value": 800,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.n_examples",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.mean",
+   "text": "Monte Carlo mean accuracy.",
+   "value": 0.85638875,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.accuracy_mean",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.std",
+   "text": "Monte Carlo sigma of accuracy (shown in points).",
+   "value": 0.005581865114426871,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.accuracy_std",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 100
+  },
+  {
+   "id": "p.mc.min",
+   "text": "Monte Carlo worst board.",
+   "value": 0.84125,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.accuracy_min",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.p5",
+   "text": "Monte Carlo 5th percentile.",
+   "value": 0.8475,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.accuracy_p5",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.yield",
+   "text": "Monte Carlo yield under the stated rule.",
+   "value": 1,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.yield",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.thr",
+   "text": "Yield threshold (V on the ideal line, same subset, minus 5 points).",
+   "value": 0.605,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.yield_threshold",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.mc.vsub",
+   "text": "V accuracy on the ideal line, same subset.",
+   "value": 0.655,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.monte_carlo.v_accuracy_same_subset",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.xt.par3",
+   "text": "Tier P accuracy (1000-example subset), parallel inductor axes, 3 mm pitch.",
+   "value": 0.859,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.crosstalk_cases.0.accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.xt.alt3",
+   "text": "Tier P accuracy (1000-example subset), alternating inductor axes, 3 mm pitch.",
+   "value": 0.85,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.crosstalk_cases.1.accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.xt.par5",
+   "text": "Tier P accuracy (1000-example subset), parallel inductor axes, 5 mm pitch.",
+   "value": 0.851,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.crosstalk_cases.2.accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.xt.alt5",
+   "text": "Tier P accuracy (1000-example subset), alternating inductor axes, 5 mm pitch.",
+   "value": 0.849,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.crosstalk_cases.3.accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.xt.k3",
+   "text": "Nearest-neighbour coupling coefficient k, parallel axes, 3 mm (dipole estimate, assumed V_eff).",
+   "value": 0.027162443621016805,
+   "unit": "ratio",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.crosstalk_cases.0.k_nearest",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p.xt.nominal_sub",
+   "text": "Nominal P accuracy on the 1000-example sweep subset.",
+   "value": 0.85,
+   "unit": "fraction",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "out/P2-M2b/summary_all.json",
+    "key": "models.tdlnet_b_w8_aware2_fro.attribution_one_at_a_time.nominal_accuracy",
+    "file_sha256_16": "6088a05f53b2f94d"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.L_uH",
+   "text": "Inductance per section, uH.",
+   "value": 0.00012,
+   "unit": "uH",
+   "tolerance": 1e-08,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.L_h",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1000000.0
+  },
+  {
+   "id": "line.C_pF",
+   "text": "Capacitance per section, pF.",
+   "value": 1.2e-10,
+   "unit": "pF",
+   "tolerance": 1e-13,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.C_f",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1000000000000.0
+  },
+  {
+   "id": "line.n_sections",
+   "text": "LC sections per delay line.",
+   "value": 56,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.n_sections",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.tap_every",
+   "text": "Sections between taps.",
+   "value": 8,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.tap_every",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.n_lines",
+   "text": "Delay lines per full tile.",
+   "value": 8,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.n_lines",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.n_taps",
+   "text": "Taps per line.",
+   "value": 8,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.n_taps",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.Z0",
+   "text": "Characteristic impedance, ohm.",
+   "value": 1000,
+   "unit": "ohm",
+   "tolerance": 0.5,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "line.Z0_ohm",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.tau_ns",
+   "text": "Delay per section, ns.",
+   "value": 1.2e-07,
+   "unit": "ns",
+   "tolerance": 5e-10,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "line.tau_section_s",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1000000000.0
+  },
+  {
+   "id": "line.ts_us",
+   "text": "Mean tap spacing (nominal, exact ladder), us.",
+   "value": 9.624571332611715e-07,
+   "unit": "us",
+   "tolerance": 1e-09,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "line.tap_spacing_nominal_s",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1000000.0
+  },
+  {
+   "id": "line.fs_MHz",
+   "text": "Nominal sample rate, MS/s.",
+   "value": 1000000,
+   "unit": "MS/s",
+   "tolerance": 1000.0000000000001,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.fs_nominal_hz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1e-06
+  },
+  {
+   "id": "line.fc_MHz",
+   "text": "Ideal cut-off, MHz.",
+   "value": 2652582.38486492,
+   "unit": "MHz",
+   "tolerance": 5000.0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "line.f_cutoff_ideal_hz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1e-06
+  },
+  {
+   "id": "line.dcr",
+   "text": "Inductor DCR, ohm.",
+   "value": 3.3,
+   "unit": "ohm",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.ind_dcr_ohm",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.srf",
+   "text": "Inductor SRF, MHz.",
+   "value": 3300000,
+   "unit": "MHz",
+   "tolerance": 10000.0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.ind_srf_hz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1e-06
+  },
+  {
+   "id": "line.q_min",
+   "text": "Datasheet minimum Q (at 796 kHz).",
+   "value": 10,
+   "unit": "ratio",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.ind_Q_min",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.q_typ",
+   "text": "Assumed typical Q.",
+   "value": 30,
+   "unit": "ratio",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "design_inputs.ind_Q_assumed_typ",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.loss250.q10",
+   "text": "ngspice tap-7 loss relative to tap 0 at 250 kHz, Q = 10, dB.",
+   "value": -2.2638810946760595,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qmin.tap7_loss_db_at_250kHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_abs": true
+  },
+  {
+   "id": "line.loss250.q30",
+   "text": "Same, Q = 30.",
+   "value": -1.286949998595812,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qtyp_assumed.tap7_loss_db_at_250kHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_abs": true
+  },
+  {
+   "id": "line.loss500.q10",
+   "text": "ngspice tap-7 loss at 500 kHz, Q = 10, dB.",
+   "value": -6.7414109357136285,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qmin.tap7_loss_db_at_500kHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_abs": true
+  },
+  {
+   "id": "line.loss500.q30",
+   "text": "Same, Q = 30.",
+   "value": -2.836893340097204,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qtyp_assumed.tap7_loss_db_at_500kHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_abs": true
+  },
+  {
+   "id": "line.loss1m.q10",
+   "text": "ngspice tap-7 loss at 1 MHz, Q = 10, dB.",
+   "value": -28.92412155610338,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qmin.tap7_loss_db_at_1MHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_abs": true
+  },
+  {
+   "id": "line.f3db.q10",
+   "text": "Tap-7 -3 dB frequency, Q = 10, kHz.",
+   "value": 279571.25,
+   "unit": "kHz",
+   "tolerance": 1000.0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qmin.f_3dB_tap7_hz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 0.001
+  },
+  {
+   "id": "line.f3db.q30",
+   "text": "Tap-7 -3 dB frequency, Q = 30, kHz.",
+   "value": 372879.762,
+   "unit": "kHz",
+   "tolerance": 1000.0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qtyp_assumed.f_3dB_tap7_hz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 0.001
+  },
+  {
+   "id": "line.ring.lossless",
+   "text": "Step overshoot at tap 7, lossless bound, with the 482 kHz input RC, percent.",
+   "value": 8.781713244569259,
+   "unit": "percent",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.B_tran.lossless_bound.tap7.overshoot_pct",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.ring.rc15_lossless",
+   "text": "Step overshoot, lossless, with the plan's 1.5 MHz input RC, percent.",
+   "value": 23.237126400967508,
+   "unit": "percent",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.B_tran.design_variants_tap7_overshoot_pct.rc_1p5MHz_lossless",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.ring.rc15_q30",
+   "text": "Step overshoot, Q 30, 1.5 MHz input RC, percent.",
+   "value": 13.711562274815673,
+   "unit": "percent",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.B_tran.design_variants_tap7_overshoot_pct.rc_1p5MHz_Qtyp",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.ring.rc05_q30",
+   "text": "Step overshoot, Q 30, 482 kHz input RC, percent.",
+   "value": 2.8117742132799584,
+   "unit": "percent",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.B_tran.design_variants_tap7_overshoot_pct.rc_0p5MHz_Qtyp",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.rc_khz",
+   "text": "Input RC corner, kHz.",
+   "value": 482287.70633908,
+   "unit": "kHz",
+   "tolerance": 1000.0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "line.input_rc.f3db_hz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 0.001
+  },
+  {
+   "id": "line.endcap.full",
+   "text": "Tap-spacing ripple p-p with full-value end capacitors, percent.",
+   "value": 92.85018476456355,
+   "unit": "percent",
+   "tolerance": 0.1,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.B2_mc_delay.end_capacitor_comparison.full_C_120pF.spacing_ripple_p2p_pct_of_mean_20_250kHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.endcap.half",
+   "text": "Same with half-value end capacitors.",
+   "value": 28.707145550841965,
+   "unit": "percent",
+   "tolerance": 0.1,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.B2_mc_delay.end_capacitor_comparison.half_C_60pF.spacing_ripple_p2p_pct_of_mean_20_250kHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.ripple.q10",
+   "text": "Worst tap-spacing ripple 20-250 kHz, Q = 10, percent peak-to-peak (not fixed).",
+   "value": 31.866332732337412,
+   "unit": "percent",
+   "tolerance": 0.1,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.A_ac.Qmin.worst_spacing_ripple_pct_20_250kHz",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "line.sigma7_ns",
+   "text": "Random delay sigma at tap 7, ns (L, C +-5 %).",
+   "value": 18.330302779823356,
+   "unit": "ns",
+   "tolerance": 0.1,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "line.delay_tolerance.random_sigma_tap7_ns",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "xbar.iso500",
+   "text": "Crossbar zero-weight isolation at 500 kHz, dB.",
+   "value": -56.056934744694615,
+   "unit": "dB",
+   "tolerance": 0.05,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.C_crossbar_isolation.worst_in_band_0_to_500kHz_db",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_abs": true
+  },
+  {
+   "id": "xbar.footprints",
+   "text": "Crossbar footprints per tile.",
+   "value": 1024,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "crossbar.footprints_per_tile",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "pair.vsat",
+   "text": "Diff-pair tanh width 2 V_T, mV.",
+   "value": 51.7298515726575,
+   "unit": "mV",
+   "tolerance": 0.05,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "diffpair.vsat_phys_mV",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "pair.r2",
+   "text": "SPICE diff-pair fit to tanh, R^2 (current-mirror tail).",
+   "value": 0.999999899145997,
+   "unit": "ratio",
+   "tolerance": 1e-06,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.E_diffpair.bjt_tail_27C.R2",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "pair.tc",
+   "text": "Tanh width temperature coefficient, percent per kelvin.",
+   "value": 0.33316674995835416,
+   "unit": "percent/K",
+   "tolerance": 0.005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "diffpair.vsat_temp_coeff_pct_per_K",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "slice.err",
+   "text": "Summer-to-T/H slice error vs ideal tanh, percent of full scale rms.",
+   "value": 0.9948883648109691,
+   "unit": "percent",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "acceptance.F_slice.rms_error_pct_full_scale",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "power.tile_mA",
+   "text": "Estimated full-tile supply current at 5 V, mA.",
+   "value": 0.072048,
+   "unit": "mA",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "power.i_tile_full_a",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1000.0
+  },
+  {
+   "id": "power.system_mA",
+   "text": "Estimated system supply current incl. carrier, mA.",
+   "value": 0.216154,
+   "unit": "mA",
+   "tolerance": 0.0005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "power.i_total_system_a",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "display_scale": 1000.0
+  },
+  {
+   "id": "power.system_W",
+   "text": "Estimated system power, W.",
+   "value": 1.08077,
+   "unit": "W",
+   "tolerance": 0.005,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "power.p_total_system_w",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "tile.ind_full",
+   "text": "Inductors per full tile.",
+   "value": 448,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "tile_counts.inductors_per_full_tile",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "tile.ind_l1",
+   "text": "Inductors on the reduced layer-1 tile.",
+   "value": 112,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "tile_counts.inductors_layer1_tile",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "tile.n_demo",
+   "text": "Tiles in the width-8 demonstrator.",
+   "value": 3,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "hw/board/params.json",
+    "key": "tile_counts.demonstrator_tiles",
+    "file_sha256_16": "94d6f7c4d4126155"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "loss.analytic.q10",
+   "text": "Back-of-envelope Q-limited loss in dB at Nyquist, Q = 10: total phase 7 pi divided by 2Q, in nepers, times 8.686.",
+   "value": 9.550645870435455,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "7*pi/(2*q)*8.6859",
+     "inputs": {
+      "q": {
+       "file": "hw/board/params.json",
+       "key": "design_inputs.ind_Q_min"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "loss.analytic.q30",
+   "text": "Same, Q = 30.",
+   "value": 3.183548623478485,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "7*pi/(2*q)*8.6859",
+     "inputs": {
+      "q": {
+       "file": "hw/board/params.json",
+       "key": "design_inputs.ind_Q_assumed_typ"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "loss.analytic.np10",
+   "text": "Same, Q = 10, in nepers.",
+   "value": 1.0995574287564276,
+   "unit": "Np",
+   "tolerance": 0.005,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "7*pi/(2*q)",
+     "inputs": {
+      "q": {
+       "file": "hw/board/params.json",
+       "key": "design_inputs.ind_Q_min"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.carrier.cpl",
+   "text": "JLC CPL rows, carrier.",
+   "value": 50,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/carrier/fab_summary.json",
+    "key": "cpl_rows",
+    "file_sha256_16": "dee67a3750bdafcd"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l1.cpl",
+   "text": "JLC CPL rows, tile_L1.",
+   "value": 508,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L1/fab_summary.json",
+    "key": "cpl_rows",
+    "file_sha256_16": "0e89f4e0a83d3705"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l2.cpl",
+   "text": "JLC CPL rows, tile_L2.",
+   "value": 1480,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L2/fab_summary.json",
+    "key": "cpl_rows",
+    "file_sha256_16": "3c7ece6d8767ce40"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l3.cpl",
+   "text": "JLC CPL rows, tile_L3.",
+   "value": 1481,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L3/fab_summary.json",
+    "key": "cpl_rows",
+    "file_sha256_16": "a246a8c3e4c6fca6"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.carrier.drc",
+   "text": "KiCad DRC violations, carrier with gold art.",
+   "value": 0.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/carrier/fab_summary.json",
+    "key": "drc.violations",
+    "file_sha256_16": "dee67a3750bdafcd"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l1.drc",
+   "text": "KiCad DRC violations, reduced layer-1 tile.",
+   "value": 0.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L1/fab_summary.json",
+    "key": "drc.violations",
+    "file_sha256_16": "0e89f4e0a83d3705"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l2.unconn",
+   "text": "Unconnected items left, placed-only layer-2 tile.",
+   "value": 499,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L2/fab_summary.json",
+    "key": "drc.unconnected",
+    "file_sha256_16": "3c7ece6d8767ce40"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l1.nz",
+   "text": "Crossbar resistors in the CPL = nonzero weights of the model, tile_L1.",
+   "value": 85,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L1/fab_summary.json",
+    "key": "cpl_is_model.n_cpl_crossbar",
+    "file_sha256_16": "0e89f4e0a83d3705"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l2.nz",
+   "text": "Crossbar resistors in the CPL = nonzero weights of the model, tile_L2.",
+   "value": 315,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L2/fab_summary.json",
+    "key": "cpl_is_model.n_cpl_crossbar",
+    "file_sha256_16": "3c7ece6d8767ce40"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.l3.nz",
+   "text": "Crossbar resistors in the CPL = nonzero weights of the model, tile_L3.",
+   "value": 316,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L3/fab_summary.json",
+    "key": "cpl_is_model.n_cpl_crossbar",
+    "file_sha256_16": "a246a8c3e4c6fca6"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.tile.w",
+   "text": "Tile width, mm.",
+   "value": 180.1,
+   "unit": "mm",
+   "tolerance": 0.1,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L1/fab_summary.json",
+    "key": "drill_svg.width_mm",
+    "file_sha256_16": "0e89f4e0a83d3705"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.tile.h",
+   "text": "Tile height, mm.",
+   "value": 142.1,
+   "unit": "mm",
+   "tolerance": 0.1,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/tile_L1/fab_summary.json",
+    "key": "drill_svg.height_mm",
+    "file_sha256_16": "0e89f4e0a83d3705"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.carrier.w",
+   "text": "Carrier width, mm.",
+   "value": 134.1,
+   "unit": "mm",
+   "tolerance": 0.1,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/carrier/fab_summary.json",
+    "key": "drill_svg.width_mm",
+    "file_sha256_16": "dee67a3750bdafcd"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.carrier.h",
+   "text": "Carrier height, mm.",
+   "value": 90.1,
+   "unit": "mm",
+   "tolerance": 0.1,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/artifacts/board/carrier/fab_summary.json",
+    "key": "drill_svg.height_mm",
+    "file_sha256_16": "dee67a3750bdafcd"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.sys.econ",
+   "text": "Modelled system cost, economic assembly (estimate, needs a live quote), USD.",
+   "value": 405.71,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.system_total_usd.economic_single_sided_tiles",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.sys.std",
+   "text": "Modelled system cost, standard double-sided assembly, USD.",
+   "value": 438.83,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.system_total_usd.standard_double_sided_tiles",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.sys.lo",
+   "text": "System cost with 25 % contingency, low, USD.",
+   "value": 507.14,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.system_total_usd_with_25pct_contingency.low",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.sys.hi",
+   "text": "System cost with 25 % contingency, high, USD.",
+   "value": 548.54,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.system_total_usd_with_25pct_contingency.high",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.tile.full",
+   "text": "Parts cost of a full tile (layer 2), USD.",
+   "value": 75.89,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.tiles.1.parts_usd",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.tile.l1",
+   "text": "Parts cost of the layer-1 tile, USD.",
+   "value": 32.21,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.tiles.0.parts_usd",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.tile.ind",
+   "text": "Inductor line cost on a full tile, USD.",
+   "value": 44.4864,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.tiles.1.top_lines.0.line_usd",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.nucleo",
+   "text": "Assumed NUCLEO-G474RE price, USD (ST page not reachable).",
+   "value": 18,
+   "unit": "USD",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "other.nucleo_g474re_usd",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "cost.plan",
+   "text": "Plan's original system estimate is quoted as text only.",
+   "value": 600,
+   "unit": "text",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "demonstrator_width8_3tiles.plan_claim_usd",
+    "regex": "^([0-9]+)",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W8_D3.tiles",
+   "text": "Tiles for width/depth 8x3.",
+   "value": 3,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W8_D3.tiles_total",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W8_D3.ind",
+   "text": "Inductors for width/depth 8x3.",
+   "value": 1008,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W8_D3.inductors",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W16_D4.tiles",
+   "text": "Tiles for width/depth 16x4.",
+   "value": 14,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W16_D4.tiles_total",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W16_D4.ind",
+   "text": "Inductors for width/depth 16x4.",
+   "value": 5600,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W16_D4.inductors",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W32_D4.tiles",
+   "text": "Tiles for width/depth 32x4.",
+   "value": 52,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W32_D4.tiles_total",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W32_D4.ind",
+   "text": "Inductors for width/depth 32x4.",
+   "value": 21952,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W32_D4.inductors",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W64_D6.tiles",
+   "text": "Tiles for width/depth 64x6.",
+   "value": 328,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W64_D6.tiles_total",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W64_D6.ind",
+   "text": "Inductors for width/depth 64x6.",
+   "value": 144256,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W64_D6.inductors",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W32_D4.full",
+   "text": "Full tiles for 32x4.",
+   "value": 48,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W32_D4.tiles_full",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W32_D4.area",
+   "text": "Board area for 32x4, cm^2.",
+   "value": 8320,
+   "unit": "cm2",
+   "tolerance": 0.5,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W32_D4.board_area_cm2",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W32_D4.usd",
+   "text": "Estimated tile cost at volume pricing for 32x4, USD.",
+   "value": 4134.5828,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W32_D4.cost_usd_estimate",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W32_D4.ind_usd",
+   "text": "Inductors alone for 32x4, USD.",
+   "value": 1574,
+   "unit": "USD",
+   "tolerance": 0.5,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "inductor_only_cost_usd_at_2000_price.W32_D4",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "scale.W8_D3.usd",
+   "text": "Estimated tile cost at volume pricing for 8x3, USD.",
+   "value": 249.7207,
+   "unit": "USD",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "hw/board/cost.json",
+    "key": "scaling.W8_D3.cost_usd_estimate",
+    "file_sha256_16": "a3ff63018974c6d4"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.fp32_add",
+   "text": "Horowitz ISSCC 2014: 32-bit float add, pJ (45 nm).",
+   "value": 0.9,
+   "unit": "pJ",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/energy_refs.json",
+    "key": "verified.0.pJ_per_op.fp_add_32bit",
+    "file_sha256_16": "6111a1578e321646"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.fp32_mult",
+   "text": "Horowitz: 32-bit float multiply, pJ.",
+   "value": 3.7,
+   "unit": "pJ",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/energy_refs.json",
+    "key": "verified.0.pJ_per_op.fp_mult_32bit",
+    "file_sha256_16": "6111a1578e321646"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.int8_add",
+   "text": "Horowitz: 8-bit integer add, pJ.",
+   "value": 0.03,
+   "unit": "pJ",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/energy_refs.json",
+    "key": "verified.0.pJ_per_op.int_add_8bit",
+    "file_sha256_16": "6111a1578e321646"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.stm_uA_MHz",
+   "text": "STM32G474 datasheet DS12288 Rev 2 Table 21: run-mode current per MHz at 170 MHz, uA/MHz (derived).",
+   "value": 173.5,
+   "unit": "uA/MHz",
+   "tolerance": 0.05,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/energy_refs.json",
+    "key": "verified.1.values.derived_uA_per_MHz_170MHz",
+    "file_sha256_16": "6111a1578e321646"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.stm_mA",
+   "text": "STM32G474 run current at 170 MHz, typ 25 C, mA.",
+   "value": 29.5,
+   "unit": "mA",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "models/arena/energy_refs.json",
+    "key": "verified.1.values.170MHz_range1_boost_typ_25C_mA",
+    "file_sha256_16": "6111a1578e321646"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.dlnn.nJ",
+   "text": "Digital-equivalent arithmetic energy of one DLNN w8 classification, fp32 convention, nJ (ESTIMATE; nonlinear = 10 fp32 multiplies).",
+   "value": 209.3352,
+   "unit": "nJ",
+   "tolerance": 0.5,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "(adds*ea + mults*em + nonlin*10*em)/1000",
+     "inputs": {
+      "mults": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.tdlnet_b_w8.ops.mults"
+      },
+      "adds": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.tdlnet_b_w8.ops.adds"
+      },
+      "nonlin": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.tdlnet_b_w8.ops.nonlin"
+      },
+      "ea": {
+       "file": "models/arena/energy_refs.json",
+       "key": "verified.0.pJ_per_op.fp_add_32bit"
+      },
+      "em": {
+       "file": "models/arena/energy_refs.json",
+       "key": "verified.0.pJ_per_op.fp_mult_32bit"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.cnn.nJ",
+   "text": "Same for the float CNN, nJ (ESTIMATE).",
+   "value": 795.972,
+   "unit": "nJ",
+   "tolerance": 0.5,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "(adds*ea + mults*em + nonlin*10*em)/1000",
+     "inputs": {
+      "mults": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.cnn.ops.mults"
+      },
+      "adds": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.cnn.ops.adds"
+      },
+      "nonlin": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.cnn.ops.nonlin"
+      },
+      "ea": {
+       "file": "models/arena/energy_refs.json",
+       "key": "verified.0.pJ_per_op.fp_add_32bit"
+      },
+      "em": {
+       "file": "models/arena/energy_refs.json",
+       "key": "verified.0.pJ_per_op.fp_mult_32bit"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.board.uJ",
+   "text": "Board electrical energy per classification: system power x (128 us window + about 22 us pipeline fill), uJ (ESTIMATE from design currents).",
+   "value": 162.1155,
+   "unit": "uJ",
+   "tolerance": 0.5,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "p*150e-6*1e6",
+     "inputs": {
+      "p": {
+       "file": "hw/board/params.json",
+       "key": "power.p_total_system_w"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.mcu.cnn.uJ",
+   "text": "Optimistic floor for the CNN on a 170 MHz STM32G4: one cycle per multiply-accumulate, 3.3 V assumed, 173.5 uA/MHz, uJ (ESTIMATE).",
+   "value": 84.4671564,
+   "unit": "uJ",
+   "tolerance": 0.5,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "m*(u*1e-6/1e6)*3.3*1e6",
+     "inputs": {
+      "m": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.cnn.ops.mults"
+      },
+      "u": {
+       "file": "models/arena/energy_refs.json",
+       "key": "verified.1.values.derived_uA_per_MHz_170MHz"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "en.ratio",
+   "text": "Board energy per classification over the DLNN digital-equivalent arithmetic estimate (ratio, ESTIMATE).",
+   "value": 774.4301961638557,
+   "unit": "ratio",
+   "tolerance": 5,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "(p*150e-6*1e9)/((adds*ea + mults*em + nonlin*10*em)/1000)",
+     "inputs": {
+      "mults": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.tdlnet_b_w8.ops.mults"
+      },
+      "adds": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.tdlnet_b_w8.ops.adds"
+      },
+      "nonlin": {
+       "file": "models/arena/arena_report.json",
+       "key": "models.tdlnet_b_w8.ops.nonlin"
+      },
+      "ea": {
+       "file": "models/arena/energy_refs.json",
+       "key": "verified.0.pJ_per_op.fp_add_32bit"
+      },
+      "em": {
+       "file": "models/arena/energy_refs.json",
+       "key": "verified.0.pJ_per_op.fp_mult_32bit"
+      },
+      "p": {
+       "file": "hw/board/params.json",
+       "key": "power.p_total_system_w"
+      }
+     }
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "p1.w8.rtl.compared",
+   "text": "Values compared between RTL and golden model (w8).",
+   "value": 198144.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w8/compare.json",
+    "key": "tier_info.E.fidelity.models.1",
+    "file_sha256_16": "d21aac67394c42d7",
+    "regex": "(\\d+) values .*? compared"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w8",
+   "compared": 198144
+  },
+  {
+   "id": "p1.w32.rtl.compared",
+   "text": "Values compared between RTL and golden model (w32).",
+   "value": 202752.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "RTL",
+   "group": "phase1-headline",
+   "source": {
+    "file": "out/final-w32/compare.json",
+    "key": "tier_info.E.fidelity.models.1",
+    "file_sha256_16": "8a16e08fdbeaee08",
+    "regex": "(\\d+) values .*? compared"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify",
+   "tier": "E",
+   "run": "w32",
+   "compared": 202752
+  },
+  {
+   "id": "board.route.min",
+   "text": "Minutes freerouting needed for the layer-1 slice (22 passes, optimizer off).",
+   "value": 18.0,
+   "unit": "min",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/pcb_layout.md",
+    "regex": "0 unrouted, ([0-9]+) minutes",
+    "file_sha256_16": "1d495fd294fe8f33"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.full.stopmin",
+   "text": "Minutes before the full layer-2 routing attempt was stopped (fanout stage, no pass completed).",
+   "value": 17.0,
+   "unit": "min",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/pcb_layout.md",
+    "regex": "stopped after ([0-9]+) minutes",
+    "file_sha256_16": "1d495fd294fe8f33"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.full.placements",
+   "text": "Placements on a full 8-line tile.",
+   "value": 2200.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/pcb_layout.md",
+    "regex": "full 8-line tile has ([0-9,]+) placements",
+    "file_sha256_16": "1d495fd294fe8f33"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.full.pins",
+   "text": "SMD pins on a full tile.",
+   "value": 4800.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/pcb_layout.md",
+    "regex": "about ([0-9,]+) SMD pins",
+    "file_sha256_16": "1d495fd294fe8f33"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.full.left",
+   "text": "Connections left after scripted routing on a full tile.",
+   "value": 660.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/pcb_layout.md",
+    "regex": "and ([0-9]+) connections left after the scripted routing",
+    "file_sha256_16": "1d495fd294fe8f33"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "board.full.nofan",
+   "text": "SMD pins needing fanout when the full-tile run was stopped.",
+   "value": 3547.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/pcb_layout.md",
+    "regex": "([0-9,]+) needing fanout",
+    "file_sha256_16": "1d495fd294fe8f33"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "ind.1210.dcr",
+   "text": "DCR of the smaller 1210 inductor option, ohm.",
+   "value": 7.9,
+   "unit": "ohm",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/board_design.md",
+    "regex": "C394101 \\| 1210 \\(3\\.2 x 2\\.5 mm\\) \\| 120 uH \\+-5 % \\| ([0-9.]+) ohm",
+    "file_sha256_16": "2aea233cc30836b7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "ind.1210.loss",
+   "text": "Loss of the 1210 option at Q-min at 250 kHz, dB (fails the 3 dB budget).",
+   "value": 3.5,
+   "unit": "dB",
+   "tolerance": 0.01,
+   "fidelity": "designed",
+   "group": "article",
+   "source": {
+    "file": "docs/board_design.md",
+    "regex": "loss at Q-min is ([0-9.]+) dB @250 kHz",
+    "file_sha256_16": "2aea233cc30836b7"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "llm.with",
+   "text": "Injected cards attributed by Qwen WITH the Python-computed divergence list (loose rule), out of 5.",
+   "value": 5.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "docs/results.md",
+    "regex": "Qwen attributes (\\d)/5 injected cards",
+    "file_sha256_16": "3da891dcd1da5532"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "llm.without",
+   "text": "Injected cards attributed WITHOUT the list, out of 5.",
+   "value": 0.0,
+   "unit": "count",
+   "tolerance": 0,
+   "fidelity": "simulated",
+   "group": "article",
+   "source": {
+    "file": "docs/results.md",
+    "regex": "attributes \\*\\*(\\d)/5 injected cards\\*\\* and gets 1/3",
+    "file_sha256_16": "3da891dcd1da5532"
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  },
+  {
+   "id": "loss.q_needed",
+   "text": "Q needed for <= 3 dB at 7 pi total phase, from 7 pi / (2Q) nepers.",
+   "value": 31.835486234784852,
+   "unit": "ratio",
+   "tolerance": 0.5,
+   "fidelity": "simulated",
+   "group": "article-derived",
+   "source": {
+    "derive": {
+     "expr": "7*pi/(2*(3/8.6859))",
+     "inputs": {}
+    }
+   },
+   "notebook_cell": null,
+   "pytest": null,
+   "status": "pending-verify"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>P0 eecircuit-engine</title>
+<body><pre id="o">running...</pre>
+<script type="module">
+import { Simulation } from "/docs/artifacts/vendor/eecircuit-engine/eecircuit-engine.mjs";
+const net = await (await fetch("/hw/p0/demo_flat.cir")).text();
+const t0 = performance.now();
+const sim = new Simulation();
+await sim.start();
+const t1 = performance.now();
+sim.setNetList(net);
+const res = await sim.runSim();
+const t2 = performance.now();
+const byName = Object.fromEntries(res.data.map(d => [d.name, d.values]));
+window.__result = { variableNames: res.variableNames, numPoints: res.numPoints, init_ms: t1 - t0, run_ms: t2 - t1, data: byName };
+document.getElementById("o").textContent = `ok ${res.numPoints} pts init ${(t1-t0).toFixed(0)} ms run ${(t2-t1).toFixed(0)} ms`;
+window.__done = true;
+</script>

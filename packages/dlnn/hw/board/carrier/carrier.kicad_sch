@@ -1,0 +1,286 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "2c6f0c5b-a21a-50ed-aff9-7e26e2edef03")
+	(paper "A3")
+	(title_block
+		(title "Carrier board for NUCLEO-G474RE + tiles (M3a)")
+		(date "2026-11-03")
+		(rev "M3a")
+		(company "dlnn phase 2: designed, ERC-checked, not built, not measured")
+		(comment 1 "designed, ERC-checked, not built, not measured")
+	)
+	(lib_symbols)
+	(text "CN7 / CN10: DAC, ADC, I2C, clocks"
+		(exclude_from_sim no)
+		(at 25.4 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "fa9c9066-9518-5d81-9759-a81fcd1e1d01")
+	)
+	(text "level shift 1.65 V -> 2.5 V mid, V_cm reference"
+		(exclude_from_sim no)
+		(at 101.6 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "075c4c58-f9f4-5d93-97e4-cd3619c6bc2a")
+	)
+	(text "8 x series R, BAT54S clamp, anti-alias C"
+		(exclude_from_sim no)
+		(at 177.8 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "f5bee34f-4cab-56db-924b-a714b3f90ee8")
+	)
+	(text "jack, LDO +5VA, TCA9548A"
+		(exclude_from_sim no)
+		(at 254 57.84 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "9f14132d-e385-5a95-b822-1f6f47513a43")
+	)
+	(text "JT1 -> tile 1, JADC <- last tile"
+		(exclude_from_sim no)
+		(at 25.4 83.24 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "7cbd277e-083e-505f-898e-78e78a90003d")
+	)
+	(sheet
+		(at 25.4 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "94ca7719-e906-5776-b3d7-523bf03fc43e")
+		(property "Sheetname" "mcu"
+			(at 25.4 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 25.4 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "carrier"
+				(path "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "16a5a6ee-cd6f-5b06-abef-034daa23dfa7")
+		(property "Sheetname" "dac"
+			(at 101.6 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "dac.kicad_sch"
+			(at 101.6 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "carrier"
+				(path "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 177.8 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "63f41481-0df0-5163-a6fe-a7896bd60c71")
+		(property "Sheetname" "adc"
+			(at 177.8 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "adc.kicad_sch"
+			(at 177.8 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "carrier"
+				(path "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 254 40.64)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "0283f56f-08a6-5031-b7ef-e92208a48176")
+		(property "Sheetname" "power"
+			(at 254 39.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 254 54.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "carrier"
+				(path "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 66.04)
+		(size 50.8 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0)
+		)
+		(uuid "1176aaa3-0bfe-56b6-93c4-5d1d4898391d")
+		(property "Sheetname" "tiles"
+			(at 25.4 65.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "tiles.kicad_sch"
+			(at 25.4 79.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "carrier"
+				(path "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

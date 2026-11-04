@@ -1,0 +1,77 @@
+{
+  "task": "modrec",
+  "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+  "dataset_seed": 20260101,
+  "n_train": 16000,
+  "n_test": 4000,
+  "width": 8,
+  "recipe": {
+    "optimizer": "Adam",
+    "lr": 0.03,
+    "schedule": "cosine",
+    "batch": 256,
+    "epochs": 60,
+    "iq_rotation_aug": true,
+    "line_gain": false,
+    "base_seed": 0,
+    "restarts": 3,
+    "soft_frac": 0.5,
+    "depth": 3,
+    "dilations": "1,1,1",
+    "float_readout": false,
+    "line_fir": true,
+    "torch": "2.15.0+cpu"
+  },
+  "ternary": {
+    "acc": 0.8065,
+    "acc_ge10dB": 0.8333333333333334,
+    "acc_per_snr": {
+      "0": 0.71,
+      "5": 0.8225,
+      "10": 0.83125,
+      "15": 0.835,
+      "20": 0.83375
+    },
+    "acc_per_class": {
+      "OOK": 0.96,
+      "BPSK": 0.922,
+      "QPSK": 0.0,
+      "8PSK": 0.828,
+      "16QAM": 0.792,
+      "2FSK": 0.996,
+      "4FSK": 0.992,
+      "GMSK": 0.962
+    },
+    "seconds": 166.5,
+    "epochs": 60,
+    "seed": 0,
+    "restarts": [
+      {
+        "seed": 0,
+        "train_acc": 0.7956,
+        "seconds": 53.9,
+        "test_acc": 0.8065,
+        "test_acc_ge10dB": 0.8333
+      },
+      {
+        "seed": 1,
+        "train_acc": 0.7859,
+        "seconds": 43.9,
+        "test_acc": 0.7933,
+        "test_acc_ge10dB": 0.8325
+      },
+      {
+        "seed": 2,
+        "train_acc": 0.787,
+        "seconds": 68.7,
+        "test_acc": 0.7917,
+        "test_acc_ge10dB": 0.8321
+      }
+    ],
+    "acc_8bit_fakequant": 0.80525,
+    "model_sha256": "126b1f805a151ec2ce42d86f67d5a064b4ff16f5abb9bb27a2fe8c4385d4e035",
+    "n_ternary_weights": 1152,
+    "file": "models/tdlnet_b_w8_aware_ternary.npz"
+  },
+  "total_seconds": 168.7
+}

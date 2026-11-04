@@ -1,0 +1,11 @@
+04:14:13 stage place
+plane fanout vias: 142 failed: []
+placed -> /home/user/dlnn/hw/board/pcb/tile_L1/tile_L1_placed.kicad_pcb 20.5s
+04:14:55 stage dsn
+ExportSpecctraDSN True
+04:14:57 stage route
+freerouting rc 0 888s
+04:29:45 stage ses
+ImportSpecctraSES True
+DRC rc 5 ** Found 2 DRC violations ** ** Found 0 unconnected pads ** ** Found 0 Footprint errors **
+04:29:50 done

@@ -1,0 +1,61 @@
+{
+  "family": "feat",
+  "size": "s",
+  "feature_set": "compact",
+  "hidden": [
+    6
+  ],
+  "lr": 0.003,
+  "wd": 0.05,
+  "dropout": 0.0,
+  "epochs": 60,
+  "val_acc": 0.715,
+  "shipped_seed": 0,
+  "seeds": [
+    {
+      "seed": 0,
+      "train_acc": 0.7504,
+      "test_acc": 0.709,
+      "test_acc_ge10dB": 0.7658333333333334
+    },
+    {
+      "seed": 1,
+      "train_acc": 0.7386,
+      "test_acc": 0.7015,
+      "test_acc_ge10dB": 0.7591666666666667
+    },
+    {
+      "seed": 2,
+      "train_acc": 0.735,
+      "test_acc": 0.69475,
+      "test_acc_ge10dB": 0.75
+    }
+  ],
+  "params": 1208,
+  "net_ops": {
+    "mults": 1194,
+    "adds": 1208,
+    "nonlin": 6
+  },
+  "grid_size": 24,
+  "search_seconds": 253.2,
+  "acc": 0.709,
+  "acc_ge10dB": 0.7658333333333334,
+  "acc_per_snr": {
+    "0": 0.52625,
+    "5": 0.72125,
+    "10": 0.7375,
+    "15": 0.7725,
+    "20": 0.7875
+  },
+  "acc_per_class": {
+    "OOK": 0.944,
+    "BPSK": 0.454,
+    "QPSK": 0.274,
+    "8PSK": 0.52,
+    "16QAM": 0.58,
+    "2FSK": 0.966,
+    "4FSK": 0.996,
+    "GMSK": 0.938
+  }
+}

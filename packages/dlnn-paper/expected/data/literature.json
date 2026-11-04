@@ -1,0 +1,1135 @@
+{
+ "references": [
+  {
+   "key": "vonneumann1945",
+   "authors": "von Neumann, J.",
+   "year": 1993,
+   "title": "First draft of a report on the EDVAC (written 1945; reprint)",
+   "venue": "IEEE Annals of the History of Computing 15(4):27-75",
+   "url": "https://doi.org/10.1109/85.238389",
+   "doi": "10.1109/85.238389",
+   "strand": "delay-memory",
+   "relevance": "The stored-program design that named delay-line storage as the memory.",
+   "verified_source": "yes: Crossref record for DOI (reprint year 1993; original 1945)"
+  },
+  {
+   "key": "eckert1949",
+   "authors": "Auerbach, J. A.; Eckert, J. P.; Shaw, R. F.; Sheppard, C. B.",
+   "year": 1949,
+   "title": "Mercury Delay Line Memory Using a Pulse Rate of Several Megacycles",
+   "venue": "Proceedings of the IRE 37(8):855-861",
+   "url": "https://doi.org/10.1109/JRPROC.1949.229683",
+   "doi": "10.1109/JRPROC.1949.229683",
+   "strand": "delay-memory",
+   "relevance": "Primary engineering paper on megacycle-rate mercury delay-line memory.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "eckert1953",
+   "authors": "Eckert, J. P.",
+   "year": 1953,
+   "title": "A Survey of Digital Computer Memory Systems",
+   "venue": "Proceedings of the IRE 41(10):1393-1406",
+   "url": "https://doi.org/10.1109/JRPROC.1953.274316",
+   "doi": "10.1109/JRPROC.1953.274316",
+   "strand": "delay-memory",
+   "relevance": "Contemporary survey of delay-line, CRT and drum stores by a delay-line pioneer.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "wilkes1950",
+   "authors": "Wilkes, M. V.; Renwick, W.",
+   "year": 1950,
+   "title": "The EDSAC (Electronic Delay Storage Automatic Calculator)",
+   "venue": "Mathematical Tables and Other Aids to Computation 4(30):61-65",
+   "url": "https://doi.org/10.2307/2002769",
+   "doi": "10.2307/2002769",
+   "strand": "delay-memory",
+   "relevance": "The EDSAC designers describing their delay-line machine.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "williams1949",
+   "authors": "Williams, F. C.; Kilburn, T.",
+   "year": 1949,
+   "title": "A storage system for use with binary-digital computing machines",
+   "venue": "Proceedings of the IEE - Part III: Radio and Communication Engineering 96(40):81-100",
+   "url": "https://doi.org/10.1049/pi-3.1949.0018",
+   "doi": "10.1049/pi-3.1949.0018",
+   "strand": "delay-memory",
+   "relevance": "The CRT (Williams tube) store: the random-access contrast to serial delay lines.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "cam_edsac",
+   "authors": "University of Cambridge Computer Laboratory",
+   "year": 1999,
+   "title": "Some EDSAC statistics (EDSAC 99 pages)",
+   "venue": "cl.cam.ac.uk",
+   "url": "https://www.cl.cam.ac.uk/events/EDSAC99/statistics.html",
+   "doi": "",
+   "strand": "delay-memory",
+   "relevance": "Source for EDSAC store: 32 tanks, 1024 locations of 17 bits, 500 kHz, 1.5 ms average order.",
+   "verified_source": "yes: page opened (WebFetch)"
+  },
+  {
+   "key": "wp_delayline",
+   "authors": "Wikipedia contributors",
+   "year": 2026,
+   "title": "Delay-line memory",
+   "venue": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Delay-line_memory",
+   "doi": "",
+   "strand": "delay-memory",
+   "relevance": "Secondary source: mercury at 40 C, 1450 m/s, 560-bit EDSAC lines, magnetostrictive wire, Friden/Olivetti calculators, terminals.",
+   "verified_source": "yes: page opened (secondary; its own citations include Eckert 1949/1953)"
+  },
+  {
+   "key": "wp_univac",
+   "authors": "Wikipedia contributors",
+   "year": 2026,
+   "title": "UNIVAC I",
+   "venue": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/UNIVAC_I",
+   "doi": "",
+   "strand": "delay-memory",
+   "relevance": "Secondary source: 1000 words of 12 characters, 2.25 MHz, 126 mercury channels in seven tanks.",
+   "verified_source": "yes: page opened (secondary)"
+  },
+  {
+   "key": "wp_friden",
+   "authors": "Wikipedia contributors",
+   "year": 2026,
+   "title": "Friden EC-130",
+   "venue": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Friden_EC-130",
+   "doi": "",
+   "strand": "delay-memory",
+   "relevance": "Secondary source: June 1963 calculator with magnetostrictive delay-line memory. (Delay-line article says 1964; discrepancy noted.)",
+   "verified_source": "yes: page opened (secondary)"
+  },
+  {
+   "key": "kallmann1940",
+   "authors": "Kallmann, H. E.",
+   "year": 1940,
+   "title": "Transversal Filters",
+   "venue": "Proceedings of the IRE 28(7):302-310",
+   "url": "https://doi.org/10.1109/jrproc.1940.229346",
+   "doi": "10.1109/jrproc.1940.229346",
+   "strand": "analog-sp",
+   "relevance": "The tapped-delay-line 'transversal filter': delays, weighted taps, a sum.",
+   "verified_source": "yes: Crossref record for DOI (title search; abstract not read)"
+  },
+  {
+   "key": "sangster1969",
+   "authors": "Sangster, F. L. J.; Teer, K.",
+   "year": 1969,
+   "title": "Bucket-brigade electronics: new possibilities for delay, time-axis conversion, and scanning",
+   "venue": "IEEE Journal of Solid-State Circuits 4(3):131-136",
+   "url": "https://doi.org/10.1109/jssc.1969.1049975",
+   "doi": "10.1109/jssc.1969.1049975",
+   "strand": "analog-sp",
+   "relevance": "Invention of the bucket-brigade analog delay line at Philips.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "boyle1970",
+   "authors": "Boyle, W. S.; Smith, G. E.",
+   "year": 1970,
+   "title": "Charge Coupled Semiconductor Devices",
+   "venue": "Bell System Technical Journal 49(4):587-593",
+   "url": "https://doi.org/10.1002/j.1538-7305.1970.tb01790.x",
+   "doi": "10.1002/j.1538-7305.1970.tb01790.x",
+   "strand": "analog-sp",
+   "relevance": "The CCD: charge packets shifted along a chain, i.e. an analog shift register.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "collins1972",
+   "authors": "Collins, D. R.; Bailey, W. B.; Gosney, W. M.; Buss, D. D.",
+   "year": 1972,
+   "title": "Charge-coupled-device analogue matched filters",
+   "venue": "Electronics Letters 8(13):328-329",
+   "url": "https://doi.org/10.1049/el:19720241",
+   "doi": "10.1049/el:19720241",
+   "strand": "analog-sp",
+   "relevance": "CCD tapped delay line used as an analog matched filter.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "white1965",
+   "authors": "White, R. M.; Voltmer, F. W.",
+   "year": 1965,
+   "title": "Direct piezoelectric coupling to surface elastic waves",
+   "venue": "Applied Physics Letters 7(12):314-316",
+   "url": "https://doi.org/10.1063/1.1754276",
+   "doi": "10.1063/1.1754276",
+   "strand": "analog-sp",
+   "relevance": "Interdigital transducers on piezoelectric substrates: the root of SAW devices.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "tancrell1971",
+   "authors": "Tancrell, R. H.; Holland, M. G.",
+   "year": 1971,
+   "title": "Acoustic surface wave filters",
+   "venue": "Proceedings of the IEEE 59(3):393-409",
+   "url": "https://doi.org/10.1109/proc.1971.8180",
+   "doi": "10.1109/proc.1971.8180",
+   "strand": "analog-sp",
+   "relevance": "SAW transversal filters (tapped delay line by interdigital taps).",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "quate1970",
+   "authors": "Quate, C. F.; Thompson, R. B.",
+   "year": 1970,
+   "title": "Convolution and correlation in real time with nonlinear acoustics",
+   "venue": "Applied Physics Letters 16(12):494-496",
+   "url": "https://doi.org/10.1063/1.1653079",
+   "doi": "10.1063/1.1653079",
+   "strand": "analog-sp",
+   "relevance": "Acoustic convolver: a multiplication of counter-propagating waves yields a convolution.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "maines1976",
+   "authors": "Maines, J. D.; Paige, E. G. S.",
+   "year": 1976,
+   "title": "Surface-acoustic-wave devices for signal processing applications",
+   "venue": "Proceedings of the IEEE 64(5):639-652",
+   "url": "https://doi.org/10.1109/proc.1976.10189",
+   "doi": "10.1109/proc.1976.10189",
+   "strand": "analog-sp",
+   "relevance": "Review of SAW filters, delay lines, convolvers and pulse-compression devices.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "cook1960",
+   "authors": "Cook, C. E.",
+   "year": 1960,
+   "title": "Pulse Compression - Key to More Efficient Radar Transmission",
+   "venue": "Proceedings of the IRE 48(3):310-316",
+   "url": "https://doi.org/10.1109/jrproc.1960.287599",
+   "doi": "10.1109/jrproc.1960.287599",
+   "strand": "analog-sp",
+   "relevance": "Radar pulse compression with matched (dispersive delay) filters.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "north1963",
+   "authors": "North, D. O.",
+   "year": 1963,
+   "title": "An Analysis of the factors which determine signal/noise discrimination in pulsed-carrier systems",
+   "venue": "Proceedings of the IEEE 51(7):1016-1027",
+   "url": "https://doi.org/10.1109/proc.1963.2383",
+   "doi": "10.1109/proc.1963.2383",
+   "strand": "analog-sp",
+   "relevance": "The matched-filter result (the 1963 reprint of a WWII-era report; reprint status from memory, not checked).",
+   "verified_source": "yes: Crossref record for DOI (title/year/venue only)"
+  },
+  {
+   "key": "widrow1960",
+   "authors": "Widrow, B.; Hoff, M. E.",
+   "year": 1960,
+   "title": "Adaptive switching circuits",
+   "venue": "IRE WESCON Convention Record, Part 4, pp. 96-104",
+   "url": "https://isl.stanford.edu/~widrow/papers/c1960adaptiveswitching.pdf",
+   "doi": "",
+   "strand": "neural-adaptive",
+   "relevance": "ADALINE and the LMS rule.",
+   "verified_source": "partial: first page of the Stanford ISL scan viewed (title, authors, page 96); venue/pages from the standard citation, not from the scan"
+  },
+  {
+   "key": "widrow1990",
+   "authors": "Widrow, B.; Lehr, M. A.",
+   "year": 1990,
+   "title": "30 years of adaptive neural networks: perceptron, Madaline, and backpropagation",
+   "venue": "Proceedings of the IEEE 78(9):1415-1442",
+   "url": "https://doi.org/10.1109/5.58323",
+   "doi": "10.1109/5.58323",
+   "strand": "neural-adaptive",
+   "relevance": "Historical survey connecting adaptive filters and neural nets.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "tank1987",
+   "authors": "Tank, D. W.; Hopfield, J. J.",
+   "year": 1987,
+   "title": "Neural computation by concentrating information in time",
+   "venue": "Proceedings of the National Academy of Sciences 84(7):1896-1900",
+   "url": "https://doi.org/10.1073/pnas.84.7.1896",
+   "doi": "10.1073/pnas.84.7.1896",
+   "strand": "neural-adaptive",
+   "relevance": "Analog neural network that uses delays to bring a sequence together in time; an early delay-based analog net.",
+   "verified_source": "yes: Crossref record for DOI; PMC304548 and Princeton records seen in search (full text not read)"
+  },
+  {
+   "key": "waibel1989",
+   "authors": "Waibel, A.; Hanazawa, T.; Hinton, G.; Shikano, K.; Lang, K. J.",
+   "year": 1989,
+   "title": "Phoneme recognition using time-delay neural networks",
+   "venue": "IEEE Trans. Acoustics, Speech, and Signal Processing 37(3):328-339",
+   "url": "https://doi.org/10.1109/29.21701",
+   "doi": "10.1109/29.21701",
+   "strand": "neural-adaptive",
+   "relevance": "The TDNN: delayed copies of the input into weighted units; convolution before the term was fashionable.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "unnikrishnan1991",
+   "authors": "Unnikrishnan, K. P.; Hopfield, J. J.; Tank, D. W.",
+   "year": 1991,
+   "title": "Connected-digit speaker-dependent speech recognition using a neural network with time-delayed connections",
+   "venue": "IEEE Transactions on Signal Processing 39(3):698-713",
+   "url": "https://doi.org/10.1109/78.80888",
+   "doi": "10.1109/78.80888",
+   "strand": "neural-adaptive",
+   "relevance": "Delay-connection network aimed at analog hardware (hardware aim from memory; abstract not read).",
+   "verified_source": "yes: Crossref record for DOI (title/venue)"
+  },
+  {
+   "key": "yu2015",
+   "authors": "Yu, F.; Koltun, V.",
+   "year": 2015,
+   "title": "Multi-Scale Context Aggregation by Dilated Convolutions",
+   "venue": "arXiv:1511.07122",
+   "url": "https://arxiv.org/abs/1511.07122",
+   "doi": "",
+   "strand": "neural-adaptive",
+   "relevance": "Dilated convolutions for multi-scale context.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "wavenet2016",
+   "authors": "van den Oord, A.; Dieleman, S.; Zen, H.; et al.",
+   "year": 2016,
+   "title": "WaveNet: A Generative Model for Raw Audio",
+   "venue": "arXiv:1609.03499",
+   "url": "https://arxiv.org/abs/1609.03499",
+   "doi": "",
+   "strand": "neural-adaptive",
+   "relevance": "Stacked dilated causal convolutions (dilations growing by powers of two).",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "bai2018",
+   "authors": "Bai, S.; Kolter, J. Z.; Koltun, V.",
+   "year": 2018,
+   "title": "An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling",
+   "venue": "arXiv:1803.01271",
+   "url": "https://arxiv.org/abs/1803.01271",
+   "doi": "",
+   "strand": "neural-adaptive",
+   "relevance": "The TCN: dilated causal convolution as a generic sequence model.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "appeltant2011",
+   "authors": "Appeltant, L.; Soriano, M. C.; Van der Sande, G.; et al.",
+   "year": 2011,
+   "title": "Information processing using a single dynamical node as complex system",
+   "venue": "Nature Communications 2:468",
+   "url": "https://doi.org/10.1038/ncomms1476",
+   "doi": "10.1038/ncomms1476",
+   "strand": "reservoir",
+   "relevance": "Delay-loop reservoir with one nonlinear node and virtual nodes (includes electronic realisation).",
+   "verified_source": "yes: Crossref record for DOI (electronic-realisation detail from memory)"
+  },
+  {
+   "key": "paquot2012",
+   "authors": "Paquot, Y.; Duport, F.; Smerieri, A.; et al.",
+   "year": 2012,
+   "title": "Optoelectronic Reservoir Computing",
+   "venue": "Scientific Reports 2:287",
+   "url": "https://doi.org/10.1038/srep00287",
+   "doi": "10.1038/srep00287",
+   "strand": "reservoir",
+   "relevance": "Delay-based reservoir in fibre and electronics.",
+   "verified_source": "yes: Crossref record for DOI (title search)"
+  },
+  {
+   "key": "larger2012",
+   "authors": "Larger, L.; Soriano, M. C.; Brunner, D.; et al.",
+   "year": 2012,
+   "title": "Photonic information processing beyond Turing: an optoelectronic implementation of reservoir computing",
+   "venue": "Optics Express 20(3):3241-3249",
+   "url": "https://doi.org/10.1364/OE.20.003241",
+   "doi": "10.1364/OE.20.003241",
+   "strand": "reservoir",
+   "relevance": "Optoelectronic delay reservoir.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "brunner2013",
+   "authors": "Brunner, D.; Soriano, M. C.; Mirasso, C. R.; Fischer, I.",
+   "year": 2013,
+   "title": "Parallel photonic information processing at gigabyte per second data rates using transient states",
+   "venue": "Nature Communications 4:1364",
+   "url": "https://doi.org/10.1038/ncomms2368",
+   "doi": "10.1038/ncomms2368",
+   "strand": "reservoir",
+   "relevance": "All-photonic delay reservoir at GB/s.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "appeltant2014",
+   "authors": "Appeltant, L.; Van der Sande, G.; Danckaert, J.; Fischer, I.",
+   "year": 2014,
+   "title": "Constructing optimized binary masks for reservoir computing with delay systems",
+   "venue": "Scientific Reports 4:3629",
+   "url": "https://doi.org/10.1038/srep03629",
+   "doi": "10.1038/srep03629",
+   "strand": "reservoir",
+   "relevance": "Binary {-1,+1}-style input masks in delay reservoirs: a binary-weight precedent.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "alomar2015",
+   "authors": "Alomar, M. L.; Soriano, M. C.; Escalona-Moran, M.; et al.",
+   "year": 2015,
+   "title": "Digital Implementation of a Single Dynamical Node Reservoir Computer",
+   "venue": "IEEE Trans. Circuits and Systems II 62(10):977-981",
+   "url": "https://doi.org/10.1109/tcsii.2015.2458071",
+   "doi": "10.1109/tcsii.2015.2458071",
+   "strand": "reservoir",
+   "relevance": "FPGA delay-reservoir.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "ortin2015",
+   "authors": "Ortin, S.; Soriano, M. C.; Pesquera, L.; et al.",
+   "year": 2015,
+   "title": "A Unified Framework for Reservoir Computing and Extreme Learning Machines based on a Single Time-delayed Neuron",
+   "venue": "Scientific Reports 5:14945",
+   "url": "https://doi.org/10.1038/srep14945",
+   "doi": "10.1038/srep14945",
+   "strand": "reservoir",
+   "relevance": "Single delayed neuron as a reservoir or ELM.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "vandersande2017",
+   "authors": "Van der Sande, G.; Brunner, D.; Soriano, M. C.",
+   "year": 2017,
+   "title": "Advances in photonic reservoir computing",
+   "venue": "Nanophotonics 6(3):561-576",
+   "url": "https://doi.org/10.1515/nanoph-2016-0132",
+   "doi": "10.1515/nanoph-2016-0132",
+   "strand": "reservoir",
+   "relevance": "Review of photonic reservoirs.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "tanaka2019",
+   "authors": "Tanaka, G.; Yamane, T.; Heroux, J. B.; et al.",
+   "year": 2019,
+   "title": "Recent advances in physical reservoir computing: A review",
+   "venue": "Neural Networks 115:100-123",
+   "url": "https://doi.org/10.1016/j.neunet.2019.03.005",
+   "doi": "10.1016/j.neunet.2019.03.005",
+   "strand": "reservoir",
+   "relevance": "Review of physical reservoirs.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "cai2020",
+   "authors": "Cai, Q.; Guo, Y.; Li, P.; et al.",
+   "year": 2021,
+   "title": "Modulation format identification in fiber communications using single dynamical node-based photonic reservoir computing",
+   "venue": "Photonics Research 9(1):B1",
+   "url": "https://doi.org/10.1364/prj.409114",
+   "doi": "10.1364/prj.409114",
+   "strand": "reservoir",
+   "relevance": "A delay reservoir doing modulation-format identification (optical channel): closest on the task side.",
+   "verified_source": "yes: Crossref record for DOI (title/venue; abstract not read)"
+  },
+  {
+   "key": "mead1990",
+   "authors": "Mead, C.",
+   "year": 1990,
+   "title": "Neuromorphic electronic systems",
+   "venue": "Proceedings of the IEEE 78(10):1629-1636",
+   "url": "https://doi.org/10.1109/5.58356",
+   "doi": "10.1109/5.58356",
+   "strand": "analog-ai",
+   "relevance": "Founding statement of analog neuromorphic VLSI.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "holler1989",
+   "authors": "Holler, M.; Tam, S.; Castro, H.; Benson, R.",
+   "year": 1989,
+   "title": "An electrically trainable artificial neural network (ETANN) with 10240 'floating gate' synapses",
+   "venue": "Proc. International Joint Conference on Neural Networks (IJCNN), vol. 2, pp. 191-196",
+   "url": "https://doi.org/10.1109/IJCNN.1989.118698",
+   "doi": "10.1109/IJCNN.1989.118698",
+   "strand": "analog-ai",
+   "relevance": "Intel's analog neural chip (the 80170 family).",
+   "verified_source": "yes: Crossref record for DOI (link to the '80170' part number is from memory)"
+  },
+  {
+   "key": "tsividis1987",
+   "authors": "Tsividis, Y.; Anastassiou, D.",
+   "year": 1987,
+   "title": "Switched-capacitor neural networks",
+   "venue": "Electronics Letters 23(18):958-959",
+   "url": "https://doi.org/10.1049/el:19870674",
+   "doi": "10.1049/el:19870674",
+   "strand": "analog-ai",
+   "relevance": "Switched-capacitor neural nets.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "agranat1990",
+   "authors": "Agranat, A. J.; Neugebauer, C. F.; Nelson, R. D.; Yariv, A.",
+   "year": 1990,
+   "title": "The CCD neural processor: a neural network integrated circuit with 65536 programmable analog synapses",
+   "venue": "IEEE Trans. Circuits and Systems 37(8):1073-1075",
+   "url": "https://doi.org/10.1109/31.56087",
+   "doi": "10.1109/31.56087",
+   "strand": "analog-ai",
+   "relevance": "A neural network built on CCD charge transfer.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "freye2024",
+   "authors": "Freye, F.; Lou, J.; Lanius, C.; Gemmeke, T.",
+   "year": 2024,
+   "title": "Merits of Time-Domain Computing for VMM - A Quantitative Comparison",
+   "venue": "25th International Symposium on Quality Electronic Design (ISQED) 2024",
+   "url": "https://isqed.org/English/Archives/2024/Technical_Sessions/157.html",
+   "doi": "",
+   "strand": "analog-ai",
+   "relevance": "Time-domain compute-in-memory: pulse widths and delays as the signal; says TD computing is little studied.",
+   "verified_source": "yes: ISQED page opened (venue year from archive URL)"
+  },
+  {
+   "key": "shen2017",
+   "authors": "Shen, Y.; Harris, N. C.; Skirlo, S.; et al.",
+   "year": 2017,
+   "title": "Deep learning with coherent nanophotonic circuits",
+   "venue": "Nature Photonics 11(7):441-446",
+   "url": "https://doi.org/10.1038/nphoton.2017.93",
+   "doi": "10.1038/nphoton.2017.93",
+   "strand": "analog-ai",
+   "relevance": "Photonic mesh neural network.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "ahmed2025",
+   "authors": "Ahmed, S. R.; Baghdadi, R.; Bernadskiy, M.; et al.",
+   "year": 2025,
+   "title": "Universal photonic artificial intelligence acceleration",
+   "venue": "Nature 640:368-374",
+   "url": "https://doi.org/10.1038/s41586-025-08854-x",
+   "doi": "10.1038/s41586-025-08854-x",
+   "strand": "analog-ai",
+   "relevance": "Lightmatter's photonic processor running ResNet/BERT.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "ambrogio2018",
+   "authors": "Ambrogio, S.; Narayanan, P.; Tsai, H.; et al.",
+   "year": 2018,
+   "title": "Equivalent-accuracy accelerated neural-network training using analogue memory",
+   "venue": "Nature 558:60-67",
+   "url": "https://doi.org/10.1038/s41586-018-0180-5",
+   "doi": "10.1038/s41586-018-0180-5",
+   "strand": "analog-ai",
+   "relevance": "Analog PCM-based in-memory neural network (IBM).",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "rasch2023",
+   "authors": "Rasch, M. J.; Mackin, C.; Le Gallo, M.; et al.",
+   "year": 2023,
+   "title": "Hardware-aware training for large-scale and diverse deep learning inference workloads using in-memory computing-based accelerators",
+   "venue": "Nature Communications 14",
+   "url": "https://doi.org/10.1038/s41467-023-40770-4",
+   "doi": "10.1038/s41467-023-40770-4",
+   "strand": "ternary",
+   "relevance": "Systematic analog-hardware-aware training.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "bengio2013",
+   "authors": "Bengio, Y.; Leonard, N.; Courville, A.",
+   "year": 2013,
+   "title": "Estimating or Propagating Gradients Through Stochastic Neurons for Conditional Computation",
+   "venue": "arXiv:1308.3432",
+   "url": "https://arxiv.org/abs/1308.3432",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "The straight-through estimator.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "courbariaux2015",
+   "authors": "Courbariaux, M.; Bengio, Y.; David, J.-P.",
+   "year": 2015,
+   "title": "BinaryConnect: Training Deep Neural Networks with binary weights during propagations",
+   "venue": "arXiv:1511.00363",
+   "url": "https://arxiv.org/abs/1511.00363",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "Binary weights with real-valued shadow weights.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "courbariaux2016",
+   "authors": "Courbariaux, M.; Hubara, I.; Soudry, D.; El-Yaniv, R.; Bengio, Y.",
+   "year": 2016,
+   "title": "Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1",
+   "venue": "arXiv:1602.02830",
+   "url": "https://arxiv.org/abs/1602.02830",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "BNN: binary weights and activations.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "rastegari2016",
+   "authors": "Rastegari, M.; Ordonez, V.; Redmon, J.; Farhadi, A.",
+   "year": 2016,
+   "title": "XNOR-Net: ImageNet Classification Using Binary Convolutional Neural Networks",
+   "venue": "arXiv:1603.05279",
+   "url": "https://arxiv.org/abs/1603.05279",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "XNOR-Net.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "li2016",
+   "authors": "Li, F.; Zhang, B.; Liu, B.",
+   "year": 2016,
+   "title": "Ternary Weight Networks",
+   "venue": "arXiv:1605.04711",
+   "url": "https://arxiv.org/abs/1605.04711",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "Ternary {-1,0,+1} weights with a scale.",
+   "verified_source": "yes: arXiv API record (author list: 5 authors on arXiv; first author Li, third-listed Liu)"
+  },
+  {
+   "key": "zhu2016",
+   "authors": "Zhu, C.; Han, S.; Mao, H.; Dally, W. J.",
+   "year": 2016,
+   "title": "Trained Ternary Quantization",
+   "venue": "arXiv:1612.01064",
+   "url": "https://arxiv.org/abs/1612.01064",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "TTQ: learned ternary scales.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "wang2023",
+   "authors": "Wang, H.; Ma, S.; Dong, L.; et al.",
+   "year": 2023,
+   "title": "BitNet: Scaling 1-bit Transformers for Large Language Models",
+   "venue": "arXiv:2310.11453",
+   "url": "https://arxiv.org/abs/2310.11453",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "BitNet.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "ma2024",
+   "authors": "Ma, S.; Wang, H.; Ma, L.; et al.",
+   "year": 2024,
+   "title": "The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits",
+   "venue": "arXiv:2402.17764",
+   "url": "https://arxiv.org/abs/2402.17764",
+   "doi": "",
+   "strand": "ternary",
+   "relevance": "BitNet b1.58: ternary weights, absmean quantisation.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "murray1994",
+   "authors": "Murray, A. F.; Edwards, P. J.",
+   "year": 1994,
+   "title": "Enhanced MLP performance and fault tolerance resulting from synaptic weight noise during training",
+   "venue": "IEEE Trans. Neural Networks 5(5):792-802",
+   "url": "https://doi.org/10.1109/72.317730",
+   "doi": "10.1109/72.317730",
+   "strand": "ternary",
+   "relevance": "Noise injection during training for analog robustness.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "oshea2016",
+   "authors": "O'Shea, T. J.; Corgan, J.; Clancy, T. C.",
+   "year": 2016,
+   "title": "Convolutional Radio Modulation Recognition Networks",
+   "venue": "arXiv:1602.04105",
+   "url": "https://arxiv.org/abs/1602.04105",
+   "doi": "",
+   "strand": "rf-ml",
+   "relevance": "First CNN on RadioML-style data.",
+   "verified_source": "yes: arXiv API record"
+  },
+  {
+   "key": "osheawest2016",
+   "authors": "O'Shea, T. J.; West, N.",
+   "year": 2016,
+   "title": "Radio Machine Learning Dataset Generation with GNU Radio",
+   "venue": "Proc. 6th GNU Radio Conference 1(1)",
+   "url": "https://pubs.gnuradio.org/index.php/grcon/article/view/11",
+   "doi": "",
+   "strand": "rf-ml",
+   "relevance": "Introduces RadioML 2016 datasets.",
+   "verified_source": "yes: GNU Radio proceedings page opened"
+  },
+  {
+   "key": "oshea2018",
+   "authors": "O'Shea, T. J.; Roy, T.; Clancy, T. C.",
+   "year": 2018,
+   "title": "Over-the-Air Deep Learning Based Radio Signal Classification",
+   "venue": "IEEE Journal of Selected Topics in Signal Processing 12(1):168-179",
+   "url": "https://doi.org/10.1109/JSTSP.2018.2797022",
+   "doi": "10.1109/JSTSP.2018.2797022",
+   "strand": "rf-ml",
+   "relevance": "RadioML 2018.01A and over-the-air tests; arXiv abstract opened.",
+   "verified_source": "yes: Crossref record for DOI; arXiv:1712.04578 abstract opened"
+  },
+  {
+   "key": "deepsig",
+   "authors": "DeepSig Inc.",
+   "year": 2026,
+   "title": "RadioML datasets page (licence statement)",
+   "venue": "deepsig.ai",
+   "url": "https://www.deepsig.ai/datasets/",
+   "doi": "",
+   "strand": "rf-ml",
+   "relevance": "States all DeepSig datasets are CC BY-NC-SA 4.0 and that they have known errata and are unsupported.",
+   "verified_source": "yes: page opened"
+  },
+  {
+   "key": "swami2000",
+   "authors": "Swami, A.; Sadler, B. M.",
+   "year": 2000,
+   "title": "Hierarchical digital modulation classification using cumulants",
+   "venue": "IEEE Trans. Communications 48(3):416-429",
+   "url": "https://doi.org/10.1109/26.837045",
+   "doi": "10.1109/26.837045",
+   "strand": "rf-ml",
+   "relevance": "Classical cumulant-based AMC.",
+   "verified_source": "yes: Crossref record for DOI"
+  },
+  {
+   "key": "suman2025",
+   "authors": "Suman, P.; Qu, Y.",
+   "year": 2025,
+   "title": "A Lightweight Deep Learning Model for Automatic Modulation Classification using Dual Path Deep Residual Shrinkage Network",
+   "venue": "arXiv:2507.04586",
+   "url": "https://arxiv.org/abs/2507.04586",
+   "doi": "",
+   "strand": "rf-ml",
+   "relevance": "Recent report: average accuracy 61.20% (RML2016.10a), 63.78% (10b), 62.13% (2018.01a).",
+   "verified_source": "yes: arXiv API abstract read"
+  },
+  {
+   "key": "woo2024",
+   "authors": "Woo, J.; Jung, K.; Mukhopadhyay, S.",
+   "year": 2024,
+   "title": "Efficient Hardware Design of DNN for RF Signal Modulation Recognition Employing Ternary Weights",
+   "venue": "IEEE Access 12:80165-80175",
+   "url": "https://doi.org/10.1109/access.2024.3409180",
+   "doi": "10.1109/access.2024.3409180",
+   "strand": "rf-ml",
+   "relevance": "Ternary-weight AMC network on FPGA: ternary + modulation recognition already published.",
+   "verified_source": "yes: Crossref record for DOI (abstract seen in search snippet only)"
+  },
+  {
+   "key": "pour2025",
+   "authors": "Pour, F. L.; Ha, D. S.",
+   "year": 2025,
+   "title": "Toward Analog Implementation of Recurrent Neural Networks in the RF Domain for Proactive Anomaly Detection in B5G Wireless Networks",
+   "venue": "IEEE International Symposium on Circuits and Systems (ISCAS) 2025",
+   "url": "https://doi.org/10.1109/iscas56072.2025.11043369",
+   "doi": "10.1109/iscas56072.2025.11043369",
+   "strand": "rf-ml",
+   "relevance": "CLOSEST PRIOR WORK: RF-domain recurrent network with a tapped transmission-line delay. Abstract not read.",
+   "verified_source": "yes: Crossref record for DOI; researchr listing and VT thesis page confirm the topic"
+  },
+  {
+   "key": "merton2026",
+   "authors": "Merton, N. A.",
+   "year": 2026,
+   "title": "Scalable and Reconfigurable True-Time Delay Line for Integrated Radio-Frequency Recurrent Neural Processors",
+   "venue": "Master's thesis, Virginia Tech",
+   "url": "https://vtechworks.lib.vt.edu/items/21439a7f-042e-417e-b6ca-0e2f0dd8f45a",
+   "doi": "",
+   "strand": "rf-ml",
+   "relevance": "CLOSEST PRIOR WORK: replaces passive tapped transmission-line delay in an RF-domain RNN by a gm-C all-pass delay line.",
+   "verified_source": "yes: repository page opened"
+  },
+  {
+   "key": "hd_glass2012",
+   "authors": "Benchoff, B.",
+   "year": 2012,
+   "title": "Storing 32 Bits Of Data In A Piece Of Glass",
+   "venue": "Hackaday, 9 Nov 2012",
+   "url": "https://hackaday.com/2012/11/09/storing-32-bytes-of-data-in-a-piece-of-glass",
+   "doi": "",
+   "strand": "hobby",
+   "relevance": "Hobbyist delay-line memory in a glass plate.",
+   "verified_source": "yes: page opened"
+  },
+  {
+   "key": "hd_bbd2024",
+   "authors": "Williams, A.",
+   "year": 2024,
+   "title": "Analog Shift Register Revealed",
+   "venue": "Hackaday, 17 Nov 2024",
+   "url": "https://hackaday.com/2024/11/17/analog-shift-register-revealed",
+   "doi": "",
+   "strand": "hobby",
+   "relevance": "Bucket-brigade device explainer (TCA350).",
+   "verified_source": "yes: page opened"
+  },
+  {
+   "key": "that_site",
+   "authors": "anabrid GmbH",
+   "year": 2026,
+   "title": "THE ANALOG THING",
+   "venue": "the-analog-thing.org",
+   "url": "https://the-analog-thing.org",
+   "doi": "",
+   "strand": "hobby",
+   "relevance": "Open-source small analog computer (5 integrators, 4 summers, 2 multipliers).",
+   "verified_source": "yes: page opened"
+  },
+  {
+   "key": "bowyer2024",
+   "authors": "Bowyer, A.",
+   "year": 2024,
+   "title": "Modular Neuromorphic Analogue Neural Net",
+   "venue": "RepRap Ltd blog, May 2024",
+   "url": "https://reprapltd.com/modular-neuromorphic-analogue-neural-net/",
+   "doi": "",
+   "strand": "hobby",
+   "relevance": "Op-amp/comparator analog neural net on modular PCBs, DAC weights; threshold, no tanh.",
+   "verified_source": "yes: page opened"
+  },
+  {
+   "key": "wp_bbd",
+   "authors": "Wikipedia contributors",
+   "year": 2026,
+   "title": "Bucket-brigade device",
+   "venue": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Bucket-brigade_device",
+   "doi": "",
+   "strand": "analog-sp",
+   "relevance": "Secondary: Philips 1969, MN3007 1024 stages, MN3005 4096, SAD-1024.",
+   "verified_source": "yes: page opened (secondary)"
+  },
+  {
+   "key": "wp_edsac",
+   "authors": "Wikipedia contributors",
+   "year": 2026,
+   "title": "EDSAC",
+   "venue": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/EDSAC",
+   "doi": "",
+   "strand": "delay-memory",
+   "relevance": "Secondary: first programs 6 May 1949; second 512-word battery 1952; 1.5 ms ordinary instruction.",
+   "verified_source": "yes: page opened (secondary)"
+  }
+ ],
+ "timeline": [
+  {
+   "year": 1940,
+   "label": "Kallmann publishes 'Transversal Filters': tapped delay line, weights, sum",
+   "strand": "analog-sp",
+   "ref_key": "kallmann1940"
+  },
+  {
+   "year": 1945,
+   "label": "von Neumann's EDVAC draft names delay-line storage",
+   "strand": "delay-memory",
+   "ref_key": "vonneumann1945"
+  },
+  {
+   "year": 1949,
+   "label": "Mercury delay line at megacycle pulse rates described (Eckert et al.)",
+   "strand": "delay-memory",
+   "ref_key": "eckert1949"
+  },
+  {
+   "year": 1949,
+   "label": "EDSAC runs its first programs (6 May)",
+   "strand": "delay-memory",
+   "ref_key": "wp_edsac"
+  },
+  {
+   "year": 1949,
+   "label": "Williams and Kilburn describe the CRT store, a random-access contrast",
+   "strand": "delay-memory",
+   "ref_key": "williams1949"
+  },
+  {
+   "year": 1951,
+   "label": "UNIVAC I (1000 words in mercury tanks) accepted 31 March",
+   "strand": "delay-memory",
+   "ref_key": "wp_univac"
+  },
+  {
+   "year": 1953,
+   "label": "Eckert's survey of computer memory systems",
+   "strand": "delay-memory",
+   "ref_key": "eckert1953"
+  },
+  {
+   "year": 1960,
+   "label": "Widrow and Hoff: ADALINE and LMS",
+   "strand": "neural-adaptive",
+   "ref_key": "widrow1960"
+  },
+  {
+   "year": 1960,
+   "label": "Cook: pulse compression for radar",
+   "strand": "analog-sp",
+   "ref_key": "cook1960"
+  },
+  {
+   "year": 1963,
+   "label": "Friden EC-130 calculator uses magnetostrictive delay-line memory",
+   "strand": "delay-memory",
+   "ref_key": "wp_friden"
+  },
+  {
+   "year": 1963,
+   "label": "North's matched-filter analysis (Proc. IEEE reprint)",
+   "strand": "analog-sp",
+   "ref_key": "north1963"
+  },
+  {
+   "year": 1965,
+   "label": "White and Voltmer: interdigital transducers launch surface acoustic waves",
+   "strand": "analog-sp",
+   "ref_key": "white1965"
+  },
+  {
+   "year": 1969,
+   "label": "Sangster and Teer: bucket-brigade device (Philips)",
+   "strand": "analog-sp",
+   "ref_key": "sangster1969"
+  },
+  {
+   "year": 1970,
+   "label": "Boyle and Smith: charge-coupled device (Bell Labs)",
+   "strand": "analog-sp",
+   "ref_key": "boyle1970"
+  },
+  {
+   "year": 1970,
+   "label": "Quate and Thompson: acoustic convolution and correlation in real time",
+   "strand": "analog-sp",
+   "ref_key": "quate1970"
+  },
+  {
+   "year": 1971,
+   "label": "Tancrell and Holland: acoustic surface wave filters",
+   "strand": "analog-sp",
+   "ref_key": "tancrell1971"
+  },
+  {
+   "year": 1972,
+   "label": "CCD analogue matched filters",
+   "strand": "analog-sp",
+   "ref_key": "collins1972"
+  },
+  {
+   "year": 1976,
+   "label": "Maines and Paige review SAW signal processing devices",
+   "strand": "analog-sp",
+   "ref_key": "maines1976"
+  },
+  {
+   "year": 1987,
+   "label": "Tank and Hopfield: analog neural network concentrating information in time",
+   "strand": "neural-adaptive",
+   "ref_key": "tank1987"
+  },
+  {
+   "year": 1987,
+   "label": "Switched-capacitor neural networks",
+   "strand": "analog-ai",
+   "ref_key": "tsividis1987"
+  },
+  {
+   "year": 1989,
+   "label": "Waibel et al.: time-delay neural networks",
+   "strand": "neural-adaptive",
+   "ref_key": "waibel1989"
+  },
+  {
+   "year": 1989,
+   "label": "Intel ETANN: 10240 floating-gate synapses",
+   "strand": "analog-ai",
+   "ref_key": "holler1989"
+  },
+  {
+   "year": 1990,
+   "label": "Mead: neuromorphic electronic systems",
+   "strand": "analog-ai",
+   "ref_key": "mead1990"
+  },
+  {
+   "year": 1990,
+   "label": "CCD neural processor with 65536 analog synapses",
+   "strand": "analog-ai",
+   "ref_key": "agranat1990"
+  },
+  {
+   "year": 1991,
+   "label": "Unnikrishnan, Hopfield, Tank: time-delayed connections for digit recognition",
+   "strand": "neural-adaptive",
+   "ref_key": "unnikrishnan1991"
+  },
+  {
+   "year": 1994,
+   "label": "Noise injected into weights during training (Murray and Edwards)",
+   "strand": "ternary",
+   "ref_key": "murray1994"
+  },
+  {
+   "year": 2011,
+   "label": "Appeltant et al.: delay-based reservoir computing with one node",
+   "strand": "reservoir",
+   "ref_key": "appeltant2011"
+  },
+  {
+   "year": 2012,
+   "label": "Optoelectronic delay reservoir (Paquot et al.)",
+   "strand": "reservoir",
+   "ref_key": "paquot2012"
+  },
+  {
+   "year": 2012,
+   "label": "Optoelectronic delay reservoir (Larger et al.)",
+   "strand": "reservoir",
+   "ref_key": "larger2012"
+  },
+  {
+   "year": 2013,
+   "label": "All-photonic delay reservoir at GB/s",
+   "strand": "reservoir",
+   "ref_key": "brunner2013"
+  },
+  {
+   "year": 2013,
+   "label": "Bengio et al. describe the straight-through estimator",
+   "strand": "ternary",
+   "ref_key": "bengio2013"
+  },
+  {
+   "year": 2014,
+   "label": "Binary masks for delay reservoirs",
+   "strand": "reservoir",
+   "ref_key": "appeltant2014"
+  },
+  {
+   "year": 2015,
+   "label": "BinaryConnect: binary weights",
+   "strand": "ternary",
+   "ref_key": "courbariaux2015"
+  },
+  {
+   "year": 2015,
+   "label": "FPGA implementation of a delay reservoir",
+   "strand": "reservoir",
+   "ref_key": "alomar2015"
+  },
+  {
+   "year": 2015,
+   "label": "Dilated convolutions (Yu and Koltun)",
+   "strand": "neural-adaptive",
+   "ref_key": "yu2015"
+  },
+  {
+   "year": 2016,
+   "label": "WaveNet: stacked dilated causal convolutions",
+   "strand": "neural-adaptive",
+   "ref_key": "wavenet2016"
+  },
+  {
+   "year": 2016,
+   "label": "Ternary Weight Networks",
+   "strand": "ternary",
+   "ref_key": "li2016"
+  },
+  {
+   "year": 2016,
+   "label": "Convolutional radio modulation recognition; RadioML datasets",
+   "strand": "rf-ml",
+   "ref_key": "oshea2016"
+  },
+  {
+   "year": 2017,
+   "label": "Coherent nanophotonic neural network (Shen et al.)",
+   "strand": "analog-ai",
+   "ref_key": "shen2017"
+  },
+  {
+   "year": 2018,
+   "label": "TCN: dilated causal convolution as a generic sequence model",
+   "strand": "neural-adaptive",
+   "ref_key": "bai2018"
+  },
+  {
+   "year": 2018,
+   "label": "Over-the-air deep learning and RadioML 2018.01A",
+   "strand": "rf-ml",
+   "ref_key": "oshea2018"
+  },
+  {
+   "year": 2019,
+   "label": "Review of physical reservoir computing",
+   "strand": "reservoir",
+   "ref_key": "tanaka2019"
+  },
+  {
+   "year": 2023,
+   "label": "BitNet",
+   "strand": "ternary",
+   "ref_key": "wang2023"
+  },
+  {
+   "year": 2024,
+   "label": "BitNet b1.58: ternary weights",
+   "strand": "ternary",
+   "ref_key": "ma2024"
+  },
+  {
+   "year": 2024,
+   "label": "Ternary-weight DNN hardware for RF modulation recognition",
+   "strand": "rf-ml",
+   "ref_key": "woo2024"
+  },
+  {
+   "year": 2025,
+   "label": "RF-domain recurrent network with tapped transmission-line delay (ISCAS)",
+   "strand": "rf-ml",
+   "ref_key": "pour2025"
+  },
+  {
+   "year": 2025,
+   "label": "Photonic AI processor running ResNet and BERT (Nature)",
+   "strand": "analog-ai",
+   "ref_key": "ahmed2025"
+  },
+  {
+   "year": 2026,
+   "label": "Master's thesis on active true-time delay lines for RF recurrent processors",
+   "strand": "rf-ml",
+   "ref_key": "merton2026"
+  }
+ ],
+ "notes": "Generated from the same source as docs/literature.md. 'partial' verification flags are stated in verified_source."
+}

@@ -1,0 +1,62 @@
+* dlnn_board_parts.lib -- part models for the C tier in board mode (dlnn/tiers/circuit_board.py).  M2a.
+* Replaces hw/board/lib/dlnn_sim.lib (idealised stand-ins) in the KiCad-exported TILE-8 netlist; subckt names and pin
+* orders are those of the exported netlist.  EVERYTHING HERE IS SIMULATION MODEL, NOTHING MEASURED.
+*
+* Provenance (labels used in the docs/JSON):
+*   IND_FH1812   DATASHEET-DERIVED lumped model of FH FHW1812IF121JST (JLC C394134): L 120 uH +-5 %, DCR 3.3 ohm (listing, treated as
+*                max), SRF 3.3 MHz -> C_p = 1/((2 pi SRF)^2 L) = 19.38 pF, Q >= 10 @ 796 kHz (listing: MINIMUM) -> R_p such that
+*                1/Q = DCR/(wL) + wL/R_p at 796 kHz: 6.351 kohm (Q=10 corner) / 21.56 kohm (Q=30 corner, Q_typ is ASSUMED = 3 x min,
+*                not a datasheet value).  Series L + DCR, parallel C_p || R_p across the whole inductor.  Not a vendor model.
+*   OPA_QUAD     (opa_quad_ti.lib / opa_quad_fit.lib, one of the two is included) TI's own PSpice macro TLV9062 (SBOMAG1E, Rev D, downloaded at run time from ti.com, not committed), 4 instances per
+*                package; TLV9064 is stated to be the same die as TLV9062 (TI e2e); +2 pF input pad on every non-inverting input
+*                (design assumption of M1a: c_tap 6 pF = Cic 4 pF + 2 pF).  The macro is a PSpice-dialect model: run with
+*                'set ngbehavior=psa'.  The browser export uses a single-pole op-amp instead (docs/artifacts/data/spice).
+*   DUAL_NPN     GENERIC NPN fitted to BC847BS datasheet TABLE points (VBE(on) 665 mV @ 2 mA, hFE ~300, CCBO 2 pF, CEBO 11 pF, fT >= 100 MHz);
+*                curves not digitised; VAF=100 V, RB=10 ohm, MJ=0.33, VJ=0.75, TF=0.6 ns are ASSUMED.  Same model as hw/board/spice/run_checks.py.
+*   SW4066_QUAD  74HCT4066: R_on + C_off.  R_on(T) = 95 ohm + 0.383 ohm/K (T-25 C) (TI CD74HC4066: 95 ohm max @ 25 C, 118 ohm @ 85 C,
+*                Vcc 4.5 V; HCT assumed equal), C_off = 5 pF per terminal (ASSUMED, datasheet gives only a 10 pF max input
+*                capacitance), no charge injection modelled (the board_design.md 2 pC is an assumption and is not in SPICE).
+*   DAC4_IDEAL   MCP4728 output stage as four ideal voltage sources (levels set per run from the model bias, 12-bit quantised).
+*   LM4040_25    2.5 V shunt reference as an ideal source (as in the baseline lib).
+.param TEMPC=25
+.model QNPN_G npn (IS=1.3520e-14 BF=300 VAF=100 RB=10 TF=0.6n CJE=13p CJC=4.8p MJE=0.33 MJC=0.33 VJE=0.75 VJC=0.75)
+.subckt IND_FH1812 a b L=120u R=3.3 Cp=19.383p Rp=6350.9
+L1 a m {L}
+R1 m b {R}
+Cp1 a b {Cp}
+Rp1 a b {Rp}
+.ends IND_FH1812
+.subckt DUAL_NPN e1 b1 c2 e2 b2 c1
+Q1 c1 b1 e1 QNPN_G
+Q2 c2 b2 e2 QNPN_G
+.ends DUAL_NPN
+.model SW4066 SW (Ron=95 Roff=1e9 Vt=2.5 Vh=0.2)
+.subckt SW4066_QUAD a1 b1 e1 a2 b2 e2 a3 b3 e3 a4 b4 e4 vdd vss PARAMS: ron=95
+S1 a1 b1 e1 vss SW4066
+S2 a2 b2 e2 vss SW4066
+S3 a3 b3 e3 vss SW4066
+S4 a4 b4 e4 vss SW4066
+Ca1 a1 vss 5p
+Cb1 b1 vss 5p
+Ca2 a2 vss 5p
+Cb2 b2 vss 5p
+Ca3 a3 vss 5p
+Cb3 b3 vss 5p
+Ca4 a4 vss 5p
+Cb4 b4 vss 5p
+Rvdd vdd 0 1e9
+.ends SW4066_QUAD
+.subckt DAC4_IDEAL vdd scl sda ldac rdy oa ob oc od vss VA=2.5 VB=2.5 VC=2.5 VD=2.5
+Va oa vss {VA}
+Vb ob vss {VB}
+Vc oc vss {VC}
+Vd od vss {VD}
+Rvdd vdd 0 1e9
+Rscl scl 0 1e9
+Rsda sda 0 1e9
+Rldac ldac 0 1e9
+Rrdy rdy 0 1e9
+.ends DAC4_IDEAL
+.subckt LM4040_25 k a
+V1 k a DC 2.5
+.ends LM4040_25

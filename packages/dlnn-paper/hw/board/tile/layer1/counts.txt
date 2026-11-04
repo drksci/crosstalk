@@ -1,0 +1,31 @@
+layer 1  project hw/board/tile/layer1
+LCSC      type                                             exp   got
+C108207   bias / V_BE-trim DAC (4 ch each, VDD ref)          2     2 PASS
+C126547   delay-line shunt capacitor                       110   110 PASS
+C130026   per-tile I2C mux (identical tiles)              None     1 DIFF
+C1525     decoupling                                        40    27 DIFF
+C1548     summer feedback capacitor                         16    16 PASS
+C156292   tail current mirror (2 tails per package) +        5     5 PASS
+C15850    bulk                                               4     4 PASS
+C1658     ladder end half-capacitors (2 x 30 pF = 60 p       8     8 PASS
+C21190    Rs, Rl, Rpre (3 per line), R_L (16), others       22    22 PASS
+C22855                                                    None    16 DIFF
+C22908                                                    None     1 DIFF
+C23068                                                    None     8 DIFF
+C23108                                                    None    16 DIFF
+C23158                                                    None     1 DIFF
+C23248                                                    None     8 DIFF
+C25744    crossbar weight resistor (populated = nonzer      85    85 PASS
+C393675   diff-amp feedback capacitor                        8     8 PASS
+C394134   delay-line inductor                              112   112 PASS
+C4184                                                     None    16 DIFF
+C460725   2.5 V reference (Vref buffer input)                1     1 PASS
+C472798   hold capacitor                                     8     8 PASS
+C549556   diff-pair (tanh)                                   8     8 PASS
+C5998     track-and-hold switches (4 per package)            2     2 PASS
+C779410   tap buffers, input buffers, summers, diff-am      13    13 PASS
+C85978    input RC capacitor (482 kHz with 1k)               2     2 PASS
+C9040     inter-tile 2x13 ribbon header in + out (thro       2     2 PASS
+E96       E96 0603 resistors other than 1k (csv 60)         60    74 DIFF
+crossbar: footprints 256 (expect 256), populated 58+ 27- = 85, non-zero W 85 (+58 -27) -> PASS
+LCSC present on all 690 symbols: True; refs with LCSC 'TBD*': 0

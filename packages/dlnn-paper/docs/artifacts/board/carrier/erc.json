@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-03T23:47:14+0000",
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "9.0.9",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03",
+            "violations": []
+        },
+        {
+            "path": "/mcu/",
+            "uuid_path": "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03/94ca7719-e906-5776-b3d7-523bf03fc43e",
+            "violations": []
+        },
+        {
+            "path": "/dac/",
+            "uuid_path": "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03/16a5a6ee-cd6f-5b06-abef-034daa23dfa7",
+            "violations": []
+        },
+        {
+            "path": "/adc/",
+            "uuid_path": "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03/63f41481-0df0-5163-a6fe-a7896bd60c71",
+            "violations": []
+        },
+        {
+            "path": "/power/",
+            "uuid_path": "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03/0283f56f-08a6-5031-b7ef-e92208a48176",
+            "violations": []
+        },
+        {
+            "path": "/tiles/",
+            "uuid_path": "/2c6f0c5b-a21a-50ed-aff9-7e26e2edef03/1176aaa3-0bfe-56b6-93c4-5d1d4898391d",
+            "violations": []
+        }
+    ],
+    "source": "carrier.kicad_sch"
+}

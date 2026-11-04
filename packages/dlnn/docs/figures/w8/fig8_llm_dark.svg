@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="521.28pt" height="529.056pt" viewBox="0 0 521.28 529.056" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-03T06:42:42.533052</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 529.056 
+L 521.28 529.056 
+L 521.28 -0 
+L 0 -0 
+z
+" style="fill: #1a1a19"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 21.6 129.456 
+L 499.68 129.456 
+Q 505.44 129.456 505.44 135.216 
+L 505.44 179.568 
+Q 505.44 185.328 499.68 185.328 
+L 21.6 185.328 
+Q 15.84 185.328 15.84 179.568 
+L 15.84 135.216 
+Q 15.84 129.456 21.6 129.456 
+L 21.6 129.456 
+z
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #383835; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 21.6 191.088 
+L 499.68 191.088 
+Q 505.44 191.088 505.44 196.848 
+L 505.44 241.2 
+Q 505.44 246.96 499.68 246.96 
+L 21.6 246.96 
+Q 15.84 246.96 15.84 241.2 
+L 15.84 196.848 
+Q 15.84 191.088 21.6 191.088 
+L 21.6 191.088 
+z
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #383835; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 21.6 252.72 
+L 499.68 252.72 
+Q 505.44 252.72 505.44 258.48 
+L 505.44 302.832 
+Q 505.44 308.592 499.68 308.592 
+L 21.6 308.592 
+Q 15.84 308.592 15.84 302.832 
+L 15.84 258.48 
+Q 15.84 252.72 21.6 252.72 
+L 21.6 252.72 
+z
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #383835; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 21.6 314.352 
+L 499.68 314.352 
+Q 505.44 314.352 505.44 320.112 
+L 505.44 364.464 
+Q 505.44 370.224 499.68 370.224 
+L 21.6 370.224 
+Q 15.84 370.224 15.84 364.464 
+L 15.84 320.112 
+Q 15.84 314.352 21.6 314.352 
+L 21.6 314.352 
+z
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #383835; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 15.84 87.84 
+L 505.44 87.84 
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #2c2c2a; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 15.84 128.016 
+L 505.44 128.016 
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #2c2c2a; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 15.84 396.144 
+L 505.44 396.144 
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #2c2c2a; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 15.84 434.16 
+L 505.44 434.16 
+" clip-path="url(#p268c35df88)" style="fill: none; stroke: #2c2c2a; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="15.84" y="27.798047" transform="rotate(-0 15.84 27.798047)">LLM commentary on the comparison card</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #c3c2b7" x="15.84" y="81.790312" transform="rotate(-0 15.84 81.790312)">SUMMARY</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="18.72" y="98.553125" transform="rotate(-0 18.72 98.553125)">[TEMPLATE, not model output] Task modrec, accuracy: V=0.7348, E=0.7348, C=0.54, R=0.4785.</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #c3c2b7" x="15.84" y="121.966312" transform="rotate(-0 15.84 121.966312)">FINDINGS (4)</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="160.329125" transform="rotate(-0 25.92 160.329125)">Observation: accuracy for tier E is 0.7348 versus 0.7348 for V (delta +0).</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="173.865125" transform="rotate(-0 25.92 173.865125)">Likely cause: Fixed-point quantisation (ADC bits, LUT tanh, rounding) in the emulated tier.</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="221.961125" transform="rotate(-0 25.92 221.961125)">Observation: accuracy for tier C is 0.54 versus 0.7348 for V (delta -0.195).</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="235.497125" transform="rotate(-0 25.92 235.497125)">Likely cause: Not determined by the template.</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="283.593125" transform="rotate(-0 25.92 283.593125)">Observation: accuracy for tier R is 0.4785 versus 0.7348 for V (delta -0.256).</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="297.129125" transform="rotate(-0 25.92 297.129125)">Likely cause: Not determined by the template.</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="345.225125" transform="rotate(-0 25.92 345.225125)">Observation: Distance to V per tier: E=0.0001157, C=0.4906, R=0.8803.</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="25.92" y="358.761125" transform="rotate(-0 25.92 358.761125)">Likely cause: Template statement only; no causal analysis performed.</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #c3c2b7" x="15.84" y="390.094312" transform="rotate(-0 15.84 390.094312)">CAVEATS</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #c3c2b7" x="18.72" y="405.518219" transform="rotate(-0 18.72 405.518219)">-</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="30.24" y="406.857125" transform="rotate(-0 30.24 406.857125)">This text was generated from a fixed template; no language model was run.</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 7.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #c3c2b7" x="15.84" y="428.110312" transform="rotate(-0 15.84 428.110312)">QUESTIONS</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #c3c2b7" x="18.72" y="443.534219" transform="rotate(-0 18.72 443.534219)">-</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="30.24" y="444.767437" transform="rotate(-0 30.24 444.767437)">Does the gap between E and V shrink with more ADC bits (see the adc_bits sweep)?</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #c3c2b7" x="15.84" y="464.242375" transform="rotate(-0 15.84 464.242375)">The text above is a FIXED TEMPLATE: no language model produced it.</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 20.16 42.48 
+L 178.138636 42.48 
+Q 182.458636 42.48 182.458636 46.8 
+L 182.458636 52.56 
+Q 182.458636 56.88 178.138636 56.88 
+L 20.16 56.88 
+Q 15.84 56.88 15.84 52.56 
+L 15.84 46.8 
+Q 15.84 42.48 20.16 42.48 
+z
+" clip-path="url(#p268c35df88)" style="fill: #e0a030"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 27.36 135.936 
+L 59.502273 135.936 
+Q 63.822273 135.936 63.822273 140.256 
+L 63.822273 146.016 
+Q 63.822273 150.336 59.502273 150.336 
+L 27.36 150.336 
+Q 23.04 150.336 23.04 146.016 
+L 23.04 140.256 
+Q 23.04 135.936 27.36 135.936 
+z
+" clip-path="url(#p268c35df88)" style="fill: #2c2c2a"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 73.182273 135.936 
+L 95.189318 135.936 
+Q 99.509318 135.936 99.509318 140.256 
+L 99.509318 146.016 
+Q 99.509318 150.336 95.189318 150.336 
+L 73.182273 150.336 
+Q 68.862273 150.336 68.862273 146.016 
+L 68.862273 140.256 
+Q 68.862273 135.936 73.182273 135.936 
+z
+" clip-path="url(#p268c35df88)" style="fill: #d95926"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 27.36 197.568 
+L 59.502273 197.568 
+Q 63.822273 197.568 63.822273 201.888 
+L 63.822273 207.648 
+Q 63.822273 211.968 59.502273 211.968 
+L 27.36 211.968 
+Q 23.04 211.968 23.04 207.648 
+L 23.04 201.888 
+Q 23.04 197.568 27.36 197.568 
+z
+" clip-path="url(#p268c35df88)" style="fill: #2c2c2a"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 73.182273 197.568 
+L 95.537045 197.568 
+Q 99.857045 197.568 99.857045 201.888 
+L 99.857045 207.648 
+Q 99.857045 211.968 95.537045 211.968 
+L 73.182273 211.968 
+Q 68.862273 211.968 68.862273 207.648 
+L 68.862273 201.888 
+Q 68.862273 197.568 73.182273 197.568 
+z
+" clip-path="url(#p268c35df88)" style="fill: #199e70"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 27.36 259.2 
+L 59.502273 259.2 
+Q 63.822273 259.2 63.822273 263.52 
+L 63.822273 269.28 
+Q 63.822273 273.6 59.502273 273.6 
+L 27.36 273.6 
+Q 23.04 273.6 23.04 269.28 
+L 23.04 263.52 
+Q 23.04 259.2 27.36 259.2 
+z
+" clip-path="url(#p268c35df88)" style="fill: #2c2c2a"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 73.182273 259.2 
+L 95.7825 259.2 
+Q 100.1025 259.2 100.1025 263.52 
+L 100.1025 269.28 
+Q 100.1025 273.6 95.7825 273.6 
+L 73.182273 273.6 
+Q 68.862273 273.6 68.862273 269.28 
+L 68.862273 263.52 
+Q 68.862273 259.2 73.182273 259.2 
+z
+" clip-path="url(#p268c35df88)" style="fill: #c98500"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 27.36 320.832 
+L 108.398864 320.832 
+Q 112.718864 320.832 112.718864 325.152 
+L 112.718864 330.912 
+Q 112.718864 335.232 108.398864 335.232 
+L 27.36 335.232 
+Q 23.04 335.232 23.04 330.912 
+L 23.04 325.152 
+Q 23.04 320.832 27.36 320.832 
+z
+" clip-path="url(#p268c35df88)" style="fill: #2c2c2a"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 122.078864 320.832 
+L 144.085909 320.832 
+Q 148.405909 320.832 148.405909 325.152 
+L 148.405909 330.912 
+Q 148.405909 335.232 144.085909 335.232 
+L 122.078864 335.232 
+Q 117.758864 335.232 117.758864 330.912 
+L 117.758864 325.152 
+Q 117.758864 320.832 122.078864 320.832 
+z
+" clip-path="url(#p268c35df88)" style="fill: #d95926"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 157.765909 320.832 
+L 180.120682 320.832 
+Q 184.440682 320.832 184.440682 325.152 
+L 184.440682 330.912 
+Q 184.440682 335.232 180.120682 335.232 
+L 157.765909 335.232 
+Q 153.445909 335.232 153.445909 330.912 
+L 153.445909 325.152 
+Q 153.445909 320.832 157.765909 320.832 
+z
+" clip-path="url(#p268c35df88)" style="fill: #199e70"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 193.800682 320.832 
+L 216.400909 320.832 
+Q 220.720909 320.832 220.720909 325.152 
+L 220.720909 330.912 
+Q 220.720909 335.232 216.400909 335.232 
+L 193.800682 335.232 
+Q 189.480682 335.232 189.480682 330.912 
+L 189.480682 325.152 
+Q 189.480682 320.832 193.800682 320.832 
+z
+" clip-path="url(#p268c35df88)" style="fill: #c98500"/>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="20.88" y="51.446672" transform="rotate(-0 20.88 51.446672)">TEMPLATE (fixed text, not model output)</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="28.08" y="144.902406" transform="rotate(-0 28.08 144.902406)">accuracy</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="73.902273" y="144.902672" transform="rotate(-0 73.902273 144.902672)">tier E</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="28.08" y="206.534406" transform="rotate(-0 28.08 206.534406)">accuracy</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="73.902273" y="206.534672" transform="rotate(-0 73.902273 206.534672)">tier C</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="28.08" y="268.166406" transform="rotate(-0 28.08 268.166406)">accuracy</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="73.902273" y="268.166672" transform="rotate(-0 73.902273 268.166672)">tier R</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f0efec" x="28.08" y="329.798672" transform="rotate(-0 28.08 329.798672)">mean_kl_virtual_vs_tier</text>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="122.798864" y="329.798672" transform="rotate(-0 122.798864 329.798672)">tier E</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #ffffff" x="158.485909" y="329.798672" transform="rotate(-0 158.485909 329.798672)">tier C</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="194.520682" y="329.798672" transform="rotate(-0 194.520682 329.798672)">tier R</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p268c35df88">
+   <rect x="8.64" y="8.64" width="504" height="511.776"/>
+  </clipPath>
+ </defs>
+</svg>

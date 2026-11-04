@@ -1,0 +1,59 @@
+{
+  "schema": "dlnn-energy-refs/1",
+  "note": "Inputs for the A4 energy/latency ESTIMATES. Only figures read directly from a primary source in this session are included. Labelled estimates, not measurements.",
+  "verified": [
+    {
+      "id": "horowitz2014_45nm_int_fp_mem",
+      "source": "M. Horowitz, 'Computing's energy problem (and what we can do about it)', ISSCC 2014, Session 1.1, pp. 10-14, Fig. 1.1.9 'Rough energy costs for various operations in 45nm 0.9V'",
+      "doi": "10.1109/ISSCC.2014.6757323",
+      "url_checked": "https://gwern.net/doc/cs/hardware/2014-horowitz-2.pdf",
+      "how_verified": "PDF downloaded and Fig. 1.1.9 read visually (page 14 of the digest)",
+      "conditions": "45 nm, 0.9 V, rough figures",
+      "pJ_per_op": {
+        "int_add_8bit": 0.03,
+        "int_add_32bit": 0.1,
+        "int_mult_8bit": 0.2,
+        "int_mult_32bit": 3.1,
+        "fp_add_16bit": 0.4,
+        "fp_add_32bit": 0.9,
+        "fp_mult_16bit": 1.1,
+        "fp_mult_32bit": 3.7,
+        "cache_64bit_8KB": 10,
+        "cache_64bit_32KB": 20,
+        "cache_64bit_1MB": 100,
+        "dram_64bit_low": 1300,
+        "dram_64bit_high": 2600,
+        "instruction_overhead_in_order_cpu_total": 70
+      },
+      "caveat": "45 nm ASIC-class figures; a 90 nm / 40 nm MCU spends far more per operation once instruction fetch and control are included (the paper's own 70 pJ/instruction in-order figure). tanh is not tabulated; the arena estimate must state its assumption."
+    },
+    {
+      "id": "stm32g474_run_mode_current",
+      "source": "STMicroelectronics STM32G474xB/xC/xE datasheet DS12288 Rev 2 (Oct 2019), section 5.3.5 Supply current characteristics, Table 21 'Current consumption in Run and Low-power run modes, code with data processing running from Flash in single Bank, ART enable (Cache ON Prefetch OFF)', symbol IDD(Run), p. 87/234 of that PDF",
+      "url_read": "https://docs.rs-online.com/2131/A700000006432374.pdf (RS Components mirror of the ST PDF; sha256 of the file as fetched ed8421b707da6daa833107d34b5d350d2df984fb62922aefae8d2a7fb13d4cd5; text extracted with pdftotext)",
+      "conditions": "fHCLK = fHSE up to 48 MHz (bypass), PLL ON above 48 MHz, all peripherals disabled, all I/O analog, flash wait states minimal, Range 1 Boost mode for 150 < fHCLK <= 170 MHz, Range 1 Normal for 26 < fHCLK <= 150 MHz; typical at 25 C (table lists 25/55/85/105/125 C; no explicit VDD in the table, ST's general conditions)",
+      "values": {
+        "170MHz_range1_boost_typ_25C_mA": 29.5,
+        "170MHz_typ_85C_mA": 31.0,
+        "170MHz_max_25C_mA": 30.0,
+        "150MHz_range1_typ_25C_mA": 24.5,
+        "derived_uA_per_MHz_170MHz": 173.5,
+        "derived_uA_per_MHz_150MHz": 163.3
+      },
+      "caveat": "Rev 2 of the datasheet; later revisions (Rev 5/6) were not read and could differ. The generic code in this table is ST's test code, not the arena kernels (Cortex-M4F, no int8/SIMD assumptions). The older ST slide numbers (173/163 uA/MHz) agree with the derived values. Core plus flash only, excludes board/regulator losses."
+    }
+  ],
+  "internal_design_estimate_not_cited": {
+    "id": "tile_power",
+    "value": "about 100 mA at 5 V per tile = about 0.5 W per tile (3 tiles for the width-8 board)",
+    "source": "docs/phase2_plan.md section 1.1 (design estimate by the planner, not measured, no external citation)",
+    "use": "analog-tile power; divide by classification rate (1 MS/s, 128 samples/window -> 128 us per window plus about 22 us pipeline fill) for J per classification"
+  },
+  "not_included_because_not_verified": [
+    {
+      "item": "Op-amp (TLV9064-class) quiescent current",
+      "reason": "TI datasheet not fetched in this session; the tile figure above already includes it."
+    }
+  ],
+  "attempts_stm32g4": "st.com datasheet URLs (stm32g474re.pdf, g473ve, RM0440, product page) returned 503/stream error; farnell 2818776.pdf timed out; mouser 503; alldatasheet.es/stmcu.cn/xonelec/manuals.plus 403; eeworld empty; RS mirror docs.rs-online.com/2131/A700000006432374.pdf succeeded. Note: DS12712 is not the G474 datasheet; G474 is DS12288."
+}

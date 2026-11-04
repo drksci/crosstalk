@@ -1,0 +1,464 @@
+{
+ "0603WAF1000T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 100\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22775",
+  "lib": "Basic",
+  "mpn": "0603WAF1000T5E",
+  "pkg": "0603",
+  "price1": 0.0023,
+  "stock": 8810443
+ },
+ "0603WAF1001T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 1k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C21190",
+  "lib": "Basic",
+  "mpn": "0603WAF1001T5E",
+  "pkg": "0603",
+  "price1": 0.0017,
+  "stock": 29179995
+ },
+ "0603WAF1002T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 10k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C25804",
+  "lib": "Basic",
+  "mpn": "0603WAF1002T5E",
+  "pkg": "0603",
+  "price1": 0.0024,
+  "stock": 45483939
+ },
+ "0603WAF100KT5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 1\u03a9 75V Thick Film Resistor \u00b11% \u00b1400ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22936",
+  "lib": "Basic",
+  "mpn": "0603WAF100KT5E",
+  "pkg": "0603",
+  "price1": 0.0031,
+  "stock": 627677
+ },
+ "0603WAF1051T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 1.05k\u03a9 100mW 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22832",
+  "lib": "Extended",
+  "mpn": "0603WAF1051T5E",
+  "pkg": "0603",
+  "price1": 0.0025,
+  "stock": 10787
+ },
+ "0603WAF1052T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 10.5k\u03a9 100mW 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22855",
+  "lib": "Extended",
+  "mpn": "0603WAF1052T5E",
+  "pkg": "0603",
+  "price1": 0.003,
+  "stock": 101893
+ },
+ "0603WAF1332T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 13.3k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C25952",
+  "lib": "Extended",
+  "mpn": "0603WAF1332T5E",
+  "pkg": "0603",
+  "price1": 0.0018,
+  "stock": 233916
+ },
+ "0603WAF1402T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 14k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22803",
+  "lib": "Extended",
+  "mpn": "0603WAF1402T5E",
+  "pkg": "0603",
+  "price1": 0.0015,
+  "stock": 67686
+ },
+ "0603WAF1502T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 15k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22809",
+  "lib": "Basic",
+  "mpn": "0603WAF1502T5E",
+  "pkg": "0603",
+  "price1": 0.0029,
+  "stock": 3470829
+ },
+ "0603WAF1542T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 15.4k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22804",
+  "lib": "Extended",
+  "mpn": "0603WAF1542T5E",
+  "pkg": "0603",
+  "price1": 0.0019,
+  "stock": 84231
+ },
+ "0603WAF1R00T5E": null,
+ "0603WAF2002T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 20k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C4184",
+  "lib": "Basic",
+  "mpn": "0603WAF2002T5E",
+  "pkg": "0603",
+  "price1": 0.0021,
+  "stock": 6022263
+ },
+ "0603WAF2211T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 2.21k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22903",
+  "lib": "Extended",
+  "mpn": "0603WAF2211T5E",
+  "pkg": "0603",
+  "price1": 0.0029,
+  "stock": 11626
+ },
+ "0603WAF2262T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 22.6k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22959",
+  "lib": "Extended",
+  "mpn": "0603WAF2262T5E",
+  "pkg": "0603",
+  "price1": 0.0027,
+  "stock": 8
+ },
+ "0603WAF2491T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 2.49k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22908",
+  "lib": "Extended",
+  "mpn": "0603WAF2491T5E",
+  "pkg": "0603",
+  "price1": 0.0017,
+  "stock": 860225
+ },
+ "0603WAF2552T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 25.5k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22920",
+  "lib": "Extended",
+  "mpn": "0603WAF2552T5E",
+  "pkg": "0603",
+  "price1": 0.0021,
+  "stock": 28537
+ },
+ "0603WAF2801T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 2.8k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22947",
+  "lib": "Extended",
+  "mpn": "0603WAF2801T5E",
+  "pkg": "0603",
+  "price1": 0.0068,
+  "stock": 108228
+ },
+ "0603WAF3002T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 30k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22984",
+  "lib": "Basic",
+  "mpn": "0603WAF3002T5E",
+  "pkg": "0603",
+  "price1": 0.0024,
+  "stock": 2019955
+ },
+ "0603WAF3161T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 3.16k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C22993",
+  "lib": "Extended",
+  "mpn": "0603WAF3161T5E",
+  "pkg": "0603",
+  "price1": 0.0016,
+  "stock": 102225
+ },
+ "0603WAF3300T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 330\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23138",
+  "lib": "Basic",
+  "mpn": "0603WAF3300T5E",
+  "pkg": "0603",
+  "price1": 0.0021,
+  "stock": 3141129
+ },
+ "0603WAF3650T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 365\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23032",
+  "lib": "Extended",
+  "mpn": "0603WAF3650T5E",
+  "pkg": "0603",
+  "price1": 0.001,
+  "stock": 4284
+ },
+ "0603WAF3832T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 38.3k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23034",
+  "lib": "Extended",
+  "mpn": "0603WAF3832T5E",
+  "pkg": "0603",
+  "price1": 0.0018,
+  "stock": 62211
+ },
+ "0603WAF4021T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 4.02k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23040",
+  "lib": "Extended",
+  "mpn": "0603WAF4021T5E",
+  "pkg": "0603",
+  "price1": 0.0018,
+  "stock": 62057
+ },
+ "0603WAF4321T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 4.32k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23158",
+  "lib": "Extended",
+  "mpn": "0603WAF4321T5E",
+  "pkg": "0603",
+  "price1": 0.002,
+  "stock": 13847
+ },
+ "0603WAF4701T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 4.7k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23162",
+  "lib": "Basic",
+  "mpn": "0603WAF4701T5E",
+  "pkg": "0603",
+  "price1": 0.0028,
+  "stock": 14395511
+ },
+ "0603WAF4750T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 475\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23181",
+  "lib": "Extended",
+  "mpn": "0603WAF4750T5E",
+  "pkg": "0603",
+  "price1": 0.0022,
+  "stock": 8838
+ },
+ "0603WAF5230T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 523\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23199",
+  "lib": "Extended",
+  "mpn": "0603WAF5230T5E",
+  "pkg": "0603",
+  "price1": 0.003,
+  "stock": 15941
+ },
+ "0603WAF5231T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 5.23k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23068",
+  "lib": "Extended",
+  "mpn": "0603WAF5231T5E",
+  "pkg": "0603",
+  "price1": 0.0021,
+  "stock": 37528
+ },
+ "0603WAF5361T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 5.36k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C25973",
+  "lib": "Extended",
+  "mpn": "0603WAF5361T5E",
+  "pkg": "0603",
+  "price1": 0.0018,
+  "stock": 9888
+ },
+ "0603WAF6811T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 6.81k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23211",
+  "lib": "Extended",
+  "mpn": "0603WAF6811T5E",
+  "pkg": "0603",
+  "price1": 0.0028,
+  "stock": 15
+ },
+ "0603WAF7680T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 75V 768\u03a9 Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23108",
+  "lib": "Extended",
+  "mpn": "0603WAF7680T5E",
+  "pkg": "0603",
+  "price1": 0.0017,
+  "stock": 4552
+ },
+ "0603WAF7871T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 7.87k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23236",
+  "lib": "Extended",
+  "mpn": "0603WAF7871T5E",
+  "pkg": "0603",
+  "price1": 0.0024,
+  "stock": 33508
+ },
+ "0603WAF8251T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 75V 8.25k\u03a9 Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23113",
+  "lib": "Extended",
+  "mpn": "0603WAF8251T5E",
+  "pkg": "0603",
+  "price1": 0.0016,
+  "stock": 4450
+ },
+ "0603WAF8871T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 75V 8.87k\u03a9 Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23248",
+  "lib": "Extended",
+  "mpn": "0603WAF8871T5E",
+  "pkg": "0603",
+  "price1": 0.0026,
+  "stock": 1
+ },
+ "0603WAF9091T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 75V 9.09k\u03a9 Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23125",
+  "lib": "Extended",
+  "mpn": "0603WAF9091T5E",
+  "pkg": "0603",
+  "price1": 0.0015,
+  "stock": 59938
+ },
+ "0603WAF9310T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 75V 931\u03a9 Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23133",
+  "lib": "Extended",
+  "mpn": "0603WAF9310T5E",
+  "pkg": "0603",
+  "price1": 0.0007,
+  "stock": 12
+ },
+ "0603WAF9760T5E": {
+  "brand": "UNI-ROYAL(Uniroyal Elec)",
+  "desc": "-55\u2103~+155\u2103 100mW 75V 976\u03a9 Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+  "lcsc": "C23135",
+  "lib": "Extended",
+  "mpn": "0603WAF9760T5E",
+  "pkg": "0603",
+  "price1": 0.001,
+  "stock": 3462
+ },
+ "74HCT4066D,118": {
+  "brand": "Nexperia",
+  "desc": "-40\u2103~+125\u2103 15ns 180MHz 1:1 30ns 4.5V~5.5V 44ns 54\u03a9 8pF SOIC-14 Analog Switches, Multiplexers ROHS",
+  "lcsc": "C5998",
+  "lib": "Extended",
+  "mpn": "74HCT4066D,118",
+  "pkg": "SOIC-14",
+  "price1": 0.3499,
+  "stock": 3133
+ },
+ "AMS1117-5.0": {
+  "brand": "Advanced Monolithic Systems",
+  "desc": "-40\u2103~+125\u2103 1 1.3V 15V 1A 5V 60dB Fixed Positive Short Circuit Protection\u3001Thermal shutdown SOT-223 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS",
+  "lcsc": "C6187",
+  "lib": "Basic",
+  "mpn": "AMS1117-5.0",
+  "pkg": "SOT-223",
+  "price1": 0.258,
+  "stock": 106014
+ },
+ "BC847BS-7-F": {
+  "brand": "Diodes Incorporated",
+  "desc": "-65\u2103~+150\u2103 100MHz 100mA 100mV 2 NPN 200 200mW 20nA 45V 6V NPN SOT-363 Bipolar (BJT) ROHS",
+  "lcsc": "C156292",
+  "lib": "Extended",
+  "mpn": "BC847BS-7-F",
+  "pkg": "SOT-363",
+  "price1": 0.0732,
+  "stock": 10571
+ },
+ "BCM847BS,135": {
+  "brand": "Nexperia",
+  "desc": "-65\u2103~+150\u2103 100mA 2 NPN 200 200mV 200mW 250MHz 45V 5uA 6V NPN SOT-363 Bipolar (BJT) ROHS",
+  "lcsc": "C549556",
+  "lib": "Extended",
+  "mpn": "BCM847BS,135",
+  "pkg": "SOT-363",
+  "price1": 0.3185,
+  "stock": 4
+ },
+ "CL05B104KO5NNNC": {
+  "brand": "Samsung Electro-Mechanics",
+  "desc": "100nF 16V X7R \u00b110% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS",
+  "lcsc": "C1525",
+  "lib": "Basic",
+  "mpn": "CL05B104KO5NNNC",
+  "pkg": "0402",
+  "price1": 0.0031,
+  "stock": 34154856
+ },
+ "DC barrel jack 5.5/2.1": null,
+ "FHW1812IF121JST": {
+  "brand": "FH (Guangdong Fenghua Advanced Tech)",
+  "desc": "10@796kHz 120uH 220mA 3.3MHz 3.3\u03a9 \u00b15% 1812 Inductors (SMD) ROHS",
+  "lcsc": "C394134",
+  "lib": "Extended",
+  "mpn": "FHW1812IF121JST",
+  "pkg": "1812",
+  "price1": 0.1406,
+  "stock": 1949
+ },
+ "LM4040B25FTA": {
+  "brand": "Diodes Incorporated",
+  "desc": "-40\u2103~+125\u2103 100ppm/\u2103 15mA 2.5V 35uVrms 60uA Fixed Parallel \u00b10.2% SOT-23 Voltage Reference ROHS",
+  "lcsc": "C460725",
+  "lib": "Extended",
+  "mpn": "LM4040B25FTA",
+  "pkg": "SOT-23",
+  "price1": 1.6417,
+  "stock": 4921
+ },
+ "MCP4728-E/UN": {
+  "brand": "Microchip Tech",
+  "desc": "-40\u2103~+125\u2103 12 2.7V~5.5V 2LSB 4 40nA 6us I2C Integrated buffer\u3001Power-on reset\u3001Power-down mode\u3001Programmable gain Voltage Buffer MSOP-10 Digital to Analog Converters (DAC) ROHS",
+  "lcsc": "C108207",
+  "lib": "Extended",
+  "mpn": "MCP4728-E/UN",
+  "pkg": "MSOP-10",
+  "price1": 2.3305,
+  "stock": 2079
+ },
+ "TCA9548APWR": {
+  "brand": "Texas Instruments",
+  "desc": "-40\u2103~+85\u2103 1.65V~5.5V 2uA 400Kbps 80uA I2C\u3001SMBus Power-up/reset configuration TSSOP-24 Interface - Specialized ROHS",
+  "lcsc": "C130026",
+  "lib": "Extended",
+  "mpn": "TCA9548APWR",
+  "pkg": "TSSOP-24",
+  "price1": 0.8233,
+  "stock": 23810
+ },
+ "TLV9064IPWR": {
+  "brand": "Texas Instruments",
+  "desc": "-40\u2103~+125\u2103 0.05pA 1.6mV 1.8V~5.5V 10MHz 16nV/\u221aHz@1kHz 4 50mA 530nV/\u2103 538uA 6.5V/us 81pA 87dB Enable/shutdown function\u3001ESD protection\u3001EMI filtering/RF suppression Rail-to-Rail Input, Rail-to-Rail Output TSSOP-14 Operational Amplifier ROHS",
+  "lcsc": "C779410",
+  "lib": "Extended",
+  "mpn": "TLV9064IPWR",
+  "pkg": "TSSOP-14",
+  "price1": 0.4058,
+  "stock": 33142
+ }
+}

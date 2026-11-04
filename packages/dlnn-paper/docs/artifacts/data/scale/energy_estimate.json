@@ -1,0 +1,69 @@
+{
+ "schema": "dlnn-energy-estimate/1",
+ "label": "ESTIMATE. Design numbers and 45 nm ASIC op energies, not measurements.",
+ "assumptions": {
+  "classification_us": 150.0,
+  "power_from": "hw/board/params.json power",
+  "fp32_add_pJ": 0.9,
+  "fp32_mult_pJ": 3.7,
+  "stm32g474_uA_per_MHz_170MHz": 173.5
+ },
+ "rows": [
+  {
+   "system": "DLNN board W8_D3 (3 tiles)",
+   "power_W": 1.08,
+   "latency_us": 150.0,
+   "energy_uJ": 162.1,
+   "basis": "params.json supply currents x 5 V x 150 us"
+  },
+  {
+   "system": "DLNN board W16_D3 (10 tiles)",
+   "power_W": 3.45,
+   "latency_us": 150.0,
+   "energy_uJ": 517.9,
+   "basis": "params.json supply currents x 5 V x 150 us"
+  },
+  {
+   "system": "DLNN board W32_D4 (52 tiles)",
+   "power_W": 18.28,
+   "latency_us": 150.0,
+   "energy_uJ": 2742.4,
+   "basis": "params.json supply currents x 5 V x 150 us"
+  },
+  {
+   "system": "tdlnet_b_w8 in fp32 on a processor",
+   "power_W": null,
+   "latency_us": null,
+   "energy_uJ": 0.2093,
+   "basis": "93376 adds, 3144 mults, 3072 tanh/ReLU; Horowitz 45 nm fp32 (lower bound)"
+  },
+  {
+   "system": "cnn in fp32 on a processor",
+   "power_W": null,
+   "latency_us": null,
+   "energy_uJ": 0.796,
+   "basis": "151616 adds, 147528 mults, 3072 tanh/ReLU; Horowitz 45 nm fp32 (lower bound)"
+  },
+  {
+   "system": "mlp_l in fp32 on a processor",
+   "power_W": null,
+   "latency_us": null,
+   "energy_uJ": 0.0476,
+   "basis": "10078 adds, 10032 mults, 38 tanh/ReLU; Horowitz 45 nm fp32 (lower bound)"
+  },
+  {
+   "system": "cumulant in fp32 on a processor",
+   "power_W": null,
+   "latency_us": null,
+   "energy_uJ": 0.1684,
+   "basis": "26394 adds, 27384 mults, 1172 tanh/ReLU; Horowitz 45 nm fp32 (lower bound)"
+  },
+  {
+   "system": "cnn on an STM32G474 @170 MHz",
+   "power_W": null,
+   "latency_us": null,
+   "energy_uJ": 84.47,
+   "basis": "one multiply per cycle at 173.5 uA/MHz, 3.3 V (datasheet IDD(Run), core + flash only)"
+  }
+ ]
+}

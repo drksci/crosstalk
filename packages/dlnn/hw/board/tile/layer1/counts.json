@@ -1,0 +1,196 @@
+{
+ "layer": 1,
+ "project": "hw/board/tile/layer1",
+ "types": {
+  "C108207": {
+   "name": "bias / V_BE-trim DAC (4 ch each, VDD ref)",
+   "expected": 2,
+   "got": 2,
+   "ok": true
+  },
+  "C126547": {
+   "name": "delay-line shunt capacitor",
+   "expected": 110,
+   "got": 110,
+   "ok": true
+  },
+  "C130026": {
+   "name": "per-tile I2C mux (identical tiles)",
+   "expected": null,
+   "got": 1,
+   "ok": false
+  },
+  "C1525": {
+   "name": "decoupling",
+   "expected": 40,
+   "got": 27,
+   "ok": false
+  },
+  "C1548": {
+   "name": "summer feedback capacitor",
+   "expected": 16,
+   "got": 16,
+   "ok": true
+  },
+  "C156292": {
+   "name": "tail current mirror (2 tails per package) + ",
+   "expected": 5,
+   "got": 5,
+   "ok": true
+  },
+  "C15850": {
+   "name": "bulk",
+   "expected": 4,
+   "got": 4,
+   "ok": true
+  },
+  "C1658": {
+   "name": "ladder end half-capacitors (2 x 30 pF = 60 p",
+   "expected": 8,
+   "got": 8,
+   "ok": true
+  },
+  "C21190": {
+   "name": "Rs, Rl, Rpre (3 per line), R_L (16), others ",
+   "expected": 22,
+   "got": 22,
+   "ok": true
+  },
+  "C22809": {
+   "name": "",
+   "expected": null,
+   "got": 8,
+   "ok": false
+  },
+  "C22855": {
+   "name": "",
+   "expected": null,
+   "got": 16,
+   "ok": false
+  },
+  "C22903": {
+   "name": "",
+   "expected": null,
+   "got": 16,
+   "ok": false
+  },
+  "C22908": {
+   "name": "",
+   "expected": null,
+   "got": 1,
+   "ok": false
+  },
+  "C22920": {
+   "name": "",
+   "expected": null,
+   "got": 8,
+   "ok": false
+  },
+  "C23158": {
+   "name": "",
+   "expected": null,
+   "got": 1,
+   "ok": false
+  },
+  "C25744": {
+   "name": "crossbar weight resistor (populated = nonzer",
+   "expected": 85,
+   "got": 85,
+   "ok": true
+  },
+  "C393675": {
+   "name": "diff-amp feedback capacitor",
+   "expected": 8,
+   "got": 8,
+   "ok": true
+  },
+  "C394134": {
+   "name": "delay-line inductor",
+   "expected": 112,
+   "got": 112,
+   "ok": true
+  },
+  "C4184": {
+   "name": "",
+   "expected": null,
+   "got": 16,
+   "ok": false
+  },
+  "C460725": {
+   "name": "2.5 V reference (Vref buffer input)",
+   "expected": 1,
+   "got": 1,
+   "ok": true
+  },
+  "C472798": {
+   "name": "hold capacitor",
+   "expected": 8,
+   "got": 8,
+   "ok": true
+  },
+  "C549556": {
+   "name": "diff-pair (tanh)",
+   "expected": 8,
+   "got": 8,
+   "ok": true
+  },
+  "C5998": {
+   "name": "track-and-hold switches (4 per package)",
+   "expected": 2,
+   "got": 2,
+   "ok": true
+  },
+  "C779410": {
+   "name": "tap buffers, input buffers, summers, diff-am",
+   "expected": 13,
+   "got": 13,
+   "ok": true
+  },
+  "C85978": {
+   "name": "input RC capacitor (482 kHz with 1k)",
+   "expected": 2,
+   "got": 2,
+   "ok": true
+  },
+  "C9040": {
+   "name": "inter-tile 2x13 ribbon header in + out (thro",
+   "expected": 2,
+   "got": 2,
+   "ok": true
+  },
+  "E96_other_0603": {
+   "name": "E96 0603 resistors other than 1k",
+   "expected": 60,
+   "got": 74,
+   "ok": false
+  }
+ },
+ "checks": {
+  "lcsc_on_every_symbol": true,
+  "crossbar_footprints": true,
+  "count_diffs": [
+   "C130026",
+   "C1525",
+   "C22809",
+   "C22855",
+   "C22903",
+   "C22908",
+   "C22920",
+   "C23158",
+   "C4184",
+   "E96"
+  ]
+ },
+ "lcsc_tbd_refs": [],
+ "crossbar": {
+  "footprints": 256,
+  "populated": 85,
+  "populated_plus": 58,
+  "populated_minus": 27,
+  "nonzero_weights": 85,
+  "W_plus": 58,
+  "W_minus": 27,
+  "mismatches": [],
+  "ok": true
+ }
+}

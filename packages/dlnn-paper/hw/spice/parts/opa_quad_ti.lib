@@ -1,0 +1,13 @@
+* OPA_QUAD = 4 x TI TLV9062 PSpice macro (SBOMAG1E Rev D; downloaded at run time, not committed) + 2 pF pad on each in+.
+* Needs 'set ngbehavior=psa'.  OP of >~16 macros does not converge in reasonable time in ngspice 42 (measured, docs/circuit_extraction.md),
+* so the full-tile .tran uses opa_quad_fit.lib; this one is used for the one-channel slice cross-check.
+.subckt OPA_QUAD in1p in1n out1 vcc in2p in2n out2 in3p in3n out3 in4p in4n out4 vee
+X1 in1p in1n vcc vee out1 TLV9062
+X2 in2p in2n vcc vee out2 TLV9062
+X3 in3p in3n vcc vee out3 TLV9062
+X4 in4p in4n vcc vee out4 TLV9062
+Cp1 in1p vee 2p
+Cp2 in2p vee 2p
+Cp3 in3p vee 2p
+Cp4 in4p vee 2p
+.ends OPA_QUAD

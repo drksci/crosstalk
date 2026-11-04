@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dlnn"
+version = "0.1.0"
+description = "Delay-line neural network: four-fidelity simulation harness (PoC)"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0", "scipy>=1.13", "matplotlib>=3.8", "jsonschema>=4.20",
+    "nbformat", "nbconvert", "papermill", "ipykernel", "jupyter",
+]
+
+[project.optional-dependencies]
+# torch CPU wheel: pip install torch --index-url https://download.pytorch.org/whl/cpu   (setup.sh does this; an index URL
+# cannot be expressed here, so this extra pulls the default PyPI build when used on its own)
+train = ["torch>=2.5"]
+rf = ["scikit-rf>=1.0", "pandas"]                       # tier R (without it R falls back to a numpy RLGC line, labelled)
+# llama-cpp-python==0.3.19 must be BUILT FROM SOURCE on glibc systems: the abetlen CPU wheel index
+# (https://abetlen.github.io/llama-cpp-python/whl/cpu) serves a cp313 wheel linked against musl that does not import here.
+#   pip install --no-binary llama-cpp-python --no-cache-dir llama-cpp-python==0.3.19     (needs cmake + a C/C++ compiler, ~4 min)
+# setup.sh does exactly that. diskcache is a dependency of llama-cpp-python (listed so it is visible).
+# Model weights (Qwen GGUF) are downloaded with curl, so huggingface_hub is not needed.
+# BitNet (bitnet.cpp) is an optional, non-pip second backend: see the comments in setup.sh and docs/llm_eval.md.
+llm = ["llama-cpp-python==0.3.19", "diskcache>=5.6"]
+pg = ["psycopg[binary]>=3.1"]                           # --db postgres
+dev = ["pytest"]
+all = ["dlnn[train,rf,llm,pg,dev]"]
+# not used: spicelib (ngspice raw files are read by dlnn/tiers/circuit.py's own reader)
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["dlnn*"]
+
+[tool.setuptools.package-data]
+"dlnn.viz" = ["styles/*.mplstyle"]
+"dlnn.db" = ["*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

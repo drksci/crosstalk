@@ -1,0 +1,30 @@
+* OPA_QUAD (fast): LABELLED FIT, NOT TI'S MODEL.  Single-pole op-amp fitted to the TI TLV9062 macro / datasheet:
+*   A0 = 1e5 (100 dB, pole 100 Hz; macro has more; irrelevant in closed loop), GBW = 10 MHz (datasheet), Rout = 100 ohm series (macro Zo ~ 100 ohm),
+*   NO output clamp (rail-to-rail swing is never reached by these signals; the run checks node voltages stay inside 0..5 V), Cin = 4 pF (Cic) + 2 pF pad = 6 pF on in+ (M1a design value), no noise, no slew limit
+*   (datasheet SR 6.5 V/us >> the 0.5 V/us signals here), Vos = 0.  Cross-checked against the macro in the slice run (summary in the C-tier JSON).
+.subckt OPA_QUAD in1p in1n out1 vcc in2p in2n out2 in3p in3n out3 in4p in4n out4 vee
+E1 x1 0 in1p in1n 1e5
+R1 x1 y1 1k
+C1 y1 0 1.5915e-06
+Eo1 z1 0 y1 0 1
+Ro1 z1 out1 100
+Cp1 in1p vee 6p
+E2 x2 0 in2p in2n 1e5
+R2 x2 y2 1k
+C2 y2 0 1.5915e-06
+Eo2 z2 0 y2 0 1
+Ro2 z2 out2 100
+Cp2 in2p vee 6p
+E3 x3 0 in3p in3n 1e5
+R3 x3 y3 1k
+C3 y3 0 1.5915e-06
+Eo3 z3 0 y3 0 1
+Ro3 z3 out3 100
+Cp3 in3p vee 6p
+E4 x4 0 in4p in4n 1e5
+R4 x4 y4 1k
+C4 y4 0 1.5915e-06
+Eo4 z4 0 y4 0 1
+Ro4 z4 out4 100
+Cp4 in4p vee 6p
+.ends OPA_QUAD

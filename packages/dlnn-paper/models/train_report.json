@@ -1,0 +1,109 @@
+{
+  "task": "modrec",
+  "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+  "dataset_seed": 20260101,
+  "n_train": 16000,
+  "n_test": 4000,
+  "width": 8,
+  "recipe": {
+    "optimizer": "Adam",
+    "lr": 0.03,
+    "schedule": "cosine",
+    "batch": 256,
+    "epochs": 60,
+    "iq_rotation_aug": true,
+    "line_gain": false,
+    "base_seed": 0,
+    "restarts": 3,
+    "soft_frac": 0.5,
+    "torch": "2.15.0+cpu"
+  },
+  "ternary": {
+    "acc": 0.73475,
+    "acc_ge10dB": 0.7629166666666667,
+    "acc_per_snr": {
+      "0": 0.62875,
+      "5": 0.75625,
+      "10": 0.75,
+      "15": 0.7675,
+      "20": 0.77125
+    },
+    "acc_per_class": {
+      "OOK": 0.934,
+      "BPSK": 0.912,
+      "QPSK": 0.632,
+      "8PSK": 0.0,
+      "16QAM": 0.49,
+      "2FSK": 0.99,
+      "4FSK": 0.994,
+      "GMSK": 0.926
+    },
+    "seconds": 116.9,
+    "epochs": 60,
+    "seed": 2,
+    "restarts": [
+      {
+        "seed": 0,
+        "train_acc": 0.7274,
+        "seconds": 39.5
+      },
+      {
+        "seed": 1,
+        "train_acc": 0.7289,
+        "seconds": 38.7
+      },
+      {
+        "seed": 2,
+        "train_acc": 0.7342,
+        "seconds": 38.7
+      }
+    ],
+    "acc_8bit_fakequant": 0.735,
+    "model_sha256": "44a6c540d1c84c0877c18bfd5d17a7f6973823cea3a7655aa07ad0ffc3043ace",
+    "n_ternary_weights": 1152,
+    "file": "models/tdlnet_modrec_ternary.npz"
+  },
+  "float": {
+    "acc": 0.8465,
+    "acc_ge10dB": 0.8745833333333334,
+    "acc_per_snr": {
+      "0": 0.76625,
+      "5": 0.8425,
+      "10": 0.86875,
+      "15": 0.89,
+      "20": 0.865
+    },
+    "acc_per_class": {
+      "OOK": 0.99,
+      "BPSK": 0.966,
+      "QPSK": 0.534,
+      "8PSK": 0.454,
+      "16QAM": 0.844,
+      "2FSK": 0.998,
+      "4FSK": 0.996,
+      "GMSK": 0.99
+    },
+    "seconds": 83.6,
+    "epochs": 60,
+    "seed": 1,
+    "restarts": [
+      {
+        "seed": 0,
+        "train_acc": 0.8319,
+        "seconds": 27.4
+      },
+      {
+        "seed": 1,
+        "train_acc": 0.8383,
+        "seconds": 27.9
+      },
+      {
+        "seed": 2,
+        "train_acc": 0.8271,
+        "seconds": 28.3
+      }
+    ],
+    "file": "models/tdlnet_modrec_float.npz"
+  },
+  "total_seconds": 202.2
+}

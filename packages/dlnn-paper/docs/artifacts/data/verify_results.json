@@ -1,0 +1,2274 @@
+{
+ "schema": "dlnn-verify-results/1",
+ "note": "Output of notebooks/00_verify.ipynb. PASS = value in claims.json equals what the repo's code and data give today within the claim tolerance. Simulation of a design that is not built; nothing measured.",
+ "env": {
+  "python": "3.13.18",
+  "numpy": "2.5.4",
+  "platform": "Linux-6.18.44-fc-v233-x86_64-with-glibc2.39",
+  "ngspice": "ngspice-42 : Circuit level simulation program",
+  "iverilog": "Icarus Verilog version 12.0 (stable) ()",
+  "node": "v22.23.4",
+  "colab": false
+ },
+ "n_pass": 217,
+ "n_fail": 0,
+ "levels": {
+  "recomputed": 136,
+  "re-read": 72,
+  "formula": 9
+ },
+ "stage_seconds": {
+  "phase1 V/E/float/RTL": 40.3,
+  "phase1 C/R subset": 40.6,
+  "arena": 6.2,
+  "board-family models": 30.1,
+  "params + cost regeneration": 0.4
+ },
+ "claims": {
+  "p1.w32.acc.V": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.86275,
+   "tol": 0.0005,
+   "reread": 0.86275,
+   "recomputed": 0.86275,
+   "how": "tier V (numpy), 4000 ex",
+   "note": ""
+  },
+  "p1.w32.acc.E": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.863,
+   "tol": 0.0005,
+   "reread": 0.863,
+   "recomputed": 0.863,
+   "how": "tier E (fixed-point golden), 4000 ex",
+   "note": ""
+  },
+  "p1.w32.acc.C": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.66275,
+   "tol": 0.0005,
+   "reread": 0.66275,
+   "recomputed": 0.66275,
+   "how": "stored per-example predictions of tier C vs regenerated labels",
+   "note": ""
+  },
+  "p1.w32.acc.R": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.70125,
+   "tol": 0.0005,
+   "reread": 0.70125,
+   "recomputed": 0.70125,
+   "how": "stored per-example predictions of tier R vs regenerated labels",
+   "note": ""
+  },
+  "p1.w32.agree.E": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.99725,
+   "tol": 0.0005,
+   "reread": 0.99725,
+   "recomputed": 0.99725,
+   "how": "E vs V top-1, 4000 ex",
+   "note": ""
+  },
+  "p1.w32.nmse.E": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 2.2895439542480744e-05,
+   "tol": 1e-05,
+   "reread": 2.2895439542480744e-05,
+   "recomputed": 2.2895439542480744e-05,
+   "how": "logit NMSE E vs V, 4000 ex",
+   "note": ""
+  },
+  "p1.w32.rtl.mismatches": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.0,
+   "tol": 0,
+   "reread": 0.0,
+   "recomputed": 0.0,
+   "how": "iverilog on 4 examples x 128 steps, 49536 values compared",
+   "note": ""
+  },
+  "p1.w32.acc.float": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.91875,
+   "tol": 0.0005,
+   "reread": 0.91875,
+   "recomputed": 0.91875,
+   "how": "float32 reference model, 4000 ex",
+   "note": ""
+  },
+  "p1.w8.acc.V": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.73475,
+   "tol": 0.0005,
+   "reread": 0.73475,
+   "recomputed": 0.73475,
+   "how": "tier V (numpy), 4000 ex",
+   "note": ""
+  },
+  "p1.w8.acc.E": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.73475,
+   "tol": 0.0005,
+   "reread": 0.73475,
+   "recomputed": 0.73475,
+   "how": "tier E (fixed-point golden), 4000 ex",
+   "note": ""
+  },
+  "p1.w8.acc.C": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.54,
+   "tol": 0.0005,
+   "reread": 0.54,
+   "recomputed": 0.54,
+   "how": "stored per-example predictions of tier C vs regenerated labels",
+   "note": ""
+  },
+  "p1.w8.acc.R": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.4785,
+   "tol": 0.0005,
+   "reread": 0.4785,
+   "recomputed": 0.4785,
+   "how": "stored per-example predictions of tier R vs regenerated labels",
+   "note": ""
+  },
+  "p1.w8.agree.E": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.99575,
+   "tol": 0.0005,
+   "reread": 0.99575,
+   "recomputed": 0.99575,
+   "how": "E vs V top-1, 4000 ex",
+   "note": ""
+  },
+  "p1.w8.nmse.E": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 5.392218372435309e-05,
+   "tol": 1e-05,
+   "reread": 5.392218372435309e-05,
+   "recomputed": 5.392218372435309e-05,
+   "how": "logit NMSE E vs V, 4000 ex",
+   "note": ""
+  },
+  "p1.w8.rtl.mismatches": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.0,
+   "tol": 0,
+   "reread": 0.0,
+   "recomputed": 0.0,
+   "how": "iverilog on 4 examples x 128 steps, 12384 values compared",
+   "note": ""
+  },
+  "p1.w8.acc.float": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8465,
+   "tol": 0.0005,
+   "reread": 0.8465,
+   "recomputed": 0.8465,
+   "how": "float32 reference model, 4000 ex",
+   "note": ""
+  },
+  "arena.dlnn.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8055,
+   "tol": 0.0005,
+   "reread": 0.8055,
+   "recomputed": 0.8055,
+   "how": "independent numpy forward, models/tdlnet_b_w8_ternary.npz",
+   "note": ""
+  },
+  "arena.dlnn.ops": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 93376.0,
+   "tol": 0,
+   "reread": 93376.0,
+   "recomputed": 93376.0,
+   "how": "arena.dlnn_ops(model)",
+   "note": ""
+  },
+  "arena.dlnn_fro.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.85125,
+   "tol": 0.0005,
+   "reread": 0.85125,
+   "recomputed": 0.85125,
+   "how": "independent numpy forward, models/tdlnet_b_w8_fro_ternary.npz",
+   "note": ""
+  },
+  "arena.dlnn_fro.ops": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 88000.0,
+   "tol": 0,
+   "reread": 88000.0,
+   "recomputed": 88000.0,
+   "how": "arena.dlnn_ops(model)",
+   "note": ""
+  },
+  "arena.mlp_s.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.261,
+   "tol": 0.0005,
+   "reread": 0.261,
+   "recomputed": 0.261,
+   "how": "independent numpy forward, models/arena/mlp_s.npz",
+   "note": ""
+  },
+  "arena.mlp_s.ops": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1068.0,
+   "tol": 0,
+   "reread": 1068.0,
+   "recomputed": 1068.0,
+   "how": "same",
+   "note": ""
+  },
+  "arena.mlp_l.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.54225,
+   "tol": 0.0005,
+   "reread": 0.54225,
+   "recomputed": 0.54225,
+   "how": "independent numpy forward, models/arena/mlp_l.npz",
+   "note": ""
+  },
+  "arena.mlp_l.ops": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 10078.0,
+   "tol": 0,
+   "reread": 10078.0,
+   "recomputed": 10078.0,
+   "how": "same",
+   "note": ""
+  },
+  "arena.cnn.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.90925,
+   "tol": 0.0005,
+   "reread": 0.90925,
+   "recomputed": 0.90925,
+   "how": "independent numpy forward, models/arena/cnn.npz",
+   "note": ""
+  },
+  "arena.cnn.ops": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 151616.0,
+   "tol": 0,
+   "reread": 151616.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.reservoir.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.71825,
+   "tol": 0.0005,
+   "reread": 0.71825,
+   "recomputed": 0.71825,
+   "how": "independent numpy forward, models/arena/reservoir.npz",
+   "note": ""
+  },
+  "arena.reservoir.ops": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1341064.0,
+   "tol": 0,
+   "reread": 1341064.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.cumulant.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8745,
+   "tol": 0.0005,
+   "reread": 0.8745,
+   "recomputed": 0.8745,
+   "how": "independent numpy forward, models/arena/cumulant.npz",
+   "note": ""
+  },
+  "arena.cumulant.ops": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 26394.0,
+   "tol": 0,
+   "reread": 26394.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.mlp_feat_s.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.71275,
+   "tol": 0.0005,
+   "reread": 0.71275,
+   "recomputed": 0.71275,
+   "how": "numpy forward of models/arena/mlp_feat_s.npz (feature set compact)",
+   "note": ""
+  },
+  "arena.mlp_feat_l.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.7725,
+   "tol": 0.0005,
+   "reread": 0.7725,
+   "recomputed": 0.7725,
+   "how": "numpy forward of models/arena/mlp_feat_l.npz (feature set compact)",
+   "note": ""
+  },
+  "arena.mlp_pow_s.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.78275,
+   "tol": 0.0005,
+   "reread": 0.78275,
+   "recomputed": 0.78275,
+   "how": "numpy forward of models/arena/mlp_pow_s.npz (feature set pow_compact)",
+   "note": ""
+  },
+  "arena.mlp_pow_l.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.845,
+   "tol": 0.0005,
+   "reread": 0.845,
+   "recomputed": 0.845,
+   "how": "numpy forward of models/arena/mlp_pow_l.npz (feature set pow_compact)",
+   "note": ""
+  },
+  "arena.dlnn.ge10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8375,
+   "tol": 0.0005,
+   "reread": 0.8375,
+   "recomputed": 0.8375,
+   "how": "same, SNR >= 10 dB",
+   "note": ""
+  },
+  "arena.dlnn_fro.ge10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8883333333333333,
+   "tol": 0.0005,
+   "reread": 0.8883333333333333,
+   "recomputed": 0.8883333333333333,
+   "how": "same, SNR >= 10 dB",
+   "note": ""
+  },
+  "arena.cnn.ge10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.9545833333333333,
+   "tol": 0.0005,
+   "reread": 0.9545833333333333,
+   "recomputed": 0.9545833333333333,
+   "how": "same, SNR >= 10 dB",
+   "note": ""
+  },
+  "arena.cumulant.ge10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.9583333333333334,
+   "tol": 0.0005,
+   "reread": 0.9583333333333334,
+   "recomputed": 0.9583333333333334,
+   "how": "same, SNR >= 10 dB",
+   "note": ""
+  },
+  "arena.mlp_pow_l.ge10": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.9329166666666666,
+   "tol": 0.0005,
+   "reread": 0.9329166666666666,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.dlnn.params": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1275.0,
+   "tol": 0,
+   "reread": 1275.0,
+   "recomputed": 1275.0,
+   "how": "arena.dlnn_params(model)",
+   "note": ""
+  },
+  "arena.dlnn.mults": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 3144.0,
+   "tol": 0,
+   "reread": 3144.0,
+   "recomputed": 3144.0,
+   "how": "arena.dlnn_ops(model)",
+   "note": ""
+  },
+  "arena.dlnn.adds": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 93376.0,
+   "tol": 0,
+   "reread": 93376.0,
+   "recomputed": 93376.0,
+   "how": "arena.dlnn_ops(model)",
+   "note": ""
+  },
+  "arena.cnn.params": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1248.0,
+   "tol": 0,
+   "reread": 1248.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.cnn.mults": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 147528.0,
+   "tol": 0,
+   "reread": 147528.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.cnn.adds": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 151616.0,
+   "tol": 0,
+   "reread": 151616.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.mlp_pow_s.params": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 992.0,
+   "tol": 0,
+   "reread": 992.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.mlp_pow_s.mults": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 10255.0,
+   "tol": 0,
+   "reread": 10255.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.mlp_pow_s.adds": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 10908.0,
+   "tol": 0,
+   "reread": 10908.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.mlp_s.params": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1068.0,
+   "tol": 0,
+   "reread": 1068.0,
+   "recomputed": 1068.0,
+   "how": "count of the npz arrays",
+   "note": ""
+  },
+  "arena.mlp_s.mults": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1056.0,
+   "tol": 0,
+   "reread": 1056.0,
+   "recomputed": 1056.0,
+   "how": "count of the npz weights",
+   "note": ""
+  },
+  "arena.mlp_s.adds": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1068.0,
+   "tol": 0,
+   "reread": 1068.0,
+   "recomputed": 1068.0,
+   "how": "mults + biases = params (one add per weight and bias)",
+   "note": ""
+  },
+  "arena.mlp_l.params": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 10078.0,
+   "tol": 0,
+   "reread": 10078.0,
+   "recomputed": 10078.0,
+   "how": "count of the npz arrays",
+   "note": ""
+  },
+  "arena.mlp_l.mults": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 10032.0,
+   "tol": 0,
+   "reread": 10032.0,
+   "recomputed": 10032.0,
+   "how": "count of the npz weights",
+   "note": ""
+  },
+  "arena.mlp_l.adds": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 10078.0,
+   "tol": 0,
+   "reread": 10078.0,
+   "recomputed": 10078.0,
+   "how": "mults + biases = params (one add per weight and bias)",
+   "note": ""
+  },
+  "arena.reservoir.params": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1544.0,
+   "tol": 0,
+   "reread": 1544.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.reservoir.mults": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 26496.0,
+   "tol": 0,
+   "reread": 26496.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.reservoir.adds": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1341064.0,
+   "tol": 0,
+   "reread": 1341064.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.dlnn.nonlin": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 3072.0,
+   "tol": 0,
+   "reread": 3072.0,
+   "recomputed": 3072.0,
+   "how": "arena.dlnn_ops(model)",
+   "note": ""
+  },
+  "arena.dlnn.8psk": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.334,
+   "tol": 0.0005,
+   "reread": 0.334,
+   "recomputed": 0.334,
+   "how": "same, class 8PSK",
+   "note": ""
+  },
+  "arena.mlp_pow_s.ops_mults_feat": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 9274.0,
+   "tol": 0,
+   "reread": 9274.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "arena.n_test": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 4000.0,
+   "tol": 0,
+   "reread": 4000.0,
+   "recomputed": 4000.0,
+   "how": "regenerated dataset",
+   "note": ""
+  },
+  "arena.n_train": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 16000.0,
+   "tol": 0,
+   "reread": 16000.0,
+   "recomputed": 16000.0,
+   "how": "regenerated dataset",
+   "note": ""
+  },
+  "p1.w32.acc.C_nocomp": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.80425,
+   "tol": 0.0005,
+   "reread": 0.80425,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p1.coax.loss": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 32.0,
+   "tol": 0.01,
+   "reread": 32.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p1.coax.maxdelay": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1.12,
+   "tol": 0.001,
+   "reread": 1.12,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "d1.w8.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8055,
+   "tol": 0.0005,
+   "reread": 0.8055,
+   "recomputed": 0.8055,
+   "how": "tier V on models/tdlnet_b_w8_ternary.npz",
+   "note": ""
+  },
+  "d1.w8.ge10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8375,
+   "tol": 0.0005,
+   "reread": 0.8375,
+   "recomputed": 0.8375,
+   "how": "tier V on models/tdlnet_b_w8_ternary.npz",
+   "note": ""
+  },
+  "d1.w16.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.899,
+   "tol": 0.0005,
+   "reread": 0.899,
+   "recomputed": 0.899,
+   "how": "tier V on models/tdlnet_b_w16_ternary.npz",
+   "note": ""
+  },
+  "d1.v32.acc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.93125,
+   "tol": 0.0005,
+   "reread": 0.93125,
+   "recomputed": 0.93125,
+   "how": "tier V on models/v32_modrec_ternary.npz",
+   "note": ""
+  },
+  "d1.v32.float": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.9285,
+   "tol": 0.0005,
+   "reread": 0.9285,
+   "recomputed": 0.9285,
+   "how": "tier V on models/v32_modrec_float.npz",
+   "note": ""
+  },
+  "d1.w8.nternary": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1152,
+   "tol": 0,
+   "reread": 1152.0,
+   "recomputed": 1152.0,
+   "how": "model.n_ternary_weights",
+   "note": ""
+  },
+  "d1.w8.fakequant": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.80675,
+   "tol": 0.0005,
+   "reread": 0.80675,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "aware.plain.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.77225,
+   "tol": 0.0005,
+   "reread": 0.77225,
+   "recomputed": 0.77225,
+   "how": "tier V on the ngspice M1a line FIR (Q10), plain model",
+   "note": ""
+  },
+  "aware.fro.ideal": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.655,
+   "tol": 0.0005,
+   "reread": 0.655,
+   "recomputed": 0.655,
+   "how": "tier V, ideal line",
+   "note": ""
+  },
+  "aware.fro.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.878,
+   "tol": 0.0005,
+   "reread": 0.878,
+   "recomputed": 0.878,
+   "how": "tier V on the ngspice M1a line FIR (Q10), fro model",
+   "note": ""
+  },
+  "aware.fro.q30": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.87775,
+   "tol": 0.0005,
+   "reread": 0.87775,
+   "recomputed": 0.87775,
+   "how": "tier V on the M1a line FIR (Q30)",
+   "note": ""
+  },
+  "aware.fro.ge10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.9183333333333333,
+   "tol": 0.0005,
+   "reread": 0.9183333333333333,
+   "recomputed": 0.9183333333333333,
+   "how": "same, SNR >= 10 dB",
+   "note": ""
+  },
+  "aware.fro.jitter": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.876875,
+   "tol": 0.0005,
+   "reread": 0.8768749999999998,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "aware.plain.jitter": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.7715,
+   "tol": 0.0005,
+   "reread": 0.7715000000000001,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "aware.fro.qpsk": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.69,
+   "tol": 0.0005,
+   "reread": 0.69,
+   "recomputed": 0.69,
+   "how": "per-class accuracy, QPSK, V on Q10 FIR",
+   "note": ""
+  },
+  "aware.fro.8psk": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.664,
+   "tol": 0.0005,
+   "reread": 0.664,
+   "recomputed": 0.664,
+   "how": "per-class accuracy, 8PSK, V on Q10 FIR",
+   "note": ""
+  },
+  "aware.collapsed.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.797,
+   "tol": 0.0005,
+   "reread": 0.797,
+   "recomputed": 0.797,
+   "how": "tier V on the ngspice M1a line FIR (Q10), collapsed model",
+   "note": ""
+  },
+  "aware.collapsed.qpsk": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.0,
+   "tol": 0.0005,
+   "reread": 0.0,
+   "recomputed": 0.0,
+   "how": "per-class accuracy, QPSK, V on Q10 FIR",
+   "note": ""
+  },
+  "aware.tern.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.81225,
+   "tol": 0.0005,
+   "reread": 0.81225,
+   "recomputed": 0.81225,
+   "how": "tier V on the ngspice M1a line FIR (Q10), tern model",
+   "note": ""
+  },
+  "aware.tern.ideal": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.67525,
+   "tol": 0.0005,
+   "reread": 0.67525,
+   "recomputed": 0.67525,
+   "how": "tier V, ideal line",
+   "note": ""
+  },
+  "aware.tern.qpsk": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.492,
+   "tol": 0.0005,
+   "reread": 0.492,
+   "recomputed": 0.492,
+   "how": "per-class accuracy, QPSK, V on Q10 FIR",
+   "note": ""
+  },
+  "aware.tern.8psk": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.548,
+   "tol": 0.0005,
+   "reread": 0.548,
+   "recomputed": 0.548,
+   "how": "per-class accuracy, 8PSK, V on Q10 FIR",
+   "note": ""
+  },
+  "aware.floor": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.35,
+   "tol": 0,
+   "reread": 0.35,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "aware.n_val": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 2000,
+   "tol": 0,
+   "reread": 2000.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.nom.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.8705,
+   "tol": 0.0005,
+   "reread": 0.8705,
+   "recomputed": 0.8705,
+   "how": "parasitics.run_nominal, 4000 ex",
+   "note": ""
+  },
+  "p.nom.q30": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.87225,
+   "tol": 0.0005,
+   "reread": 0.87225,
+   "recomputed": 0.87225,
+   "how": "parasitics.run_nominal, 4000 ex",
+   "note": ""
+  },
+  "p.nom.untrimmed": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.1675,
+   "tol": 0.0005,
+   "reread": 0.1675,
+   "recomputed": 0.1675,
+   "how": "parasitics.run_nominal, board as designed (0 dB trim)",
+   "note": ""
+  },
+  "p.trim.auto_db": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 8.98,
+   "tol": 0.005,
+   "reread": 8.98,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.trim.6db": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.454,
+   "tol": 0.0005,
+   "reread": 0.454,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.v.m1a": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.878,
+   "tol": 0.0005,
+   "reread": 0.878,
+   "recomputed": 0.878,
+   "how": "tier V on the M1a line FIR (Q10)",
+   "note": ""
+  },
+  "p.p_minus_v": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": -0.0075,
+   "tol": 0.0005,
+   "reread": -0.007499999999999951,
+   "recomputed": -0.007499999999999951,
+   "how": "P nominal minus V on M1a FIR (Q10)",
+   "note": ""
+  },
+  "p.agree": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.948,
+   "tol": 0.0005,
+   "reread": 0.948,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.n": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1000,
+   "tol": 0,
+   "reread": 1000.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.n_ex": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 800,
+   "tol": 0,
+   "reread": 800.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.mean": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.85638875,
+   "tol": 0.0005,
+   "reread": 0.85638875,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.std": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.005581865114426871,
+   "tol": 0.0005,
+   "reread": 0.005581865114426871,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.min": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.84125,
+   "tol": 0.0005,
+   "reread": 0.84125,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.p5": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.8475,
+   "tol": 0.0005,
+   "reread": 0.8475,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.yield": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1,
+   "tol": 0.0005,
+   "reread": 1.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.thr": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.605,
+   "tol": 0.0005,
+   "reread": 0.605,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.mc.vsub": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.655,
+   "tol": 0.0005,
+   "reread": 0.655,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.xt.par3": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.859,
+   "tol": 0.0005,
+   "reread": 0.859,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.xt.alt3": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.85,
+   "tol": 0.0005,
+   "reread": 0.85,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.xt.par5": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.851,
+   "tol": 0.0005,
+   "reread": 0.851,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.xt.alt5": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.849,
+   "tol": 0.0005,
+   "reread": 0.849,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.xt.k3": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.027162443621016805,
+   "tol": 0.0005,
+   "reread": 0.027162443621016805,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p.xt.nominal_sub": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.85,
+   "tol": 0.0005,
+   "reread": 0.85,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "line.L_uH": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.00012,
+   "tol": 1e-08,
+   "reread": 0.00012,
+   "recomputed": 0.00012,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.C_pF": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1.2e-10,
+   "tol": 1e-13,
+   "reread": 1.2e-10,
+   "recomputed": 1.2e-10,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.n_sections": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 56,
+   "tol": 0,
+   "reread": 56.0,
+   "recomputed": 56.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.tap_every": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 8,
+   "tol": 0,
+   "reread": 8.0,
+   "recomputed": 8.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.n_lines": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 8,
+   "tol": 0,
+   "reread": 8.0,
+   "recomputed": 8.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.n_taps": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 8,
+   "tol": 0,
+   "reread": 8.0,
+   "recomputed": 8.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.Z0": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1000,
+   "tol": 0.5,
+   "reread": 1000.0,
+   "recomputed": 1000.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.tau_ns": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1.2e-07,
+   "tol": 5e-10,
+   "reread": 1.2e-07,
+   "recomputed": 1.2e-07,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.ts_us": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 9.624571332611715e-07,
+   "tol": 1e-09,
+   "reread": 9.624571332611715e-07,
+   "recomputed": 9.624571332611715e-07,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.fs_MHz": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1000000,
+   "tol": 1000.0000000000001,
+   "reread": 1000000.0,
+   "recomputed": 1000000.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.fc_MHz": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 2652582.38486492,
+   "tol": 5000.0,
+   "reread": 2652582.3848649226,
+   "recomputed": 2652582.3848649226,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.dcr": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 3.3,
+   "tol": 0.01,
+   "reread": 3.3,
+   "recomputed": 3.3,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.srf": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 3300000,
+   "tol": 10000.0,
+   "reread": 3300000.0,
+   "recomputed": 3300000.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.q_min": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 10,
+   "tol": 0,
+   "reread": 10.0,
+   "recomputed": 10.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.q_typ": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 30,
+   "tol": 0,
+   "reread": 30.0,
+   "recomputed": 30.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.loss250.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": -2.2638810946760595,
+   "tol": 0.01,
+   "reread": -2.2638810946760595,
+   "recomputed": -2.2638810946760595,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.loss250.q30": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": -1.286949998595812,
+   "tol": 0.01,
+   "reread": -1.286949998595812,
+   "recomputed": -1.286949998595812,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.loss500.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": -6.7414109357136285,
+   "tol": 0.01,
+   "reread": -6.7414109357136285,
+   "recomputed": -6.7414109357136285,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.loss500.q30": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": -2.836893340097204,
+   "tol": 0.01,
+   "reread": -2.836893340097204,
+   "recomputed": -2.836893340097204,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.loss1m.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": -28.92412155610338,
+   "tol": 0.01,
+   "reread": -28.92412155610338,
+   "recomputed": -28.92412155610338,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.f3db.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 279571.25,
+   "tol": 1000.0,
+   "reread": 279571.25,
+   "recomputed": 279571.25,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.f3db.q30": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 372879.762,
+   "tol": 1000.0,
+   "reread": 372879.762,
+   "recomputed": 372879.762,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.ring.lossless": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 8.781713244569259,
+   "tol": 0.01,
+   "reread": 8.781713244569259,
+   "recomputed": 8.781713244569259,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.ring.rc15_lossless": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 23.237126400967508,
+   "tol": 0.01,
+   "reread": 23.237126400967508,
+   "recomputed": 23.237126400967508,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.ring.rc15_q30": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 13.711562274815673,
+   "tol": 0.01,
+   "reread": 13.711562274815673,
+   "recomputed": 13.711562274815673,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.ring.rc05_q30": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 2.8117742132799584,
+   "tol": 0.01,
+   "reread": 2.8117742132799584,
+   "recomputed": 2.8117742132799584,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.rc_khz": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 482287.70633908,
+   "tol": 1000.0,
+   "reread": 482287.70633907686,
+   "recomputed": 482287.70633907686,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.endcap.full": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 92.85018476456355,
+   "tol": 0.1,
+   "reread": 92.85018476456355,
+   "recomputed": 92.85018476456355,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.endcap.half": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 28.707145550841965,
+   "tol": 0.1,
+   "reread": 28.707145550841965,
+   "recomputed": 28.707145550841965,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.ripple.q10": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 31.866332732337412,
+   "tol": 0.1,
+   "reread": 31.866332732337412,
+   "recomputed": 31.866332732337412,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "line.sigma7_ns": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 18.330302779823356,
+   "tol": 0.1,
+   "reread": 18.330302779823356,
+   "recomputed": 18.330302779823356,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "xbar.iso500": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": -56.056934744694615,
+   "tol": 0.05,
+   "reread": -56.056934744694615,
+   "recomputed": -56.056934744694615,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "xbar.footprints": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1024,
+   "tol": 0,
+   "reread": 1024.0,
+   "recomputed": 1024.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "pair.vsat": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 51.7298515726575,
+   "tol": 0.05,
+   "reread": 51.7298515726575,
+   "recomputed": 51.7298515726575,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "pair.r2": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.999999899145997,
+   "tol": 1e-06,
+   "reread": 0.999999899145997,
+   "recomputed": 0.999999899145997,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "pair.tc": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.33316674995835416,
+   "tol": 0.005,
+   "reread": 0.33316674995835416,
+   "recomputed": 0.33316674995835416,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "slice.err": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.9948883648109691,
+   "tol": 0.01,
+   "reread": 0.9948883648109691,
+   "recomputed": 0.9948883648109691,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "power.tile_mA": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.072048,
+   "tol": 0.0005,
+   "reread": 0.072048,
+   "recomputed": 0.072048,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "power.system_mA": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 0.216154,
+   "tol": 0.0005,
+   "reread": 0.21615399999999999,
+   "recomputed": 0.21615399999999999,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "power.system_W": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1.08077,
+   "tol": 0.005,
+   "reread": 1.08077,
+   "recomputed": 1.08077,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "tile.ind_full": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 448,
+   "tol": 0,
+   "reread": 448.0,
+   "recomputed": 448.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "tile.ind_l1": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 112,
+   "tol": 0,
+   "reread": 112.0,
+   "recomputed": 112.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "tile.n_demo": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 3,
+   "tol": 0,
+   "reread": 3.0,
+   "recomputed": 3.0,
+   "how": "regenerated by derive_params.py",
+   "note": ""
+  },
+  "loss.analytic.q10": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 9.550645870435455,
+   "tol": 0.01,
+   "reread": 9.550645870435455,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "loss.analytic.q30": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 3.183548623478485,
+   "tol": 0.01,
+   "reread": 3.183548623478485,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "loss.analytic.np10": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 1.0995574287564276,
+   "tol": 0.005,
+   "reread": 1.0995574287564276,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "board.carrier.cpl": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 50,
+   "tol": 0,
+   "reread": 50.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l1.cpl": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 508,
+   "tol": 0,
+   "reread": 508.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l2.cpl": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1480,
+   "tol": 0,
+   "reread": 1480.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l3.cpl": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 1481,
+   "tol": 0,
+   "reread": 1481.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.carrier.drc": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.0,
+   "tol": 0,
+   "reread": 0.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l1.drc": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.0,
+   "tol": 0,
+   "reread": 0.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l2.unconn": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 499,
+   "tol": 0,
+   "reread": 499.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l1.nz": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 85,
+   "tol": 0,
+   "reread": 85.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l2.nz": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 315,
+   "tol": 0,
+   "reread": 315.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.l3.nz": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 316,
+   "tol": 0,
+   "reread": 316.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.tile.w": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 180.1,
+   "tol": 0.1,
+   "reread": 180.1,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.tile.h": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 142.1,
+   "tol": 0.1,
+   "reread": 142.1,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.carrier.w": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 134.1,
+   "tol": 0.1,
+   "reread": 134.1,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.carrier.h": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 90.1,
+   "tol": 0.1,
+   "reread": 90.1,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "cost.sys.econ": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 405.71,
+   "tol": 0.01,
+   "reread": 405.71,
+   "recomputed": 405.71,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.sys.std": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 438.83,
+   "tol": 0.01,
+   "reread": 438.83,
+   "recomputed": 438.83,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.sys.lo": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 507.14,
+   "tol": 0.01,
+   "reread": 507.14,
+   "recomputed": 507.14,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.sys.hi": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 548.54,
+   "tol": 0.01,
+   "reread": 548.54,
+   "recomputed": 548.54,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.tile.full": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 75.89,
+   "tol": 0.01,
+   "reread": 75.89,
+   "recomputed": 75.89,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.tile.l1": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 32.21,
+   "tol": 0.01,
+   "reread": 32.21,
+   "recomputed": 32.21,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.tile.ind": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 44.4864,
+   "tol": 0.01,
+   "reread": 44.4864,
+   "recomputed": 44.4864,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.nucleo": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 18,
+   "tol": 0,
+   "reread": 18.0,
+   "recomputed": 18.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "cost.plan": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 600,
+   "tol": 0,
+   "reread": 600.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "scale.W8_D3.tiles": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 3,
+   "tol": 0,
+   "reread": 3.0,
+   "recomputed": 3.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W8_D3.ind": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1008,
+   "tol": 0,
+   "reread": 1008.0,
+   "recomputed": 1008.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W16_D4.tiles": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 14,
+   "tol": 0,
+   "reread": 14.0,
+   "recomputed": 14.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W16_D4.ind": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 5600,
+   "tol": 0,
+   "reread": 5600.0,
+   "recomputed": 5600.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W32_D4.tiles": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 52,
+   "tol": 0,
+   "reread": 52.0,
+   "recomputed": 52.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W32_D4.ind": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 21952,
+   "tol": 0,
+   "reread": 21952.0,
+   "recomputed": 21952.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W64_D6.tiles": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 328,
+   "tol": 0,
+   "reread": 328.0,
+   "recomputed": 328.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W64_D6.ind": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 144256,
+   "tol": 0,
+   "reread": 144256.0,
+   "recomputed": 144256.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W32_D4.full": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 48,
+   "tol": 0,
+   "reread": 48.0,
+   "recomputed": 48.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W32_D4.area": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 8320,
+   "tol": 0.5,
+   "reread": 8320.0,
+   "recomputed": 8320.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W32_D4.usd": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 4134.5828,
+   "tol": 0.01,
+   "reread": 4134.5828,
+   "recomputed": 4134.5828,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W32_D4.ind_usd": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 1574,
+   "tol": 0.5,
+   "reread": 1574.0,
+   "recomputed": 1574.0,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "scale.W8_D3.usd": {
+   "result": "PASS",
+   "level": "recomputed",
+   "claim": 249.7207,
+   "tol": 0.01,
+   "reread": 249.72070000000002,
+   "recomputed": 249.72070000000002,
+   "how": "regenerated by cost_model.py",
+   "note": ""
+  },
+  "en.fp32_add": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.9,
+   "tol": 0,
+   "reread": 0.9,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "en.fp32_mult": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 3.7,
+   "tol": 0,
+   "reread": 3.7,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "en.int8_add": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.03,
+   "tol": 0,
+   "reread": 0.03,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "en.stm_uA_MHz": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 173.5,
+   "tol": 0.05,
+   "reread": 173.5,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "en.stm_mA": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 29.5,
+   "tol": 0,
+   "reread": 29.5,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "en.dlnn.nJ": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 209.3352,
+   "tol": 0.5,
+   "reread": 209.33520000000001,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "en.cnn.nJ": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 795.972,
+   "tol": 0.5,
+   "reread": 795.972,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "en.board.uJ": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 162.1155,
+   "tol": 0.5,
+   "reread": 162.11549999999997,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "en.mcu.cnn.uJ": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 84.4671564,
+   "tol": 0.5,
+   "reread": 84.4671564,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "en.ratio": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 774.4301961638557,
+   "tol": 5,
+   "reread": 774.4301961638557,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  },
+  "p1.w8.rtl.compared": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 198144.0,
+   "tol": 0,
+   "reread": 198144.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "p1.w32.rtl.compared": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 202752.0,
+   "tol": 0,
+   "reread": 202752.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.route.min": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 18.0,
+   "tol": 0,
+   "reread": 18.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.full.stopmin": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 17.0,
+   "tol": 0,
+   "reread": 17.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.full.placements": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 2200.0,
+   "tol": 0,
+   "reread": 2200.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.full.pins": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 4800.0,
+   "tol": 0,
+   "reread": 4800.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.full.left": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 660.0,
+   "tol": 0,
+   "reread": 660.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "board.full.nofan": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 3547.0,
+   "tol": 0,
+   "reread": 3547.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "ind.1210.dcr": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 7.9,
+   "tol": 0.01,
+   "reread": 7.9,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "ind.1210.loss": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 3.5,
+   "tol": 0.01,
+   "reread": 3.5,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "llm.with": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 5.0,
+   "tol": 0,
+   "reread": 5.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "llm.without": {
+   "result": "PASS",
+   "level": "re-read",
+   "claim": 0.0,
+   "tol": 0,
+   "reread": 0.0,
+   "recomputed": null,
+   "how": "re-read",
+   "note": ""
+  },
+  "loss.q_needed": {
+   "result": "PASS",
+   "level": "formula",
+   "claim": 31.835486234784852,
+   "tol": 0.5,
+   "reread": 31.835486234784852,
+   "recomputed": null,
+   "how": "formula over source values",
+   "note": ""
+  }
+ },
+ "extra_checks": [
+  {
+   "check": "w32: stored V predictions == fresh V",
+   "got": 1.0,
+   "reference": 1.0,
+   "tol": 1e-09,
+   "result": "PASS",
+   "note": "stored full run vs fresh numpy V"
+  },
+  {
+   "check": "w32: stored E predictions == fresh E",
+   "got": 1.0,
+   "reference": 1.0,
+   "tol": 1e-09,
+   "result": "PASS",
+   "note": "stored full run vs fresh E golden"
+  },
+  {
+   "check": "w8: stored V predictions == fresh V",
+   "got": 1.0,
+   "reference": 1.0,
+   "tol": 1e-09,
+   "result": "PASS",
+   "note": "stored full run vs fresh numpy V"
+  },
+  {
+   "check": "w8: stored E predictions == fresh E",
+   "got": 1.0,
+   "reference": 1.0,
+   "tol": 1e-09,
+   "result": "PASS",
+   "note": "stored full run vs fresh E golden"
+  },
+  {
+   "check": "w32: C fresh subset agrees with stored full-run predictions",
+   "got": 1.0,
+   "reference": 1.0,
+   "tol": 0.01,
+   "result": "PASS",
+   "note": "200 stratified examples, ngspice ngspice-42 : Circuit level simulation program"
+  },
+  {
+   "check": "w32: R fresh subset agrees with stored full-run predictions",
+   "got": 0.975,
+   "reference": 1.0,
+   "tol": 0.1,
+   "result": "PASS",
+   "note": "200 stratified examples; R draws random channel noise"
+  },
+  {
+   "check": "w8: C fresh subset agrees with stored full-run predictions",
+   "got": 1.0,
+   "reference": 1.0,
+   "tol": 0.01,
+   "result": "PASS",
+   "note": "200 stratified examples, ngspice ngspice-42 : Circuit level simulation program"
+  },
+  {
+   "check": "w8: R fresh subset agrees with stored full-run predictions",
+   "got": 0.975,
+   "reference": 1.0,
+   "tol": 0.1,
+   "result": "PASS",
+   "note": "200 stratified examples; R draws random channel noise"
+  },
+  {
+   "check": "sha256 of 23 model files and 4 netlist/parameter files match expected/hashes.json",
+   "got": 0,
+   "reference": 0,
+   "tol": 0,
+   "result": "PASS",
+   "note": ""
+  }
+ ],
+ "notebook_cell": "00_verify.ipynb#Result"
+}

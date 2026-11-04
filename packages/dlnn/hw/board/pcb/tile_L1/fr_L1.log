@@ -1,0 +1,19 @@
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=40915 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+2026-11-03 23:18:15.518 INFO   Freerouting v2.5.1-SNAPSHOT (build-date: 2026-11-03)
+2026-11-03 23:18:15.913 INFO   Hardware: 4 CPU cores, 449 CPU score, 3420 MB RAM
+2026-11-03 23:18:15.918 WARN   Deprecated settings path '-mp / --router.max_passes'; use '--router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-03 23:18:15.920 WARN   GUI is disabled and you don't have a console available, so the only feedback from Freerouting is in the log.
+2026-11-03 23:18:15.926 INFO   Configured network proxy: 127.0.0.1:40915
+2026-11-03 23:18:17.100 WARN   The '-mp' command-line flag is deprecated; use '--router.autorouter.max_passes' instead.
+2026-11-03 23:18:17.101 WARN   Deprecated settings path 'router.max_passes'; use 'router.autorouter.max_passes' instead. The old path will be removed in a future release.
+2026-11-03 23:18:17.819 INFO   [CA4A7C\C0DB10] Loading board file 'tile_L1.dsn'...
+2026-11-03 23:18:19.960 INFO   The board's own vias decide: router.autorouter.via_touching_pad = true.
+2026-11-03 23:18:20.180 INFO   4 multi-pin net-tie cluster(s) identified and indexed.
+2026-11-03 23:18:20.265 INFO   [CA4A7C\C0DB10] Job 'CA4A7C\C0DB10' started at 2026-11-03T23:18:20.265499572Z.
+2026-11-03 23:18:24.975 INFO   [CA4A7C\C0DB10] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=3.
+2026-11-03 23:18:28.408 INFO   [CA4A7C\C0DB10] Fanout stage started on board 'bb25a1f441912656ed6abaaff63b1492' with 1327 of 1645 SMD pins needing fanout (312 already connected, 6 netless, 0 ignored).
+2026-11-03 23:19:34.693 INFO   [CA4A7C\C0DB10] Fanout pass #1 on board '65be39381fe420276e731c6774ea9ac7' completed in 64.93 seconds with 284 SMD pins fanouted, 645 not routed, 0 insert errors, +19 extra vias (0 SMD pins still to check in pass, ripup costs=100).
+2026-11-03 23:19:51.925 INFO   [CA4A7C\C0DB10] Fanout pass #2 on board '43665cb9a7ce0a2bf586d5a1f325f118' completed in 17.10 seconds with 10 SMD pins fanouted, 392 not routed, 0 insert errors, +1 extra via (0 SMD pins still to check in pass, ripup costs=200).
+2026-11-03 23:20:00.773 INFO   [CA4A7C\C0DB10] Fanout pass #3 on board '43665cb9a7ce0a2bf586d5a1f325f118' completed in 8.73 seconds with 0 SMD pins fanouted, 13 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=300).
+2026-11-03 23:20:02.634 INFO   [CA4A7C\C0DB10] Fanout stage completed: started with 1639 total SMD pins, completed in 92.96 seconds, escaped pins: 1343/1639 (81.9%), using 55.89 total CPU seconds, 21.54 GB total allocated, and 254.5 MB peak heap usage.
+2026-11-03 23:20:08.163 INFO   [CA4A7C\C0DB10] Auto-routing stage started on board '43665cb9a7ce0a2bf586d5a1f325f118' with baseline score 698.75 for 331 unrouted items.

@@ -1,0 +1,55 @@
+{
+ "schema": "dlnn-train-lite/1",
+ "note": "lite settings (20 epochs, 1 seed); shipped models use 60 epochs, 3 restarts. Simulation only.",
+ "epochs": 20,
+ "seconds": {
+  "tdlnet_b_w8": 28.8,
+  "tdlnet_b_w8_fro": 12.0,
+  "arena": 129.2
+ },
+ "acc_lite": {
+  "cumulant": 0.8745,
+  "mlp_s": 0.267,
+  "mlp_l": 0.5335,
+  "cnn": 0.8055,
+  "reservoir": 0.71825,
+  "tdlnet_b_w8": 0.7835,
+  "tdlnet_b_w8_fro": 0.81075,
+  "mlp_s_v1": 0.285,
+  "mlp_l_v1": 0.5465,
+  "mlp_feat_s": 0.71275,
+  "mlp_feat_l": 0.7725,
+  "mlp_pow_s": 0.78275,
+  "mlp_pow_l": 0.845
+ },
+ "acc_shipped": {
+  "cumulant": 0.8745,
+  "mlp_s": 0.261,
+  "mlp_l": 0.54225,
+  "cnn": 0.90925,
+  "reservoir": 0.71825,
+  "tdlnet_b_w8": 0.8055,
+  "tdlnet_b_w8_fro": 0.85125,
+  "mlp_s_v1": 0.285,
+  "mlp_l_v1": 0.5465,
+  "mlp_feat_s": 0.71275,
+  "mlp_feat_l": 0.7725,
+  "mlp_pow_s": 0.78275,
+  "mlp_pow_l": 0.845
+ },
+ "js_check": {
+  "tdlnet": {
+   "max_abs_err": 1.9073486328125e-06,
+   "ok": null
+  },
+  "arena": {
+   "max_abs_err": null,
+   "ok": true
+  },
+  "arena_lite": {
+   "max_abs_err": null,
+   "ok": true
+  }
+ },
+ "node": "v22.23.4"
+}

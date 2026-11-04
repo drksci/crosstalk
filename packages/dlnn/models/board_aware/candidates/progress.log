@@ -1,0 +1,130 @@
+  [ternary] epoch  1/60 loss 1.6813 (5s)
+  [ternary] epoch 10/60 loss 0.5834 (11s)
+  [ternary] epoch 20/60 loss 0.6272 (18s)
+  [ternary] epoch 30/60 loss 0.7871 (25s)
+  [ternary] epoch 40/60 loss 0.8341 (31s)
+  [ternary] epoch 50/60 loss 0.7848 (38s)
+  [ternary] epoch 60/60 loss 0.6631 (44s)
+mix 0 val macro 0.7343 min-class 0.000 | test Q10 0.7425 min 0.000 Q30 0.7422
+  [ternary] epoch  1/60 loss 1.6519 (1s)
+  [ternary] epoch 10/60 loss 0.5747 (6s)
+  [ternary] epoch 20/60 loss 0.6006 (13s)
+  [ternary] epoch 30/60 loss 0.7861 (19s)
+  [ternary] epoch 40/60 loss 0.7318 (25s)
+  [ternary] epoch 50/60 loss 0.6924 (31s)
+  [ternary] epoch 60/60 loss 0.6243 (37s)
+mix 1 val macro 0.7483 min-class 0.000 | test Q10 0.7578 min 0.000 Q30 0.7555
+  [ternary] epoch  1/60 loss 1.6241 (1s)
+  [ternary] epoch 10/60 loss 0.5701 (6s)
+  [ternary] epoch 20/60 loss 0.6023 (12s)
+  [ternary] epoch 30/60 loss 0.7427 (21s)
+  [ternary] epoch 40/60 loss 0.7337 (34s)
+  [ternary] epoch 50/60 loss 0.7029 (45s)
+  [ternary] epoch 60/60 loss 0.6067 (57s)
+mix 2 val macro 0.7397 min-class 0.000 | test Q10 0.7485 min 0.000 Q30 0.7472
+  [ternary] epoch  1/20 loss 0.7976 (1s)
+  [ternary] epoch 10/20 loss 0.5884 (11s)
+  [ternary] epoch 20/20 loss 0.4997 (23s)
+ft 0 val macro 0.8087 min-class 0.328 | test Q10 0.8125 min 0.272 Q30 0.8120
+  [ternary] epoch  1/20 loss 0.7841 (1s)
+  [ternary] epoch 10/20 loss 0.6371 (11s)
+  [ternary] epoch 20/20 loss 0.5398 (23s)
+ft 1 val macro 0.7809 min-class 0.268 | test Q10 0.7825 min 0.270 Q30 0.7825
+  [ternary] epoch  1/20 loss 0.7631 (2s)
+  [ternary] epoch 10/20 loss 0.6021 (12s)
+  [ternary] epoch 20/20 loss 0.5201 (20s)
+ft 2 val macro 0.7904 min-class 0.256 | test Q10 0.8080 min 0.262 Q30 0.8063
+  [ternary] epoch  1/20 loss 1.0110 (1s)
+  [ternary] epoch 10/20 loss 0.7104 (14s)
+  [ternary] epoch 20/20 loss 0.6172 (28s)
+ft_mix 0 val macro 0.7562 min-class 0.282 | test Q10 0.7685 min 0.266 Q30 0.7682
+  [ternary] epoch  1/20 loss 0.8918 (1s)
+  [ternary] epoch 10/20 loss 0.7266 (15s)
+  [ternary] epoch 20/20 loss 0.6261 (29s)
+ft_mix 1 val macro 0.7559 min-class 0.000 | test Q10 0.7595 min 0.000 Q30 0.7582
+  [ternary] epoch  1/20 loss 0.8750 (1s)
+  [ternary] epoch 10/20 loss 0.7134 (13s)
+  [ternary] epoch 20/20 loss 0.6297 (26s)
+ft_mix 2 val macro 0.7737 min-class 0.218 | test Q10 0.7758 min 0.208 Q30 0.7748
+  [ternary] epoch  1/20 loss 0.5676 (1s)
+  [ternary] epoch 10/20 loss 0.3149 (13s)
+  [ternary] epoch 20/20 loss 0.2520 (27s)
+ft_focal 0 val macro 0.8065 min-class 0.454 | test Q10 0.8150 min 0.438 Q30 0.8123
+  [ternary] epoch  1/20 loss 0.4388 (1s)
+  [ternary] epoch 10/20 loss 0.3139 (13s)
+  [ternary] epoch 20/20 loss 0.2614 (28s)
+ft_focal 1 val macro 0.7916 min-class 0.405 | test Q10 0.7920 min 0.426 Q30 0.7917
+  [ternary] epoch  1/20 loss 0.4732 (2s)
+  [ternary] epoch 10/20 loss 0.3098 (15s)
+  [ternary] epoch 20/20 loss 0.2595 (27s)
+ft_focal 2 val macro 0.7937 min-class 0.385 | test Q10 0.8120 min 0.498 Q30 0.8090
+  [ternary] epoch  1/60 loss 1.6074 (1s)
+  [ternary] epoch 10/60 loss 0.4293 (12s)
+  [ternary] epoch 20/60 loss 0.3801 (25s)
+  [ternary] epoch 30/60 loss 0.4716 (39s)
+  [ternary] epoch 40/60 loss 0.5113 (52s)
+  [ternary] epoch 50/60 loss 0.4276 (64s)
+  [ternary] epoch 60/60 loss 0.3702 (78s)
+fro 0 val macro 0.8852 min-class 0.668 | test Q10 0.8780 min 0.664 Q30 0.8778
+  [ternary] epoch  1/60 loss 1.6697 (1s)
+  [ternary] epoch 10/60 loss 0.4365 (13s)
+  [ternary] epoch 20/60 loss 0.4138 (25s)
+  [ternary] epoch 30/60 loss 0.5429 (37s)
+  [ternary] epoch 40/60 loss 0.4628 (50s)
+  [ternary] epoch 50/60 loss 0.4397 (59s)
+  [ternary] epoch 60/60 loss 0.3643 (65s)
+fro 1 val macro 0.8774 min-class 0.618 | test Q10 0.8810 min 0.608 Q30 0.8808
+  [ternary] epoch  1/60 loss 1.5636 (1s)
+  [ternary] epoch 10/60 loss 0.4264 (6s)
+  [ternary] epoch 20/60 loss 0.3966 (17s)
+  [ternary] epoch 30/60 loss 0.5142 (31s)
+  [ternary] epoch 40/60 loss 0.4736 (46s)
+  [ternary] epoch 50/60 loss 0.4671 (62s)
+  [ternary] epoch 60/60 loss 0.4062 (78s)
+fro 2 val macro 0.8573 min-class 0.550 | test Q10 0.8635 min 0.552 Q30 0.8642
+  [ternary] epoch  1/60 loss 1.1283 (2s)
+  [ternary] epoch 10/60 loss 0.2161 (15s)
+  [ternary] epoch 20/60 loss 0.1923 (32s)
+  [ternary] epoch 30/60 loss 0.2328 (47s)
+  [ternary] epoch 40/60 loss 0.2301 (64s)
+  [ternary] epoch 50/60 loss 0.2031 (82s)
+  [ternary] epoch 60/60 loss 0.1838 (109s)
+fro_focal 0 val macro 0.8551 min-class 0.416 | test Q10 0.8442 min 0.388 Q30 0.8442
+  [ternary] epoch  1/60 loss 1.1641 (2s)
+  [ternary] epoch 10/60 loss 0.2055 (21s)
+  [ternary] epoch 20/60 loss 0.1975 (46s)
+  [ternary] epoch 30/60 loss 0.3020 (72s)
+  [ternary] epoch 40/60 loss 0.2250 (95s)
+  [ternary] epoch 50/60 loss 0.2062 (150s)
+  [ternary] epoch 60/60 loss 0.1728 (164s)
+fro_focal 1 val macro 0.8646 min-class 0.573 | test Q10 0.8695 min 0.570 Q30 0.8692
+  [ternary] epoch  1/60 loss 1.0497 (1s)
+  [ternary] epoch 10/60 loss 0.2236 (15s)
+  [ternary] epoch 20/60 loss 0.2004 (31s)
+  [ternary] epoch 30/60 loss 0.2740 (74s)
+  [ternary] epoch 40/60 loss 0.2298 (112s)
+  [ternary] epoch 50/60 loss 0.2107 (134s)
+  [ternary] epoch 60/60 loss 0.1876 (209s)
+fro_focal 2 val macro 0.8224 min-class 0.347 | test Q10 0.8300 min 0.386 Q30 0.8277
+winner fro 0 0.8852184076486578
+tdlnet_b_w8            ideal  mixed 0.8055  >=10dB 0.8375  min-class 0.334
+tdlnet_b_w8            Q10    mixed 0.7722  >=10dB 0.7983  min-class 0.250
+tdlnet_b_w8            Q30    mixed 0.7692  >=10dB 0.7937  min-class 0.256
+tdlnet_b_w8_aware2_collapsed ideal  mixed 0.7083  >=10dB 0.7592  min-class 0.000
+tdlnet_b_w8_aware2_collapsed Q10    mixed 0.7970  >=10dB 0.8192  min-class 0.000
+tdlnet_b_w8_aware2_collapsed Q30    mixed 0.7995  >=10dB 0.8204  min-class 0.000
+tdlnet_b_w8_aware2_fro ideal  mixed 0.6550  >=10dB 0.7196  min-class 0.044
+tdlnet_b_w8_aware2_fro Q10    mixed 0.8780  >=10dB 0.9183  min-class 0.664
+tdlnet_b_w8_aware2_fro Q30    mixed 0.8778  >=10dB 0.9167  min-class 0.674
+ship bar {'min_class_test_Q10_ge': 0.35, 'mixed_Q10_ge': 0.79, 'min_class_test_Q10': 0.664, 'mixed_Q10': 0.878, 'met': True}
+winner focal 0 0.8128157611221263
+tdlnet_b_w8            ideal  mixed 0.8055  >=10dB 0.8375  min-class 0.334
+tdlnet_b_w8            Q10    mixed 0.7722  >=10dB 0.7983  min-class 0.250
+tdlnet_b_w8            Q30    mixed 0.7692  >=10dB 0.7937  min-class 0.256
+tdlnet_b_w8_aware2_collapsed ideal  mixed 0.7083  >=10dB 0.7592  min-class 0.000
+tdlnet_b_w8_aware2_collapsed Q10    mixed 0.7970  >=10dB 0.8192  min-class 0.000
+tdlnet_b_w8_aware2_collapsed Q30    mixed 0.7995  >=10dB 0.8204  min-class 0.000
+tdlnet_b_w8_aware2     ideal  mixed 0.6753  >=10dB 0.7538  min-class 0.092
+tdlnet_b_w8_aware2     Q10    mixed 0.8123  >=10dB 0.8508  min-class 0.492
+tdlnet_b_w8_aware2     Q30    mixed 0.8090  >=10dB 0.8504  min-class 0.494
+ship bar {'min_class_test_Q10_ge': 0.35, 'mixed_Q10_ge': 0.79, 'min_class_test_Q10': 0.492, 'mixed_Q10': 0.81225, 'met': True}

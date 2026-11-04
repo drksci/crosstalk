@@ -1,0 +1,812 @@
+{
+  "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+  "n_train": 16000,
+  "n_test": 4000,
+  "classes": [
+    "OOK",
+    "BPSK",
+    "QPSK",
+    "8PSK",
+    "16QAM",
+    "2FSK",
+    "4FSK",
+    "GMSK"
+  ],
+  "window": "128 complex samples, 8 samples/symbol",
+  "torch": "2.15.0+cpu",
+  "ops_convention": "mults/adds/nonlin per classification of one 128-sample window; a MAC = 1 mult + 1 add; ternary taps = 1 add per non-zero tap (no multiply)",
+  "models": {
+    "cumulant": {
+      "desc": "higher-order cumulants + amplitude/frequency/spectrum statistics -> logistic regression or tree",
+      "file": "models/arena/cumulant.npz",
+      "ops": {
+        "mults": 27384,
+        "adds": 26394,
+        "nonlin": 1172
+      },
+      "train_seconds": 12.8,
+      "classifier": "logreg",
+      "hyper": {
+        "l2": 1e-05
+      },
+      "val_acc": 0.8685,
+      "params": 208,
+      "n_features": 25,
+      "feature_names": [
+        "C20abs",
+        "C40abs",
+        "C41abs",
+        "C42",
+        "C60abs",
+        "C63",
+        "rawC40abs",
+        "rawC41abs",
+        "line2",
+        "line4",
+        "line8",
+        "amp_cv",
+        "amp_kurt",
+        "amp_skew",
+        "f1_std",
+        "f1_kurt",
+        "f1_absmean",
+        "f4_std",
+        "f4_kurt",
+        "f8_std",
+        "phd_std",
+        "phd_kurt",
+        "bw_std",
+        "spec_flat",
+        "spec_peak"
+      ],
+      "feature_ops": {
+        "mults": 27159,
+        "adds": 26161,
+        "nonlin": 1172
+      },
+      "classifier_ops": {
+        "mults": 225,
+        "adds": 233,
+        "nonlin": 0
+      },
+      "tree_alternative_val_acc": 0.789,
+      "tiny_mlp_h16_val_acc_not_shipped": 0.886,
+      "acc": 0.8745,
+      "acc_ge10dB": 0.9583333333333334,
+      "acc_per_snr": {
+        "0": 0.6625,
+        "5": 0.835,
+        "10": 0.93125,
+        "15": 0.96375,
+        "20": 0.98
+      },
+      "acc_per_class": {
+        "OOK": 0.982,
+        "BPSK": 0.938,
+        "QPSK": 0.654,
+        "8PSK": 0.712,
+        "16QAM": 0.816,
+        "2FSK": 0.95,
+        "4FSK": 0.98,
+        "GMSK": 0.964
+      },
+      "eval_seconds": 0.28
+    },
+    "mlp_s": {
+      "desc": "MLP (params-matched) on flattened raw I/Q (256), input standardisation folded into layer 0; ReLU, hidden [4]",
+      "fair": true,
+      "file": "models/arena/mlp_s.npz",
+      "params": 1068,
+      "ops": {
+        "mults": 1056,
+        "adds": 1068,
+        "nonlin": 4
+      },
+      "net_ops": {
+        "mults": 1056,
+        "adds": 1068,
+        "nonlin": 4
+      },
+      "feature_ops": {
+        "mults": 0,
+        "adds": 0,
+        "nonlin": 0
+      },
+      "train": {
+        "lr": 0.003,
+        "wd": 0.01,
+        "dropout": 0.0,
+        "epochs": 60,
+        "val_acc": 0.2945,
+        "shipped_seed": 1,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.3041,
+            "test_acc": 0.2495,
+            "test_acc_ge10dB": 0.26708333333333334
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.3061,
+            "test_acc": 0.261,
+            "test_acc_ge10dB": 0.28125
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.2929,
+            "test_acc": 0.24725,
+            "test_acc_ge10dB": 0.2633333333333333
+          }
+        ],
+        "grid_size": 18,
+        "feature_set": null,
+        "selection": "grid on train[:14000] vs train[14000:] (seed 0); refit on all 16000, 3 seeds, ship highest train acc"
+      },
+      "train_seconds": 174.6,
+      "acc": 0.261,
+      "acc_ge10dB": 0.28125,
+      "acc_per_snr": {
+        "0": 0.215,
+        "5": 0.24625,
+        "10": 0.27,
+        "15": 0.27,
+        "20": 0.30375
+      },
+      "acc_per_class": {
+        "OOK": 0.44,
+        "BPSK": 0.172,
+        "QPSK": 0.062,
+        "8PSK": 0.042,
+        "16QAM": 0.024,
+        "2FSK": 0.38,
+        "4FSK": 0.626,
+        "GMSK": 0.342
+      },
+      "eval_seconds": 0.04
+    },
+    "mlp_l": {
+      "desc": "MLP (~10k params) on flattened raw I/Q (256), input standardisation folded into layer 0; ReLU, hidden [38]",
+      "fair": true,
+      "file": "models/arena/mlp_l.npz",
+      "params": 10078,
+      "ops": {
+        "mults": 10032,
+        "adds": 10078,
+        "nonlin": 38
+      },
+      "net_ops": {
+        "mults": 10032,
+        "adds": 10078,
+        "nonlin": 38
+      },
+      "feature_ops": {
+        "mults": 0,
+        "adds": 0,
+        "nonlin": 0
+      },
+      "train": {
+        "lr": 0.03,
+        "wd": 0.2,
+        "dropout": 0.0,
+        "epochs": 60,
+        "val_acc": 0.5445,
+        "shipped_seed": 2,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.6479,
+            "test_acc": 0.5475,
+            "test_acc_ge10dB": 0.56125
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.6479,
+            "test_acc": 0.5455,
+            "test_acc_ge10dB": 0.5595833333333333
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.6594,
+            "test_acc": 0.54225,
+            "test_acc_ge10dB": 0.5583333333333333
+          }
+        ],
+        "grid_size": 36,
+        "feature_set": null,
+        "selection": "grid on train[:14000] vs train[14000:] (seed 0); refit on all 16000, 3 seeds, ship highest train acc"
+      },
+      "train_seconds": 516.8,
+      "acc": 0.54225,
+      "acc_ge10dB": 0.5583333333333333,
+      "acc_per_snr": {
+        "0": 0.46125,
+        "5": 0.575,
+        "10": 0.54,
+        "15": 0.555,
+        "20": 0.58
+      },
+      "acc_per_class": {
+        "OOK": 0.832,
+        "BPSK": 0.186,
+        "QPSK": 0.232,
+        "8PSK": 0.272,
+        "16QAM": 0.184,
+        "2FSK": 0.918,
+        "4FSK": 0.914,
+        "GMSK": 0.8
+      },
+      "eval_seconds": 0.03
+    },
+    "cnn": {
+      "desc": "1-D CNN, 3 causal conv layers (2-8-8-8, k=8), ReLU, global mean pool, linear 8->8, float",
+      "file": "models/arena/cnn.npz",
+      "params": 1248,
+      "ops": {
+        "mults": 147528,
+        "adds": 151616,
+        "nonlin": 3072
+      },
+      "train": {
+        "lr": 0.01,
+        "wd": 0.0001,
+        "val_acc": 0.8935,
+        "seed": 0,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.9077
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.8873
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.7613
+          }
+        ],
+        "epochs": 40
+      },
+      "train_seconds": 132.8,
+      "acc": 0.90925,
+      "acc_ge10dB": 0.9545833333333333,
+      "acc_per_snr": {
+        "0": 0.7825,
+        "5": 0.9,
+        "10": 0.95375,
+        "15": 0.95125,
+        "20": 0.95875
+      },
+      "acc_per_class": {
+        "OOK": 0.982,
+        "BPSK": 0.952,
+        "QPSK": 0.764,
+        "8PSK": 0.728,
+        "16QAM": 0.87,
+        "2FSK": 0.992,
+        "4FSK": 1.0,
+        "GMSK": 0.986
+      },
+      "eval_seconds": 0.02
+    },
+    "reservoir": {
+      "desc": "random ternary delay reservoir (2-32-32-32, K=8, d=1, tanh) + ridge readout on pooled layer outputs",
+      "file": "models/arena/reservoir.npz",
+      "ops": {
+        "mults": 26496,
+        "adds": 1341064,
+        "nonlin": 12288
+      },
+      "train_seconds": 50.1,
+      "params": 1544,
+      "fixed_random_ternary_weights": 16896,
+      "nonzero_random_weights": 10177,
+      "pool": "mean_sq",
+      "ridge_lambda": 0.1,
+      "val_acc": 0.704,
+      "n_features": 192,
+      "reservoir_cfg": {
+        "widths": [
+          2,
+          32,
+          32,
+          32
+        ],
+        "taps": 8,
+        "dilations": [
+          1,
+          1,
+          1
+        ],
+        "density": 0.6,
+        "drive": 0.5,
+        "bias_range": 0.5,
+        "seed": 11
+      },
+      "acc": 0.71825,
+      "acc_ge10dB": 0.74375,
+      "acc_per_snr": {
+        "0": 0.63,
+        "5": 0.73,
+        "10": 0.73125,
+        "15": 0.745,
+        "20": 0.755
+      },
+      "acc_per_class": {
+        "OOK": 0.976,
+        "BPSK": 0.944,
+        "QPSK": 0.208,
+        "8PSK": 0.264,
+        "16QAM": 0.374,
+        "2FSK": 0.994,
+        "4FSK": 0.992,
+        "GMSK": 0.994
+      },
+      "eval_seconds": 3.59
+    },
+    "tdlnet_b_w8": {
+      "desc": "TDL-Net-B w8 d=1, ternary taps, ternary readout (the small DLNN)",
+      "file": "models/tdlnet_b_w8_ternary.npz",
+      "params": 1275,
+      "ternary_weights": 1152,
+      "nonzero_ternary_weights": 697,
+      "other_float_params": 123,
+      "ops": {
+        "mults": 3144,
+        "adds": 93376,
+        "nonlin": 3072
+      },
+      "acc": 0.8055,
+      "acc_ge10dB": 0.8375,
+      "acc_per_snr": {
+        "0": 0.69625,
+        "5": 0.81875,
+        "10": 0.83625,
+        "15": 0.83,
+        "20": 0.84625
+      },
+      "acc_per_class": {
+        "OOK": 0.958,
+        "BPSK": 0.918,
+        "QPSK": 0.568,
+        "8PSK": 0.334,
+        "16QAM": 0.728,
+        "2FSK": 0.984,
+        "4FSK": 0.994,
+        "GMSK": 0.96
+      },
+      "eval_seconds": 0.47
+    },
+    "tdlnet_b_w8_fro": {
+      "desc": "TDL-Net-B w8 d=1, ternary taps, float digital readout (readout runs on the MCU)",
+      "file": "models/tdlnet_b_w8_fro_ternary.npz",
+      "params": 1275,
+      "ternary_weights": 1152,
+      "nonzero_ternary_weights": 655,
+      "other_float_params": 123,
+      "ops": {
+        "mults": 3144,
+        "adds": 88000,
+        "nonlin": 3072
+      },
+      "acc": 0.85125,
+      "acc_ge10dB": 0.8883333333333333,
+      "acc_per_snr": {
+        "0": 0.72375,
+        "5": 0.8675,
+        "10": 0.88125,
+        "15": 0.89625,
+        "20": 0.8875
+      },
+      "acc_per_class": {
+        "OOK": 0.986,
+        "BPSK": 0.956,
+        "QPSK": 0.748,
+        "8PSK": 0.376,
+        "16QAM": 0.814,
+        "2FSK": 0.974,
+        "4FSK": 0.992,
+        "GMSK": 0.964
+      },
+      "eval_seconds": 0.32
+    },
+    "mlp_s_v1": {
+      "desc": "MLP on flattened I/Q (256 inputs), ReLU, hidden [4] [v1: un-normalised, 40 epochs, no dropout; kept for reference]",
+      "file": "models/arena/mlp_s_v1.npz",
+      "params": 1068,
+      "ops": {
+        "mults": 1056,
+        "adds": 1068,
+        "nonlin": 4
+      },
+      "train": {
+        "lr": 0.003,
+        "wd": 0.0001,
+        "val_acc": 0.266,
+        "seed": 0,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.2769
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.2553
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.2729
+          }
+        ],
+        "epochs": 40
+      },
+      "train_seconds": 13.7,
+      "acc": 0.285,
+      "acc_ge10dB": 0.29625,
+      "acc_per_snr": {
+        "0": 0.26375,
+        "5": 0.2725,
+        "10": 0.29,
+        "15": 0.29875,
+        "20": 0.3
+      },
+      "acc_per_class": {
+        "OOK": 0.578,
+        "BPSK": 0.118,
+        "QPSK": 0.05,
+        "8PSK": 0.196,
+        "16QAM": 0.0,
+        "2FSK": 0.332,
+        "4FSK": 0.618,
+        "GMSK": 0.388
+      },
+      "eval_seconds": 0.01
+    },
+    "mlp_l_v1": {
+      "desc": "MLP on flattened I/Q (256 inputs), ReLU, hidden [32] [v1: un-normalised, 40 epochs, no dropout; kept for reference]",
+      "file": "models/arena/mlp_l_v1.npz",
+      "params": 8488,
+      "ops": {
+        "mults": 8448,
+        "adds": 8488,
+        "nonlin": 32
+      },
+      "train": {
+        "lr": 0.003,
+        "wd": 0.01,
+        "val_acc": 0.535,
+        "seed": 2,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.5664
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.5672
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.5709
+          }
+        ],
+        "epochs": 40
+      },
+      "train_seconds": 13.8,
+      "acc": 0.5465,
+      "acc_ge10dB": 0.5679166666666666,
+      "acc_per_snr": {
+        "0": 0.47625,
+        "5": 0.5525,
+        "10": 0.56125,
+        "15": 0.57,
+        "20": 0.5725
+      },
+      "acc_per_class": {
+        "OOK": 0.82,
+        "BPSK": 0.144,
+        "QPSK": 0.274,
+        "8PSK": 0.242,
+        "16QAM": 0.212,
+        "2FSK": 0.94,
+        "4FSK": 0.94,
+        "GMSK": 0.8
+      },
+      "eval_seconds": 0.0
+    },
+    "mlp_feat_s": {
+      "desc": "MLP (params-matched) on phase-invariant features 'compact': the three streams of `full`, stride-2 pooled (64 + 63 + 64 = 191); standardisation folded into layer 0; ReLU, hidden [6]",
+      "fair": true,
+      "file": "models/arena/mlp_feat_s.npz",
+      "params": 1208,
+      "ops": {
+        "mults": 4964,
+        "adds": 4852,
+        "nonlin": 391
+      },
+      "net_ops": {
+        "mults": 1194,
+        "adds": 1208,
+        "nonlin": 6
+      },
+      "feature_ops": {
+        "mults": 3770,
+        "adds": 3644,
+        "nonlin": 385
+      },
+      "train": {
+        "lr": 0.01,
+        "wd": 0.2,
+        "dropout": 0.0,
+        "epochs": 60,
+        "val_acc": 0.719,
+        "shipped_seed": 0,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.7467,
+            "test_acc": 0.713,
+            "test_acc_ge10dB": 0.7658333333333334
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.7397,
+            "test_acc": 0.704,
+            "test_acc_ge10dB": 0.7583333333333333
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.7289,
+            "test_acc": 0.69075,
+            "test_acc_ge10dB": 0.7425
+          }
+        ],
+        "grid_size": 36,
+        "feature_set": "compact",
+        "selection": "grid on train[:14000] vs train[14000:] (seed 0); refit on all 16000, 3 seeds, ship highest train acc"
+      },
+      "train_seconds": 358.1,
+      "acc": 0.71275,
+      "acc_ge10dB": 0.7658333333333334,
+      "acc_per_snr": {
+        "0": 0.5325,
+        "5": 0.73375,
+        "10": 0.73875,
+        "15": 0.77625,
+        "20": 0.7825
+      },
+      "acc_per_class": {
+        "OOK": 0.942,
+        "BPSK": 0.51,
+        "QPSK": 0.248,
+        "8PSK": 0.558,
+        "16QAM": 0.538,
+        "2FSK": 0.97,
+        "4FSK": 0.994,
+        "GMSK": 0.942
+      },
+      "eval_seconds": 0.12
+    },
+    "mlp_feat_l": {
+      "desc": "MLP (~10k params) on phase-invariant features 'compact': the three streams of `full`, stride-2 pooled (64 + 63 + 64 = 191); standardisation folded into layer 0; ReLU, hidden [40, 16]",
+      "fair": true,
+      "file": "models/arena/mlp_feat_l.npz",
+      "params": 8472,
+      "ops": {
+        "mults": 12178,
+        "adds": 12116,
+        "nonlin": 441
+      },
+      "net_ops": {
+        "mults": 8408,
+        "adds": 8472,
+        "nonlin": 56
+      },
+      "feature_ops": {
+        "mults": 3770,
+        "adds": 3644,
+        "nonlin": 385
+      },
+      "train": {
+        "lr": 0.03,
+        "wd": 0.2,
+        "dropout": 0.2,
+        "epochs": 60,
+        "val_acc": 0.7865,
+        "shipped_seed": 0,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.8574,
+            "test_acc": 0.7725,
+            "test_acc_ge10dB": 0.8525
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.8498,
+            "test_acc": 0.76875,
+            "test_acc_ge10dB": 0.8475
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.8567,
+            "test_acc": 0.77125,
+            "test_acc_ge10dB": 0.8516666666666667
+          }
+        ],
+        "grid_size": 72,
+        "feature_set": "compact",
+        "selection": "grid on train[:14000] vs train[14000:] (seed 0); refit on all 16000, 3 seeds, ship highest train acc"
+      },
+      "train_seconds": 732.2,
+      "acc": 0.7725,
+      "acc_ge10dB": 0.8525,
+      "acc_per_snr": {
+        "0": 0.57,
+        "5": 0.735,
+        "10": 0.83,
+        "15": 0.86125,
+        "20": 0.86625
+      },
+      "acc_per_class": {
+        "OOK": 0.954,
+        "BPSK": 0.702,
+        "QPSK": 0.21,
+        "8PSK": 0.614,
+        "16QAM": 0.78,
+        "2FSK": 0.988,
+        "4FSK": 0.996,
+        "GMSK": 0.936
+      },
+      "eval_seconds": 0.13
+    },
+    "mlp_pow_s": {
+      "desc": "MLP (params-matched) on phase-invariant features 'pow_compact': the five streams of `pow`, stride-2 pooled (64 + 63 + 64 + 64 + 64 = 319); standardisation folded into layer 0; ReLU, hidden [3]",
+      "fair": true,
+      "file": "models/arena/mlp_pow_s.npz",
+      "params": 992,
+      "ops": {
+        "mults": 10255,
+        "adds": 10908,
+        "nonlin": 644
+      },
+      "net_ops": {
+        "mults": 981,
+        "adds": 992,
+        "nonlin": 3
+      },
+      "feature_ops": {
+        "mults": 9274,
+        "adds": 9916,
+        "nonlin": 641
+      },
+      "train": {
+        "lr": 0.01,
+        "wd": 0.2,
+        "dropout": 0.0,
+        "epochs": 60,
+        "val_acc": 0.7785,
+        "shipped_seed": 1,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.7961,
+            "test_acc": 0.78075,
+            "test_acc_ge10dB": 0.8475
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.8001,
+            "test_acc": 0.78275,
+            "test_acc_ge10dB": 0.8354166666666667
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.797,
+            "test_acc": 0.781,
+            "test_acc_ge10dB": 0.8395833333333333
+          }
+        ],
+        "grid_size": 36,
+        "feature_set": "pow_compact",
+        "selection": "grid on train[:14000] vs train[14000:] (seed 0); refit on all 16000, 3 seeds, ship highest train acc"
+      },
+      "train_seconds": 458.6,
+      "acc": 0.78275,
+      "acc_ge10dB": 0.8354166666666667,
+      "acc_per_snr": {
+        "0": 0.60375,
+        "5": 0.80375,
+        "10": 0.83625,
+        "15": 0.83375,
+        "20": 0.83625
+      },
+      "acc_per_class": {
+        "OOK": 0.942,
+        "BPSK": 0.878,
+        "QPSK": 0.374,
+        "8PSK": 0.41,
+        "16QAM": 0.748,
+        "2FSK": 0.954,
+        "4FSK": 0.99,
+        "GMSK": 0.966
+      },
+      "eval_seconds": 0.18
+    },
+    "mlp_pow_l": {
+      "desc": "MLP (~10k params) on phase-invariant features 'pow_compact': the five streams of `pow`, stride-2 pooled (64 + 63 + 64 + 64 + 64 = 319); standardisation folded into layer 0; ReLU, hidden [28]",
+      "fair": true,
+      "file": "models/arena/mlp_pow_l.npz",
+      "params": 9192,
+      "ops": {
+        "mults": 18430,
+        "adds": 19108,
+        "nonlin": 669
+      },
+      "net_ops": {
+        "mults": 9156,
+        "adds": 9192,
+        "nonlin": 28
+      },
+      "feature_ops": {
+        "mults": 9274,
+        "adds": 9916,
+        "nonlin": 641
+      },
+      "train": {
+        "lr": 0.01,
+        "wd": 0.2,
+        "dropout": 0.2,
+        "epochs": 60,
+        "val_acc": 0.85,
+        "shipped_seed": 0,
+        "seeds": [
+          {
+            "seed": 0,
+            "train_acc": 0.9654,
+            "test_acc": 0.845,
+            "test_acc_ge10dB": 0.9329166666666666
+          },
+          {
+            "seed": 1,
+            "train_acc": 0.9568,
+            "test_acc": 0.848,
+            "test_acc_ge10dB": 0.925
+          },
+          {
+            "seed": 2,
+            "train_acc": 0.96,
+            "test_acc": 0.8475,
+            "test_acc_ge10dB": 0.9279166666666666
+          }
+        ],
+        "grid_size": 54,
+        "feature_set": "pow_compact",
+        "selection": "grid on train[:14000] vs train[14000:] (seed 0); refit on all 16000, 3 seeds, ship highest train acc"
+      },
+      "train_seconds": 653.2,
+      "acc": 0.845,
+      "acc_ge10dB": 0.9329166666666666,
+      "acc_per_snr": {
+        "0": 0.62,
+        "5": 0.80625,
+        "10": 0.90875,
+        "15": 0.94,
+        "20": 0.95
+      },
+      "acc_per_class": {
+        "OOK": 0.962,
+        "BPSK": 0.894,
+        "QPSK": 0.622,
+        "8PSK": 0.582,
+        "16QAM": 0.778,
+        "2FSK": 0.976,
+        "4FSK": 0.994,
+        "GMSK": 0.952
+      },
+      "eval_seconds": 0.13
+    }
+  },
+  "total_seconds_last_run": 0.6
+}

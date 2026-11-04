@@ -1,0 +1,11 @@
+23:21:20 stage place
+plane fanout vias: 33 failed: []
+placed -> /home/user/dlnn/hw/board/pcb/carrier/carrier_placed.kicad_pcb
+23:21:21 stage dsn
+ExportSpecctraDSN True
+23:21:21 stage route
+freerouting rc 0 54s
+23:22:15 stage ses
+ImportSpecctraSES True
+DRC rc 0 ** Found 0 DRC violations ** ** Found 0 unconnected pads ** ** Found 0 Footprint errors **
+23:22:18 done

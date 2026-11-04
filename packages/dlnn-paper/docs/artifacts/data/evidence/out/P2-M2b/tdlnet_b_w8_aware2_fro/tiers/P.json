@@ -1,0 +1,681 @@
+{
+  "tier": "P",
+  "status": "ok",
+  "run_id": "P2-M2b",
+  "task": "modrec",
+  "tool": {
+    "name": "scikit-rf",
+    "version": "2.2.0"
+  },
+  "model_sha256": "c916f893337df00d411c1c2d8140ff12d36a20584b5467b3424bb190bbd2c52a",
+  "dataset_sha256": "e1b8e74480bdb325cc7e77066c545331f771fe20bf577e9e40ccd036af92b1d3",
+  "n_examples": 4000,
+  "metrics": {
+    "accuracy": 0.8705,
+    "macro_f1": 0.8680416508900815,
+    "top1_agreement_vs_virtual": 0.67175,
+    "mean_kl_virtual_vs_tier": 0.7562392354011536,
+    "logit_nmse_vs_virtual": 0.15998150408267975,
+    "acc_per_snr": {
+      "0": 0.7475,
+      "5": 0.86875,
+      "10": 0.89625,
+      "15": 0.925,
+      "20": 0.915
+    }
+  },
+  "sweeps": [
+    {
+      "axis": "l_tol_pct",
+      "values": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        15.0
+      ],
+      "accuracy": [
+        0.85825,
+        0.85875,
+        0.8600000000000001,
+        0.86075,
+        0.86075,
+        0.8625
+      ],
+      "mean_kl": [
+        0.7610978484153748,
+        0.7550301998853683,
+        0.749271810054779,
+        0.743766263127327,
+        0.7388119399547577,
+        0.7264722436666489
+      ]
+    },
+    {
+      "axis": "c_tol_pct",
+      "values": [
+        0.0,
+        2.5,
+        5.0,
+        7.5,
+        10.0,
+        15.0
+      ],
+      "accuracy": [
+        0.8582500000000001,
+        0.85875,
+        0.8600000000000001,
+        0.86,
+        0.86025,
+        0.8607499999999999
+      ],
+      "mean_kl": [
+        0.7564209252595901,
+        0.7524782121181488,
+        0.749271810054779,
+        0.7457146942615509,
+        0.7425992488861084,
+        0.7363174110651016
+      ]
+    },
+    {
+      "axis": "clock_err_pct",
+      "values": [
+        0.0,
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        8.0
+      ],
+      "accuracy": [
+        0.8600000000000001,
+        0.8600000000000001,
+        0.8600000000000001,
+        0.8595,
+        0.859,
+        0.85625
+      ],
+      "mean_kl": [
+        0.7487160861492157,
+        0.749271810054779,
+        0.7496924847364426,
+        0.7511360198259354,
+        0.7534891068935394,
+        0.7565829455852509
+      ]
+    },
+    {
+      "axis": "stage_snr_db",
+      "values": [
+        60.0,
+        50.0,
+        40.0,
+        30.0,
+        20.0,
+        10.0
+      ],
+      "accuracy": [
+        0.85,
+        0.85,
+        0.851,
+        0.857,
+        0.86,
+        0.776
+      ],
+      "mean_kl": [
+        0.7765121459960938,
+        0.7764726281166077,
+        0.7761262059211731,
+        0.7733092308044434,
+        0.7484331130981445,
+        0.6011537909507751
+      ]
+    },
+    {
+      "axis": "edge_ns",
+      "values": [
+        100.0,
+        250.0,
+        400.0,
+        726.0,
+        1000.0,
+        1500.0
+      ],
+      "accuracy": [
+        0.845,
+        0.845,
+        0.85,
+        0.85,
+        0.861,
+        0.863
+      ],
+      "mean_kl": [
+        0.8520214557647705,
+        0.842321515083313,
+        0.8235962390899658,
+        0.7765238285064697,
+        0.7319459319114685,
+        0.6329230666160583
+      ]
+    },
+    {
+      "axis": "crosstalk_k",
+      "values": [
+        0.0,
+        0.0027,
+        0.0068,
+        0.0136,
+        0.0272,
+        0.05
+      ],
+      "accuracy": [
+        0.849,
+        0.85,
+        0.852,
+        0.854,
+        0.856,
+        0.859
+      ],
+      "mean_kl": [
+        0.7764682769775391,
+        0.7765238285064697,
+        0.7763497829437256,
+        0.7738472819328308,
+        0.7703043222427368,
+        0.7582160830497742
+      ]
+    },
+    {
+      "axis": "vbe_mismatch_mv",
+      "values": [
+        0.0,
+        1.0,
+        2.0,
+        4.0,
+        8.0,
+        16.0
+      ],
+      "accuracy": [
+        0.8604999999999999,
+        0.85875,
+        0.8600000000000001,
+        0.85975,
+        0.86025,
+        0.8455
+      ],
+      "mean_kl": [
+        0.7569137811660767,
+        0.7531143724918365,
+        0.749271810054779,
+        0.7415025532245636,
+        0.7256545722484589,
+        0.6937090903520584
+      ]
+    },
+    {
+      "axis": "q_inductor",
+      "values": [
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        60.0,
+        100.0
+      ],
+      "accuracy": [
+        0.85,
+        0.849,
+        0.848,
+        0.851,
+        0.851,
+        0.857
+      ],
+      "mean_kl": [
+        0.7765238285064697,
+        0.7886457443237305,
+        0.7962083220481873,
+        0.8027385473251343,
+        0.8114829659461975,
+        0.8103678226470947
+      ]
+    },
+    {
+      "axis": "temperature_c",
+      "values": [
+        -20.0,
+        0.0,
+        27.0,
+        50.0,
+        70.0,
+        85.0
+      ],
+      "accuracy": [
+        0.857,
+        0.851,
+        0.85,
+        0.858,
+        0.863,
+        0.869
+      ],
+      "mean_kl": [
+        0.8164342045783997,
+        0.8004965782165527,
+        0.7765238285064697,
+        0.7543159127235413,
+        0.7340186238288879,
+        0.718290388584137
+      ]
+    },
+    {
+      "axis": "crosstalk_pitch_mm",
+      "values": [
+        3.0,
+        4.0,
+        5.0,
+        8.0,
+        12.0
+      ],
+      "accuracy": [
+        0.859,
+        0.852,
+        0.851,
+        0.849,
+        0.849
+      ],
+      "mean_kl": [
+        0.7769309282302856,
+        0.7781851291656494,
+        0.7775217294692993,
+        0.776767909526825,
+        0.7765614986419678
+      ]
+    },
+    {
+      "axis": "gain_trim_db",
+      "values": [
+        0.0,
+        2.0,
+        4.0,
+        6.0206,
+        8.0,
+        10.0
+      ],
+      "accuracy": [
+        0.176,
+        0.244,
+        0.251,
+        0.457,
+        0.842,
+        0.826
+      ],
+      "mean_kl": [
+        13.919072151184082,
+        12.061094284057617,
+        6.320681571960449,
+        0.668502688407898,
+        0.35283362865448,
+        1.1835166215896606
+      ]
+    }
+  ],
+  "fidelity": {
+    "models": [
+      "scikit-rf 2.2.0: ABCD cascade of 56 constant-k LC sections per line (L 120 uH + DCR 3.3 ohm, Cp 19.4 pF from SRF 3.3 MHz, Rp from Q=10; C 120 pF), Rs/Rl 1000 ohm, input RC 482 kHz (edge 726 ns), tap buffers GBW 10 MHz",
+      "ladder responses -> impulse responses at the S/H instants by direct inverse DFT; FIR engine of tier R (rf.fir_apply)",
+      "crossbar 10 kohm +-1 %, DNP-pad leakage, summer pole and R_f error, tanh with V_BE mismatch 2 mV and temperature, diff-amp gain error, track-and-hold acquisition error and phase error",
+      "inter-line mutual inductance k (dipole estimate, alternating layout, 3 mm pitch), ribbon 30 pF/m + NEXT",
+      "clock calibrated on tile-1 line 0, residual error 0.5 %; stage noise from params.json summer_noise; 12-bit DAC/ADC",
+      "nominal metrics: nominal parts on the FULL test set of 4000; sweeps on a fixed stratified subset of 1000 examples (tolerance axes: mean of 4 boards); Monte Carlo 1000 trials on 800 examples"
+    ],
+    "omits": [
+      "LUMPED-ELEMENT circuit model at ~1 MBd: NOT RF (wavelength >> board); no EM/layout/field solving, no hardware measurement",
+      "inductor Q is only known as a datasheet minimum (>= 10 @ 796 kHz); Q = 30 is an assumed typical; Rp frequency independent; no inductor tempco or saturation",
+      "mutual inductance is a dipole estimate between equal sections of neighbour lines (no capacitive/ground-return coupling); tolerance enters first order on top of the coupled nominal ladder",
+      "op-amps are single-pole (GBW 10 MHz) with no slew limit, offset or output impedance beyond the ribbon driver (50 ohm assumed); diff pair is ideal tanh + V_BE offset (no beta, Early, emitter-tail variation)",
+      "no clock jitter (static phase/period error only), no supply noise, no ground bounce, no temperature dependence except V_T",
+      "tolerances are uniform within +-tol (a bounded distribution), independent per part with a shared tile-level component"
+    ]
+  },
+  "inputs_from": [
+    "hw/board/params.json"
+  ],
+  "runtime_s": 11.143,
+  "warnings": [
+    "Finding F1 (gain trim): the board AS DESIGNED (R_f sized for tap amplitude A_in*x, but the matched ladder halves it) gives accuracy 0.1675 vs V 0.6550; the headline numbers use the M1a normalisation (mean on-lag tap gain = 1, auto trim 8.98 dB; the fixed 6.02 dB level fix gives 0.4540). Q corners (trimmed): Q=10 0.8705, Q=30 0.8722.",
+    "Lumped-element parasitics/tolerance model, not RF; simulation only, nothing measured. Calibrated symbol period 0.889 us; DC tap gain tap0..7 (tile 1): 1.524, 1.490, 1.456, 1.422, 1.388, 1.354, 1.320, 1.286",
+    "Monte Carlo: 1000 boards on a fixed stratified subset of 800 test examples: accuracy 0.8564 +- 0.0056 (p5 0.8475), yield 1.000 at >= V-5pt (0.6050 on that subset), 337 s of compute"
+  ],
+  "schema_version": "dlnn-tier/1",
+  "arrays": {
+    "logits": {
+      "file": "P.npz",
+      "key": "logits",
+      "shape": [
+        4000,
+        8
+      ],
+      "dtype": "float32"
+    },
+    "probs": {
+      "file": "P.npz",
+      "key": "probs",
+      "shape": [
+        4000,
+        8
+      ],
+      "dtype": "float32"
+    },
+    "pred": {
+      "file": "P.npz",
+      "key": "pred",
+      "shape": [
+        4000
+      ],
+      "dtype": "int64"
+    },
+    "trace_activations.L0": {
+      "file": "P.npz",
+      "key": "trace_activations.L0",
+      "shape": [
+        16,
+        8,
+        128
+      ],
+      "dtype": "float32"
+    },
+    "trace_activations.L1": {
+      "file": "P.npz",
+      "key": "trace_activations.L1",
+      "shape": [
+        16,
+        8,
+        128
+      ],
+      "dtype": "float32"
+    },
+    "trace_activations.L2": {
+      "file": "P.npz",
+      "key": "trace_activations.L2",
+      "shape": [
+        16,
+        8,
+        128
+      ],
+      "dtype": "float32"
+    },
+    "diag.as_designed_gain_trim_0dB.accuracy": {
+      "file": "P.npz",
+      "key": "diag.as_designed_gain_trim_0dB.accuracy",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "diag.as_designed_gain_trim_0dB.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "diag.as_designed_gain_trim_0dB.top1_agreement_vs_virtual",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "diag.trim_6dB_level_fix.accuracy": {
+      "file": "P.npz",
+      "key": "diag.trim_6dB_level_fix.accuracy",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "diag.trim_6dB_level_fix.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "diag.trim_6dB_level_fix.top1_agreement_vs_virtual",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "diag.Q30_assumed_typical.accuracy": {
+      "file": "P.npz",
+      "key": "diag.Q30_assumed_typical.accuracy",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "diag.Q30_assumed_typical.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "diag.Q30_assumed_typical.top1_agreement_vs_virtual",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "diag.Q10_datasheet_min.accuracy": {
+      "file": "P.npz",
+      "key": "diag.Q10_datasheet_min.accuracy",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "diag.Q10_datasheet_min.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "diag.Q10_datasheet_min.top1_agreement_vs_virtual",
+      "shape": [],
+      "dtype": "float64"
+    },
+    "sweep.l_tol_pct.values": {
+      "file": "P.npz",
+      "key": "sweep.l_tol_pct.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.l_tol_pct.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.l_tol_pct.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.c_tol_pct.values": {
+      "file": "P.npz",
+      "key": "sweep.c_tol_pct.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.c_tol_pct.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.c_tol_pct.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.clock_err_pct.values": {
+      "file": "P.npz",
+      "key": "sweep.clock_err_pct.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.clock_err_pct.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.clock_err_pct.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.stage_snr_db.values": {
+      "file": "P.npz",
+      "key": "sweep.stage_snr_db.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.stage_snr_db.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.stage_snr_db.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.edge_ns.values": {
+      "file": "P.npz",
+      "key": "sweep.edge_ns.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.edge_ns.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.edge_ns.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.crosstalk_k.values": {
+      "file": "P.npz",
+      "key": "sweep.crosstalk_k.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.crosstalk_k.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.crosstalk_k.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.vbe_mismatch_mv.values": {
+      "file": "P.npz",
+      "key": "sweep.vbe_mismatch_mv.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.vbe_mismatch_mv.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.vbe_mismatch_mv.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.q_inductor.values": {
+      "file": "P.npz",
+      "key": "sweep.q_inductor.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.q_inductor.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.q_inductor.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.temperature_c.values": {
+      "file": "P.npz",
+      "key": "sweep.temperature_c.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.temperature_c.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.temperature_c.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.crosstalk_pitch_mm.values": {
+      "file": "P.npz",
+      "key": "sweep.crosstalk_pitch_mm.values",
+      "shape": [
+        5
+      ],
+      "dtype": "float64"
+    },
+    "sweep.crosstalk_pitch_mm.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.crosstalk_pitch_mm.top1_agreement_vs_virtual",
+      "shape": [
+        5
+      ],
+      "dtype": "float64"
+    },
+    "sweep.crosstalk_pitch_mm_alt.values": {
+      "file": "P.npz",
+      "key": "sweep.crosstalk_pitch_mm_alt.values",
+      "shape": [
+        5
+      ],
+      "dtype": "float64"
+    },
+    "sweep.crosstalk_pitch_mm_alt.accuracy": {
+      "file": "P.npz",
+      "key": "sweep.crosstalk_pitch_mm_alt.accuracy",
+      "shape": [
+        5
+      ],
+      "dtype": "float64"
+    },
+    "sweep.crosstalk_pitch_mm_alt.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.crosstalk_pitch_mm_alt.top1_agreement_vs_virtual",
+      "shape": [
+        5
+      ],
+      "dtype": "float64"
+    },
+    "sweep.gain_trim_db.values": {
+      "file": "P.npz",
+      "key": "sweep.gain_trim_db.values",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "sweep.gain_trim_db.top1_agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "sweep.gain_trim_db.top1_agreement_vs_virtual",
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "mc.accuracy": {
+      "file": "P.npz",
+      "key": "mc.accuracy",
+      "shape": [
+        1000
+      ],
+      "dtype": "float32"
+    },
+    "mc.agreement_vs_virtual": {
+      "file": "P.npz",
+      "key": "mc.agreement_vs_virtual",
+      "shape": [
+        1000
+      ],
+      "dtype": "float32"
+    },
+    "mc.subset_indices": {
+      "file": "P.npz",
+      "key": "mc.subset_indices",
+      "shape": [
+        800
+      ],
+      "dtype": "int64"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.title KiCad schematic
+.include "/home/user/dlnn/hw/p0/models/lc_parts.lib"
+XL1 /N0 /N1 IND_DCR L=120u R=3
+C1 /N1 GND 120p
+R3 /T1 /SUM 10k
+R4 /T2 /SUM 10k
+R1 /VDRV /N0 1k
+XU1 /N1 /T1 /T1 +5V -5V OPA_IDEAL
+R2 /N2 GND 1k
+C2 /N2 GND 120p
+XU3 GND /SUM /OUT +5V -5V OPA_IDEAL
+R5 /SUM /OUT 10k
+XU2 /N2 /T2 /T2 +5V -5V OPA_IDEAL
+XL2 /N1 /N2 IND_DCR L=120u R=3
+C3 +5V GND 100n
+C4 GND -5V 100n
+.end

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Delay-Line Neural Net</title>
+<meta name="description" content="A ternary tapped-delay-line neural network for radio modulation recognition: simulated at four fidelities, designed as a PCB, and playable in your browser.">
+<meta name="color-scheme" content="light dark">
+<link rel="preload" href="../assets/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<script>
+  /* apply a saved theme before first paint (per-viewer convenience; storage may be blocked) */
+  try { var t = localStorage.getItem("dlnn-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="topbar" id="topbar">
+  <div class="shell gutter">
+    <a class="brand" href="#top" aria-label="DLNN article, top">
+      <svg viewBox="0 0 28 16" aria-hidden="true"><path d="M1 8h4l2-6 3 12 3-12 3 12 2-6h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      DLNN
+    </a>
+    <nav class="secnav" id="secnav" aria-label="Sections"></nav>
+    <div class="tools">
+      <button class="iconbtn menubtn" id="menubtn" aria-expanded="false" aria-controls="secnav">Contents</button>
+      <button class="iconbtn" id="themebtn" aria-label="Toggle colour theme" title="Toggle colour theme">Theme</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="shell gutter">
+    <header class="hero">
+      <p class="eyebrow">Simulation, RTL emulation and a PCB design. Nothing built yet.</p>
+      <h1>What if the delay line was the neural net?</h1>
+      <p class="standfirst">The first electronic computers stored bits as sound in tubes of mercury. We use the same trick to compute: a tapped delay line whose taps are weighted -1, 0 or +1 recognises radio modulations, and you can race it against four other classifiers below. <span class="draft">[[DRAFT]]</span></p>
+      <p class="byline"><span>DLNN project</span><span>Draft for M4a: page shell, design system and first widgets</span><span class="mono">~25 min read when complete</span></p>
+    </header>
+
+    <div id="hero-sketch" class="hero-sketch" data-widget="hero" aria-label="Animation of pulses on a tapped delay line"></div>
+
+    <aside class="honesty" aria-labelledby="honesty-h">
+      <h2 id="honesty-h">Read this first</h2>
+      <ul>
+        <li><b>Nothing here is measured.</b> Every number comes from simulation, from a bit-true fixed-point model checked against Verilog RTL, or from a hardware design that has not been fabricated.</li>
+        <li><b>The board is designed, not built.</b> No claim is made that it works.</li>
+        <li><b>Accuracy is on our own synthetic 8-class set</b> (128 samples, 8 per symbol). It is not comparable with RadioML results.</li>
+        <li><b>We are not first.</b> Tapped-line recurrent nets for RF (Pour 2025; Merton 2026), ternary modulation recognition (Woo 2024) and tapped delay-line learning (Tank 1987) came before; see the lineage.</li>
+        <li><b>Energy figures are labelled estimates</b> built from cited per-operation costs, not measurements of this design.</li>
+      </ul>
+      <div class="legend" aria-label="Status labels">
+        <span class="status sim"><i>&#9679;</i> simulated</span>
+        <span class="status rtl"><i>&#9670;</i> RTL</span>
+        <span class="status des"><i>&#9650;</i> designed</span>
+        <span class="status meas none" title="Nothing is measured yet"><i>&#9632;</i> measured: none yet</span>
+        <span style="width:6px"></span>
+        <span class="tier V" title="Tier V: ideal math">V</span><span class="tier E" title="Tier E: bit-true fixed point + RTL">E</span><span class="tier C" title="Tier C: SPICE-calibrated circuit model">C</span><span class="tier R" title="Tier R: RF / signal-integrity channel model">R</span>
+        <span style="font:500 .8rem var(--font-ui);color:var(--muted)">Pills like <a class="chip" data-claim="p1.w32.acc.V" data-show="value" href="#reproduce"></a> resolve against <code>data/claims.json</code>.</span>
+      </div>
+    </aside>
+
+    <!-- 1 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="hook" data-nav="Hook">
+      <div class="sec-head"><span class="sec-num">1 / 13</span><h2>Sound in a tube of mercury</h2></div>
+      <div class="prose">
+        <p><span class="draft">[[DRAFT]]</span> Mercury delay lines held the memory of the EDVAC generation: a pulse goes in at one end of a tube, comes out later, and is re-injected. Tapping the line along its length gives you something else: a weighted sum of the signal at several delays, which is a filter, and with learned weights, a layer of a neural network.</p>
+        <p><span class="draft">[[DRAFT]]</span> Our version keeps the weights to a polarity. A tap is wired in as +1, wired in inverted as -1, or left off. A tanh soft limiter stands in for the neuron, an RC stage pools, and a small digital readout picks one of eight modulations. On our synthetic set the ideal model scores <a class="chip" data-claim="p1.w32.acc.V" data-show="value" href="#fidelities"></a> and the bit-true fixed-point version <a class="chip" data-claim="p1.w32.acc.E" data-show="value" href="#fidelities"></a>.</p>
+      </div>
+    </section>
+
+    <!-- W0 ----------------------------------------------------------------------------------------------------- -->
+    <section class="sec" id="arena" data-nav="Arena">
+      <div class="sec-head"><span class="sec-num">Live</span><h2>Race it</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> A small delay-line net runs in your browser next to a board-trained version, a feature MLP and a raw-I/Q MLP, a 1-D CNN, a random delay reservoir and a classical cumulant classifier, all on the same live stream. Key a signal with the space bar, whistle at the microphone, draw an I/Q path, or just watch the stream cycle. Try to fool the network.</p></div>
+      <div class="wide"><div id="w0-arena" class="widget arena" data-widget="arena" aria-label="Live arena">
+        <div class="loading">Loading the arena (models are about 100 KB)...</div>
+        <noscript><p class="fallback">The arena needs JavaScript. It runs nine models from <code>data/arena_models.json</code> on one live modulation stream; see the table of test accuracies in the README.</p></noscript>
+      </div></div>
+    </section>
+
+    <!-- 2 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="lineage" data-nav="Lineage">
+      <div class="sec-head"><span class="sec-num">2 / 13</span><h2>The lineage</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> Delay-line memory, transversal filters, CCD and bucket-brigade devices, ADALINE, time-delay neural nets, temporal convolutions, delay reservoirs, analog AI and ternary nets. The close prior work is listed prominently: this project is a reproducible, four-fidelity, open-hardware build with an explicit comparison, not a first.</p></div>
+      <div class="merc-sketch" id="merc-sketch" data-widget="mercury"></div>
+      <div class="wide"><div id="w8-timeline" class="widget" data-widget="timeline"><div class="loading">Loading the timeline...</div></div></div>
+    </section>
+
+    <!-- 3 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="idea" data-nav="The idea">
+      <div class="sec-head"><span class="sec-num">3 / 13</span><h2>Taps are weights, polarity is the ternary</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> One picture: a delay line, a column of taps, each wired + or - or not at all, a summing node, a differential-pair tanh. Below are the real trained weights of the width-8 net from the arena. Pick a layer, hover a tap.</p></div>
+      <div class="wide"><div id="w1-taps" class="widget" data-widget="taps"><div class="loading">Loading the network...</div></div></div>
+    </section>
+
+    <!-- 4 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="maths" data-nav="Maths">
+      <div class="sec-head"><span class="sec-num">4 / 13</span><h2>The maths, lightly</h2></div>
+      <div class="prose">
+        <p><span class="draft">[[DRAFT]]</span> Layer equation: <code>u[o,n] = &Sigma;<sub>i,k</sub> W[o,i,k] x[i, n-k&middot;d]</code> and <code>y[o,n] = tanh((u[o,n] + b[o]) / V<sub>sat</sub>)</code>. Delay is length over phase velocity; on the board it is an LC ladder. What passive parts cannot do (gain, nonlinearity, softmax) is why the design is a minimal hybrid.</p>
+      </div>
+      <div class="wide"><div id="w2-infer" class="widget" data-widget="infer"><div class="loading">Loading the inference demo...</div></div></div>
+    </section>
+
+    <!-- 5 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="training" data-nav="Training">
+      <div class="sec-head"><span class="sec-num">5 / 13</span><h2>Training a net hardware can run</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> Ternary quantisation-aware training with a straight-through estimator; width 8 against width 32; the 8PSK collapse at width 8, told honestly. At width 8 the phase-1 model reaches <a class="chip" data-claim="p1.w8.acc.V" data-show="value" href="#fidelities"></a> against <a class="chip" data-claim="p1.w32.acc.V" data-show="value" href="#fidelities"></a> at width 32 (both <span class="status sim"><i>&#9679;</i> simulated</span>).</p></div>
+    </section>
+
+    <!-- 6 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="fidelities" data-nav="Fidelities">
+      <div class="sec-head"><span class="sec-num">6 / 13</span><h2>Four fidelities, one model</h2></div>
+      <div class="prose">
+        <p><span class="draft">[[DRAFT]]</span> <span class="tier V">V</span> ideal math, <span class="tier E">E</span> bit-true fixed point checked against Verilog RTL, <span class="tier C">C</span> SPICE-calibrated circuit model, <span class="tier R">R</span> an RF / signal-integrity channel model. Width-32 mixed-SNR accuracy: V <a class="chip" data-claim="p1.w32.acc.V" data-show="value" href="#reproduce"></a>, E <a class="chip" data-claim="p1.w32.acc.E" data-show="value" href="#reproduce"></a>, C <a class="chip" data-claim="p1.w32.acc.C" data-show="value" href="#reproduce"></a>, R <a class="chip" data-claim="p1.w32.acc.R" data-show="value" href="#reproduce"></a>. The RTL and the golden model disagree on <a class="chip" data-claim="p1.w32.rtl.mismatches" data-show="value" href="#reproduce"></a> of the values compared.</p>
+      </div>
+      <div class="wide"><div class="stub"><span class="status sim"><i>&#9679;</i> W4</span><b>Four-fidelity scope</b> overlaid V / E / C / R waveforms, eye and spectrum from precomputed traces. Arrives in M4b/c.</div></div>
+    </section>
+
+    <!-- 8 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="coax" data-nav="Coax to board">
+      <div class="sec-head"><span class="sec-num">8 / 13</span><h2>From coax to a board</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> Why metres of RG-58 at 10 ns is silly, the option table, and the scaling wall. [[TBD: board]]</p></div>
+    </section>
+
+    <!-- 7 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="breaks" data-nav="Where it breaks">
+      <div class="sec-head"><span class="sec-num">7 / 13</span><h2>Where it breaks</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> Line loss, the compensation-mode finding, ADC bits, isolation and tap tolerance. The arena has a small taste of the last one: the tolerance slider perturbs every tap gain of the live DLNN.</p></div>
+      <div class="wide"><div id="w5-degrade" class="widget" data-widget="degrade"><div class="loading">Loading the degradation lab...</div></div></div>
+    </section>
+
+    <!-- 9 ------------------------------------------------------------------------------------------------------ -->
+    <section class="sec" id="board" data-nav="The board">
+      <div class="sec-head"><span class="sec-num">9 / 13</span><h2>The board</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> <span class="status des"><i>&#9650;</i> designed, not fabricated</span> Schematic, layers, 3-D view, BOM and cost, how tiles chain. The weights are the pick-and-place file.</p></div>
+      <div class="wide"><div id="w6-board" class="widget" data-widget="board"><div class="loading">Loading the board viewer (the carrier 3-D model is 16 MB and loads when you get here)...</div></div></div>
+      <div class="wide"><div id="w3-sandbox" class="widget" data-widget="sandbox"><div class="loading">Loading the circuit sandbox...</div></div></div>
+    </section>
+
+    <!-- 10 ----------------------------------------------------------------------------------------------------- -->
+    <section class="sec" id="scaling" data-nav="Scaling up">
+      <div class="sec-head"><span class="sec-num">10 / 13</span><h2>Scaling up</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> Tiles, area, BOM, power and latency from the at-scale notebooks (simulation only), and accuracy plus energy per classification against a conventional ANN. The arena already shows one point on that curve: operations per classification for each model.</p></div>
+      <div class="wide"><div id="w7-stitch" class="widget" data-widget="stitch"><div class="loading">Loading the stitching diagram...</div></div></div>
+      <div class="wide"><div id="w9-scale" class="widget" data-widget="scale"><div class="loading">Loading the scale charts...</div></div></div>
+    </section>
+
+    <!-- 11 ----------------------------------------------------------------------------------------------------- -->
+    <section class="sec" id="wrong" data-nav="What we got wrong">
+      <div class="sec-head"><span class="sec-num">11 / 13</span><h2>What doesn't work, and what we got wrong</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> The cost of d = 1, ringing, QPSK and 8PSK, tolerance yield, and the LLM commentary experiment, which restated a Python-computed list and discovered nothing.</p></div>
+    </section>
+
+    <!-- 12 ----------------------------------------------------------------------------------------------------- -->
+    <section class="sec" id="reproduce" data-nav="Reproduce">
+      <div class="sec-head"><span class="sec-num">12 / 13</span><h2>Reproduce it yourself</h2></div>
+      <div class="prose"><p><span class="draft">[[DRAFT]]</span> The public notebook, Binder and Colab badges, the verify notebook's PASS/FAIL table and the claim-to-evidence map. Every chip on this page resolves against <code>data/claims.json</code>; its <code>pytest</code> and <code>notebook_cell</code> fields are filled when the verify notebook exists.</p></div>
+      <div class="wide"><div class="stub"><span class="status sim"><i>&#9679;</i> W10</span><b>Claims map</b> a table of every claim, its value, notebook cell and PASS/FAIL. Arrives in M4c/M6.</div></div>
+    </section>
+
+    <!-- 13 ----------------------------------------------------------------------------------------------------- -->
+    <section class="sec" id="refs" data-nav="References">
+      <div class="sec-head"><span class="sec-num">13 / 13</span><h2>References</h2></div>
+      <div class="prose"><p>Verified entries only, from <code>data/literature.json</code>.</p></div>
+      <div class="wide"><div id="refs-list" class="widget" data-widget="refs"><div class="loading">Loading references...</div></div></div>
+    </section>
+  </div>
+</main>
+<footer class="site"><div class="shell gutter"><span>DLNN article shell, M4a. Static site, no network access at runtime; libraries vendored under <code>vendor/</code> (licences alongside).</span><span>Fonts: Source Serif 4, Hanken Grotesk, JetBrains Mono (SIL OFL 1.1; licences in <code>assets/fonts/</code>).</span></div></footer>
+<script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>
