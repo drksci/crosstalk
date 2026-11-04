@@ -8,13 +8,13 @@ when the file is loaded, and validation runs once, up front.
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, fields
+from dataclasses import asdict, dataclass, fields, replace
 from pathlib import Path
 from typing import Any
 
 import yaml
 
-SUPPORTED_TOPOLOGIES = ("nearest_neighbour",)
+SUPPORTED_TOPOLOGIES = ("nearest_neighbour", "extracted")
 SUPPORTED_MASK_MODES = ("modulated", "additive")
 SUPPORTED_NONLINEARITIES = ("tanh", "identity")
 SUPPORTED_LOCATIONS = ("state", "edge_and_state")
@@ -66,6 +66,14 @@ class CouplingConfig:
 
     ``mask_seed`` decouples mask generation from the experiment seed, so two
     runs that differ only in experiment seed see the same tensor.
+
+    Two topologies. ``nearest_neighbour`` is the hand-written update: coupling
+    is an arithmetic expression in ``neighbour_strength`` and its siblings.
+    ``extracted`` replaces that expression with a state-space model fitted to a
+    simulated line, so the coupling comes from ``model_path`` instead of from
+    arithmetic -- which is why the neighbour strengths must then be zero rather
+    than merely ignored. ``model_path`` is resolved against the config file's
+    own directory by :func:`load_config`, so a config travels with its model.
     """
 
     topology: str = "nearest_neighbour"
@@ -75,6 +83,7 @@ class CouplingConfig:
     mask_mode: str = "modulated"
     mask_gain: float = 0.05
     mask_seed: int = 0
+    model_path: str | None = None
 
     def validate(self, prefix: str = "coupling") -> None:
         if self.topology not in SUPPORTED_TOPOLOGIES:
@@ -84,6 +93,23 @@ class CouplingConfig:
         if self.mask_mode not in SUPPORTED_MASK_MODES:
             raise ConfigError(
                 f"{prefix}.mask_mode must be one of {SUPPORTED_MASK_MODES}, got {self.mask_mode!r}"
+            )
+        if self.topology == "extracted":
+            if not self.model_path:
+                raise ConfigError(f"{prefix}.topology 'extracted' requires {prefix}.model_path")
+            stale = {
+                name: getattr(self, name)
+                for name in ("neighbour_strength", "second_neighbour_strength")
+                if getattr(self, name) != 0.0
+            }
+            if stale:
+                raise ConfigError(
+                    f"{prefix}: topology 'extracted' takes its coupling from the macromodel, "
+                    f"so these must be 0 and not merely ignored, got {stale}"
+                )
+        elif self.model_path is not None:
+            raise ConfigError(
+                f"{prefix}.model_path only applies to topology 'extracted', not {self.topology!r}"
             )
         for name in ("neighbour_strength", "second_neighbour_strength"):
             value = getattr(self, name)
@@ -233,6 +259,13 @@ def load_config(path: str | Path) -> DelayTensorConfig:
 
     config = DelayTensorConfig(name=config_path.stem, **sections)
     config.validate()
+    if config.coupling.model_path:
+        # resolve against the config file, not the working directory, so a
+        # config and its macromodel can be moved together
+        model = Path(config.coupling.model_path)
+        if not model.is_absolute():
+            model = (config_path.parent / model).resolve()
+        config = replace(config, coupling=replace(config.coupling, model_path=str(model)))
     return config
 
 

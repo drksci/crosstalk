@@ -86,6 +86,13 @@ def render_observations(summary: Summary) -> str:
         f"Raw baseline accuracy: {raw.format()}.",
         f"Reservoir accuracy: {reservoir.format()}.",
         f"Accuracy delta: {delta.mean:+.3f} ± {delta.std:.3f}.",
+    ]
+    if summary.mlp is not None:
+        lines.append(
+            f"MLP baseline: {summary.mlp.format()} on raw pixels (a different model, "
+            "for reference rather than as a contestant)."
+        )
+    lines += [
         f"Verdict: {verdict}",
         f"Next move: {next_move}",
         f"Feature surface: {tensor.wires} wires x {tensor.slots} slots = {summary.feature_count} "
@@ -130,11 +137,17 @@ def _header(summary: Summary, generated: str, command: str | None) -> str:
     ]
     if command:
         meta.append(f"<span><b>command</b> <code>{html.escape(command)}</code></span>")
+    lede = (
+        "A frozen coupled-line reservoir, a raw-waveform baseline and an MLP reference, "
+        "scored on the same split."
+        if summary.has_mlp
+        else "A frozen coupled-line reservoir and a raw-waveform baseline, "
+        "scored by the same linear readout."
+    )
     return (
         "<header>"
         "<h1>Delay Tensor — simulated experiment</h1>"
-        '<p class="lede">A frozen coupled-line reservoir and a raw-waveform baseline, '
-        "scored by the same linear readout.</p>"
+        f'<p class="lede">{html.escape(lede)}</p>'
         f'<p class="meta">{"".join(meta)}</p>'
         "</header>"
     )
@@ -144,13 +157,20 @@ def _outcomes(summary: Summary) -> str:
     cards = [
         ("Raw baseline", summary.raw.format(), "waveforms straight into the readout"),
         ("Reservoir", summary.reservoir.format(), "waveforms through the tensor first"),
+    ]
+    mlp = summary.mlp
+    if mlp is not None:
+        cards.append(("MLP", mlp.format(), "nonlinear model on raw pixels, for reference"))
+    cards.append(
         (
             "Delta",
             f"{summary.delta.mean:+.3f}",
             f"± {summary.delta.std:.3f} across {summary.raw.n} seed(s)",
-        ),
-        ("Chance", f"{summary.chance_level:.3f}", f"{summary.feature_count} virtual nodes"),
-    ]
+        )
+    )
+    cards.append(
+        ("Chance", f"{summary.chance_level:.3f}", f"{summary.feature_count} virtual nodes")
+    )
     body = "".join(
         f'<div class="card"><div class="card-label">{html.escape(label)}</div>'
         f'<div class="card-value">{html.escape(value)}</div>'
@@ -161,34 +181,54 @@ def _outcomes(summary: Summary) -> str:
 
 
 def _chart_section(summary: Summary) -> str:
+    labels = ["raw baseline", "reservoir"]
+    values = [summary.raw.mean, summary.reservoir.mean]
+    errors = [summary.raw.std, summary.reservoir.std]
+    mlp = summary.mlp
+    if mlp is not None:
+        labels.append("MLP")
+        values.append(mlp.mean)
+        errors.append(mlp.std)
     chart = bar_chart(
-        labels=["raw baseline", "reservoir"],
-        values=[summary.raw.mean, summary.reservoir.mean],
-        errors=[summary.raw.std, summary.reservoir.std],
+        labels=labels,
+        values=values,
+        errors=errors,
         ymax=1.0,
         aria_label="mean accuracy with standard deviation whiskers",
     )
+    note = "Both linear arms use the same readout class and hyperparameters."
+    if mlp is not None:
+        note += (
+            " The MLP arm is a different model on purpose: it is the yardstick, not a contestant."
+        )
     return (
         "<section><h2>Accuracy</h2>"
         f"{chart}"
-        '<p class="caption">Bars show the mean over seeds; whiskers show ±1 standard '
-        "deviation. Both paths use the same readout class and hyperparameters.</p>"
+        f'<p class="caption">Bars show the mean over seeds; whiskers show ±1 standard '
+        f"deviation. {html.escape(note)}</p>"
         "</section>"
     )
 
 
 def _seed_table(summary: Summary) -> str:
+    third = summary.has_mlp
+    head = (
+        "<thead><tr><th>seed</th><th>raw</th><th>reservoir</th>"
+        + ("<th>MLP</th>" if third else "")
+        + "<th>delta</th><th>train</th><th>test</th></tr></thead>"
+    )
     rows = "".join(
-        f"<tr><td>{record.seed}</td><td>{record.raw_accuracy:.3f}</td>"
-        f"<td>{record.reservoir_accuracy:.3f}</td><td>{record.delta:+.3f}</td>"
+        "<tr>"
+        f"<td>{record.seed}</td><td>{record.raw_accuracy:.3f}</td>"
+        f"<td>{record.reservoir_accuracy:.3f}</td>"
+        + (f"<td>{record.mlp_accuracy:.3f}</td>" if record.mlp_accuracy is not None else "")
+        + f"<td>{record.delta:+.3f}</td>"
         f"<td>{record.train_size}</td><td>{record.test_size}</td></tr>"
         for record in summary.records
     )
     return (
         "<section><h2>Per-seed results</h2>"
-        "<table><thead><tr><th>seed</th><th>raw</th><th>reservoir</th><th>delta</th>"
-        "<th>train</th><th>test</th></tr></thead>"
-        f"<tbody>{rows}</tbody></table>"
+        f"<table>{head}<tbody>{rows}</tbody></table>"
         '<p class="caption">Full metrics, including row-normalised confusion matrices, '
         "are in <code>metrics.json</code>.</p>"
         "</section>"
@@ -201,6 +241,8 @@ def _confusion_section(summary: Summary) -> str:
         ("Raw baseline (count over seeds)", summary.confusion_raw),
         ("Reservoir (count over seeds)", summary.confusion_reservoir),
     ]
+    if summary.confusion_mlp is not None:
+        panels.append(("MLP (count over seeds)", summary.confusion_mlp))
     body = "".join(
         f"<figure><figcaption>{title}</figcaption>{heatmap(matrix, names, names)}</figure>"
         for title, matrix in panels
@@ -222,6 +264,9 @@ def _examples_section(summary: Summary) -> str:
         class_name = summary.class_names[example.true_label]
         raw_ok = example.predicted_raw == example.true_label
         res_ok = example.predicted_reservoir == example.true_label
+        chips = f"raw readout: {_verdict_chip(raw_ok)} · reservoir readout: {_verdict_chip(res_ok)}"
+        if example.predicted_mlp is not None:
+            chips += f" · MLP: {_verdict_chip(example.predicted_mlp == example.true_label)}"
         raw_chart = line_chart(
             [("input", example.waveform)],
             y_label="amplitude",
@@ -238,18 +283,19 @@ def _examples_section(summary: Summary) -> str:
         tensors.append(
             '<div class="example">'
             f"<h3>{html.escape(class_name)}</h3>"
-            f'<p class="meta">raw readout: {_verdict_chip(raw_ok)} · '
-            f"reservoir readout: {_verdict_chip(res_ok)}</p>"
+            f'<p class="meta">{chips}</p>'
             '<p class="caption">input waveform</p>'
             + raw_chart
             + line_chart_legend(reservoir_series)
             + '<p class="caption">reservoir traces</p>'
             + res_chart
             + '<p class="caption">EM field — all wires at once, wavefront sweeping</p>'
+            + '<div class="field-scroll">'
             + field_view(
                 example.traces,
                 aria_label=f"electromagnetic field view for class {class_name}",
             )
+            + "</div>"
             + "</div>"
         )
     return (
@@ -292,20 +338,26 @@ def _config_section(config: DelayTensorConfig) -> str:
 def _write_csv(path: Path, summary: Summary) -> Path:
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.writer(handle)
-        writer.writerow(
-            ["seed", "raw_accuracy", "reservoir_accuracy", "delta", "train_size", "test_size"]
-        )
+        header = ["seed", "raw_accuracy", "reservoir_accuracy", "delta", "train_size", "test_size"]
+        if summary.has_mlp:
+            # Column sits after the two linear arms so a spreadsheet that
+            # ignores it still lines the arms up correctly.
+            header.insert(3, "mlp_accuracy")
+        writer.writerow(header)
         for record in summary.records:
-            writer.writerow(
-                [
-                    record.seed,
-                    f"{record.raw_accuracy:.6f}",
-                    f"{record.reservoir_accuracy:.6f}",
-                    f"{record.delta:.6f}",
-                    record.train_size,
-                    record.test_size,
-                ]
-            )
+            row = [
+                record.seed,
+                f"{record.raw_accuracy:.6f}",
+                f"{record.reservoir_accuracy:.6f}",
+            ]
+            if record.mlp_accuracy is not None:
+                row.append(f"{record.mlp_accuracy:.6f}")
+            row += [
+                f"{record.delta:.6f}",
+                record.train_size,
+                record.test_size,
+            ]
+            writer.writerow(row)
     return path
 
 
@@ -388,6 +440,10 @@ _PAGE = """<!doctype html>
   .examples {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }}
   .example {{ border: 1px solid var(--hair); border-radius: 6px; padding: 12px; }}
   .chart {{ width: 100%; height: auto; border: 1px solid var(--hair); border-radius: 4px; }}
+  /* A long delay line declares a min-width so its slots stay above a device
+     pixel; the column is narrower than that, so the excess scrolls instead of
+     being scaled back into the smear the min-width exists to prevent. */
+  .field-scroll {{ overflow-x: auto; }}
   .caption {{ font-size: 12.5px; color: var(--muted); margin: 6px 0 0; }}
   .legend {{ display: flex; flex-wrap: wrap; gap: 10px; font-size: 11.5px; color: var(--muted); margin-top: 6px; }}
   .key {{ display: inline-flex; align-items: center; gap: 5px; }}

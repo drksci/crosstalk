@@ -2,14 +2,15 @@
 
 This is the only module in ``benches/`` that imports PySpice, and PySpice is
 GPL-3.0, so nothing under ``packages/`` may ever import *this*. The split is
-deliberate: ``netlist.py`` is pure text generation and stays redistributable
-alongside the package, while the GPL stays contained to the runner.
+deliberate: ``netlist.py`` and ``rf_netlist.py`` are pure text generation and
+stay redistributable alongside the package, while the GPL stays contained to
+the runner.
 
-Run against the conda environment::
+The bench group carries PySpice and scikit-rf, and it is *not* a default uv
+group, so ``uv sync --all-packages`` keeps the test environment and the
+delay-tensor wheel both free of GPL code. Run against it::
 
-    $HOME/micromamba/envs/delay-bench/bin/python ...
-
-not the uv venv, because ngspice + PySpice only exist there.
+    uv run --all-packages --group bench ...
 """
 
 from __future__ import annotations
@@ -22,6 +23,7 @@ import time
 import warnings
 
 import numpy as np
+
 from netlist import state_node_names
 
 # PySpice keeps a supported-version list that predates ngspice 41 and warns on
@@ -105,3 +107,87 @@ def solve_states(
     names = state_node_names(batch, wires, slots)
     values, timings = solve_operating_point(netlist, names)
     return values.reshape(batch, wires, slots), timings
+
+
+def run_ac(
+    netlist: str,
+    names: list[str],
+    *,
+    start_hz: float,
+    stop_hz: float,
+    points: int,
+    variation: str = "lin",
+) -> tuple[np.ndarray, np.ndarray, dict[str, float]]:
+    """Sweep ``netlist`` and return complex node voltages over frequency.
+
+    ``ngspice``'s ``.ac`` uses ``variation`` (``lin``/``dec``/``oct``) with
+    ``points`` steps between the bounds, so the returned frequency axis is
+    whatever ngspice actually solved -- read back from the analysis rather than
+    reconstructed, because a ``dec`` sweep's last point is not ``stop_hz``.
+
+    Complex node voltages are exactly what the S-parameter extraction needs:
+    with a Thevenin source ``a1 = Vs / (2 sqrt(z0))`` and a matched receive
+    port giving ``b2 = V2 / sqrt(z0)``, so ``S21 = 2 V2 / Vs`` needs no phase
+    reference beyond the node itself.
+    """
+    from PySpice.Spice.Parser import SpiceParser
+
+    fd, path = tempfile.mkstemp(suffix=".cir", prefix="delay_tensor_")
+    os.close(fd)
+    try:
+        with open(path, "w", encoding="utf-8") as stream:
+            stream.write(netlist)
+
+        started = time.perf_counter()
+        with _quiet_py_spice():
+            circuit = SpiceParser(path).build_circuit()
+            parsed = time.perf_counter()
+            simulator = circuit.simulator(simulator="ngspice-shared")
+            analysis = simulator.ac(variation, points, start_hz, stop_hz)
+            solved = time.perf_counter()
+    finally:
+        os.unlink(path)
+
+    freqs = np.asarray(analysis.frequency, dtype=np.float64).reshape(-1)
+    values = {name: np.asarray(analysis[name], dtype=complex).reshape(-1) for name in names}
+    return freqs, values, {"parse_s": parsed - started, "solve_s": solved - parsed}
+
+
+def run_transient(
+    netlist: str,
+    names: list[str],
+    *,
+    step_time: float,
+    end_time: float,
+    start_time: float = 0.0,
+) -> tuple[np.ndarray, np.ndarray, dict[str, float]]:
+    """Run ``.tran`` and return real node voltages against a time axis.
+
+    ``step_time`` is ngspice's *output* interval; internal timesteps are chosen
+    by the solver and are typically much finer, so the returned axis is read
+    back from ``analysis.time`` rather than assumed to be uniform. The macromodel
+    extractor re-samples onto a uniform grid afterwards for exactly that reason.
+    """
+    from PySpice.Spice.Parser import SpiceParser
+
+    fd, path = tempfile.mkstemp(suffix=".cir", prefix="delay_tensor_")
+    os.close(fd)
+    try:
+        with open(path, "w", encoding="utf-8") as stream:
+            stream.write(netlist)
+
+        started = time.perf_counter()
+        with _quiet_py_spice():
+            circuit = SpiceParser(path).build_circuit()
+            parsed = time.perf_counter()
+            simulator = circuit.simulator(simulator="ngspice-shared")
+            analysis = simulator.transient(
+                step_time=step_time, end_time=end_time, start_time=start_time
+            )
+            solved = time.perf_counter()
+    finally:
+        os.unlink(path)
+
+    times = np.asarray(analysis.time, dtype=np.float64).reshape(-1)
+    values = {name: np.asarray(analysis[name], dtype=np.float64).reshape(-1) for name in names}
+    return times, values, {"parse_s": parsed - started, "solve_s": solved - parsed}

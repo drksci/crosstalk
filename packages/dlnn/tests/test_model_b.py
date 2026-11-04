@@ -1,10 +1,12 @@
 """M1b tests: board-matched TDL-Net-B (d = 1), line-FIR aware layers, arena op counting, shipped-model gate."""
+# ruff: noqa: E402  (torch is importorskip-ed before the dlnn.model imports that need it)
 import json
 from pathlib import Path
 
 import numpy as np
 import pytest
-import torch
+
+torch = pytest.importorskip("torch", reason="torch not installed (dlnn[train] extra)")
 
 from dlnn.data import modrec
 from dlnn.model import arena, export, train

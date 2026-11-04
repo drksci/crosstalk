@@ -1,3 +1,4 @@
+import re
 import xml.etree.ElementTree as ET
 
 import pytest
@@ -118,6 +119,35 @@ def test_field_view_scales_by_peak_not_absolute() -> None:
     quiet = field_view([[0.01, -0.01]])
     loud = field_view([[1.0, -1.0]])
     assert "rgb(15,118,110)" in quiet and "rgb(15,118,110)" in loud
+
+
+def test_field_view_keeps_long_delay_lines_resolvable() -> None:
+    """A 784-slot raster must not render cells thinner than a device pixel.
+
+    The floor is a CSS ``min-width``, not a bigger viewBox: the report styles
+    these as ``width:100%``, so a wider viewBox divided by a wider element
+    leaves every unit exactly the same rendered size. Asserting on the viewBox
+    would pass while the picture stayed a smear, which is what the first
+    version of this did.
+    """
+    row = [float(i % 3 - 1) for i in range(784)]
+    chart = parse(field_view([row] * 8))
+
+    floor_w = float(re.search(r"min-width:([\d.]+)px", chart.attrib["style"]).group(1))
+    # Enough room for the 58 units of gutter plus one min_cell per slot.
+    assert floor_w >= 46.0 + 12.0 + 784 * 1.6
+
+    # At min-width the element is floor_w px wide and the viewBox is floor_w
+    # units, so one unit is one pixel and each slot's column is min_cell px.
+    viewBox = [float(part) for part in chart.attrib["viewBox"].split()]
+    assert viewBox[2] == floor_w, "at min-width the two must coincide, cell = min_cell"
+
+    # A short delay line asks for far less than any column, so it keeps
+    # scaling to fit instead of overflowing its box.
+    short = parse(field_view([[1.0, -1.0, 0.0]]))
+    short_floor = float(re.search(r"min-width:([\d.]+)px", short.attrib["style"]).group(1))
+    assert short_floor < 620
+    assert float(short.attrib["viewBox"].split()[2]) == 620
 
 
 def test_field_view_rejects_bad_input() -> None:

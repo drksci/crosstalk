@@ -1,0 +1,30 @@
+# delaytensor
+
+> Two attempts to compute with delay lines, simulated and benched. Delay Tensor treats a bundle of coupled transmission lines as a fixed reservoir in front of a linear readout; DLNN trains ternary {-1, 0, +1} weights into the taps of an LC delay line, so the board's pick-and-place file is the model. Everything is simulated, emulated (Verilog RTL) or designed; nothing has been fabricated or measured.
+
+Key results (exact conditions in the linked docs): temporal XOR 0.724 raw vs 0.995 reservoir, and the win comes from the per-slot tanh, not the coupling; six-way classification and MNIST tie within seed spread; the recurrence matches ngspice to 5.27e-16; DLNN scores 0.878 on the simulated board line, 0.17 on the board as designed until a gain bug is fixed, with a 0.6-point spread over 1,000 simulated boards.
+
+## Docs
+
+- [Story](docs/story.md): the project's history as mainline and waypoints
+- [Architecture](docs/architecture.md): both halves, benches, data flow, status
+- [Timeline](docs/timeline.json): waypoints as structured data
+- [Agent guide](AGENTS.md): commands, invariants, where truth lives
+
+## Design
+
+- [Delay Tensor](docs/design/delay-tensor.md): recurrence, modules, readout parity, ablations
+- [Benches](docs/design/benches.md): ngspice equivalence, RLCG lines, transient, scikit-rf, ERA extraction
+- [DLNN](docs/design/dlnn.md): ternary layer, fidelity tiers V/E/C/P, board-as-code pipeline
+
+## Data
+
+- [Delay Tensor configs](packages/delay-tensor/configs): YAML experiment definitions
+- [DLNN article claims](packages/dlnn-paper/docs/artifacts/data/claims.json): every printed number, machine-checked
+- [DLNN tap map](packages/dlnn-paper/docs/artifacts/data/board/tapmap.json): (layer, out, in, tap) to resistor reference and delay
+
+## Optional
+
+- [DLNN package docs](packages/dlnn/docs/README.md): tiers, contract, fixed-point spec, build logs
+- [DLNN honesty page](packages/dlnn-paper/docs/honesty.md): what is and is not established
+- [Delay Tensor design notes](packages/delay-tensor/docs/design.md)

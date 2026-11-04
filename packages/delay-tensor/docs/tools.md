@@ -22,10 +22,42 @@ the last few months), **popular** (a community that answers issues), and
 
 Dev-only: `pytest`, `ruff`. Total runtime dependency set is four packages.
 
-## If SPICE / RF validation comes back
+## SPICE validation — built, not hypothetical
 
-The archive shelled out to `ngspice` per run and quietly showed "pending" when
-it was not installed (it is not installed on this machine).
+The section below was a recommendation. It has since been implemented; the
+table stays as the research trail for what was considered.
+
+| Piece | Where | Note |
+| --- | --- | --- |
+| Operating-point equivalence bench | `benches/01-equivalence.ipynb` | The netlist unrolls the slot axis into stages; max **\|error\| 5.274e-16** across 2,048 stages against NumPy |
+| Netlist + runner | `benches/netlist.py`, `benches/spice_runner.py` | `SpiceParser(...).build_circuit()` with `simulator="ngspice-shared"` |
+| Static rendering | `benches/render.py` | nbconvert with `--HTMLExporter.mathjax_url=` and `require_js_url=` emptied, then every `<script>` stripped and asserted absent |
+| Bench environment | micromamba `$HOME/micromamba/envs/delay-bench` | `ngspice-41`, PySpice 1.5, jupyterlab, ipykernel, nbconvert, matplotlib |
+
+**The licence boundary is the important part.** PySpice is GPL-3.0, so it is
+never imported by `delay_tensor` — the package stays NumPy/scikit-learn and
+distributable. Every PySpice import lives in `benches/spice_runner.py`, which
+is a development tool and is not part of the wheel. The bench caught a real
+bug while it was being written: the netlist's `tanh` gating was wrong, and the
+equivalence run found it.
+
+ngspice's v41 banner is silenced with a `logging.Filter` on logger
+`PySpice.Spice.NgSpice.Shared.NgSpiceShared` rather than by redirecting
+stdout, which would also swallow simulator errors.
+
+## vjax: not runnable here
+
+[jax/vjax](https://github.com/google/jax)-style autodiff was considered for
+the readout. It **cannot be run on this machine**: the host is an Intel
+x86_64 Mac (i3-1000NG4) and jaxlib publishes no wheel for that platform, so
+`pip install jaxlib` fails rather than falling back to a CPU build. Any vjax
+work has to happen on a remote or CUDA machine; do not add it to the local
+dependency set expecting it to resolve.
+
+This is also why the readout is scikit-learn rather than anything compiled:
+`pip install` has to succeed on the machine that runs the tests.
+
+Research trail, as GitHub showed on 2026-10-10:
 
 | Tool | Stars | Activity | Use here |
 | --- | --- | --- | --- |

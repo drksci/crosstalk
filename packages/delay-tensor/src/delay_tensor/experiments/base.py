@@ -1,13 +1,20 @@
 """Shared machinery for replicated experiments.
 
-An experiment is a seeded dataset factory plus the same two-path comparison:
+An experiment is a seeded dataset factory plus the same comparison:
 
     raw path     : features  -> LinearReadout -> accuracy
     reservoir    : features' -> LinearReadout -> accuracy
+    [optional] a third arm, named for what it is, for experiments that also
+    want a conventional model as a reference point
 
 Replicating over seeds and reporting a spread is the point: a single seed on a
 576-sample synthetic dataset moves by several points, which is exactly how a
 false result gets written down.
+
+The third arm is optional and defaults to absent, so classify and xor are
+untouched by it. It is a reference, not a contestant: the two linear arms are
+the comparison, and the third says what a standard model reaches on the same
+split, which is how a reader tells a real gain from a weak baseline.
 """
 
 from __future__ import annotations
@@ -29,13 +36,15 @@ DEFAULT_TEST_FRACTION = 0.25
 
 @dataclass(frozen=True)
 class SeedRecord:
-    """One replicate of the two-path comparison."""
+    """One replicate of the comparison."""
 
     seed: int
     raw_accuracy: float
     reservoir_accuracy: float
     train_size: int
     test_size: int
+    # Absent for the two-arm experiments; see the module docstring.
+    mlp_accuracy: float | None = None
 
     @property
     def delta(self) -> float:
@@ -51,6 +60,8 @@ class TraceExample:
     predicted_reservoir: int
     waveform: np.ndarray
     traces: np.ndarray  # (wires, slots)
+    # Absent for the two-arm experiments; see the module docstring.
+    predicted_mlp: int | None = None
 
 
 @dataclass
@@ -65,7 +76,12 @@ class Summary:
     confusion_reservoir: np.ndarray
     examples: list[TraceExample]
     health: dict[str, float | str]
-    parameters: dict[str, int | float] = field(default_factory=dict)
+    # Str is allowed as well as numbers: mnist records its MLP's layer
+    # structure, and a config echo that reported only the first layer would
+    # misdescribe the run.
+    parameters: dict[str, int | float | str] = field(default_factory=dict)
+    # Absent for the two-arm experiments; see the module docstring.
+    confusion_mlp: np.ndarray | None = None
 
     @property
     def raw(self) -> Spread:
@@ -80,6 +96,17 @@ class Summary:
         return spread([r.delta for r in self.records])
 
     @property
+    def has_mlp(self) -> bool:
+        """Whether this run carried a third arm at all."""
+        return any(r.mlp_accuracy is not None for r in self.records)
+
+    @property
+    def mlp(self) -> Spread | None:
+        """The third arm's spread, or ``None`` when the run has no such arm."""
+        values = [r.mlp_accuracy for r in self.records if r.mlp_accuracy is not None]
+        return spread(values) if values else None
+
+    @property
     def chance_level(self) -> float:
         return 1.0 / len(self.class_names)
 
@@ -89,7 +116,20 @@ class Summary:
 
     def to_metrics_dict(self) -> dict:
         """JSON-ready metrics: aggregate first, then one row per seed."""
-        return {
+        aggregate = {
+            "raw_mean": self.raw.mean,
+            "raw_std": self.raw.std,
+            "reservoir_mean": self.reservoir.mean,
+            "reservoir_std": self.reservoir.std,
+            "delta_mean": self.delta.mean,
+            "delta_std": self.delta.std,
+            "n_seeds": self.raw.n,
+        }
+        mlp = self.mlp
+        if mlp is not None:
+            aggregate |= {"mlp_mean": mlp.mean, "mlp_std": mlp.std}
+
+        metrics = {
             "experiment": self.experiment,
             "config_name": self.config.name,
             "class_names": list(self.class_names),
@@ -97,21 +137,14 @@ class Summary:
             "chance_level": self.chance_level,
             "seeds": [r.seed for r in self.records],
             "parameters": self.parameters,
-            "aggregate": {
-                "raw_mean": self.raw.mean,
-                "raw_std": self.raw.std,
-                "reservoir_mean": self.reservoir.mean,
-                "reservoir_std": self.reservoir.std,
-                "delta_mean": self.delta.mean,
-                "delta_std": self.delta.std,
-                "n_seeds": self.raw.n,
-            },
+            "aggregate": aggregate,
             "per_seed": [
                 {
                     "seed": r.seed,
                     "raw_accuracy": r.raw_accuracy,
                     "reservoir_accuracy": r.reservoir_accuracy,
                     "delta": r.delta,
+                    **({"mlp_accuracy": r.mlp_accuracy} if r.mlp_accuracy is not None else {}),
                     "train_size": r.train_size,
                     "test_size": r.test_size,
                 }
@@ -121,6 +154,9 @@ class Summary:
             "confusion_reservoir": self.confusion_reservoir.tolist(),
             "reservoir_health": dict(self.health),
         }
+        if self.confusion_mlp is not None:
+            metrics["confusion_mlp"] = self.confusion_mlp.tolist()
+        return metrics
 
 
 def run_replicates(
@@ -130,7 +166,7 @@ def run_replicates(
     dataset_factory: DatasetFactory,
     seeds: Sequence[int],
     test_fraction: float = DEFAULT_TEST_FRACTION,
-    parameters: dict[str, int | float] | None = None,
+    parameters: dict[str, int | float | str] | None = None,
     max_examples: int = 3,
     max_example_wires: int | None = None,
 ) -> Summary:

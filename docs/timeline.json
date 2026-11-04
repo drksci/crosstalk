@@ -1,0 +1,333 @@
+[
+  {
+    "id": "W01",
+    "date": "2026-06-10/2026-06-11",
+    "phase": "phase-lattice",
+    "title": "phase-lattice harness records a tie",
+    "decision": "Keep the Stage-1 question (fixed coupled-line reservoir vs raw waveform, same linear readout); the run's own next move names temporal XOR or richer coupling.",
+    "evidence": {
+      "metric": "classification accuracy, reservoir vs raw",
+      "value": "0.833 vs 0.833 (delta +0.000)",
+      "conditions": "run 20260611-004418, tile_8x64_slow, 8 wires x 64 slots = 512 features, single seed 1234, PyTorch 2.2"
+    },
+    "sources": [
+      "/Users/blake/Projects/delaytensor/archive/results/20260611-004418/observations.txt",
+      "/Users/blake/Projects/delaytensor/archive/README.md"
+    ]
+  },
+  {
+    "id": "W02",
+    "date": "2026-10-10",
+    "phase": "delay-tensor",
+    "title": "Rebuilt as Delay Tensor",
+    "decision": "Clean-room rebuild on NumPy and scikit-learn after finding three archive bugs (0.01-scale masks made modulation a no-op, second_neighbour_strength never read, no gradient ever reached the reservoir); 3 seeds, identical readout across arms, typed config, static SVG reports.",
+    "evidence": {
+      "metric": "temporal XOR accuracy, raw vs reservoir",
+      "value": "0.724 +/- 0.024 vs 0.995 +/- 0.009 (delta +0.271 +/- 0.024); classify 0.847 +/- 0.016 vs 0.861 +/- 0.022",
+      "conditions": "tensor_8x64, seeds 1234-1236, stratified 25% hold-out, LogisticRegression C=1; reproduced digit for digit on 2026-11-04"
+    },
+    "sources": [
+      "packages/delay-tensor/README.md",
+      "packages/delay-tensor/docs/design.md",
+      "README.md",
+      "git 1e43352",
+      "git 582cf6e"
+    ]
+  },
+  {
+    "id": "W03",
+    "date": "2026-10-10",
+    "phase": "delay-tensor",
+    "title": "SPICE equivalence bench",
+    "decision": "Check the update equations against ngspice by unrolling each slot into a stage; confine GPL-3.0 PySpice to benches/.",
+    "evidence": {
+      "metric": "max |ngspice - NumPy| over all states",
+      "value": "5.274e-16",
+      "conditions": "8x64 config, noise off, batch 4 = 2,048 stages, one .op solve; proves the translation of the equations, nothing about hardware; caught a wrong tanh gating in the netlist while being written"
+    },
+    "sources": [
+      "packages/delay-tensor/docs/tools.md",
+      "benches/01-equivalence.ipynb",
+      "benches/netlist.py"
+    ]
+  },
+  {
+    "id": "W04",
+    "date": null,
+    "date_note": "Undated in the records; uncommitted work after 2026-10-10, present in the 2026-11-04 working tree.",
+    "phase": "delay-tensor",
+    "title": "RF benches and extraction plumbing",
+    "decision": "Build the real lines the recurrence stands in for (mcl bus, microstrip pair, LC ladder) and an ERA/Ho-Kalman extractor so an extracted line can replace the recurrence.",
+    "evidence": {
+      "metric": "max |S_spice - S_ladder|",
+      "value": "1.1e-11 to 4.5e-13; ladder within ~1% of distributed line",
+      "conditions": "10 MHz-3 GHz, loss linearised at 1 GHz; no end-to-end run feeds an extracted line into classification"
+    },
+    "sources": [
+      "benches/topologies.py",
+      "benches/rf_netlist.py",
+      "benches/extract.py",
+      "/Users/blake/Projects/payload-delaytensor/.scratch/delaytensor-facts.md"
+    ]
+  },
+  {
+    "id": "W05",
+    "date": "2026-11-04",
+    "phase": "delay-tensor",
+    "title": "First MNIST run",
+    "decision": "Record the result as inside run-to-run noise; nothing established.",
+    "evidence": {
+      "metric": "MNIST accuracy, tensor features vs raw pixels (linear)",
+      "value": "0.9146 +/- 0.0012 vs 0.9136 +/- 0.0003 (delta +0.0011 +/- 0.0014); MLP yardstick 0.9786 +/- 0.0009",
+      "conditions": "run 20261104-144850, mnist_8x784 (6,272 features), canonical 60k/10k split, 3 seeds, streaming SGD readout, 8 GB machine, 19.8 min"
+    },
+    "sources": [
+      "/Users/blake/Projects/payload-delaytensor/.scratch/delaytensor-facts.md"
+    ]
+  },
+  {
+    "id": "W06",
+    "date": "2026-11-04",
+    "phase": "delay-tensor",
+    "title": "Ablation: the XOR win belongs to tanh",
+    "decision": "Read the XOR result as a property of the per-slot nonlinearity, not of coupling or memory; a jittered-pulse XOR is named as the test of what coupling is for (not run).",
+    "evidence": {
+      "metric": "XOR reservoir accuracy under one-knob ablations",
+      "value": "no coupling 1.000 +/- 0.000; decay 0.5 1.000; identity instead of tanh 0.531 +/- 0.196",
+      "conditions": "one change from tensor_8x64 per run, seeds 1234-1236; run for the Crosstalk write-up, not part of the project's own results; after DLNN phase 1"
+    },
+    "sources": [
+      "/Users/blake/Projects/payload-delaytensor/.scratch/delaytensor-facts.md",
+      "/Users/blake/Projects/payload-delaytensor/src/app/(frontend)/research/crosstalk.ts"
+    ]
+  },
+  {
+    "id": "W07",
+    "date": "2026-11-03",
+    "phase": "dlnn-phase-1",
+    "title": "DLNN planned: ternary taps on coax, four tiers",
+    "decision": "Ternary tapped-delay-line convolution (TDL-Net-S, dilations 1/4/16) on RG-58 at a 10 ns symbol, evaluated at tiers V, E, C, R; supersedes a discarded 433 MHz OOK-receiver plan.",
+    "evidence": {
+      "metric": "model size",
+      "value": "1,216 ternary weights",
+      "conditions": "8-class synthetic modulation recognition, 16,000 train / 4,000 test, SNR 0-20 dB; not comparable with RadioML"
+    },
+    "sources": [
+      "packages/dlnn/docs/plan.md"
+    ]
+  },
+  {
+    "id": "W08",
+    "date": "2026-11-03",
+    "phase": "dlnn-phase-1",
+    "title": "Width 8 misses target; width 32 headline",
+    "decision": "Replace the plan's underfitting recipe and make the width-32 net the headline; keep width 8 reported as secondary.",
+    "evidence": {
+      "metric": "ternary accuracy at SNR >= 10 dB",
+      "value": "w8 76.29% (target 85%, 8PSK 0%); w32 89.1% (86.3% mixed)",
+      "conditions": "test set, 4,000 examples; w32 single seed; seeds picked on train accuracy"
+    },
+    "sources": [
+      "packages/dlnn/docs/build-log.md",
+      "packages/dlnn/docs/build-log-M1.md"
+    ]
+  },
+  {
+    "id": "W09",
+    "date": "2026-11-03",
+    "phase": "dlnn-phase-1",
+    "title": "E tier RTL bit-exact",
+    "decision": "Accept the 8-bit fixed-point tier as matching V; status ok requires zero RTL mismatches.",
+    "evidence": {
+      "metric": "RTL vs numpy golden model mismatches",
+      "value": "0 of 202,752 chained layer values (w32); 0 of 198,144 (w8); E vs V top-1 agreement 0.9972",
+      "conditions": "Icarus Verilog 12 on 64 test examples; w32 check covers first 32 of 128 steps, w8 all 128; 4,000-example metrics run on the golden model"
+    },
+    "sources": [
+      "packages/dlnn/docs/build-log-M2a.md",
+      "packages/dlnn-paper/docs/results.md",
+      "packages/dlnn-paper/docs/honesty.md"
+    ]
+  },
+  {
+    "id": "W10",
+    "date": "2026-11-03",
+    "phase": "dlnn-phase-1",
+    "title": "Coax cascade; gain rule explains most of C's gap; coax not buildable",
+    "decision": "Keep the default per-layer trim and published numbers, but read them as over-driven layer 3 at an unbuildable no-repeater point; drop coax.",
+    "evidence": {
+      "metric": "C tier accuracy at 32 dB/us by loss-compensation mode",
+      "value": "layer trim 0.663, none 0.804, per-tap 0.805; V 0.863, E 0.863, R 0.701, float 0.919",
+      "conditions": "final-w32, 4,000 examples, --cascade, RG-58 32 dB/us, no repeaters, up to 1.12 us per tap; layer-3 saturation 72.4% vs 49.5% in V (400 examples)"
+    },
+    "sources": [
+      "packages/dlnn/docs/build-log.md",
+      "packages/dlnn-paper/docs/honesty.md",
+      "packages/dlnn-paper/docs/circuit_extraction.md",
+      "packages/dlnn-paper/docs/results.md"
+    ]
+  },
+  {
+    "id": "W11",
+    "date": "2026-11-03",
+    "phase": "dlnn-phase-1",
+    "title": "LLM commentary demoted",
+    "decision": "Move the LLM out of the default pipeline into an appendix: it restates the card and does not discover.",
+    "evidence": {
+      "metric": "injected divergences attributed",
+      "value": "0 of 5 without the Python-computed list (5 of 5 with it); 1 of 3 controls correct",
+      "conditions": "Qwen2.5-1.5B Q4_K_M on synthetic cards; BitNet b1.58-2B degenerate output"
+    },
+    "sources": [
+      "packages/dlnn-paper/docs/honesty.md",
+      "packages/dlnn/docs/phase2_plan.md"
+    ]
+  },
+  {
+    "id": "W12",
+    "date": "2026-11-03",
+    "phase": "dlnn-phase-2",
+    "title": "Phase 2 planned: LC-ladder TILE-8",
+    "decision": "Lumped LC-ladder lines on one tile design for every layer, 0402 resistor crossbar (the CPL is the model), BJT diff-pair tanh, S/H re-timing, NUCLEO-G474RE; d = 1 and retrain; designed, not built.",
+    "evidence": {
+      "metric": "delay line",
+      "value": "56 sections x (120 uH, 120 pF), Z0 1 kohm, 120 ns per section, tap every 8 sections",
+      "conditions": "plan values; stripline, BBD, op-amp all-pass, SAW and single-loop options rejected"
+    },
+    "sources": [
+      "packages/dlnn/docs/phase2_plan.md"
+    ]
+  },
+  {
+    "id": "W13",
+    "date": "2026-11-03",
+    "phase": "dlnn-phase-2",
+    "title": "TILE-8 electrical design (M1a)",
+    "decision": "Choose FHW1812IF121JST (unshielded, Q-min 10); input RC 1.5 MHz -> 482 kHz; half-value end capacitors; current-mirror diff-pair tail; 125 kBd.",
+    "evidence": {
+      "metric": "tap-spacing ripple and tap-7 ringing",
+      "value": "ripple 93% -> 29% peak to peak; ringing 13.7% -> 2.8% (Q 30), 23% -> 8.8% (lossless)",
+      "conditions": "ngspice 42 with datasheet-derived models; Q 30 assumed; loss 2.26 dB at 250 kHz at Q-min"
+    },
+    "sources": [
+      "packages/dlnn-paper/docs/board_design.md"
+    ]
+  },
+  {
+    "id": "W14",
+    "date": null,
+    "date_note": "Phase 2 milestone; records date the phase 2 plan 2026-11-03 and the commit 2026-11-04, nothing finer.",
+    "phase": "dlnn-phase-2",
+    "title": "Retrained at d = 1; arena",
+    "decision": "Accept TDL-Net-B w8 d = 1 as the board network; fallbacks not trained.",
+    "evidence": {
+      "metric": "w8-d1 ternary accuracy, mixed / >= 10 dB",
+      "value": "0.8055 / 0.8375 (gate 0.70 / 0.75); float CNN 0.9093, cumulant 0.8745, float-readout DLNN 0.8512",
+      "conditions": "3 seeds selected on train accuracy; same 16,000/4,000 synthetic set for all models"
+    },
+    "sources": [
+      "packages/dlnn/docs/build-log-P2-M1b.md"
+    ]
+  },
+  {
+    "id": "W15",
+    "date": null,
+    "date_note": "Phase 2 milestone; not dated finer than 2026-11-03 to 2026-11-04.",
+    "phase": "dlnn-phase-2",
+    "title": "Board-aware training and the QPSK collapse fix",
+    "decision": "Select on the worst class (every class >= 0.35 on validation on both Q corners) and train the ternary readout with focal loss; ship the float-readout aware2_fro as board default.",
+    "evidence": {
+      "metric": "accuracy on the M1a Q = 10 line; QPSK recall",
+      "value": "collapsed aware2 0.797 with QPSK 0.000; aware2_fro 0.878 with QPSK 0.690 (ternary-readout focal 0.812)",
+      "conditions": "ngspice FIR of the M1a ladder, Q 10/30 mix, +/-14% per-tap delay jitter in training; 3 seeds per variant, one dataset; board-only nets (ideal line 0.655-0.675)"
+    },
+    "sources": [
+      "packages/dlnn/docs/build-log-P2-M1b.md"
+    ]
+  },
+  {
+    "id": "W16",
+    "date": null,
+    "date_note": "Phase 2 milestone; not dated finer than 2026-11-03 to 2026-11-04.",
+    "phase": "dlnn-phase-2",
+    "title": "MLP strawman corrected",
+    "decision": "Retune the raw-I/Q MLPs with a validation split and add phase-invariant feature MLPs as separate rows.",
+    "evidence": {
+      "metric": "MLP test accuracy, mixed",
+      "value": "raw I/Q 0.285 / 0.547 -> 0.261 / 0.542; feature MLP 0.783 (992 params), 0.845 (9,192 params); DLNN 0.806",
+      "conditions": "grid search on train[:14000], validation train[14000:], refit 3 seeds; grid optima partly on the edge"
+    },
+    "sources": [
+      "packages/dlnn/docs/build-log-P2-M1b.md",
+      "packages/dlnn-paper/docs/artifacts/article/article.md"
+    ]
+  },
+  {
+    "id": "W17",
+    "date": null,
+    "date_note": "Phase 2 milestone (P2-M2a, P2-M2b); not dated finer than 2026-11-03 to 2026-11-04.",
+    "phase": "dlnn-phase-2",
+    "title": "P tier and the gain-trim bug",
+    "decision": "Report finding F1 as a design bug: feedback, bias and output resistors about 2.9x larger (ECO-2), plus terminating lines to VREF25 (ECO-1); neither is yet in the drawn board.",
+    "evidence": {
+      "metric": "P tier accuracy",
+      "value": "0.168 as designed; 0.8705 (Q 10) / 0.8722 (Q 30) with 8.98 dB trim; P - V(FIR) -0.75 pt, top-1 agreement 0.948; C board mode 0.8505 / 0.8588",
+      "conditions": "model aware2_fro, 4,000 examples; trim sweep 0/6/8/10 dB -> 0.18/0.46/0.84/0.83; C via calibrated model, SPICE on 64/16 examples per layer"
+    },
+    "sources": [
+      "packages/dlnn-paper/docs/parasitics_model.md",
+      "packages/dlnn-paper/docs/circuit_extraction.md"
+    ]
+  },
+  {
+    "id": "W18",
+    "date": null,
+    "date_note": "Phase 2 milestone (P2-M2b); not dated finer than 2026-11-03 to 2026-11-04.",
+    "phase": "dlnn-phase-2",
+    "title": "Monte Carlo and crosstalk sweeps",
+    "decision": "Treat datasheet tolerances and dipole-estimated inductor crosstalk as harmless at this size; keep 4.2 mm pitch and orthogonal axes in layout anyway.",
+    "evidence": {
+      "metric": "accuracy across simulated boards",
+      "value": "1,000 boards: mean 0.8564, sigma 0.0056, min 0.8413; crosstalk arrangements 0.849-0.859 vs nominal 0.850",
+      "conditions": "800-example stratified subset for MC (L/C 5%, R 1%, clock 0.5%, V_BE 2 mV, phase 6 ns); 1,000-example subset for sweeps, ~1.1 pt standard error; k = 0.027 dipole estimate, not a field solve"
+    },
+    "sources": [
+      "packages/dlnn-paper/docs/parasitics_model.md"
+    ]
+  },
+  {
+    "id": "W19",
+    "date": null,
+    "date_note": "Phase 2 milestone (M3b); not dated finer than 2026-11-03 to 2026-11-04.",
+    "phase": "dlnn-phase-2",
+    "title": "Boards generated, partly routed",
+    "decision": "Take the cut line: route the carrier and a 2-line layer-1 slice; leave full layer-2 and layer-3 tiles placed but unrouted.",
+    "evidence": {
+      "metric": "KiCad 9 DRC violations; CPL vs non-zero weights",
+      "value": "0 violations on carrier and layer-1 slice; CPL = model 85/85, 315/315, 316/316",
+      "conditions": "ERC 0/0 on all variants; freerouting fanout on full layer 2 stopped after 17 min without a pass; not fabricated"
+    },
+    "sources": [
+      "packages/dlnn-paper/docs/pcb_layout.md",
+      "packages/dlnn-paper/docs/board_design.md"
+    ]
+  },
+  {
+    "id": "W20",
+    "date": "2026-11-04",
+    "phase": "status",
+    "title": "DLNN committed; status recorded",
+    "decision": "Commit and merge DLNN (sims, board, article, notebooks); status stays designed, not fabricated, nothing measured.",
+    "evidence": {
+      "metric": "scaling (simulation and cost model only)",
+      "value": "w32 virtual ternary 0.931 vs float 0.929; 52 tiles, 21,952 inductors, ~$4,135",
+      "conditions": "pending: E tier on the d = 1 board net, full-tile SPICE over the test set, ECO-1/ECO-2 in the drawn board, routing layers 2-3, any measurement (Q(f) of real inductors first)"
+    },
+    "sources": [
+      "git 879e3e3",
+      "git 15b30f4",
+      "packages/dlnn-paper/docs/artifacts/article/article.md",
+      "packages/dlnn-paper/docs/pcb_layout.md"
+    ]
+  }
+]

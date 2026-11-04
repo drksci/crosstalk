@@ -7,7 +7,9 @@ from delay_tensor.config import DelayTensorConfig, ReadoutConfig, TensorConfig
 from delay_tensor.experiments import run_classify, run_xor
 from delay_tensor.report import write_run
 
-CONFIG = DelayTensorConfig(tensor=TensorConfig(wires=4, slots=16, slot_dt_ns=20.0, loop_period_ns=320.0))
+CONFIG = DelayTensorConfig(
+    tensor=TensorConfig(wires=4, slots=16, slot_dt_ns=20.0, loop_period_ns=320.0)
+)
 
 
 def test_classify_aggregates_seeds_and_counts_confusions() -> None:
